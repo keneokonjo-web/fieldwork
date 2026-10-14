@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept 1: Field Index | Fieldwork art direction</title>
+<style>
+/*FONTS:gloock,hanken,geistmono*/
+:root{
+  --paper:#FBF7F0; --ink:#1E1026; --muted:#5B4A63; --hair:#E0D6C8;
+  --verm:#F2502B; --gold:#FFB627; --lilac:#CDB7F4; --sage:#CFE1D2;
+  --serif:"Gloock",Georgia,serif; --sans:"Hanken Grotesk",system-ui,sans-serif; --mono:"Geist Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans);overflow-x:hidden}
+svg{display:block;max-width:100%}
+.wrap{width:min(1240px,100% - 2*clamp(16px,4vw,48px));margin-inline:auto}
+.mono{font:500 11.5px/1.35 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.015em;line-height:1}
+.bar{background:var(--ink);color:var(--paper);padding:11px 0;position:sticky;top:0;z-index:20}
+.bar .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+section.b{padding:clamp(44px,6vw,92px) 0;position:relative}
+.s-ink{background:var(--ink);color:var(--paper)}.s-verm{background:var(--verm)}.s-gold{background:var(--gold)}.s-lilac{background:var(--lilac)}.s-sage{background:var(--sage)}.s-paper2{background:#F4EDE0}
+.torn-wrap{position:absolute;left:0;right:0;top:-15px;height:16px;z-index:2;pointer-events:none}.torn{display:block;width:100%;height:16px}
+.cap{display:flex;gap:14px;align-items:baseline;margin-bottom:28px}
+.cap b{font:400 clamp(34px,4.4vw,56px)/1 var(--serif);color:var(--verm)}.s-ink .cap b,.s-verm .cap b{color:var(--gold)}
+.grid{display:grid;gap:22px}.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr))}
+/* title */
+.title{position:relative;overflow:hidden}
+.title .art{position:absolute;inset:0;color:var(--gold);opacity:.38}.title .art svg{width:100%;height:100%}
+.title .wrap{position:relative}
+.title h1{font-size:clamp(70px,14vw,210px);line-height:.82;letter-spacing:-.03em;margin:.12em 0 .16em}
+.title h1 u{text-decoration:none;color:var(--gold)}
+.title p{font-size:clamp(19px,2.2vw,26px);max-width:34ch;margin:0 0 18px;color:#EADFF2}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid currentColor;border-radius:99px;padding:5px 12px}
+/* ref table */
+.refs{display:grid;gap:0;border:1.5px solid var(--ink);background:var(--paper)}
+.refs .r{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);border-top:1.5px solid var(--ink)}.refs .r:first-child{border-top:0}
+.refs .r>div{padding:14px 18px}.refs .r>div:first-child{background:var(--sage);border-right:1.5px solid var(--ink)}
+.refs b{font:400 20px var(--serif)}
+@media(max-width:700px){.refs .r{grid-template-columns:1fr}.refs .r>div:first-child{border-right:0;border-bottom:1.5px solid var(--ink)}}
+/* mood */
+.mood{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(120px,18vw);gap:12px}
+.mood>div{position:relative;overflow:hidden;border-radius:3px}
+.mood .m1{grid-column:span 3;grid-row:span 2}.mood .m2{grid-column:span 3}.mood .m3{grid-column:span 2}.mood .m4{grid-column:span 1}.mood .m5{grid-column:span 3}.mood .m6{grid-column:span 3}
+.mood small{position:absolute;left:12px;bottom:10px;font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;background:var(--paper);color:var(--ink);padding:3px 6px}
+.mood svg{width:100%;height:100%;position:absolute;inset:0}
+@media(max-width:700px){.mood{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}.mood>div{grid-column:span 1!important;grid-row:span 1!important}.mood .m1{grid-column:span 2!important}}
+/* palette */
+.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-radius:3px;overflow:hidden}
+.sw div{padding:78px 14px 14px;font:500 12px/1.5 var(--mono)}.sw b{display:block;font:400 24px var(--serif);letter-spacing:0}
+.roles{display:grid;gap:12px;margin-top:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}.role{padding:16px;border:1.5px solid var(--ink)}
+.role p{margin:6px 0 0;font-size:15.5px}
+/* type */
+.spec{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}.spec>div{padding:22px;border:1.5px solid var(--ink)}
+.spec .big{font:400 clamp(72px,9vw,128px)/.85 var(--serif)}
+.scale{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}.scale td,.scale th{border-top:1.5px solid var(--ink);padding:8px 10px;text-align:left;vertical-align:baseline}.scale th{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+/* wordmark */
+.wm{display:inline-flex;align-items:baseline;gap:0;font:400 clamp(44px,7vw,92px)/1 var(--serif);letter-spacing:-.02em;white-space:nowrap}
+.wm .o{display:inline-block;width:.64em;height:.64em;margin:0 .015em 0 .01em;transform:translateY(.02em);color:var(--ink)}
+.wm .o .summit{width:100%;height:100%;overflow:visible}
+.wm .o .core{fill:var(--verm)}.wm.mono .o .core{fill:currentColor}
+.s-ink .wm .o,.wm.on-dark .o{color:var(--paper)}
+.summit{display:block;width:100%;height:auto;overflow:visible}
+.wm.sm{font-size:30px}.wm.xs{font-size:20px}
+.box{padding:28px 34px;display:inline-flex;align-items:center;gap:22px;border-radius:3px}
+.row{display:flex;gap:16px;flex-wrap:wrap;align-items:stretch}
+/* devices */
+.devices{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.dev{border:1.5px solid var(--ink);min-height:250px;padding:18px;position:relative;overflow:hidden;background:var(--paper)}
+.dev h3{font-size:26px;margin-bottom:8px}.dev p{margin:0;font-size:15.5px;max-width:30ch}
+.tape{position:absolute;width:74px;height:22px;background:rgba(255,182,39,.82);transform:rotate(-4deg);top:-9px;left:24px;box-shadow:0 1px 2px rgba(30,16,38,.18)}
+.card{position:relative;border-radius:4px;box-shadow:0 10px 22px -10px rgba(30,16,38,.45),0 2px 0 rgba(30,16,38,.12)}
+.stamp{display:inline-block;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;border:2px solid currentColor;padding:6px 8px;border-radius:2px;transform:rotate(-5deg)}
+/* hero (container-query responsive so desktop and mobile frames share CSS) */
+.frame{container-type:inline-size;border:1.5px solid var(--ink);background:var(--paper);overflow:hidden;position:relative}
+.frames{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:24px;align-items:start}
+@media(max-width:1100px){.frames{grid-template-columns:1fr}.frames .frame.mob{max-width:390px}}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;gap:12px;background:var(--paper);border-bottom:1.5px solid var(--ink)}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+.nav .menu{display:none;border:1.5px solid var(--ink);padding:6px 12px;border-radius:3px}
+.nav .cta{background:var(--ink);color:var(--paper);padding:9px 14px;border-radius:3px}
+.h-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)}
+.h-left{background:var(--ink);color:var(--paper);padding:clamp(22px,4cqw,56px);position:relative}
+.h-left h2{font-size:clamp(40px,7.2cqw,98px);line-height:.92;letter-spacing:-.025em;margin:16px 0 18px}
+.h-left h2 span{color:var(--gold);background:linear-gradient(transparent 86%,var(--verm) 86% 94%,transparent 94%)}
+.h-left p.lede{font-size:clamp(16px,1.7cqw,21px);max-width:31ch;color:#E6D9EE;margin:0 0 20px}
+.meta{border:1px solid rgba(251,247,240,.35);margin:0 0 22px;max-width:430px}
+.meta div{display:grid;grid-template-columns:110px 1fr;border-top:1px solid rgba(251,247,240,.35)}.meta div:first-child{border-top:0}
+.meta dt,.meta dd{margin:0;padding:8px 12px}.meta dt{font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}.meta dd{font:400 italic 16px var(--serif);}
+.btn{display:inline-block;font:700 15px/1 var(--sans);padding:16px 22px;border-radius:3px;text-decoration:none;color:var(--ink);background:var(--verm)}
+.btn.line{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.h-right{position:relative;background:var(--paper);padding:clamp(18px,3cqw,40px);min-height:700px;overflow:hidden}
+.h-right .rail{position:absolute;left:10px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font:500 10.5px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.fan{position:relative;height:100%;min-height:640px}
+.fan .card{position:absolute;width:52%;aspect-ratio:4/5;overflow:hidden;display:flex;flex-direction:column;padding:0}
+.fan .card .top{display:flex;justify-content:space-between;padding:12px 14px;font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.fan .card .img{flex:1;position:relative;margin:0 12px;border-radius:2px;overflow:hidden}
+.fan .card .img svg{position:absolute;inset:0;width:100%;height:100%}
+.fan .card h3{font-size:clamp(18px,2.3cqw,26px);padding:12px 14px 2px;line-height:1.02}
+.fan .card .bot{padding:0 14px 12px;font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;border-top:1.5px solid var(--ink);margin:10px 14px 0;padding-top:8px;padding-inline:0}
+.c1{left:3%;top:1%;transform:rotate(-4deg);background:var(--verm);color:var(--ink)}
+.c2{left:45%;top:26%;transform:rotate(3deg);background:var(--lilac)}
+.c3{left:2%;top:60%;transform:rotate(-1.5deg);background:var(--sage)}
+.fan .stamp{position:absolute;right:6%;bottom:8%;color:var(--verm);background:var(--paper);z-index:5;font-size:12px;padding:8px 10px}
+@container (max-width:760px){
+  .h-grid{grid-template-columns:1fr}
+  .nav ul,.nav .cta{display:none}.nav .menu{display:block}
+  .h-right{min-height:700px}.fan{min-height:640px}.fan .card{width:62%}
+  .h-right .rail{display:none}
+  .c1{left:0;top:0}.c2{left:36%;top:44%}.c3{display:none}
+  .meta div{grid-template-columns:96px 1fr}
+}
+/* chapters */
+.chap{position:relative;overflow:hidden}
+.chap .in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,4vw,56px);align-items:start;padding-block:clamp(34px,5vw,70px)}
+@media(max-width:800px){.chap .in{grid-template-columns:1fr}}
+.chap .n{font:400 clamp(100px,17vw,240px)/.78 var(--serif);letter-spacing:-.05em}
+.chap h3{font-size:clamp(34px,4.6vw,60px);margin-bottom:14px;max-width:15ch}
+.chap p{max-width:40ch;margin:0 0 16px}
+.chap ul{list-style:none;margin:0 0 20px;padding:0;max-width:40ch}.chap li{border-top:1.5px solid var(--ink);padding:9px 0;font-size:15.5px}
+.chap .btn{background:var(--ink);color:var(--paper)}
+.chap .ctr{position:absolute;right:0;top:0;bottom:0;width:44%;opacity:.5;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 22%,#000 70%);mask-image:linear-gradient(90deg,transparent 22%,#000 70%)}.chap .ctr svg{width:100%;height:100%}
+@media(max-width:800px){.chap .ctr{width:100%;height:42%;top:auto;-webkit-mask-image:linear-gradient(0deg,#000 20%,transparent);mask-image:linear-gradient(0deg,#000 20%,transparent)}.chap .in{padding-bottom:clamp(120px,40vw,220px)}}
+/* learning + editorial */
+.ex{background:var(--paper);border:1.5px solid var(--ink);border-radius:4px}
+.ex .hd{display:flex;justify-content:space-between;gap:10px;padding:10px 16px;border-bottom:1.5px solid var(--ink);background:var(--gold)}
+.ex .bd{padding:20px;display:grid;gap:14px}.ex h3{font-size:34px}
+.field{border:1.5px solid var(--ink);background:#fff;border-radius:3px;padding:8px 12px}.field b{display:block;font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--verm)}
+.out{background:var(--sage);border:1.5px solid var(--ink);padding:12px 14px;border-radius:3px;position:relative}
+.out mark{background:var(--gold);color:var(--ink);padding:0 3px}
+.prog{display:flex;gap:4px}.prog i{flex:1;height:7px;border:1.5px solid var(--ink)}.prog i.f{background:var(--verm);border-color:var(--verm)}
+.ex .ft{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 20px;border-top:1.5px solid var(--ink)}
+.note{border-radius:4px;overflow:hidden;position:relative;background:var(--lilac);border:1.5px solid var(--ink)}
+.note .img{height:190px;position:relative;color:var(--ink)}.note .img svg{position:absolute;inset:0;width:100%;height:100%}
+.note .in{padding:18px 20px 20px;display:grid;gap:10px}.note h3{font-size:clamp(28px,3.4vw,40px)}
+.note .mt{display:flex;justify-content:space-between;border-top:1.5px solid var(--ink);padding-top:8px}
+/* corporate */
+.corp{display:grid;gap:24px;grid-template-columns:minmax(0,5fr) minmax(0,8fr);align-items:start}
+@media(max-width:900px){.corp{grid-template-columns:1fr}}
+.cover{aspect-ratio:210/297;background:var(--ink);color:var(--paper);padding:26px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;border-radius:3px}
+.cover .art{position:absolute;inset:auto -10% -6% -10%;height:56%;color:var(--gold);opacity:.55}.cover .art svg{width:100%;height:100%}
+.cover .wm .o{color:var(--paper)}
+.cover h3{font-size:clamp(34px,4.4vw,56px);line-height:.96;position:relative}
+.slide{aspect-ratio:16/9;border:1.5px solid var(--ink);background:var(--paper);padding:clamp(14px,2.4vw,30px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;border-radius:3px;container-type:inline-size}
+.slide h3{font-size:clamp(24px,5cqw,52px)}
+.pps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1.5px solid var(--ink)}
+.pps div{padding:10px 12px;border-right:1.5px solid var(--ink);font-size:clamp(11px,1.5cqw,14px);line-height:1.35}.pps div:last-child{border:0}
+.pps b{display:block;font:500 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.pps div:nth-child(1){background:var(--lilac)}.pps div:nth-child(2){background:var(--gold)}.pps div:nth-child(3){background:var(--sage)}
+.eval{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.eval>div{padding:22px;background:rgba(251,247,240,.6);border:1.5px solid var(--ink);border-radius:3px}
+.eval h3{font-size:30px;margin-bottom:10px}.eval ul{margin:0;padding-left:18px;font-size:16px}.eval li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap mono"><span>Fieldwork · art direction · round 2</span><span>Concept 1 of 3 · Field Index</span><span>Built after inspecting the references</span></div></div>
+
+<section class="b title s-ink" style="padding-bottom:clamp(56px,7vw,110px)">
+  <div class="art"><!--FIELD:contour:11:1600:900:22:2.2--></div>
+  <div class="wrap">
+    <span class="mono" style="color:var(--gold)">Concept 1</span>
+    <h1>Field <u>Index</u></h1>
+    <p>Every exercise, note and guide is a numbered card, filed in an index, on its own piece of generated terrain.</p>
+    <div class="chips mono"><span class="chip">Learned from: Anwulika Field Notes</span><span class="chip">AI in Design Report</span><span class="chip">Our own: the field</span></div>
+  </div>
+</section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>01</b><span class="mono">Idea and what it borrows</span></div>
+  <div class="grid two" style="gap:40px">
+    <div>
+      <p style="font:400 clamp(24px,2.6vw,32px)/1.18 var(--serif);margin:0 0 .7em">A field kit is a set of cards. You pick one, do the work, and file the result. The brand is the index.</p>
+      <p>Fieldwork is named after how people learn in the field: go out, try it on real material, write down what happened. The identity makes that physical. Each exercise is a numbered <b>field card</b> with a metadata table (<i>Filed, Takes, Needs</i>). Pages are built from full-width <b>colour chapters</b>, one job per colour. Every card carries its own piece of <b>field</b>: a unique cartographic contour map generated from the card's number, so No. 01 and No. 02 never look alike, and the work looks like an expedition, not a course catalogue.</p>
+      <p>For businesses the same system runs in a calmer register: more ink, fewer colours, the field in one tone, and a <b>Problem / Practice / Result</b> structure borrowed from Anveril's approach to enterprise content.</p>
+    </div>
+    <div class="refs">
+      <div class="r"><div><b>Learned from</b><br><span class="mono">Anwulika Field Notes</span></div><div>Archival language (<i>Filed, No. 06, Reading 7 minutes</i>), cards as objects, tilt and tape, colour-block sections, a taped "in this section" card, a torn-paper edge.</div></div>
+      <div class="r"><div><b>Learned from</b><br><span class="mono">AI in Design Report</span></div><div>Full-bleed colour chapters with a giant numeral, a contents list with hairlines, mono labels, one consistent image treatment.</div></div>
+      <div class="r"><div><b>Learned from</b><br><span class="mono">Anveril, Vide Infra</span></div><div>Calm business pages, one idea per viewport, Bottleneck / System pairing, a monumental wordmark in the footer.</div></div>
+      <div class="r"><div><b>Not copied</b></div><div>Their palettes in combination, logos, typefaces (Instrument Serif, Beausite, Saans), artwork, copy, the italic-gold accent, pixel transitions.</div></div>
+      <div class="r"><div><b>Ours alone</b></div><div>The generated field, the exercise grammar, the Fieldwork card and tab mark.</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="b s-paper2"><div class="torn-wrap" style="color:var(--paper)"><!--TORN:3:1600:7--></div><div class="wrap">
+  <div class="cap"><b>02</b><span class="mono">Moodboard · original studies (nothing here is third-party imagery)</span></div>
+  <div class="mood">
+    <div class="m1 s-gold" style="color:var(--ink)"><!--FIELD:contour:3:900:620:18:2.4--><small>Field, seed 3, ink on gold</small></div>
+    <div class="m2 s-ink" style="color:var(--lilac)"><!--FIELD:contour:7:900:300:20:2.8--><small>Field, seed 7, lilac on ink</small></div>
+    <div class="m3 s-verm" style="color:var(--ink)"><!--FIELD:contour:5:600:300:16:2.2--><small>Index contours heavier</small></div>
+    <div class="m4 s-sage" style="display:grid;place-items:center"><span class="stamp" style="color:var(--ink)">Filed</span><small>Stamp</small></div>
+    <div class="m5 s-lilac"><div style="position:absolute;left:18px;top:16px;font:400 clamp(60px,9vw,120px)/.8 var(--serif)">No. 04</div><small>Folio numeral</small></div>
+    <div class="m6" style="background:var(--paper);border:1.5px solid var(--ink)"><dl class="meta" style="margin:16px;max-width:none;border-color:var(--ink);color:var(--ink)"><div style="border-color:var(--ink)"><dt style="color:var(--verm)">Filed</dt><dd>14 October 2026</dd></div><div style="border-color:var(--ink)"><dt style="color:var(--verm)">Takes</dt><dd>15 minutes</dd></div><div style="border-color:var(--ink)"><dt style="color:var(--verm)">Needs</dt><dd>Any AI tool</dd></div></dl><small>Metadata table</small></div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>03</b><span class="mono">Palette</span></div>
+  <div class="sw">
+    <div style="background:#FBF7F0;border:1.5px solid var(--ink)"><b>Paper</b>#FBF7F0<br>Page ground</div>
+    <div style="background:#1E1026;color:#FBF7F0"><b>Aubergine ink</b>#1E1026<br>Text, dark chapters</div>
+    <div style="background:#F2502B"><b>Vermilion</b>#F2502B<br>Action, instruction</div>
+    <div style="background:#FFB627"><b>Marigold</b>#FFB627<br>Note, highlight</div>
+    <div style="background:#CDB7F4"><b>Lilac</b>#CDB7F4<br>Example</div>
+    <div style="background:#CFE1D2"><b>Sage</b>#CFE1D2<br>Result, calm</div>
+  </div>
+  <div class="roles">
+    <div class="role"><div class="mono">Large surfaces</div><p>Paper and Ink for page and reading. One chapter colour per viewport, never two. Marigold, lilac and sage are chapter and card colours; vermilion is for the single action and small blocks.</p></div>
+    <div class="role"><div class="mono">Contrast (WCAG)</div><p>Ink on Paper 16.6:1. Ink on Vermilion 5.7:1. Ink on Marigold 10.6:1. Ink on Lilac 9.7:1. Ink on Sage 13:1. Paper on Ink 16.6:1. Vermilion on Paper 3.4:1, so large type only.</p></div>
+    <div class="role"><div class="mono">Learning grammar</div><p><b>Vermilion</b> brief and action. <b>Lilac</b> example. <b>Marigold</b> note. <b>Sage</b> checked result. The colours teach the method.</p></div>
+  </div>
+</div></section>
+
+<section class="b s-gold"><div class="wrap">
+  <div class="cap"><b>04</b><span class="mono">Typography</span></div>
+  <div class="spec">
+    <div style="background:var(--paper)"><div class="mono">Display · Gloock 400</div><div class="big">Aa 01</div><p style="font:400 24px/1.1 var(--serif);margin:.6em 0 0">Hero lines, chapter titles, card titles, numerals. High contrast, warm, confident. One display size per viewport.</p></div>
+    <div style="background:var(--paper)"><div class="mono">Text and UI · Hanken Grotesk 400 / 500 / 700</div><p style="font:500 26px/1.2 var(--sans);margin:.5em 0">Write a clear brief, run it, then check the result.</p><p style="margin:0;font-size:16px;color:var(--muted)">Body 17–19px, leading 1.55, measure 62ch. Buttons 700.</p></div>
+    <div style="background:var(--paper)"><div class="mono">Labels and meta · Geist Mono 500, caps +10%</div><p class="mono" style="margin:1em 0 .5em;font-size:14px">No. 04 · Field note · 6 min</p><p style="margin:0;font-size:16px;color:var(--muted)">Folios, tags, table keys, captions. 10.5–13px.</p></div>
+  </div>
+  <div style="overflow-x:auto"><table class="scale" style="background:var(--paper)"><tr><th>Role</th><th>Desktop</th><th>Mobile</th><th>Leading</th><th>Tracking</th></tr>
+  <tr><td>Display</td><td>Gloock 96–120px</td><td>52–60px</td><td>0.9</td><td>-2.5%</td></tr><tr><td>Chapter title</td><td>Gloock 56–64px</td><td>38px</td><td>1.0</td><td>-1.5%</td></tr><tr><td>Card title</td><td>Gloock 26–34px</td><td>24–28px</td><td>1.02</td><td>-1%</td></tr><tr><td>Body</td><td>Hanken 18px</td><td>17px</td><td>1.55</td><td>0</td></tr><tr><td>Label</td><td>Geist Mono 11.5px caps</td><td>11px</td><td>1.35</td><td>+10%</td></tr></table></div>
+  <p style="margin-top:14px;max-width:70ch;font-size:15.5px"><b>Rules.</b> Gloock has one weight, so hierarchy comes from size, colour and the underline accent (never fake italics). Use at most one coloured or underlined phrase per heading. Uppercase only in mono labels. Gloock, Hanken Grotesk and Geist Mono are all SIL Open Font Licence.</p>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>05</b><span class="mono">Wordmark and symbol</span></div>
+  <div class="row">
+    <div class="box" style="background:#F4EDE0"><span class="wm">Fieldw<span class="o"><!--SUMMIT:18:4:0.06--></span>rk</span></div>
+    <div class="box s-ink"><span class="wm">Fieldw<span class="o"><!--SUMMIT:18:4:0.06--></span>rk</span></div>
+    <div class="box" style="background:#fff"><span class="wm mono" style="color:#1E1026">Fieldw<span class="o"><!--SUMMIT:18:4:0.06--></span>rk</span></div>
+    <div class="box s-gold" style="gap:34px;color:var(--ink)"><span style="width:96px"><!--SUMMIT:18:4:0.06--></span><span style="width:40px"><!--SUMMIT:18:3:0.1--></span><span style="width:20px"><!--SUMMIT:18:2:0.14--></span></div>
+  </div>
+  <p style="max-width:66ch;margin-top:22px">The mark is the <b>summit</b>: the nested rings around the highest point of one of our generated fields (seed 18). It is the "o" in <i>Fieldwork</i> and also stands alone as the symbol, so the name and the artwork system share one shape. It is organic and slightly irregular, so it does not read as a stock target icon. It drops to three rings at 40px and two at 20px for favicons. The wordmark is Gloock, set tight, with the core of the summit in vermilion. In use, the footer scales the wordmark to the full width of the page (a Vide Infra and Anveril idea): one monumental placement, never repeated.</p>
+</div></section>
+
+<section class="b s-paper2"><div class="torn-wrap" style="color:var(--paper)"><!--TORN:8:1600:7--></div><div class="wrap">
+  <div class="cap"><b>06</b><span class="mono">Graphic devices</span></div>
+  <div class="devices">
+    <div class="dev s-gold" style="color:var(--ink)"><h3>The field</h3><p>Generated contour terrain, unique per card from its number. The signature artwork.</p><div style="position:absolute;inset:auto 0 0 0;height:120px;color:var(--ink)"><!--FIELD:contour:4:500:140:14:2.4--></div></div>
+    <div class="dev"><span class="tape"></span><h3>Card and tape</h3><p>Cards sit at -5° to +5°, taped or not, with a soft contact shadow. Used for exercises and notes.</p><div class="card s-lilac" style="position:absolute;right:16px;bottom:-24px;width:46%;height:120px;transform:rotate(4deg);padding:10px"><span class="mono">No. 02</span></div></div>
+    <div class="dev"><h3>Metadata table</h3><p>Filed, Takes, Needs. Three rows on every card and page head.</p><dl class="meta" style="margin:16px 0 0;max-width:none;border-color:var(--ink)"><div style="border-color:var(--ink)"><dt style="color:var(--verm)">Filed</dt><dd>14 Oct 2026</dd></div><div style="border-color:var(--ink)"><dt style="color:var(--verm)">Takes</dt><dd>15 min</dd></div></dl></div>
+    <div class="dev s-sage"><h3>Torn edge</h3><p>Section changes use a torn paper edge, never a straight cut.</p><div style="position:absolute;left:0;right:0;bottom:0;height:56px;background:var(--paper);color:var(--sage)"><!--TORN:5:600:7--></div></div>
+    <div class="dev"><h3>Stamp</h3><p>Marks state: Filed, Checked, Draft, Planned. Rotated, mono, outlined.</p><div style="position:absolute;right:20px;bottom:24px"><span class="stamp" style="color:var(--verm)">Filed</span></div></div>
+    <div class="dev s-lilac"><h3>Folio</h3><p>Oversize No. and chapter numerals anchor each page.</p><div style="position:absolute;right:8px;bottom:-14px;font:400 150px/1 var(--serif);letter-spacing:-.05em">03</div></div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>07</b><span class="mono">Hero composition, desktop and mobile</span></div>
+  <div class="frames">
+    <div class="frame">
+      <div class="nav"><span class="wm xs">Fieldw<span class="o"><!--SUMMIT:18:4:0.06--></span>rk</span><ul class="mono"><li>Individuals</li><li>For business</li><li>Field notes</li><li>Pricing</li></ul><span class="cta mono">Try exercise 01</span><span class="menu mono">Menu</span></div>
+      <div class="h-grid">
+        <div class="h-left">
+          <span class="mono" style="color:var(--gold)">Practical AI · learn by doing</span>
+          <h2>Learn AI by doing the <span>work</span> you already have.</h2>
+          <p class="lede">A real task, a method, and a way to check the result. Start with a free exercise. No account.</p>
+          <dl class="meta"><div><dt>Takes</dt><dd>15 minutes</dd></div><div><dt>Needs</dt><dd>Any AI tool, including free ones</dd></div><div><dt>Costs</dt><dd>Nothing. No account.</dd></div></dl>
+          <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn">Start exercise No. 01</a><a class="btn line">Training for teams</a></div>
+        </div>
+        <div class="h-right"><span class="rail">Exercises from the field</span>
+          <div class="fan">
+            <div class="card c1"><span class="tape" style="left:42%"></span><div class="top"><span>No. 01</span><span>Everyday work</span></div><div class="img" style="color:var(--ink);background:var(--gold)"><!--FIELD:contour:1:480:420:16:2.3--></div><h3>Weekly update from scattered notes</h3><div class="bot"><span>15 min</span><span>Any AI tool</span></div></div>
+            <div class="card c2"><div class="top"><span>No. 02</span><span>Small business</span></div><div class="img" style="color:var(--ink);background:var(--paper)"><!--FIELD:contour:2:480:420:16:2.6--></div><h3>Reply to a customer whose order is late</h3><div class="bot"><span>10 min</span><span>Any AI tool</span></div></div>
+            <div class="card c3"><span class="tape" style="left:20%"></span><div class="top"><span>No. 03</span><span>Study</span></div><div class="img" style="color:var(--ink);background:var(--lilac)"><!--FIELD:contour:9:480:420:16:2.5--></div><h3>Turn a reading into study notes</h3><div class="bot"><span>10 min</span><span>Any AI tool</span></div></div>
+            <span class="stamp">Free</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="frame mob">
+      <div class="nav"><span class="wm xs">Fieldw<span class="o"><!--SUMMIT:18:4:0.06--></span>rk</span><span class="menu mono">Menu</span></div>
+      <div class="h-grid">
+        <div class="h-left">
+          <span class="mono" style="color:var(--gold)">Practical AI · learn by doing</span>
+          <h2>Learn AI by doing the <span>work</span> you already have.</h2>
+          <p class="lede">A real task, a method, and a way to check the result. Free. No account.</p>
+          <dl class="meta"><div><dt>Takes</dt><dd>15 minutes</dd></div><div><dt>Needs</dt><dd>Any AI tool</dd></div></dl>
+          <a class="btn" style="display:block;text-align:center">Start exercise No. 01</a>
+        </div>
+        <div class="h-right">
+          <div class="fan">
+            <div class="card c1"><span class="tape" style="left:42%"></span><div class="top"><span>No. 01</span><span>Work</span></div><div class="img" style="color:var(--ink);background:var(--gold)"><!--FIELD:contour:1:480:420:16:2.3--></div><h3>Weekly update from scattered notes</h3><div class="bot"><span>15 min</span></div></div>
+            <div class="card c2"><div class="top"><span>No. 02</span><span>Business</span></div><div class="img" style="color:var(--ink);background:var(--paper)"><!--FIELD:contour:2:480:420:16:2.6--></div><h3>Reply to a late order</h3><div class="bot"><span>10 min</span></div></div>
+            <span class="stamp">Free</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="b" style="padding-bottom:0"><div class="wrap">
+  <div class="cap"><b>08</b><span class="mono">Colour chapters · how a page is built</span></div>
+</div>
+<div class="chap s-verm"><div class="ctr" style="color:var(--ink)"><!--FIELD:contour:12:700:500:16:2.4--></div><div class="wrap in"><div class="n">01</div><div><span class="mono">The method · Brief</span><h3>Say what you need, for whom, in what shape.</h3><p>Five lines decide whether the answer is useful. Task, audience, tone, shape, rules.</p><ul class="mono"><li>The task, in one sentence</li><li>Who it is for</li><li>The shape of the answer</li></ul><a class="btn">Read the brief chapter</a></div></div></div>
+<div class="chap s-lilac"><div class="ctr" style="color:var(--ink)"><!--FIELD:contour:13:700:500:16:2.6--></div><div class="wrap in"><div class="n">02</div><div><span class="mono">The method · Run</span><h3>Use the tool you already have, on real material.</h3><p>Free tiers work. Remove private details first. Nothing here is run for you.</p><ul class="mono"><li>Copy the prompt</li><li>Paste it into any AI tool</li><li>Read the answer once, slowly</li></ul><a class="btn">Read the run chapter</a></div></div></div>
+<div class="chap s-gold"><div class="ctr" style="color:var(--ink)"><!--FIELD:contour:14:700:500:16:2.2--></div><div class="wrap in"><div class="n">03</div><div><span class="mono">The method · Check</span><h3>Fluent is not the same as correct.</h3><p>Six checks catch the usual errors. Tick only what you have verified against your own material.</p><ul class="mono"><li>Facts match the source</li><li>Nothing was invented</li><li>Nothing important left out</li></ul><a class="btn">Read the check chapter</a></div></div></div>
+<div class="chap s-sage"><div class="ctr" style="color:var(--ink)"><!--FIELD:contour:15:700:500:16:2.5--></div><div class="wrap in"><div class="n">04</div><div><span class="mono">The method · Keep</span><h3>Save what worked as a workflow.</h3><p>A brief and a set of checks you trust. Next time it takes minutes.</p><ul class="mono"><li>Name it</li><li>Say when you will use it</li><li>Download the workflow card</li></ul><a class="btn">Read the keep chapter</a></div></div></div>
+</section>
+
+<section class="b s-paper2"><div class="torn-wrap" style="color:var(--sage)"><!--TORN:21:1600:7--></div><div class="wrap">
+  <div class="cap"><b>09</b><span class="mono">Learning resource and editorial card</span></div>
+  <div class="grid two">
+    <div class="ex">
+      <div class="hd mono"><span>Exercise No. 01 · Step 3 of 6</span><span>15 min</span></div>
+      <div class="bd">
+        <h3>Brief the tool like a new colleague.</h3>
+        <div class="field"><b>1 · The task</b>Write a short weekly update for my manager.</div>
+        <div class="field"><b>2 · Shape of the answer</b>Done / In progress / Needs a decision. Under 150 words.</div>
+        <div class="out"><span class="mono">Checked result</span><p style="margin:6px 0 0;font-size:15.5px">Credit note <mark>still to be issued</mark>. Supplier slipped from the 14th to the 21st.</p></div>
+      </div>
+      <div class="ft"><div class="prog" style="width:150px"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i><i></i></div><a class="btn" style="padding:12px 16px">Run it in your tool</a></div>
+    </div>
+    <div class="note">
+      <div class="img s-gold"><!--FIELD:contour:21:700:300:18:2.4--></div>
+      <div class="in"><div class="mono" style="display:flex;justify-content:space-between"><span>Field note No. 02</span><span>Checking</span></div>
+      <h3>How to check an AI answer before you use it.</h3><p style="margin:0">Fluent is not the same as correct. Six checks that take two minutes and catch the usual errors.</p>
+      <div class="mt mono"><span>Filed 14 Oct 2026</span><span>6 min read</span></div>
+      <p class="mono" style="margin:0;color:var(--muted)">How this note was made: an explanation, not a test.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>10</b><span class="mono">Extension into business and real estate · the calmer register</span></div>
+  <div class="corp">
+    <div class="cover"><div class="art"><!--FIELD:contour:31:700:420:20:2.2--></div>
+      <div style="display:flex;justify-content:space-between;align-items:start;position:relative"><span class="wm xs">Fieldw<span class="o"><!--SUMMIT:18:4:0.06--></span>rk</span><span class="mono" style="color:var(--gold)">For business</span></div>
+      <div style="position:relative"><span class="mono" style="color:var(--gold)">Pilot proposal · draft for discussion</span><h3 style="margin-top:12px">A practice sprint for estate agency teams.</h3></div>
+      <div class="mono" style="display:flex;justify-content:space-between;border-top:1px solid rgba(251,247,240,.4);padding-top:10px;position:relative"><span>Prepared for [Agency]</span><span>No. 01</span></div></div>
+    <div class="slide">
+      <div class="mono" style="display:flex;justify-content:space-between"><span>Real estate · Listing workflow</span><span>04</span></div>
+      <div><h3 style="margin-bottom:14px">AI drafts. People <span style="color:var(--verm)">decide.</span></h3>
+        <div class="pps"><div><b>Problem</b>Listings read differently across the office, and staff paste client details into free tools.</div><div><b>Practice</b>Brief from verified facts, run, check every claim against the fact sheet.</div><div><b>Result</b>One house brief and one checklist, kept as a workflow card.</div></div></div>
+      <div class="mono" style="color:var(--muted)">Same fonts and cards. One chapter colour per slide. Field in a single tone.</div>
+    </div>
+  </div>
+</div></section>
+
+<section class="b s-ink"><div class="wrap">
+  <div class="cap"><b>11</b><span class="mono">Strengths, weaknesses, risks</span></div>
+  <div class="eval" style="color:var(--ink)">
+    <div style="background:var(--sage)"><h3>Strengths</h3><ul><li>An interface that is a system of named, numbered objects, as the best references do.</li><li>The generated field is original, meaningful for the name, endlessly reusable (covers, social, slides, video) and costs nothing to produce.</li><li>Colour carries the learning grammar.</li><li>One system with two registers: expressive for learners, calm for business.</li></ul></div>
+    <div style="background:var(--gold)"><h3>Weaknesses</h3><ul><li>Close in spirit to Anwulika's archive language. Needs our own palette, type, and the field to keep it distinct.</li><li>Gloock has one weight, so hierarchy must come from size and colour.</li><li>Tilt, tape and torn edges need discipline to avoid looking like scrapbooking.</li></ul></div>
+    <div style="background:var(--lilac)"><h3>Risks</h3><ul><li>Generative contours must look hand-finished: tune levels and line weights per colourway.</li><li>Heavy colour blocks on small screens need testing for fatigue and contrast.</li><li>Not yet tested with users.</li></ul></div>
+  </div>
+</div></section>
+</body></html>
