@@ -1,0 +1,4 @@
+deal_id,account,contact,country,offer,stage,stage_entered,days_in_stage,currency,amount_quoted,probability_pct,weighted_value,next_action,next_action_date,owner,last_touch,source,loss_reason,notes
+D-0001,Example Lettings Ltd (FICTIONAL),Alex Example (FICTIONAL),UK,Tailored enablement,Proposal sent,2026-11-10,,GBP,3800,45,=J2*K2/100,Chase proposal,2026-11-13,Founder,2026-11-10,Outreach,,FICTIONAL example row
+D-0002,Sample Homes Nigeria (FICTIONAL),Ngozi Sample (FICTIONAL),Nigeria,Practice session,Demo held,2026-11-07,,NGN,450000,35,=J3*K3/100,Send follow-up and proposal,2026-11-08,Founder,2026-11-07,Referral,,FICTIONAL example row
+D-0003,Placeholder Property Group (FICTIONAL),Jo Placeholder (FICTIONAL),UK,Practice session,Contacted,2026-11-01,,GBP,900,2,=J4*K4/100,Follow-up step 2,2026-11-05,Founder,2026-11-01,Event,,FICTIONAL example row

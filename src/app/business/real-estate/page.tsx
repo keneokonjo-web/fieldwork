@@ -70,7 +70,7 @@ export default function RealEstatePage() {
             <ol className="steps" style={{ marginTop: 'var(--s-5)' }}>
               <li><h3>Brief</h3><p>Staff write the brief together, including what the tool must not do.</p></li>
               <li><h3>Run</h3><p>Each person runs it in the approved tool on the same fact sheet.</p></li>
-              <li><h3>Check</h3><p>They compare every claim in the draft with the fact sheet. In practice sessions the typical catch is a pleasant detail that is not in the facts, such as a “south-facing” aspect or a “quiet street”.</p></li>
+              <li><h3>Check</h3><p>They compare every claim in the draft with the fact sheet. The kind of thing this step is designed to catch is a pleasant detail that is not in the facts, such as a “south-facing” aspect or a “quiet street”.</p></li>
               <li><h3>Keep</h3><p>The team agrees one house brief and one checklist, and saves them as a workflow card.</p></li>
             </ol>
           </div>
