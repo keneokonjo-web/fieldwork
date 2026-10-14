@@ -1,5 +1,6 @@
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { Chip } from '@/components/ui/Chip';
+import { Plate } from '@/components/ui/Plate';
 import { FREE_EXPERIENCE_PATH } from '@/config/site';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -20,16 +21,19 @@ export default function LearnPage() {
   return (
     <>
       <section className="page-hero">
-        <div className="container">
-          <p className="eyebrow">Learn</p>
-          <h1>Start with one exercise.</h1>
-          <p className="lede">Fieldwork learning is built from small, finished pieces of real work. One is ready now. The rest are planned, and labelled that way.</p>
+        <div className="container page-hero__grid">
+          <div>
+            <p className="eyebrow">Learn</p>
+            <h1>Start with <em>one exercise.</em></h1>
+            <p className="lede">Fieldwork learning is built from small, finished pieces of real work. One is ready now. The rest are planned, and labelled that way.</p>
+          </div>
+          <Plate art="contour-17" tone="indigo" ratio="4 / 3" label={<><b>Plate 01. Field, seed 17</b>Generated contour survey</>} />
         </div>
       </section>
-      <section className="section section--deep">
+      <section className="section section--stone">
         <div className="container">
           <div className="grid grid--2">
-            <div className="card" style={{ boxShadow: '6px 6px 0 var(--moss)' }}>
+            <div className="card" style={{ boxShadow: 'inset 0 3px 0 var(--success)' }}>
               <Chip tone="available">Available now</Chip>
               <h2 style={{ fontSize: 'var(--step-3)' }}>First workflow</h2>
               <p>Turn a messy task into a workflow you can reuse. Write a five-part brief, run it in your own AI tool, check the result and keep a workflow card.</p>

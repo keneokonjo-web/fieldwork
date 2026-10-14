@@ -10,9 +10,9 @@ export function SiteFooter() {
       <div className="container">
         <div className="footer-top">
           <div>
-            <Logo variant="dark" />
+            <Logo tone="dark" />
             <p className="footer-statement">{siteConfig.tagline}</p>
-            <p className="small" style={{ marginTop: 'var(--s-4)', maxWidth: '30rem', color: 'color-mix(in srgb, var(--paper) 78%, transparent)' }}>
+            <p className="small" style={{ marginTop: 'var(--s-4)', maxWidth: '30rem', color: 'color-mix(in srgb, var(--chalk) 78%, transparent)' }}>
               Fieldwork is new. The free exercise is live. Paid products and the business onboarding platform are planned, and we say so wherever they appear.
             </p>
           </div>
@@ -40,6 +40,8 @@ export function SiteFooter() {
             </ul>
           )}
         </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="footer-giant" src="/brand/logo/fieldwork-wordmark-dark.svg" alt="" width={575} height={138} aria-hidden="true" />
       </div>
     </footer>
   );

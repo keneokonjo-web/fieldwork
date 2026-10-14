@@ -23,7 +23,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="section section--deep" aria-labelledby="ind-title">
+      <section className="section section--stone" aria-labelledby="ind-title">
         <div className="container">
           <div className="section__head"><p className="eyebrow">Fieldwork for Individuals</p><h2 id="ind-title">Learning for yourself</h2></div>
           <ConsumerPricing />

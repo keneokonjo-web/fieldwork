@@ -6,8 +6,9 @@ import { palette } from '../scripts/brand/palette.mjs';
 describe('design tokens', () => {
   const css = fs.readFileSync(path.join(__dirname, '../src/styles/tokens.css'), 'utf8');
   const map: Record<string, string> = {
-    paper: '--paper', paperDeep: '--paper-deep', ink: '--ink', inkSoft: '--ink-soft', burgundy: '--burgundy',
-    terracotta: '--terracotta', terracottaBright: '--terracotta-bright', saffron: '--saffron', moss: '--moss', blush: '--blush', line: '--line',
+    chalk: '--chalk', gallery: '--gallery', stone: '--stone', charcoal: '--charcoal', indigo: '--indigo',
+    clay: '--clay', clayLight: '--clay-light', mute: '--mute', hairline: '--hairline',
+    success: '--success', warning: '--warning', error: '--error',
   };
   for (const [key, cssVar] of Object.entries(map)) {
     it(`${cssVar} matches palette.${key}`, () => {

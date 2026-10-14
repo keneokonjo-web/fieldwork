@@ -1,6 +1,7 @@
 import { LeadForm } from '@/components/forms/LeadForm';
 import { ButtonLink, TextLink } from '@/components/ui/ButtonLink';
 import { Chip } from '@/components/ui/Chip';
+import { Plate } from '@/components/ui/Plate';
 import { Reveal } from '@/components/ui/Reveal';
 import { FREE_EXPERIENCE_PATH, siteConfig } from '@/config/site';
 import { pageMetadata } from '@/lib/metadata';
@@ -32,19 +33,22 @@ export default function IndividualsPage() {
   return (
     <>
       <section className="page-hero">
-        <div className="container">
+        <div className="container page-hero__grid">
+          <div>
           <p className="eyebrow">Fieldwork for Individuals</p>
-          <h1>Bring one task. Leave with a workflow.</h1>
+          <h1>Bring one task. Leave with a <em>workflow.</em></h1>
           <p className="lede">For students, early-career professionals, independent workers, founders and creators who want to use AI well and do not think of themselves as technical.</p>
           <div className="btn-row" style={{ marginTop: 'var(--s-6)' }}>
             <ButtonLink href={FREE_EXPERIENCE_PATH} track="consumer_cta_clicked" trackLabel="individuals-hero">Try the free exercise</ButtonLink>
             <ButtonLink href="/pricing" variant="secondary">See what is planned</ButtonLink>
           </div>
           <p className="hero__note">Free. About 15 minutes. No account. Works with the free versions of common AI tools.</p>
+          </div>
+          <Plate photo="work-hands-writing" ratio="4 / 3" priority label={<><b>Plate 01. One task</b>Stock photograph, illustrative.</>} />
         </div>
       </section>
 
-      <section className="section section--deep" aria-labelledby="outcomes-title">
+      <section className="section section--stone" aria-labelledby="outcomes-title">
         <div className="container">
           <div className="section__head"><p className="eyebrow">What it is for</p><h2 id="outcomes-title">Four practical outcomes.</h2></div>
           <div className="grid grid--4">
@@ -72,7 +76,7 @@ export default function IndividualsPage() {
         </div>
       </section>
 
-      <section className="section section--deep" aria-labelledby="tasks-title">
+      <section className="section section--stone" aria-labelledby="tasks-title">
         <div className="container split">
           <div>
             <p className="eyebrow">Tasks you can practise</p>
@@ -102,7 +106,7 @@ export default function IndividualsPage() {
         </div>
       </section>
 
-      <section className="section section--deep" aria-labelledby="paid-title">
+      <section className="section section--stone" aria-labelledby="paid-title">
         <div className="container">
           <div className="section__head"><p className="eyebrow">After the free exercise</p><h2 id="paid-title">What is planned.</h2>
             <p>Guided projects (one-off) and possibly a membership. Neither is on sale yet. UK prices will be in pounds and Nigerian prices in naira, set separately.</p></div>
@@ -110,7 +114,7 @@ export default function IndividualsPage() {
         </div>
       </section>
 
-      <section className="section section--ink" aria-labelledby="join-title">
+      <section className="section section--indigo" aria-labelledby="join-title">
         <div className="container split">
           <div><p className="eyebrow">Early access</p><h2 id="join-title">Hear when guided projects are ready.</h2><p className="lede">One email when something real is available. No countdowns, no pressure.</p></div>
           <div className="form-card">

@@ -1,4 +1,5 @@
 import { ButtonLink } from '@/components/ui/ButtonLink';
+import { Plate } from '@/components/ui/Plate';
 import { FREE_EXPERIENCE_PATH } from '@/config/site';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -19,13 +20,16 @@ export default function AboutPage() {
   return (
     <>
       <section className="page-hero page-hero--wide">
-        <div className="container">
-          <p className="eyebrow">About</p>
-          <h1>Learn by doing. Put knowledge to work.</h1>
-          <p className="lede">Fieldwork is a practical AI learning company. It is named after a way of learning: go out, try things on real material, and write down what happened.</p>
+        <div className="container page-hero__grid">
+          <div>
+            <p className="eyebrow">About</p>
+            <h1>Learn by doing. <em>Put knowledge to work.</em></h1>
+            <p className="lede">Fieldwork is a practical AI learning company. It is named after a way of learning: go out, try things on real material, and write down what happened.</p>
+          </div>
+          <Plate photo="work-library-team" ratio="4 / 3" priority label={<><b>Plate 01. Fieldwork</b>Stock photograph, illustrative.</>} />
         </div>
       </section>
-      <section className="section section--deep">
+      <section className="section section--stone">
         <div className="container container--narrow prose" style={{ maxWidth: 'var(--container-narrow)' }}>
           <h2 style={{ marginTop: 0 }}>Where we are</h2>
           <p>Fieldwork is new. We are not going to invent a founding story, a team of experts or a list of clients. What exists today is a free guided exercise, a set of Field Notes guides and a way of training business teams that we are testing with real estate.</p>

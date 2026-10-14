@@ -15,11 +15,11 @@ export default function ContactPage() {
       <section className="page-hero" style={{ paddingBottom: 'var(--s-6)' }}>
         <div className="container">
           <p className="eyebrow">Contact</p>
-          <h1>Get in touch.</h1>
+          <h1>Get in <em>touch.</em></h1>
           <p className="lede">Two routes, so your message reaches the right place. We reply by email.</p>
         </div>
       </section>
-      <section className="section section--deep" style={{ paddingTop: 'var(--s-7)' }}>
+      <section className="section section--stone" style={{ paddingTop: 'var(--s-7)' }}>
         <div className="container contact-grid">
           <div className="form-card" id="business">
             <h2 style={{ fontSize: 'var(--step-3)' }}>For businesses</h2>

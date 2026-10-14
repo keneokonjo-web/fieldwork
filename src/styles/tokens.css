@@ -1,19 +1,17 @@
-/* Fieldwork design tokens. Documented in docs/brand/DESIGN-TOKENS.md.
-   Colour values are mirrored in scripts/brand/palette.mjs and checked by tests/tokens.test.ts */
+/* Fieldwork design tokens (blended identity: Specimen Room 65%, The Brief 35%).
+   Colour values are mirrored in scripts/brand/palette.mjs and checked by tests/tokens.test.ts.
+   Reference: docs/brand/DESIGN-TOKENS.md */
 :root {
   /* Brand colour */
-  --paper: #F6F0E4;
-  --paper-deep: #ECE2CE;
-  --ink: #211B18;
-  --ink-soft: #4F443D;
-  --burgundy: #6B1D2B;
-  --terracotta: #A63D1A;
-  --terracotta-bright: #E2653A;
-  --saffron: #E8A33D;
-  --moss: #456440;
-  --blush: #EFC9B8;
-  --line: #D2C5AB;
-  --line-strong: #8C7E69;
+  --chalk: #F1EFEA;
+  --gallery: #FBFAF7;
+  --stone: #E8E4DB;
+  --charcoal: #262422;
+  --indigo: #25306E;
+  --clay: #A8512F;
+  --clay-light: #E3A98C;
+  --mute: #5F5A53;
+  --hairline: #D3CEC3;
 
   /* Functional colour (product UI) */
   --success: #2F6B3A;
@@ -22,56 +20,55 @@
   --warning-bg: #F8EBCB;
   --error: #A32020;
   --error-bg: #F7DEDA;
-  --info: #24547A;
-  --info-bg: #DDE9F2;
+  --info: #25306E;
+  --info-bg: #E4E6F2;
 
   /* Semantic roles */
-  --bg: var(--paper);
-  --fg: var(--ink);
-  --fg-muted: var(--ink-soft);
-  --accent: var(--burgundy);
+  --bg: var(--chalk);
+  --fg: var(--charcoal);
+  --fg-muted: var(--mute);
+  --accent: var(--clay);
   --focus: #0B57D0;
 
   /* Type */
-  --font-display: "Fraunces Variable", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --font-sans: "Instrument Sans Variable", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Hanken Grotesk Variable", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-wordmark: "Schibsted Grotesk Variable", system-ui, sans-serif;
   --step--1: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
   --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
   --step-1: clamp(1.15rem, 1.07rem + 0.4vw, 1.375rem);
-  --step-2: clamp(1.4rem, 1.2rem + 0.9vw, 1.9rem);
-  --step-3: clamp(1.75rem, 1.4rem + 1.6vw, 2.75rem);
-  --step-4: clamp(2.1rem, 1.5rem + 2.8vw, 3.9rem);
-  --step-5: clamp(2.45rem, 1.6rem + 3.5vw, 4.7rem);
-  --lh-tight: 1.04;
-  --lh-snug: 1.2;
+  --step-2: clamp(1.45rem, 1.25rem + 0.95vw, 2rem);
+  --step-3: clamp(1.9rem, 1.5rem + 1.9vw, 3rem);
+  --step-4: clamp(2.4rem, 1.7rem + 3.3vw, 4.5rem);
+  --step-5: clamp(2.9rem, 1.6rem + 6vw, 6.5rem);
+  --step-6: clamp(3.4rem, 1.4rem + 9.5vw, 9.5rem);
+  --lh-tight: 0.95;
+  --lh-snug: 1.15;
   --lh-body: 1.6;
 
   /* Space (4px base) */
   --s-1: 0.25rem; --s-2: 0.5rem; --s-3: 0.75rem; --s-4: 1rem; --s-5: 1.5rem;
   --s-6: 2rem; --s-7: 3rem; --s-8: 4rem; --s-9: 6rem; --s-10: 8rem;
-  --section-y: clamp(3.5rem, 2rem + 6vw, 7rem);
-  --gutter: clamp(1rem, 0.6rem + 2vw, 2rem);
+  --section-y: clamp(3.5rem, 2rem + 6vw, 7.5rem);
+  --gutter: clamp(1rem, 0.5rem + 2.2vw, 2.5rem);
 
   /* Layout */
-  --container: 72rem;
+  --container: 78rem;
   --container-narrow: 48rem;
   --reading: 40rem;
 
-  /* Shape */
+  /* Shape: square corners, hairline rules (the plate and label are the signature devices) */
   --radius-0: 0;
-  --radius-1: 4px;
-  --radius-2: 10px;
+  --radius-1: 0;
   --radius-pill: 999px;
-  --border: 1.5px solid var(--ink);
-  --border-soft: 1px solid var(--line);
-  --offset-shadow: 4px 4px 0 var(--ink);
+  --rule: 1px solid var(--charcoal);
+  --rule-soft: 1px solid var(--hairline);
+  --plate-shadow: 0 22px 40px -24px rgba(38, 36, 34, 0.45), 0 1px 0 rgba(38, 36, 34, 0.18);
 
   /* Motion */
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --dur-1: 140ms;
   --dur-2: 260ms;
-  --dur-3: 520ms;
-
-  /* Breakpoints (reference only; CSS media queries use these values)
-     sm 480px, md 768px, lg 1024px, xl 1280px */
+  --dur-3: 560ms;
 }

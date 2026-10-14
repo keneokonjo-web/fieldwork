@@ -1,7 +1,7 @@
 import { ButtonLink, TextLink } from '@/components/ui/ButtonLink';
 import { Chip } from '@/components/ui/Chip';
 import { PromptBlock } from '@/components/ui/PromptBlock';
-import { Reveal } from '@/components/ui/Reveal';
+import { Plate } from '@/components/ui/Plate';
 import { NOT_FOR_AI, WORKFLOWS } from '@/content/corporate/workflows';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -29,32 +29,35 @@ Leasehold, 112 years remaining. Service charge £1,850 a year. No parking. EPC C
 export default function RealEstatePage() {
   return (
     <>
-      <section className="page-hero page-hero--wide">
-        <div className="container">
+      <section className="page-hero page-hero--wide reg-brief">
+        <div className="container page-hero__grid">
+          <div>
           <p className="eyebrow">Fieldwork for Business · Real estate</p>
-          <h1>Better listings, faster replies, clearer procedures. With people still in charge.</h1>
+          <h1>Better listings, faster replies, clearer procedures. <em>People still in charge.</em></h1>
           <p className="lede">Practical AI training for estate agencies, letting agencies and property companies in the UK and Nigeria. Your staff practise on the work they already do, and learn what to hand to a tool and what to keep.</p>
           <div className="btn-row" style={{ marginTop: 'var(--s-6)' }}>
             <ButtonLink href="/contact?topic=business" track="business_cta_clicked" trackLabel="re-hero-demo">Request a demonstration</ButtonLink>
             <ButtonLink href="/business/assessment" variant="secondary" track="business_cta_clicked" trackLabel="re-hero-assessment">Take the free assessment</ButtonLink>
           </div>
           <p className="hero__note">Fieldwork is new and has no agency case studies yet. We would rather show you a worked scenario than invent a testimonial.</p>
+          </div>
+          <Plate photo="prop-exterior-day" ratio="4 / 5" priority position="center 40%" sizes="(min-width: 62rem) 36vw, 100vw" label={<><b>Plate 01. The listing</b>Stock photograph, illustrative. Not a Fieldwork client.</>} />
         </div>
       </section>
 
-      <section className="section section--deep" aria-labelledby="wf-title">
+      <section className="section section--stone reg-brief" aria-labelledby="wf-title">
         <div className="container">
           <div className="section__head"><p className="eyebrow">Workflows your team can practise</p><h2 id="wf-title">Seven everyday tasks, each with a clear line between tool and person.</h2></div>
-          <div className="grid grid--2">
+          <ol className="index-list" style={{ listStyle: 'none', padding: 0 }}>
             {WORKFLOWS.map((w, i) => (
-              <Reveal key={w.id} className="card" delay={(i % 2) * 60}>
-                <p className="index">{String(i + 1).padStart(2, '0')}</p>
+              <li key={w.id} className="reveal">
+                <span className="bn" style={{ fontSize: '1.9rem' }}>{String(i + 1).padStart(2, '0')}</span>
                 <h3>{w.title}</h3>
-                <p>{w.summary}</p>
-                <p className="small"><strong>People keep:</strong> {w.peopleKeep}</p>
-              </Reveal>
+                <div><p>{w.summary}</p><p className="small" style={{ marginTop: 'var(--s-2)', color: 'var(--charcoal)' }}><strong>People keep:</strong> {w.peopleKeep}</p></div>
+                <span />
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
@@ -78,13 +81,23 @@ export default function RealEstatePage() {
         </div>
       </section>
 
-      <section className="section section--ink" aria-labelledby="people-title">
+      <section className="section" aria-label="Property types">
+        <div className="container">
+          <div className="photo-band">
+            <Plate photo="prop-villa-pool" ratio="4 / 3" label={<><b>Plate 02. Sales</b>Listings from verified facts</>} />
+            <Plate photo="home-living-gallery" ratio="4 / 3" label={<><b>Plate 03. Viewings</b>Enquiry replies and follow-ups</>} />
+            <Plate photo="prop-block" ratio="3 / 4" label={<><b>Plate 04. Lettings</b>Reports and procedures</>} sizes="(min-width: 48rem) 25vw, 50vw" />
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--char reg-brief" aria-labelledby="people-title">
         <div className="container split">
           <div>
             <p className="eyebrow">What stays with people</p>
             <h2 id="people-title">AI drafts. People decide.</h2>
             <p className="lede">Training teaches staff where a tool helps and where it must not be used. We never suggest AI should do these:</p>
-            <ul className="crosses" style={{ color: 'var(--paper)' }}>{NOT_FOR_AI.map((n) => <li key={n}>{n}</li>)}</ul>
+            <ul className="crosses" style={{ color: 'var(--chalk)' }}>{NOT_FOR_AI.map((n) => <li key={n}>{n}</li>)}</ul>
           </div>
           <div className="safety">
             <h3>Rules and regulation</h3>
@@ -103,13 +116,13 @@ export default function RealEstatePage() {
             <div className="flow__item"><p className="index">Week 4</p><h3>Review</h3><p>Compare time and quality against your baseline. Decide what to keep.</p></div>
           </div>
           <div className="grid grid--2" style={{ marginTop: 'var(--s-7)' }}>
-            <div className="card"><h3>For UK agencies</h3><p>UK GDPR and the Data Protection Act 2018 apply to client personal data. We help staff practise with placeholders and anonymised examples so personal data stays out of tools that are not approved for it.</p></div>
-            <div className="card"><h3>For Nigerian agencies</h3><p>The Nigeria Data Protection Act 2023 applies. We design practice for free tool tiers and mobile connections, so people do not need paid accounts or fast broadband to take part.</p></div>
+            <div className="card"><Plate photo="city-london-bridge" ratio="16 / 9" framed={false} sizes="(min-width: 48rem) 40vw, 100vw" /><h3>For UK agencies</h3><p>UK GDPR and the Data Protection Act 2018 apply to client personal data. We help staff practise with placeholders and anonymised examples so personal data stays out of tools that are not approved for it.</p></div>
+            <div className="card"><Plate photo="city-lagos-aerial" ratio="16 / 9" framed={false} sizes="(min-width: 48rem) 40vw, 100vw" /><h3>For Nigerian agencies</h3><p>The Nigeria Data Protection Act 2023 applies. We design practice for free tool tiers and mobile connections, so people do not need paid accounts or fast broadband to take part.</p></div>
           </div>
         </div>
       </section>
 
-      <section className="section section--burgundy" aria-labelledby="re-cta">
+      <section className="section section--indigo reg-brief" aria-labelledby="re-cta">
         <div className="container split">
           <div><p className="eyebrow">Next step</p><h2 id="re-cta">Discuss a pilot, or see a demonstration.</h2><p className="lede">A short conversation is enough to see whether this fits. <TextLink href="/pricing">How pilots are priced</TextLink></p></div>
           <div className="btn-row">

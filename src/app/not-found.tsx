@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { FREE_EXPERIENCE_PATH } from '@/config/site';
@@ -9,7 +10,7 @@ export default function NotFound() {
     <section className="section notfound">
       <div className="container">
         <p className="eyebrow">Error 404</p>
-        <p className="notfound__code" aria-hidden="true">4<span className="tile tile--circle bg-terracotta" />4</p>
+        <p className="notfound__code" aria-hidden="true">4<Image src="/brand/logo/fieldwork-symbol-light.svg" alt="" width={100} height={100} unoptimized />4</p>
         <h1 style={{ fontSize: 'var(--step-4)', marginTop: 'var(--s-5)' }}>We could not find that page.</h1>
         <p className="lede">The link may be old or mistyped. These routes will get you back to something useful.</p>
         <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>

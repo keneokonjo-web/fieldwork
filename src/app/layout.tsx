@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from 'next';
-import '@fontsource-variable/fraunces/wght.css';
-import '@fontsource-variable/fraunces/wght-italic.css';
-import '@fontsource-variable/instrument-sans/wght.css';
+import '@fontsource/cormorant-garamond/400.css';
+import '@fontsource/cormorant-garamond/400-italic.css';
+import '@fontsource/cormorant-garamond/500.css';
+import '@fontsource-variable/hanken-grotesk/wght.css';
+import '@fontsource-variable/geist-mono/wght.css';
+import '@fontsource-variable/schibsted-grotesk/wght.css';
 import '@/styles/tokens.css';
 import '@/styles/base.css';
 import '@/styles/components.css';
@@ -28,7 +31,7 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.webmanifest',
 };
-export const viewport: Viewport = { themeColor: '#F6F0E4', width: 'device-width', initialScale: 1 };
+export const viewport: Viewport = { themeColor: '#F1EFEA', width: 'device-width', initialScale: 1 };
 
 // Adds the motion class before first paint, only when motion is acceptable.
 const motionScript = `try{if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('js-motion')}catch(e){}`;

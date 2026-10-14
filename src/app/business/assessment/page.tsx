@@ -17,7 +17,7 @@ export default function AssessmentPage() {
           <p className="lede">Eight questions, about five minutes. You get a useful report on screen straight away. No email needed to see it.</p>
         </div>
       </section>
-      <section className="section section--deep" style={{ paddingTop: 'var(--s-7)' }}>
+      <section className="section section--stone" style={{ paddingTop: 'var(--s-7)' }}>
         <div className="container container--narrow"><div className="form-card"><Assessment /></div></div>
       </section>
     </>
