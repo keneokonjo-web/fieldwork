@@ -60,7 +60,7 @@ export default function IndividualsPage() {
       <section className="section" aria-labelledby="diff-title">
         <div className="container">
           <div className="section__head"><p className="eyebrow">The difference</p><h2 id="diff-title">Passive lessons explain. Guided practice makes you do it.</h2></div>
-          <div className="table-wrap">
+          <div className="table-wrap" tabIndex={0} role="region" aria-label="Comparison table, scrolls sideways on small screens">
             <table className="table">
               <caption className="visually-hidden">Passive lessons compared with guided practice</caption>
               <thead><tr><th scope="col"></th><th scope="col">Passive lessons</th><th scope="col">Fieldwork guided practice</th></tr></thead>

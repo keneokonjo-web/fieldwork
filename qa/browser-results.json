@@ -1,0 +1,77 @@
+{
+  "ranAt": "2026-10-14T22:03:57.750Z",
+  "results": [
+    {
+      "name": "every route returns 200 with one h1, a title, no console errors, no broken images",
+      "pass": true
+    },
+    {
+      "name": "unknown route shows the custom 404 with a 404 status",
+      "pass": true
+    },
+    {
+      "name": "logo returns to home from an inner page",
+      "pass": true
+    },
+    {
+      "name": "desktop navigation reaches every main section",
+      "pass": true
+    },
+    {
+      "name": "mobile menu opens, traps Escape, navigates and closes",
+      "pass": true
+    },
+    {
+      "name": "skip link is first tab stop and moves focus to main",
+      "pass": true
+    },
+    {
+      "name": "keyboard focus is visible on links and buttons",
+      "pass": true
+    },
+    {
+      "name": "reduced motion shows content immediately and disables reveal transforms",
+      "pass": true
+    },
+    {
+      "name": "free exercise runs start to finish, copies prompt, downloads card, stores locally",
+      "pass": true
+    },
+    {
+      "name": "exercise state survives reload (stored on the device only)",
+      "pass": true
+    },
+    {
+      "name": "business assessment produces a report",
+      "pass": true
+    },
+    {
+      "name": "pricing market toggle switches between GBP and NGN",
+      "pass": true
+    },
+    {
+      "name": "contact form validates, then reports honest not-configured when no adapter is set",
+      "pass": true
+    },
+    {
+      "name": "business demo request is delivered to the mock webhook with attribution and secret",
+      "pass": true
+    },
+    {
+      "name": "honeypot submissions are silently dropped, not delivered",
+      "pass": true
+    },
+    {
+      "name": "site is noindex and robots disallows by default",
+      "pass": true
+    },
+    {
+      "name": "no analytics script loads without configuration or consent",
+      "pass": true
+    },
+    {
+      "name": "no horizontal overflow at 390, 768 and 1440 on key pages",
+      "pass": true
+    }
+  ]
+}
