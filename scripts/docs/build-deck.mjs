@@ -19,10 +19,10 @@ for (const b of blocks) {
   const s = pptx.addSlide(); s.background = { color: hex(bg) }; n++;
   const ink = hex(dark ? P.chalk : P.charcoal); const acc = hex(dark ? P.clayLight : P.clay);
   s.addText(`[ ${String(n).padStart(2, '0')}${label ? ' · ' + label : ''} ]`, { x: 0.6, y: 0.45, w: 9, h: 0.3, fontFace: 'Courier New', fontSize: 10, color: acc, charSpacing: 2 });
-  s.addText(title, { x: 0.6, y: 0.9, w: 12, h: n === 1 ? 2.6 : 1.5, fontFace: 'Arial', bold: true, fontSize: n === 1 ? 54 : 36, color: ink, valign: 'top' });
-  let y = n === 1 ? 3.8 : 2.6;
+  s.addText(title, { x: 0.6, y: 0.9, w: 12, h: n === 1 ? 2.6 : 1.5, fontFace: 'Arial', bold: true, fontSize: n === 1 ? 80 : 44, color: ink, valign: 'top' });
+  let y = n === 1 ? 4.2 : 2.7;
   if (sub) s.addText(sub, { x: 0.6, y, w: 11, h: 0.6, fontFace: 'Georgia', italic: true, fontSize: 22, color: ink });
-  if (items.length && n !== 1) s.addText(items.map((t) => ({ text: t, options: { bullet: { code: '25CF' }, breakLine: true, paraSpaceAfter: 8 } })), { x: 0.6, y, w: 11.5, h: 3.7, fontFace: 'Arial', fontSize: 18, color: ink, valign: 'top' });
+  if (items.length && n !== 1) s.addText(items.map((t) => ({ text: t, options: { bullet: { code: '25CF' }, breakLine: true, paraSpaceAfter: 12 } })), { x: 0.6, y, w: 11.5, h: 3.7, fontFace: 'Arial', fontSize: 24, color: ink, valign: 'top' });
   if (footer) s.addText(footer, { x: 0.6, y: 6.85, w: 12, h: 0.4, fontFace: 'Courier New', fontSize: 10, color: ink });
   s.addText('Fieldwork', { x: 11.2, y: 7.0, w: 1.8, h: 0.3, fontFace: 'Georgia', fontSize: 11, color: acc, align: 'right' });
   if (notes) s.addNotes(notes);
