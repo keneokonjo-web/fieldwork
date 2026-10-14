@@ -1,0 +1,279 @@
+{
+  "status": 200,
+  "finalUrl": "https://anwulika.com/fieldnotes",
+  "title": "Field Notes on Flourishing",
+  "height": 3935,
+  "fonts": [
+    [
+      "Figtree",
+      60
+    ],
+    [
+      "\"Instrument Serif\"",
+      20
+    ]
+  ],
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "Make your work mean something",
+      "font": "\"Instrument Serif\"",
+      "size": "57.6px",
+      "weight": "400",
+      "lh": "59.904px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "What is your speed in service of?",
+      "font": "\"Instrument Serif\"",
+      "size": "32px",
+      "weight": "400",
+      "lh": "33.92px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Using AI for Self-reflection",
+      "font": "\"Instrument Serif\"",
+      "size": "32px",
+      "weight": "400",
+      "lh": "33.92px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Practicing possibility is harder than sensing it",
+      "font": "\"Instrument Serif\"",
+      "size": "32px",
+      "weight": "400",
+      "lh": "33.92px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Recently filed",
+      "font": "\"Instrument Serif\"",
+      "size": "58px",
+      "weight": "400",
+      "lh": "60.32px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Using AI for Self-reflection",
+      "font": "\"Instrument Serif\"",
+      "size": "28px",
+      "weight": "400",
+      "lh": "30.24px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "What is your speed in service of?",
+      "font": "\"Instrument Serif\"",
+      "size": "28px",
+      "weight": "400",
+      "lh": "30.24px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Practicing possibility is harder than sensing it",
+      "font": "\"Instrument Serif\"",
+      "size": "28px",
+      "weight": "400",
+      "lh": "30.24px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "At work, ancestral intelligence is a double-edged sword",
+      "font": "\"Instrument Serif\"",
+      "size": "28px",
+      "weight": "400",
+      "lh": "30.24px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "There is a cost to waiting for legitimacy to arrive",
+      "font": "\"Instrument Serif\"",
+      "size": "28px",
+      "weight": "400",
+      "lh": "30.24px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Flourishing is Not Just About What We Reach For",
+      "font": "\"Instrument Serif\"",
+      "size": "28px",
+      "weight": "400",
+      "lh": "30.24px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Lowering the walls of my coaching practice",
+      "font": "\"Instrument Serif\"",
+      "size": "64px",
+      "weight": "400",
+      "lh": "66.56px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Carrying a decision you can’t untangle?",
+      "font": "\"Instrument Serif\"",
+      "size": "76px",
+      "weight": "400",
+      "lh": "77.52px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "You do not need more hacks",
+      "font": "\"Instrument Serif\"",
+      "size": "68px",
+      "weight": "400",
+      "lh": "70.72px",
+      "ls": "normal"
+    }
+  ],
+  "colors": [
+    [
+      "rgb(20, 20, 19)",
+      132
+    ],
+    [
+      "rgb(250, 246, 240)",
+      53
+    ],
+    [
+      "rgb(233, 196, 106)",
+      6
+    ],
+    [
+      "rgb(138, 69, 51)",
+      5
+    ],
+    [
+      "rgb(219, 200, 60)",
+      5
+    ],
+    [
+      "rgb(228, 187, 129)",
+      5
+    ],
+    [
+      "rgba(233, 196, 106, 0.85)",
+      3
+    ],
+    [
+      "rgb(255, 253, 252)",
+      3
+    ],
+    [
+      "rgb(89, 51, 59)",
+      2
+    ],
+    [
+      "rgb(61, 35, 25)",
+      2
+    ],
+    [
+      "rgb(235, 222, 201)",
+      2
+    ],
+    [
+      "rgb(43, 41, 41)",
+      2
+    ]
+  ],
+  "nav": [
+    {
+      "t": "",
+      "h": "/fieldnotes"
+    },
+    {
+      "t": "Field Notes",
+      "h": "/fieldnotes/notes"
+    },
+    {
+      "t": "Guides",
+      "h": "/fieldnotes/guides"
+    },
+    {
+      "t": "Dilemma Lab",
+      "h": "/fieldnotes/dilemma-lab"
+    },
+    {
+      "t": "About",
+      "h": "/fieldnotes/about"
+    },
+    {
+      "t": "The Reinvention Lab",
+      "h": "https://reinvention-lab.changingpeople.co"
+    },
+    {
+      "t": "1:1 Coaching",
+      "h": "https://changingpeople.co/reinventionpartnership"
+    },
+    {
+      "t": "The Co-Intelligence Advantage ",
+      "h": "https://reinvention-lab.changingpeople.co/masterclass"
+    },
+    {
+      "t": "The Work Ahead Assessment™",
+      "h": "https://changingpeople.co/the-work-ahead-waitlist"
+    },
+    {
+      "t": "Search",
+      "h": "/fieldnotes/search"
+    },
+    {
+      "t": "Subscribe",
+      "h": "#subscribe"
+    },
+    {
+      "t": "Field Notes",
+      "h": "/fieldnotes/notes"
+    },
+    {
+      "t": "Guides",
+      "h": "/fieldnotes/guides"
+    },
+    {
+      "t": "Dilemma Lab",
+      "h": "/fieldnotes/dilemma-lab"
+    }
+  ],
+  "links": [
+    "https://anwulika.com/fieldnotes",
+    "https://anwulika.com/fieldnotes/notes",
+    "https://anwulika.com/fieldnotes/guides",
+    "https://anwulika.com/fieldnotes/dilemma-lab",
+    "https://anwulika.com/fieldnotes/about",
+    "https://reinvention-lab.changingpeople.co/",
+    "https://changingpeople.co/reinventionpartnership",
+    "https://reinvention-lab.changingpeople.co/masterclass",
+    "https://changingpeople.co/the-work-ahead-waitlist",
+    "https://anwulika.com/fieldnotes/search",
+    "https://anwulika.com/fieldnotes#subscribe",
+    "https://anwulika.com/fieldnotes/make-your-work-mean-something",
+    "https://anwulika.com/fieldnotes/what-is-your-speed-in-service-of",
+    "https://anwulika.com/fieldnotes/using-ai-for-self-reflection",
+    "https://anwulika.com/fieldnotes/practicing-possibility-is-harder-than-sensing-it",
+    "https://anwulika.com/fieldnotes/ancestral-intelligence-is-a-double-edged-sword",
+    "https://anwulika.com/fieldnotes/there-is-a-cost-to-waiting-for-legitimacy",
+    "https://anwulika.com/fieldnotes/flourishing-is-not-just-about-what-we-reach-for",
+    "https://anwulika.com/",
+    "https://www.linkedin.com/in/anokonjo/",
+    "https://www.youtube.com/@anwulika.okonjo",
+    "https://anwulika.com/fieldnotes/feed.xml",
+    "https://anwulika.com/for-ai-agents"
+  ],
+  "desktopOverflow": 0,
+  "mobileOverflow": 22
+}

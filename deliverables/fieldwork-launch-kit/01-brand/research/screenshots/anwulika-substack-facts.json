@@ -1,0 +1,137 @@
+{
+  "status": 200,
+  "finalUrl": "https://anwulikasnotes.substack.com/",
+  "title": "Field Notes on Flourishing | Ijeruka | Substack",
+  "height": 1597,
+  "fonts": [
+    [
+      "system-ui",
+      76
+    ],
+    [
+      "\"SF Compact\"",
+      26
+    ],
+    [
+      "\"Instrument Serif\"",
+      11
+    ],
+    [
+      "Spectral",
+      2
+    ],
+    [
+      "\"SF Pro Display\"",
+      1
+    ]
+  ],
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "Field Notes on Flourishing",
+      "font": "\"Instrument Serif\"",
+      "size": "24px",
+      "weight": "700",
+      "lh": "24px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H1",
+      "text": "",
+      "font": "\"Instrument Serif\"",
+      "size": "24px",
+      "weight": "400",
+      "lh": "32px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Field Notes on Flourishing",
+      "font": "\"Instrument Serif\"",
+      "size": "39.9px",
+      "weight": "400",
+      "lh": "43.6506px",
+      "ls": "normal"
+    }
+  ],
+  "colors": [
+    [
+      "rgb(94, 68, 55)",
+      213
+    ],
+    [
+      "rgb(0, 0, 0)",
+      150
+    ],
+    [
+      "rgb(54, 55, 55)",
+      128
+    ],
+    [
+      "rgb(134, 134, 134)",
+      56
+    ],
+    [
+      "rgb(236, 233, 232)",
+      50
+    ],
+    [
+      "rgb(177, 167, 163)",
+      23
+    ],
+    [
+      "rgb(255, 253, 252)",
+      22
+    ],
+    [
+      "rgb(255, 255, 255)",
+      18
+    ],
+    [
+      "rgb(61, 35, 25)",
+      14
+    ],
+    [
+      "rgb(117, 117, 117)",
+      12
+    ],
+    [
+      "rgb(233, 196, 106)",
+      3
+    ],
+    [
+      "rgba(255, 255, 255, 0)",
+      2
+    ]
+  ],
+  "nav": [],
+  "links": [
+    "https://substack.com/tos",
+    "https://substack.com/ccpa#personal-data-collected",
+    "https://substack.com/privacy",
+    "https://anwulikasnotes.substack.com/",
+    "https://anwulikasnotes.substack.com/notes",
+    "https://anwulikasnotes.substack.com/chat",
+    "https://anwulikasnotes.substack.com/about",
+    "https://anwulikasnotes.substack.com/p/field-note-5-make-your-work-mean",
+    "https://substack.com/@anwulikaokonjo",
+    "https://anwulikasnotes.substack.com/p/field-note-5-what-is-your-speed-in",
+    "https://substack.com/@ijeruka",
+    "https://anwulikasnotes.substack.com/p/field-note-4-practicing-possibility",
+    "https://anwulikasnotes.substack.com/p/field-note-3-at-work-ancestral-intelligence",
+    "https://anwulikasnotes.substack.com/p/can-a-machine-hold-space",
+    "https://anwulikasnotes.substack.com/p/field-note-2-there-is-a-cost-to-waiting",
+    "https://anwulikasnotes.substack.com/p/field-note-1-flourishing-is-not-just",
+    "https://anwulikasnotes.substack.com/archive",
+    "https://anwulikasnotes.substack.com/recommendations",
+    "https://anwulikasnotes.substack.com/sitemap",
+    "https://instagram.com/anwulika.okonjo",
+    "https://www.youtube.com/@anwulikao",
+    "https://www.linkedin.com/in/anokonjo/",
+    "https://substack.com/signup?utm_source=substack&utm_medium=web&utm_content=footer",
+    "https://substack.com/app/app-store-redirect?utm_campaign=app-marketing&utm_content=web-footer-button",
+    "https://substack.com/"
+  ],
+  "desktopOverflow": 0,
+  "mobileOverflow": 0
+}

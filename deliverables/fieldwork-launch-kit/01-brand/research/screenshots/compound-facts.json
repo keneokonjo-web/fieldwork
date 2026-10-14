@@ -1,0 +1,187 @@
+{
+  "status": 200,
+  "finalUrl": "https://www.compoundafrica.com/",
+  "title": "Compound | Premium Design-Led Real Estate Development in Africa",
+  "height": 6309,
+  "fonts": [
+    [
+      "\"Times New Roman\"",
+      155
+    ],
+    [
+      "Arial",
+      15
+    ],
+    [
+      "afacad",
+      2
+    ],
+    [
+      "kollektif",
+      1
+    ]
+  ],
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "Kota No.1",
+      "font": "\"Times New Roman\"",
+      "size": "32px",
+      "weight": "700",
+      "lh": "normal",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "This is how we live",
+      "font": "\"Times New Roman\"",
+      "size": "24px",
+      "weight": "700",
+      "lh": "normal",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "When heritage inspires the future.",
+      "font": "\"Times New Roman\"",
+      "size": "24px",
+      "weight": "700",
+      "lh": "normal",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Frequently asked questions",
+      "font": "\"Times New Roman\"",
+      "size": "24px",
+      "weight": "700",
+      "lh": "normal",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Join our list for early access to new developments.",
+      "font": "\"Times New Roman\"",
+      "size": "24px",
+      "weight": "700",
+      "lh": "normal",
+      "ls": "normal"
+    }
+  ],
+  "colors": [
+    [
+      "rgb(0, 0, 0)",
+      267
+    ],
+    [
+      "rgb(0, 0, 238)",
+      159
+    ],
+    [
+      "rgb(239, 239, 239)",
+      5
+    ],
+    [
+      "rgb(255, 255, 255)",
+      1
+    ]
+  ],
+  "nav": [
+    {
+      "t": "",
+      "h": "/"
+    },
+    {
+      "t": "PROJECTS",
+      "h": "/projects"
+    },
+    {
+      "t": "EDITORIAL",
+      "h": "/editorial"
+    },
+    {
+      "t": "ABOUT",
+      "h": "/about"
+    },
+    {
+      "t": "FAQ",
+      "h": "/#FAQ"
+    },
+    {
+      "t": "CONTACT",
+      "h": "#footer"
+    },
+    {
+      "t": "WHATSAPP CONTACT",
+      "h": "https://wa.me/2347071116542"
+    },
+    {
+      "t": "PROJECTS",
+      "h": "/projects"
+    },
+    {
+      "t": "EDITORIAL",
+      "h": "/editorial"
+    },
+    {
+      "t": "ABOUT",
+      "h": "/about"
+    },
+    {
+      "t": "FAQ",
+      "h": "/#FAQ"
+    },
+    {
+      "t": "CONTACT",
+      "h": "#footer"
+    },
+    {
+      "t": "Contact Us",
+      "h": "#footer"
+    },
+    {
+      "t": "Register Interest",
+      "h": "https://form.typeform.com/to/sIRdSUOy"
+    }
+  ],
+  "links": [
+    "https://www.compoundafrica.com/",
+    "https://www.compoundafrica.com/projects",
+    "https://www.compoundafrica.com/editorial",
+    "https://www.compoundafrica.com/about",
+    "https://www.compoundafrica.com/#FAQ",
+    "https://www.compoundafrica.com/#footer",
+    "https://wa.me/2347071116542",
+    "https://form.typeform.com/to/sIRdSUOy",
+    "https://form.typeform.com/to/lbBbjict",
+    "https://www.compoundafrica.com/projects/kota-no-1",
+    "https://craft.compoundafrica.com/editions/edition-01",
+    "https://craft.compoundafrica.com/",
+    "https://www.youtube.com/watch?v=J0L9gEZ-Ht8",
+    "https://www.youtube.com/watch?v=nSSTAw-swDQ",
+    "https://www.youtube.com/watch?v=ZlgMPH0Eg7o",
+    "https://www.youtube.com/watch?v=eH3E_2WdAUU",
+    "https://www.instagram.com/compoundafrica/",
+    "https://www.instagram.com/reel/DYAMssWM8qY/",
+    "https://www.instagram.com/reel/DWwSpsBDEWX/",
+    "https://www.instagram.com/reel/DXzR5NtsLoZ/",
+    "https://www.instagram.com/reel/DXuH2XaDE-v/",
+    "https://www.instagram.com/reel/DXXGeiWDEGR/",
+    "https://www.instagram.com/reel/DW9Whg8kYNJ/",
+    "https://www.instagram.com/reel/DW4NZAYjJlR/",
+    "https://www.instagram.com/reel/DWmKOB7jC6L/",
+    "https://www.instagram.com/reel/DWWmb8lDPy-/",
+    "https://www.instagram.com/reel/DVgjVBpjH-T/",
+    "https://www.instagram.com/reel/DUV4RJXDM-v/",
+    "https://www.youtube.com/@mycompound",
+    "https://www.facebook.com/profile.php?id=61563203436598",
+    "mailto:contact@compoundafrica.com",
+    "tel:+2347071116542",
+    "https://maps.app.goo.gl/LeBS7BxFYjB4KtYo8",
+    "https://www.compoundafrica.com/submit",
+    "https://www.compoundafrica.com/apply",
+    "https://www.compoundafrica.com/privacy-policy"
+  ],
+  "desktopOverflow": 768,
+  "mobileOverflow": 0
+}

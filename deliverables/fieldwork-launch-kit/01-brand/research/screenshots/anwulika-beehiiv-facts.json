@@ -1,0 +1,198 @@
+{
+  "status": 200,
+  "finalUrl": "https://anwulika.beehiiv.com/",
+  "title": "Home | Anwulika Okonjo",
+  "height": 1478,
+  "fonts": [
+    [
+      "ui-sans-serif",
+      74
+    ],
+    [
+      "Inter",
+      39
+    ],
+    [
+      "Figtree",
+      16
+    ],
+    [
+      "\"Instrument Serif\"",
+      8
+    ],
+    [
+      "\"Instrument Sans\"",
+      1
+    ]
+  ],
+  "headings": [
+    {
+      "tag": "H3",
+      "text": "Field Note #6: Make your work mean something",
+      "font": "ui-sans-serif",
+      "size": "16px",
+      "weight": "700",
+      "lh": "17.6px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Field Note #5: What is your speed in service of?",
+      "font": "ui-sans-serif",
+      "size": "16px",
+      "weight": "700",
+      "lh": "19.2px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Field Note #4: Practicing possibility is harder than sensing it",
+      "font": "ui-sans-serif",
+      "size": "16px",
+      "weight": "700",
+      "lh": "19.2px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Field Note #2: There is a cost to waiting for legitimacy to arrive",
+      "font": "ui-sans-serif",
+      "size": "16px",
+      "weight": "700",
+      "lh": "19.2px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Experiments: Can a machine hold space?",
+      "font": "ui-sans-serif",
+      "size": "16px",
+      "weight": "700",
+      "lh": "19.2px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Field Notes on Flourishing",
+      "font": "ui-sans-serif",
+      "size": "16px",
+      "weight": "800",
+      "lh": "16.96px",
+      "ls": "-0.24px"
+    }
+  ],
+  "colors": [
+    [
+      "rgb(0, 0, 0)",
+      267
+    ],
+    [
+      "rgb(89, 51, 59)",
+      58
+    ],
+    [
+      "rgb(255, 253, 252)",
+      19
+    ],
+    [
+      "rgb(26, 26, 26)",
+      13
+    ],
+    [
+      "rgb(255, 255, 255)",
+      12
+    ],
+    [
+      "rgb(3, 7, 18)",
+      9
+    ],
+    [
+      "rgb(34, 34, 34)",
+      8
+    ],
+    [
+      "rgb(36, 28, 16)",
+      7
+    ],
+    [
+      "rgba(255, 255, 255, 0.6)",
+      5
+    ],
+    [
+      "rgba(48, 42, 43, 0.7)",
+      5
+    ],
+    [
+      "rgb(249, 246, 245)",
+      4
+    ],
+    [
+      "rgba(89, 51, 59, 0.83)",
+      4
+    ]
+  ],
+  "nav": [
+    {
+      "t": "",
+      "h": "/"
+    },
+    {
+      "t": "",
+      "h": "/"
+    },
+    {
+      "t": "Subscribe",
+      "h": "/subscribe"
+    },
+    {
+      "t": "Sign In",
+      "h": null
+    },
+    {
+      "t": "Home",
+      "h": "/"
+    },
+    {
+      "t": "Archive",
+      "h": "/archive"
+    },
+    {
+      "t": "Tags",
+      "h": "/tags"
+    },
+    {
+      "t": "Authors",
+      "h": "/authors"
+    },
+    {
+      "t": "Recommendations",
+      "h": "/recommendations"
+    },
+    {
+      "t": "Anwulika Okonjo",
+      "h": "/"
+    }
+  ],
+  "links": [
+    "https://anwulika.beehiiv.com/",
+    "https://anwulika.beehiiv.com/subscribe",
+    "https://anwulika.beehiiv.com/archive",
+    "https://anwulika.beehiiv.com/tags",
+    "https://anwulika.beehiiv.com/authors",
+    "https://anwulika.beehiiv.com/recommendations",
+    "https://anwulika.beehiiv.com/p/field-note-5-make-your-work-mean",
+    "https://anwulika.beehiiv.com/t/essays",
+    "https://anwulika.beehiiv.com/p/field-note-5-what-is-your-speed-in",
+    "https://anwulika.beehiiv.com/#",
+    "https://anwulika.beehiiv.com/p/field-note-4-practicing-possibility",
+    "https://anwulika.beehiiv.com/p/field-note-2-there-is-a-cost-to-waiting",
+    "https://anwulika.beehiiv.com/p/can-a-machine-hold-space",
+    "https://anwulika.beehiiv.com/t/experiments",
+    "https://www.linkedin.com/in/anokonjo/",
+    "https://www.instagram.com/anwulikais/",
+    "https://www.youtube.com/@anwulika.okonjo",
+    "https://www.beehiiv.com/powered-by?publication_name=Anwulika+Okonjo&publication_logo=https%3A%2F%2Fmedia.beehiiv.com%2Fcdn-cgi%2Fimage%2Ffit%3Dscale-down%2Cformat%3Dauto%2Conerror%3Dredirect%2Cquality%3D80%2Fuploads%2Fpublication%2Flogo%2F0a183e49-1f02-4928-aa32-ed8bb9fb333e%2Fanwuli_18_Large.jpeg&utm_source=anwulika_okonjo&utm_medium=footer"
+  ],
+  "desktopOverflow": 0,
+  "mobileOverflow": 0
+}

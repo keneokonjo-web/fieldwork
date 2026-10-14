@@ -1,0 +1,255 @@
+{
+  "status": 200,
+  "finalUrl": "https://videinfra.com/",
+  "title": "Digital Product Design & Development Agency | Vide Infra",
+  "height": 14589,
+  "fonts": [
+    [
+      "GraphikLCG",
+      461
+    ]
+  ],
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "Design. Development. Mastership.",
+      "font": "GraphikLCG",
+      "size": "28px",
+      "weight": "500",
+      "lh": "35px",
+      "ls": "-1.4px"
+    },
+    {
+      "tag": "H2",
+      "text": "Real Estate",
+      "font": "GraphikLCG",
+      "size": "38px",
+      "weight": "500",
+      "lh": "39.9999px",
+      "ls": "-1.9px"
+    },
+    {
+      "tag": "H2",
+      "text": "Corporate",
+      "font": "GraphikLCG",
+      "size": "38px",
+      "weight": "500",
+      "lh": "39.9999px",
+      "ls": "-1.9px"
+    },
+    {
+      "tag": "H2",
+      "text": "Startups",
+      "font": "GraphikLCG",
+      "size": "38px",
+      "weight": "500",
+      "lh": "39.9999px",
+      "ls": "-1.9px"
+    },
+    {
+      "tag": "H2",
+      "text": "eCommerce",
+      "font": "GraphikLCG",
+      "size": "38px",
+      "weight": "500",
+      "lh": "39.9999px",
+      "ls": "-1.9px"
+    },
+    {
+      "tag": "H2",
+      "text": "Recognition\n                     — \n                    \n                       ",
+      "font": "GraphikLCG",
+      "size": "76px",
+      "weight": "500",
+      "lh": "69.9998px",
+      "ls": "-5.32px"
+    },
+    {
+      "tag": "H2",
+      "text": "Our Capabilities",
+      "font": "GraphikLCG",
+      "size": "16px",
+      "weight": "400",
+      "lh": "16px",
+      "ls": "-0.64px"
+    },
+    {
+      "tag": "H3",
+      "text": "Web & mobile apps",
+      "font": "GraphikLCG",
+      "size": "38px",
+      "weight": "500",
+      "lh": "39.9999px",
+      "ls": "-1.9px"
+    },
+    {
+      "tag": "H3",
+      "text": "UX & product design",
+      "font": "GraphikLCG",
+      "size": "38px",
+      "weight": "500",
+      "lh": "39.9999px",
+      "ls": "-1.9px"
+    },
+    {
+      "tag": "H3",
+      "text": "Product development",
+      "font": "GraphikLCG",
+      "size": "38px",
+      "weight": "500",
+      "lh": "39.9999px",
+      "ls": "-1.9px"
+    },
+    {
+      "tag": "H3",
+      "text": "Award-class web design",
+      "font": "GraphikLCG",
+      "size": "38px",
+      "weight": "500",
+      "lh": "39.9999px",
+      "ls": "-1.9px"
+    },
+    {
+      "tag": "H3",
+      "text": "Communication design",
+      "font": "GraphikLCG",
+      "size": "38px",
+      "weight": "500",
+      "lh": "39.9999px",
+      "ls": "-1.9px"
+    },
+    {
+      "tag": "H2",
+      "text": "Company",
+      "font": "GraphikLCG",
+      "size": "16px",
+      "weight": "400",
+      "lh": "16px",
+      "ls": "-0.64px"
+    }
+  ],
+  "colors": [
+    [
+      "rgb(25, 27, 29)",
+      664
+    ],
+    [
+      "rgb(255, 255, 255)",
+      351
+    ],
+    [
+      "rgba(25, 27, 29, 0.5)",
+      31
+    ],
+    [
+      "rgba(255, 255, 255, 0.6)",
+      7
+    ],
+    [
+      "rgba(25, 27, 29, 0.3)",
+      6
+    ],
+    [
+      "rgb(0, 0, 0)",
+      5
+    ],
+    [
+      "rgba(25, 27, 29, 0.7)",
+      3
+    ],
+    [
+      "rgb(205, 206, 207)",
+      2
+    ]
+  ],
+  "nav": [
+    {
+      "t": "Expertise",
+      "h": null
+    },
+    {
+      "t": "Work",
+      "h": "/work"
+    },
+    {
+      "t": "Company",
+      "h": "/company"
+    },
+    {
+      "t": "Blog",
+      "h": "/blog"
+    },
+    {
+      "t": "Career",
+      "h": "/career"
+    },
+    {
+      "t": "Contact",
+      "h": "/contact"
+    },
+    {
+      "t": "",
+      "h": "#menu-mobile"
+    },
+    {
+      "t": "Web & mobile apps",
+      "h": null
+    },
+    {
+      "t": "UX & product design",
+      "h": null
+    },
+    {
+      "t": "Product development",
+      "h": null
+    },
+    {
+      "t": "Award-class web design",
+      "h": null
+    },
+    {
+      "t": "Communication design",
+      "h": null
+    },
+    {
+      "t": "LinkedIn",
+      "h": "https://www.linkedin.com/company/vide-infra/"
+    },
+    {
+      "t": "Instagram",
+      "h": "https://www.instagram.com/videinfra_com/"
+    }
+  ],
+  "links": [
+    "https://videinfra.com/work",
+    "https://videinfra.com/company",
+    "https://videinfra.com/blog",
+    "https://videinfra.com/career",
+    "https://videinfra.com/contact",
+    "https://videinfra.com/#menu-mobile",
+    "https://videinfra.com/luxury-real-estate-website-design-agency",
+    "https://videinfra.com/corporate-website-development-agency",
+    "https://videinfra.com/design-agency-for-startups",
+    "https://videinfra.com/expertise/ecommerce",
+    "https://videinfra.com/work/sobha-privy-collection?expertise=8",
+    "https://videinfra.com/work/springs?expertise=8",
+    "https://videinfra.com/work/dr-grigoriak?expertise=3",
+    "https://videinfra.com/work/madar?expertise=3",
+    "https://videinfra.com/work/follow-art?expertise=1",
+    "https://videinfra.com/work/ai-in-banking-ux-design?expertise=1",
+    "https://videinfra.com/work/amaffi?expertise=2",
+    "https://videinfra.com/work/bite?expertise=2",
+    "https://videinfra.com/blog/future-real-estate-website-design",
+    "https://videinfra.com/blog/luxury-website-design-dubai-residences",
+    "https://videinfra.com/blog/best-real-estate-websites-examples",
+    "https://videinfra.com/",
+    "https://www.linkedin.com/company/vide-infra/",
+    "https://www.instagram.com/videinfra_com/",
+    "https://www.facebook.com/videinfra/",
+    "https://www.behance.net/videinfra",
+    "https://dribbble.com/videinfra",
+    "https://videinfra.com/privacy-policy"
+  ],
+  "desktopOverflow": 0,
+  "mobileOverflow": 0
+}

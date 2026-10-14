@@ -1,0 +1,312 @@
+{
+  "status": 200,
+  "finalUrl": "https://www.are.na/",
+  "title": "Are.na",
+  "height": 5532,
+  "fonts": [
+    [
+      "areal",
+      261
+    ],
+    [
+      "\"Times New Roman\"",
+      1
+    ]
+  ],
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "Are.na is",
+      "font": "areal",
+      "size": "19.2px",
+      "weight": "400",
+      "lh": "27.84px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "How it works",
+      "font": "areal",
+      "size": "19.2px",
+      "weight": "700",
+      "lh": "27.84px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Capture",
+      "font": "areal",
+      "size": "19.2px",
+      "weight": "400",
+      "lh": "23.04px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Arrange",
+      "font": "areal",
+      "size": "19.2px",
+      "weight": "400",
+      "lh": "23.04px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Search",
+      "font": "areal",
+      "size": "19.2px",
+      "weight": "400",
+      "lh": "23.04px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Connect",
+      "font": "areal",
+      "size": "19.2px",
+      "weight": "400",
+      "lh": "23.04px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Network",
+      "font": "areal",
+      "size": "19.2px",
+      "weight": "400",
+      "lh": "23.04px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "No ads, no personalized recommendations",
+      "font": "areal",
+      "size": "19.2px",
+      "weight": "700",
+      "lh": "27.84px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Long-term vision",
+      "font": "areal",
+      "size": "19.2px",
+      "weight": "700",
+      "lh": "27.84px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "API",
+      "font": "areal",
+      "size": "19.2px",
+      "weight": "700",
+      "lh": "27.84px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "The secret",
+      "font": "areal",
+      "size": "19.2px",
+      "weight": "700",
+      "lh": "27.84px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Editorial",
+      "font": "areal",
+      "size": "19.2px",
+      "weight": "400",
+      "lh": "27.84px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Discover",
+      "font": "areal",
+      "size": "12.5px",
+      "weight": "400",
+      "lh": "16.875px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Product",
+      "font": "areal",
+      "size": "12.5px",
+      "weight": "400",
+      "lh": "16.875px",
+      "ls": "normal"
+    }
+  ],
+  "colors": [
+    [
+      "rgb(51, 51, 51)",
+      664
+    ],
+    [
+      "rgb(0, 0, 0)",
+      180
+    ],
+    [
+      "rgb(105, 105, 105)",
+      90
+    ],
+    [
+      "rgb(255, 255, 255)",
+      64
+    ],
+    [
+      "rgba(255, 255, 255, 0.95)",
+      56
+    ],
+    [
+      "rgb(247, 247, 247)",
+      48
+    ],
+    [
+      "rgb(153, 153, 153)",
+      17
+    ],
+    [
+      "rgb(222, 222, 222)",
+      10
+    ],
+    [
+      "rgb(237, 237, 237)",
+      10
+    ],
+    [
+      "rgb(0, 7, 95)",
+      4
+    ],
+    [
+      "rgba(247, 247, 247, 0.6)",
+      1
+    ]
+  ],
+  "nav": [
+    {
+      "t": "Sign up",
+      "h": "/sign_up"
+    },
+    {
+      "t": "Log in",
+      "h": "/login"
+    },
+    {
+      "t": "Explore",
+      "h": "/explore"
+    },
+    {
+      "t": "Search",
+      "h": "/search"
+    },
+    {
+      "t": "Are.na Editorial",
+      "h": "/editorial"
+    },
+    {
+      "t": "Community Projects",
+      "h": "/about#community-projects"
+    },
+    {
+      "t": "Annual books",
+      "h": "/about#annual"
+    },
+    {
+      "t": "Gift Shop",
+      "h": "https://store.are.na"
+    },
+    {
+      "t": "About & features",
+      "h": "/about"
+    },
+    {
+      "t": "Pricing & plans",
+      "h": "/about#pricing"
+    },
+    {
+      "t": "Roadmap",
+      "h": "/about#roadmap"
+    },
+    {
+      "t": "Browser extensions",
+      "h": "/about#browser-extensions"
+    },
+    {
+      "t": "Developers",
+      "h": "/developers"
+    },
+    {
+      "t": "Team",
+      "h": "/about#team"
+    }
+  ],
+  "links": [
+    "https://www.are.na/sign_up",
+    "https://www.are.na/login",
+    "https://www.are.na/block/24037085",
+    "https://www.are.na/block/24037113",
+    "https://www.are.na/block/587561",
+    "https://www.are.na/block/8743228",
+    "https://contemporaryartdaily.com/2019/06/william-leavitt-at-greene-naftali-2/",
+    "https://www.are.na/block/4640007",
+    "https://www.are.na/block/40957423",
+    "https://www.are.na/block/38371175",
+    "https://www.pointcloud.garden/",
+    "https://www.are.na/block/549603",
+    "https://www.are.na/block/14370480",
+    "https://www.e-flux.com/journal/123/437244/haunting-blackness-and-algorithmic-thought/",
+    "https://www.are.na/block/11840477",
+    "https://www.are.na/block/47181630",
+    "https://www.are.na/block/3673305",
+    "https://www.are.na/block/2798632",
+    "https://www.are.na/block/42928355",
+    "https://www.are.na/block/3673609",
+    "https://www.are.na/block/12085896",
+    "https://ojs.ethnobiology.org/index.php/ebl/article/view/1351/705",
+    "https://www.are.na/block/1517312",
+    "https://muse.jhu.edu/article/20322",
+    "https://www.are.na/block/50713310",
+    "https://gsapp-cdp.github.io/archive/projects/2023/unpredictable-atmosphere/",
+    "https://www.are.na/block/2903186",
+    "https://www.are.na/block/16305671",
+    "https://arika.org.uk/archive/items/kill-your-timid-notion-07/shutter-interface",
+    "https://www.are.na/block/21294021",
+    "https://www.are.na/block/11812257",
+    "https://www.media.mit.edu/speech/papers/1979/bolt_1979_spatial_data-management.pdf",
+    "https://www.are.na/block/11234329",
+    "https://www.are.na/block/11528394",
+    "https://www.are.na/search?q=%7B%22term%22%3A%7B%22facet%22%3A%22spatial%20discontinuity%22%7D%2C%22where%22%3A%5B%7B%22facet%22%3A%22ALL%22%7D%5D%2C%22what%22%3A%7B%22facets%22%3A%5B%22ALL%22%5D%7D%2C%22fields%22%3A%7B%22facets%22%3A%5B%22ALL%22%5D%7D%2C%22order%22%3A%7B%22facet%22%3A%22SCORE%22%2C%22dir%22%3A%22DESC%22%7D%7D",
+    "https://www.are.na/about#roadmap",
+    "https://www.are.na/developers/explore",
+    "https://www.are.na/developers/resources",
+    "https://www.are.na/editorial",
+    "https://www.are.na/editorial/alice-yuan-zhang-on-building-things-into-being",
+    "https://www.are.na/editorial/from-earth-to-sky",
+    "https://www.are.na/editorial/emily-labarge-and-sara-magenheimer-in-conversation",
+    "https://www.are.na/editorial/how-do-you-describe-are-na-at-a-party",
+    "https://www.are.na/editorial/an-interview-with-the-people-behind-the-cybernetics-library",
+    "https://www.are.na/editorial/nurturing-into-being-an-interview-with-stephanie-dinkins",
+    "https://www.are.na/editorial/no-ego-an-interview-with-artist-and-educator-sara-magenheimer",
+    "https://www.are.na/editorial/on-our-api",
+    "https://www.are.na/editorial/introducing-are-na-frame-an-open-source-e-ink-display-for-channels",
+    "https://www.are.na/editorial/objects-in-mirror-are-closer-than-they-appear",
+    "https://www.are.na/explore",
+    "https://www.are.na/search",
+    "https://www.are.na/about#community-projects",
+    "https://www.are.na/about#annual",
+    "https://store.are.na/",
+    "https://www.are.na/about",
+    "https://www.are.na/about#pricing",
+    "https://www.are.na/about#browser-extensions",
+    "https://www.are.na/developers",
+    "https://www.are.na/about#team",
+    "https://www.are.na/are-na-team/are-na-press"
+  ],
+  "desktopOverflow": 0,
+  "mobileOverflow": 0
+}

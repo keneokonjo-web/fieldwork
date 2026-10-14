@@ -1,0 +1,289 @@
+{
+  "status": 200,
+  "finalUrl": "https://stateofaidesign.com/",
+  "title": "AI in Design Report 2026",
+  "height": 11209,
+  "fonts": [
+    [
+      "\"Beausite Classic Medium\"",
+      100
+    ],
+    [
+      "\"Beausite Classic Regular\"",
+      57
+    ],
+    [
+      "sans-serif",
+      55
+    ],
+    [
+      "\"Geist Mono\"",
+      12
+    ],
+    [
+      "Inter",
+      3
+    ]
+  ],
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "AI in Design Report 2026",
+      "font": "\"Beausite Classic Medium\"",
+      "size": "120px",
+      "weight": "500",
+      "lh": "114px",
+      "ls": "-7.2px"
+    },
+    {
+      "tag": "H1",
+      "text": "In 2025, designers were experimenting with AI. In 2026, they’re rebuilding aroun",
+      "font": "\"Beausite Classic Medium\"",
+      "size": "50px",
+      "weight": "500",
+      "lh": "50px",
+      "ls": "-2px"
+    },
+    {
+      "tag": "H2",
+      "text": "01",
+      "font": "\"Beausite Classic Medium\"",
+      "size": "80px",
+      "weight": "500",
+      "lh": "76px",
+      "ls": "-4.8px"
+    },
+    {
+      "tag": "H2",
+      "text": "Tools",
+      "font": "\"Beausite Classic Medium\"",
+      "size": "80px",
+      "weight": "500",
+      "lh": "76px",
+      "ls": "-4.8px"
+    },
+    {
+      "tag": "H1",
+      "text": "The great toolstack shakeup",
+      "font": "\"Beausite Classic Medium\"",
+      "size": "40px",
+      "weight": "500",
+      "lh": "44px",
+      "ls": "-1.6px"
+    },
+    {
+      "tag": "H2",
+      "text": "02",
+      "font": "\"Beausite Classic Medium\"",
+      "size": "80px",
+      "weight": "500",
+      "lh": "76px",
+      "ls": "-4.8px"
+    },
+    {
+      "tag": "H2",
+      "text": "Craft",
+      "font": "\"Beausite Classic Medium\"",
+      "size": "80px",
+      "weight": "500",
+      "lh": "76px",
+      "ls": "-4.8px"
+    },
+    {
+      "tag": "H1",
+      "text": "Craft in the age of infinite output",
+      "font": "\"Beausite Classic Medium\"",
+      "size": "40px",
+      "weight": "500",
+      "lh": "44px",
+      "ls": "-1.6px"
+    },
+    {
+      "tag": "H2",
+      "text": "03",
+      "font": "\"Beausite Classic Medium\"",
+      "size": "80px",
+      "weight": "500",
+      "lh": "76px",
+      "ls": "-4.8px"
+    },
+    {
+      "tag": "H2",
+      "text": "Teams",
+      "font": "\"Beausite Classic Medium\"",
+      "size": "80px",
+      "weight": "500",
+      "lh": "76px",
+      "ls": "-4.8px"
+    },
+    {
+      "tag": "H1",
+      "text": "Redesigning the design org",
+      "font": "\"Beausite Classic Medium\"",
+      "size": "40px",
+      "weight": "500",
+      "lh": "44px",
+      "ls": "-1.6px"
+    },
+    {
+      "tag": "H2",
+      "text": "Video Case Studies",
+      "font": "\"Geist Mono\"",
+      "size": "13px",
+      "weight": "500",
+      "lh": "13px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Seven companies. Seven ways of navigating the same shift.",
+      "font": "\"Beausite Classic Medium\"",
+      "size": "40px",
+      "weight": "500",
+      "lh": "44px",
+      "ls": "-1.6px"
+    },
+    {
+      "tag": "H3",
+      "text": "Inside AI-native design teams",
+      "font": "\"Beausite Classic Medium\"",
+      "size": "26px",
+      "weight": "500",
+      "lh": "36.4px",
+      "ls": "-1.04px"
+    }
+  ],
+  "colors": [
+    [
+      "rgb(0, 0, 0)",
+      836
+    ],
+    [
+      "rgb(0, 0, 238)",
+      407
+    ],
+    [
+      "rgb(255, 255, 255)",
+      93
+    ],
+    [
+      "rgb(205, 171, 254)",
+      34
+    ],
+    [
+      "rgb(254, 113, 65)",
+      12
+    ],
+    [
+      "rgb(43, 43, 43)",
+      6
+    ],
+    [
+      "rgba(0, 0, 0, 0.6)",
+      4
+    ],
+    [
+      "rgb(209, 221, 211)",
+      4
+    ],
+    [
+      "rgb(153, 238, 255)",
+      1
+    ],
+    [
+      "rgb(240, 255, 28)",
+      1
+    ],
+    [
+      "rgba(255, 255, 255, 0.6)",
+      1
+    ]
+  ],
+  "nav": [
+    {
+      "t": "AboutAbout",
+      "h": "./about"
+    },
+    {
+      "t": "Case StudiesCase Studies",
+      "h": null
+    },
+    {
+      "t": "",
+      "h": "./"
+    },
+    {
+      "t": "Tools01",
+      "h": "./chapters/tools"
+    },
+    {
+      "t": "Craft02",
+      "h": "./chapters/craft"
+    },
+    {
+      "t": "Teams03",
+      "h": "./chapters/teams"
+    },
+    {
+      "t": "Sierra01",
+      "h": "./cases/sierra"
+    },
+    {
+      "t": "Linear02",
+      "h": "./cases/linear"
+    },
+    {
+      "t": "Shopify03",
+      "h": "./cases/shopify"
+    },
+    {
+      "t": "Stripe04",
+      "h": "./cases/stripe"
+    },
+    {
+      "t": "Anthropic05",
+      "h": "./cases/anthropic"
+    },
+    {
+      "t": "Notion06Coming soon",
+      "h": null
+    },
+    {
+      "t": "Framer07Coming soon",
+      "h": null
+    },
+    {
+      "t": "AboutAbout",
+      "h": "./about"
+    }
+  ],
+  "links": [
+    "https://stateofaidesign.com/about",
+    "https://stateofaidesign.com/",
+    "https://stateofaidesign.com/chapters/tools",
+    "https://stateofaidesign.com/chapters/craft",
+    "https://stateofaidesign.com/chapters/teams",
+    "https://stateofaidesign.com/cases/sierra",
+    "https://stateofaidesign.com/cases/linear",
+    "https://stateofaidesign.com/cases/shopify",
+    "https://stateofaidesign.com/cases/stripe",
+    "https://stateofaidesign.com/cases/anthropic",
+    "https://stateofaidesign.com/#partners",
+    "https://stateofaidesign.com/#scroll-to-subscribe",
+    "https://designerfund.com/privacy",
+    "https://foundationcapital.com/privacy-policy",
+    "https://anthropic.com/",
+    "https://www.framer.com/",
+    "https://stripe.com/",
+    "https://sierra.ai/",
+    "https://www.notion.com/",
+    "https://shopify.com/",
+    "https://linear.app/",
+    "https://stateofaidesign.com/#case-studies",
+    "https://designerfund.com/",
+    "https://foundationcapital.com/",
+    "https://www.hellohello.is/"
+  ],
+  "desktopOverflow": -15,
+  "mobileOverflow": -15
+}

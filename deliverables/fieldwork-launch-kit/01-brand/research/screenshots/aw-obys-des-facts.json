@@ -1,0 +1,157 @@
+{
+  "status": 200,
+  "finalUrl": "https://des.obys.agency/",
+  "title": "DES® | Design Education Series® by Obys®",
+  "height": 900,
+  "fonts": [
+    [
+      "\"ABC Monument\"",
+      173
+    ]
+  ],
+  "headings": [
+    {
+      "tag": "H2",
+      "text": "Design Education Series® by Obys®",
+      "font": "\"ABC Monument\"",
+      "size": "26px",
+      "weight": "400",
+      "lh": "28.6px",
+      "ls": "-0.26px"
+    },
+    {
+      "tag": "H2",
+      "text": "Original Series by Obys® about the main design principles",
+      "font": "\"ABC Monument\"",
+      "size": "26px",
+      "weight": "400",
+      "lh": "28.6px",
+      "ls": "-0.26px"
+    },
+    {
+      "tag": "H2",
+      "text": "Creative Web Design Practice",
+      "font": "\"ABC Monument\"",
+      "size": "53px",
+      "weight": "400",
+      "lh": "53px",
+      "ls": "-1.59px"
+    },
+    {
+      "tag": "H2",
+      "text": "Typography Principles",
+      "font": "\"ABC Monument\"",
+      "size": "53px",
+      "weight": "400",
+      "lh": "53px",
+      "ls": "-1.59px"
+    },
+    {
+      "tag": "H2",
+      "text": "Colors Combinations",
+      "font": "\"ABC Monument\"",
+      "size": "53px",
+      "weight": "400",
+      "lh": "53px",
+      "ls": "-1.59px"
+    },
+    {
+      "tag": "H2",
+      "text": "Grids",
+      "font": "\"ABC Monument\"",
+      "size": "53px",
+      "weight": "400",
+      "lh": "53px",
+      "ls": "-1.59px"
+    }
+  ],
+  "colors": [
+    [
+      "rgb(23, 25, 26)",
+      592
+    ],
+    [
+      "rgb(242, 242, 242)",
+      52
+    ],
+    [
+      "rgba(86, 86, 86, 0.1)",
+      12
+    ],
+    [
+      "rgb(167, 167, 167)",
+      10
+    ],
+    [
+      "rgb(255, 255, 255)",
+      2
+    ]
+  ],
+  "nav": [
+    {
+      "t": "",
+      "h": "/"
+    },
+    {
+      "t": "Practice",
+      "h": "/creative-web-design-practice/"
+    },
+    {
+      "t": "Typography Principles(New)2026",
+      "h": "/typography-principles/"
+    },
+    {
+      "t": "Colors Combinations(New)2026 /",
+      "h": "/colors-combinations/"
+    },
+    {
+      "t": "Grids(New)2026 /6+ / 03 Season",
+      "h": "/grids/"
+    },
+    {
+      "t": "About",
+      "h": "/about/"
+    },
+    {
+      "t": "Instagram",
+      "h": "https://www.instagram.com/design_education_series/"
+    },
+    {
+      "t": "Youtube",
+      "h": "https://www.youtube.com/@obysagency"
+    },
+    {
+      "t": "Х (Twitter)",
+      "h": "https://twitter.com/des_by_obys"
+    },
+    {
+      "t": "TikTok",
+      "h": "https://www.tiktok.com/@obys_agency"
+    },
+    {
+      "t": "Log In",
+      "h": "https://sso.teachable.com/secure/2040109/identity/login/password"
+    }
+  ],
+  "links": [
+    "https://des.obys.agency/",
+    "https://des.obys.agency/creative-web-design-practice/",
+    "https://des.obys.agency/typography-principles/",
+    "https://des.obys.agency/colors-combinations/",
+    "https://des.obys.agency/grids/",
+    "https://des.obys.agency/about/",
+    "https://www.instagram.com/design_education_series/",
+    "https://www.youtube.com/@obysagency",
+    "https://twitter.com/des_by_obys",
+    "https://www.tiktok.com/@obys_agency",
+    "https://sso.teachable.com/secure/2040109/identity/login/password",
+    "https://typographyprinciples.obys.agency/",
+    "https://colors.combinations.obys.agency/",
+    "https://grids.obys.agency/",
+    "https://des.obys.agency/privacy-policy/",
+    "https://des.obys.agency/legal-terms/",
+    "https://obys.agency/"
+  ],
+  "desktopOverflow": 0,
+  "mobileOverflow": 0
+}

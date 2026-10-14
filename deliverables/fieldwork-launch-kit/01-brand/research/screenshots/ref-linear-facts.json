@@ -1,0 +1,287 @@
+{
+  "status": 200,
+  "finalUrl": "https://linear.app/",
+  "title": "Linear – The system for product development",
+  "height": 9960,
+  "fonts": [
+    [
+      "\"Inter Variable\"",
+      888
+    ],
+    [
+      "\"Berkeley Mono\"",
+      303
+    ]
+  ],
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "The product development system for teams and agentsThe product developmentsystem",
+      "font": "\"Inter Variable\"",
+      "size": "64px",
+      "weight": "510",
+      "lh": "64px",
+      "ls": "-1.408px"
+    },
+    {
+      "tag": "H3",
+      "text": "Faster app launch",
+      "font": "\"Inter Variable\"",
+      "size": "20px",
+      "weight": "590",
+      "lh": "26.6px",
+      "ls": "-0.24px"
+    },
+    {
+      "tag": "H2",
+      "text": "A new species of product tool. Purpose-built for modern teams with AI workflows ",
+      "font": "\"Inter Variable\"",
+      "size": "48px",
+      "weight": "510",
+      "lh": "48px",
+      "ls": "-1.056px"
+    },
+    {
+      "tag": "H2",
+      "text": "Intakeand integrations",
+      "font": "\"Inter Variable\"",
+      "size": "48px",
+      "weight": "510",
+      "lh": "48px",
+      "ls": "-1.056px"
+    },
+    {
+      "tag": "H2",
+      "text": "Planningand monitoring",
+      "font": "\"Inter Variable\"",
+      "size": "48px",
+      "weight": "510",
+      "lh": "48px",
+      "ls": "-1.056px"
+    },
+    {
+      "tag": "H2",
+      "text": "AI andautomations",
+      "font": "\"Inter Variable\"",
+      "size": "48px",
+      "weight": "510",
+      "lh": "48px",
+      "ls": "-1.056px"
+    },
+    {
+      "tag": "H2",
+      "text": "Build, review,and ship",
+      "font": "\"Inter Variable\"",
+      "size": "48px",
+      "weight": "510",
+      "lh": "48px",
+      "ls": "-1.056px"
+    },
+    {
+      "tag": "H2",
+      "text": "Changelog",
+      "font": "\"Inter Variable\"",
+      "size": "48px",
+      "weight": "510",
+      "lh": "48px",
+      "ls": "-1.056px"
+    },
+    {
+      "tag": "H2",
+      "text": "Built for the future. Available today.",
+      "font": "\"Inter Variable\"",
+      "size": "72px",
+      "weight": "510",
+      "lh": "72px",
+      "ls": "-1.584px"
+    },
+    {
+      "tag": "H3",
+      "text": "Product",
+      "font": "\"Inter Variable\"",
+      "size": "13px",
+      "weight": "510",
+      "lh": "19.5px",
+      "ls": "-0.13px"
+    },
+    {
+      "tag": "H3",
+      "text": "Features",
+      "font": "\"Inter Variable\"",
+      "size": "13px",
+      "weight": "510",
+      "lh": "19.5px",
+      "ls": "-0.13px"
+    },
+    {
+      "tag": "H3",
+      "text": "Company",
+      "font": "\"Inter Variable\"",
+      "size": "13px",
+      "weight": "510",
+      "lh": "19.5px",
+      "ls": "-0.13px"
+    },
+    {
+      "tag": "H3",
+      "text": "Resources",
+      "font": "\"Inter Variable\"",
+      "size": "13px",
+      "weight": "510",
+      "lh": "19.5px",
+      "ls": "-0.13px"
+    },
+    {
+      "tag": "H3",
+      "text": "Connect",
+      "font": "\"Inter Variable\"",
+      "size": "13px",
+      "weight": "510",
+      "lh": "19.5px",
+      "ls": "-0.13px"
+    }
+  ],
+  "colors": [
+    [
+      "rgb(247, 248, 248)",
+      3127
+    ],
+    [
+      "rgb(138, 143, 152)",
+      452
+    ],
+    [
+      "rgb(98, 102, 109)",
+      296
+    ],
+    [
+      "rgb(208, 214, 224)",
+      199
+    ],
+    [
+      "rgb(255, 255, 255)",
+      165
+    ],
+    [
+      "rgb(226, 228, 231)",
+      142
+    ],
+    [
+      "rgb(247, 156, 224)",
+      45
+    ],
+    [
+      "rgb(15, 16, 17)",
+      37
+    ],
+    [
+      "rgba(255, 255, 255, 0.08)",
+      36
+    ],
+    [
+      "rgb(8, 9, 10)",
+      26
+    ],
+    [
+      "rgb(247, 191, 139)",
+      22
+    ],
+    [
+      "rgba(0, 255, 5, 0.1)",
+      19
+    ]
+  ],
+  "nav": [
+    {
+      "t": "",
+      "h": "/homepage"
+    },
+    {
+      "t": "Customers",
+      "h": "/customers"
+    },
+    {
+      "t": "Pricing",
+      "h": "/pricing"
+    },
+    {
+      "t": "Now",
+      "h": "/now"
+    },
+    {
+      "t": "Contact",
+      "h": "/contact"
+    },
+    {
+      "t": "Docs",
+      "h": "/docs"
+    },
+    {
+      "t": "Open app",
+      "h": "/login"
+    },
+    {
+      "t": "Log in",
+      "h": "/login"
+    },
+    {
+      "t": "Sign up",
+      "h": "/signup"
+    }
+  ],
+  "links": [
+    "https://linear.app/#skip-nav",
+    "https://linear.app/homepage",
+    "https://linear.app/customers",
+    "https://linear.app/pricing",
+    "https://linear.app/now",
+    "https://linear.app/contact",
+    "https://linear.app/docs",
+    "https://linear.app/login",
+    "https://linear.app/signup",
+    "https://linear.app/now/introducing-loops",
+    "https://linear.app/intake",
+    "https://linear.app/plan",
+    "https://linear.app/ai",
+    "https://linear.app/build",
+    "https://linear.app/changelog/2026-10-08-stacked-pull-requests",
+    "https://linear.app/changelog/2026-09-24-new-controls-for-linear-coding-agent",
+    "https://linear.app/changelog/2026-09-14-loops-for-product-management",
+    "https://linear.app/changelog/2026-09-03-priority-inbox",
+    "https://linear.app/changelog",
+    "https://linear.app/customers/openai",
+    "https://linear.app/customers/ramp",
+    "https://linear.app/customers/opendoor",
+    "https://linear.app/contact/sales",
+    "https://linear.app/download",
+    "https://linear.app/",
+    "https://linear.app/security",
+    "https://linear.app/asks",
+    "https://linear.app/agents",
+    "https://linear.app/coding-sessions",
+    "https://linear.app/customer-requests",
+    "https://linear.app/insights",
+    "https://linear.app/mobile",
+    "https://linear.app/integrations",
+    "https://linear.app/about",
+    "https://linear.app/careers",
+    "https://linear.app/method",
+    "https://linear.app/quality",
+    "https://linear.app/brand",
+    "https://linear.app/switch",
+    "https://linear.app/developers",
+    "https://linearstatus.com/",
+    "https://linear.app/enterprise",
+    "https://linear.app/startups",
+    "https://linear.app/join-slack",
+    "https://x.com/linear",
+    "https://github.com/linear",
+    "https://www.youtube.com/@linear",
+    "https://linear.app/privacy",
+    "https://linear.app/terms",
+    "https://linear.app/dpa",
+    "https://linear.app/legal/aup"
+  ],
+  "desktopOverflow": 0,
+  "mobileOverflow": 0
+}

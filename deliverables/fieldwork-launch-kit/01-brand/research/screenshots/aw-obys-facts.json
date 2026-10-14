@@ -1,0 +1,67 @@
+{
+  "status": 200,
+  "finalUrl": "https://obys.agency/",
+  "title": "Obys Agency",
+  "height": 900,
+  "fonts": [
+    [
+      "Obys",
+      674
+    ]
+  ],
+  "headings": [],
+  "colors": [
+    [
+      "rgb(0, 0, 0)",
+      1498
+    ],
+    [
+      "rgb(255, 255, 255)",
+      27
+    ],
+    [
+      "rgb(201, 201, 201)",
+      3
+    ]
+  ],
+  "nav": [
+    {
+      "t": "",
+      "h": "/"
+    },
+    {
+      "t": "Work",
+      "h": "/"
+    },
+    {
+      "t": "About",
+      "h": "/about"
+    }
+  ],
+  "links": [
+    "https://obys.agency/work/makhno",
+    "https://obys.agency/work/source-unknown",
+    "https://obys.agency/work/autex",
+    "https://obys.agency/work/odins-crow",
+    "https://obys.agency/work/olga-prudka",
+    "https://obys.agency/work/yulia",
+    "https://obys.agency/work/the-ways-we-work-miro",
+    "https://obys.agency/work/design-education-series",
+    "https://obys.agency/work/obys-design-books",
+    "https://obys.agency/work/eminente",
+    "https://obys.agency/work/abetka",
+    "https://obys.agency/work/black-sheep",
+    "https://obys.agency/work/salience-labs",
+    "https://obys.agency/work/ai-modernism-of-kharkiv",
+    "https://obys.agency/work/glyphic-biotechnologies",
+    "https://obys.agency/work/porsche-taycan",
+    "https://obys.agency/work/ayocin-atmos-lamp",
+    "https://obys.agency/work/grids",
+    "https://obys.agency/work/peter-lindbergh",
+    "mailto:info@obys.agency",
+    "https://obys.agency/",
+    "https://obys.agency/about"
+  ],
+  "desktopOverflow": 0,
+  "mobileOverflow": 0
+}

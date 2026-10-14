@@ -1,0 +1,129 @@
+{
+  "status": 200,
+  "finalUrl": "https://anwulikasnotes.substack.com/archive",
+  "title": "Archive - Field Notes on Flourishing",
+  "height": 1616,
+  "fonts": [
+    [
+      "system-ui",
+      58
+    ],
+    [
+      "\"SF Compact\"",
+      30
+    ],
+    [
+      "\"Instrument Serif\"",
+      9
+    ],
+    [
+      "Spectral",
+      2
+    ]
+  ],
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "",
+      "font": "\"Instrument Serif\"",
+      "size": "24px",
+      "weight": "400",
+      "lh": "32px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "April 2026",
+      "font": "\"SF Compact\"",
+      "size": "11px",
+      "weight": "500",
+      "lh": "20px",
+      "ls": "0.2px"
+    },
+    {
+      "tag": "H3",
+      "text": "March 2026",
+      "font": "\"SF Compact\"",
+      "size": "11px",
+      "weight": "500",
+      "lh": "20px",
+      "ls": "0.2px"
+    },
+    {
+      "tag": "H3",
+      "text": "February 2026",
+      "font": "\"SF Compact\"",
+      "size": "11px",
+      "weight": "500",
+      "lh": "20px",
+      "ls": "0.2px"
+    },
+    {
+      "tag": "H3",
+      "text": "January 2026",
+      "font": "\"SF Compact\"",
+      "size": "11px",
+      "weight": "500",
+      "lh": "20px",
+      "ls": "0.2px"
+    }
+  ],
+  "colors": [
+    [
+      "rgb(94, 68, 55)",
+      191
+    ],
+    [
+      "rgb(54, 55, 55)",
+      188
+    ],
+    [
+      "rgb(0, 0, 0)",
+      133
+    ],
+    [
+      "rgb(134, 134, 134)",
+      78
+    ],
+    [
+      "rgb(255, 253, 252)",
+      13
+    ],
+    [
+      "rgb(233, 196, 106)",
+      5
+    ],
+    [
+      "rgb(255, 255, 255)",
+      1
+    ],
+    [
+      "rgb(240, 238, 237)",
+      1
+    ]
+  ],
+  "nav": [],
+  "links": [
+    "https://anwulikasnotes.substack.com/",
+    "https://anwulikasnotes.substack.com/notes",
+    "https://anwulikasnotes.substack.com/chat",
+    "https://anwulikasnotes.substack.com/about",
+    "https://anwulikasnotes.substack.com/p/field-note-5-make-your-work-mean",
+    "https://substack.com/@anwulikaokonjo",
+    "https://anwulikasnotes.substack.com/p/field-note-5-what-is-your-speed-in",
+    "https://substack.com/@ijeruka",
+    "https://anwulikasnotes.substack.com/p/field-note-4-practicing-possibility",
+    "https://anwulikasnotes.substack.com/p/field-note-3-at-work-ancestral-intelligence",
+    "https://anwulikasnotes.substack.com/p/can-a-machine-hold-space",
+    "https://anwulikasnotes.substack.com/p/field-note-2-there-is-a-cost-to-waiting",
+    "https://anwulikasnotes.substack.com/p/field-note-1-flourishing-is-not-just",
+    "https://substack.com/privacy",
+    "https://substack.com/tos",
+    "https://substack.com/ccpa#personal-data-collected",
+    "https://substack.com/signup?utm_source=substack&utm_medium=web&utm_content=footer",
+    "https://substack.com/app/app-store-redirect?utm_campaign=app-marketing&utm_content=web-footer-button",
+    "https://substack.com/"
+  ],
+  "desktopOverflow": 0,
+  "mobileOverflow": 0
+}

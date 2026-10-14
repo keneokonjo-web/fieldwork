@@ -1,0 +1,173 @@
+{
+  "status": 200,
+  "finalUrl": "https://anwulika.com/fieldnotes/dilemma-lab",
+  "title": "Dilemma Lab · Field Notes on Flourishing",
+  "height": 2203,
+  "fonts": [
+    [
+      "Figtree",
+      44
+    ],
+    [
+      "\"Instrument Serif\"",
+      3
+    ]
+  ],
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "Share your dilemma",
+      "font": "\"Instrument Serif\"",
+      "size": "115.2px",
+      "weight": "400",
+      "lh": "112.896px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Submit your dilemma",
+      "font": "\"Instrument Serif\"",
+      "size": "48px",
+      "weight": "400",
+      "lh": "50.4px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Get the next note from the field",
+      "font": "\"Instrument Serif\"",
+      "size": "52px",
+      "weight": "400",
+      "lh": "54.6px",
+      "ls": "normal"
+    }
+  ],
+  "colors": [
+    [
+      "rgb(20, 20, 19)",
+      87
+    ],
+    [
+      "rgb(250, 246, 240)",
+      33
+    ],
+    [
+      "rgb(233, 196, 106)",
+      5
+    ],
+    [
+      "rgb(43, 41, 41)",
+      5
+    ],
+    [
+      "rgb(255, 253, 252)",
+      5
+    ],
+    [
+      "rgb(88, 81, 73)",
+      4
+    ],
+    [
+      "rgb(0, 0, 0)",
+      4
+    ],
+    [
+      "rgb(255, 255, 255)",
+      3
+    ],
+    [
+      "rgb(228, 187, 129)",
+      3
+    ],
+    [
+      "rgb(138, 69, 51)",
+      2
+    ],
+    [
+      "rgb(188, 89, 70)",
+      2
+    ],
+    [
+      "rgba(250, 246, 240, 0.88)",
+      1
+    ]
+  ],
+  "nav": [
+    {
+      "t": "",
+      "h": "/fieldnotes"
+    },
+    {
+      "t": "Field Notes",
+      "h": "/fieldnotes/notes"
+    },
+    {
+      "t": "Guides",
+      "h": "/fieldnotes/guides"
+    },
+    {
+      "t": "Dilemma Lab",
+      "h": "/fieldnotes/dilemma-lab"
+    },
+    {
+      "t": "About",
+      "h": "/fieldnotes/about"
+    },
+    {
+      "t": "The Reinvention Lab",
+      "h": "https://reinvention-lab.changingpeople.co"
+    },
+    {
+      "t": "1:1 Coaching",
+      "h": "https://changingpeople.co/reinventionpartnership"
+    },
+    {
+      "t": "The Co-Intelligence Advantage ",
+      "h": "https://reinvention-lab.changingpeople.co/masterclass"
+    },
+    {
+      "t": "The Work Ahead Assessment™",
+      "h": "https://changingpeople.co/the-work-ahead-waitlist"
+    },
+    {
+      "t": "Search",
+      "h": "/fieldnotes/search"
+    },
+    {
+      "t": "Subscribe",
+      "h": "#subscribe"
+    },
+    {
+      "t": "Field Notes",
+      "h": "/fieldnotes/notes"
+    },
+    {
+      "t": "Guides",
+      "h": "/fieldnotes/guides"
+    },
+    {
+      "t": "Dilemma Lab",
+      "h": "/fieldnotes/dilemma-lab"
+    }
+  ],
+  "links": [
+    "https://anwulika.com/fieldnotes",
+    "https://anwulika.com/fieldnotes/notes",
+    "https://anwulika.com/fieldnotes/guides",
+    "https://anwulika.com/fieldnotes/dilemma-lab",
+    "https://anwulika.com/fieldnotes/about",
+    "https://reinvention-lab.changingpeople.co/",
+    "https://changingpeople.co/reinventionpartnership",
+    "https://reinvention-lab.changingpeople.co/masterclass",
+    "https://changingpeople.co/the-work-ahead-waitlist",
+    "https://anwulika.com/fieldnotes/search",
+    "https://anwulika.com/fieldnotes/dilemma-lab#subscribe",
+    "https://anwulika.com/",
+    "https://www.linkedin.com/in/anokonjo/",
+    "https://www.youtube.com/@anwulika.okonjo",
+    "https://anwulika.com/fieldnotes/feed.xml",
+    "https://anwulika.com/for-ai-agents"
+  ],
+  "desktopOverflow": 0,
+  "mobileOverflow": 22
+}

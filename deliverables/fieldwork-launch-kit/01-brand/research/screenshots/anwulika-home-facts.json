@@ -1,0 +1,162 @@
+{
+  "status": 200,
+  "finalUrl": "https://anwulika.com/",
+  "title": "Anwulika Okonjo",
+  "height": 2751,
+  "fonts": [
+    [
+      "Figtree",
+      87
+    ],
+    [
+      "\"Sacre Bleu MVB\"",
+      11
+    ]
+  ],
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "Anwulika Okonjo",
+      "font": "Figtree",
+      "size": "56px",
+      "weight": "400",
+      "lh": "58.24px",
+      "ls": "-0.84px"
+    },
+    {
+      "tag": "H2",
+      "text": "Masterclasses, workshops and community calls",
+      "font": "Figtree",
+      "size": "40px",
+      "weight": "400",
+      "lh": "44px",
+      "ls": "-0.6px"
+    },
+    {
+      "tag": "H3",
+      "text": "The Work Ahead Assessment",
+      "font": "Figtree",
+      "size": "30px",
+      "weight": "400",
+      "lh": "33px",
+      "ls": "-0.45px"
+    },
+    {
+      "tag": "H3",
+      "text": "Using AI for Self-reflection",
+      "font": "Figtree",
+      "size": "30px",
+      "weight": "400",
+      "lh": "33px",
+      "ls": "-0.45px"
+    },
+    {
+      "tag": "H3",
+      "text": "The Reinvention Partnership",
+      "font": "Figtree",
+      "size": "38px",
+      "weight": "400",
+      "lh": "41.8px",
+      "ls": "-0.57px"
+    },
+    {
+      "tag": "H3",
+      "text": "The Reinvention Lab",
+      "font": "Figtree",
+      "size": "38px",
+      "weight": "400",
+      "lh": "41.8px",
+      "ls": "-0.57px"
+    },
+    {
+      "tag": "H2",
+      "text": "Field Notes on Flourishing",
+      "font": "Figtree",
+      "size": "40px",
+      "weight": "400",
+      "lh": "44px",
+      "ls": "-0.6px"
+    },
+    {
+      "tag": "H2",
+      "text": "Email me a dilemma",
+      "font": "Figtree",
+      "size": "40px",
+      "weight": "400",
+      "lh": "44px",
+      "ls": "-0.6px"
+    }
+  ],
+  "colors": [
+    [
+      "rgb(20, 20, 19)",
+      75
+    ],
+    [
+      "rgb(250, 246, 240)",
+      40
+    ],
+    [
+      "rgb(138, 69, 51)",
+      17
+    ],
+    [
+      "rgb(233, 196, 106)",
+      13
+    ],
+    [
+      "rgb(89, 51, 59)",
+      12
+    ],
+    [
+      "rgb(88, 81, 73)",
+      11
+    ],
+    [
+      "rgb(255, 253, 252)",
+      5
+    ],
+    [
+      "rgb(0, 0, 0)",
+      3
+    ],
+    [
+      "rgb(208, 218, 213)",
+      1
+    ]
+  ],
+  "nav": [
+    {
+      "t": "YouTube↗",
+      "h": "https://www.youtube.com/@anwulika.okonjo"
+    },
+    {
+      "t": "Field Notes↗",
+      "h": "https://anwulika.com/fieldnotes"
+    },
+    {
+      "t": "LinkedIn↗",
+      "h": "https://www.linkedin.com/in/anokonjo/"
+    },
+    {
+      "t": "Newsletter↗",
+      "h": "#newsletter"
+    }
+  ],
+  "links": [
+    "https://www.youtube.com/@anwulika.okonjo",
+    "https://anwulika.com/fieldnotes",
+    "https://www.linkedin.com/in/anokonjo/",
+    "https://anwulika.com/#newsletter",
+    "https://reinvention-lab.changingpeople.co/masterclass",
+    "https://changingpeople.co/the-work-ahead-waitlist",
+    "https://changingpeople.co/reinventionpartnership",
+    "https://reinvention-lab.changingpeople.co/",
+    "https://anwulika.com/fieldnotes/there-is-a-cost-to-waiting-for-legitimacy",
+    "https://anwulika.com/fieldnotes/flourishing-is-not-just-about-what-we-reach-for",
+    "mailto:anwulika@changingpeople.co?subject=My%20dilemma",
+    "https://anwulika.com/for-ai-agents"
+  ],
+  "desktopOverflow": 0,
+  "mobileOverflow": 0
+}

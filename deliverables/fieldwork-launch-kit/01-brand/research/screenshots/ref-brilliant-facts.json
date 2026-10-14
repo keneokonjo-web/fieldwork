@@ -1,0 +1,239 @@
+{
+  "status": 200,
+  "finalUrl": "https://brilliant.org/",
+  "title": "Brilliant | Your Personal Tutor for Math and Coding",
+  "height": 8431,
+  "fonts": [
+    [
+      "\"CoFo Brilliant\"",
+      362
+    ],
+    [
+      "coFoBrilliantFont",
+      12
+    ],
+    [
+      "\"CoFo Robert\"",
+      7
+    ],
+    [
+      "coFoRobertFont",
+      3
+    ]
+  ],
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "Your personal tutor for math and coding",
+      "font": "\"CoFo Robert\"",
+      "size": "76px",
+      "weight": "500",
+      "lh": "79.8px",
+      "ls": "-1.4px"
+    },
+    {
+      "tag": "H3",
+      "text": "Fully accredited",
+      "font": "\"CoFo Brilliant\"",
+      "size": "30px",
+      "weight": "400",
+      "lh": "37.5px",
+      "ls": "-0.3px"
+    },
+    {
+      "tag": "H3",
+      "text": "100,000+",
+      "font": "\"CoFo Brilliant\"",
+      "size": "30px",
+      "weight": "400",
+      "lh": "37.5px",
+      "ls": "-0.3px"
+    },
+    {
+      "tag": "H3",
+      "text": "10 million+",
+      "font": "\"CoFo Brilliant\"",
+      "size": "30px",
+      "weight": "400",
+      "lh": "37.5px",
+      "ls": "-0.3px"
+    },
+    {
+      "tag": "H2",
+      "text": "Meet Koji, your personal tutor",
+      "font": "\"CoFo Robert\"",
+      "size": "60px",
+      "weight": "500",
+      "lh": "66px",
+      "ls": "-1.2px"
+    },
+    {
+      "tag": "H3",
+      "text": "A visual, interactive tutor, not a cheating machine",
+      "font": "\"CoFo Brilliant\"",
+      "size": "36px",
+      "weight": "400",
+      "lh": "43.2px",
+      "ls": "-0.36px"
+    },
+    {
+      "tag": "H3",
+      "text": "Adapts to exactly where you are",
+      "font": "\"CoFo Brilliant\"",
+      "size": "36px",
+      "weight": "400",
+      "lh": "43.2px",
+      "ls": "-0.36px"
+    },
+    {
+      "tag": "H3",
+      "text": "Real-time progress tracking & analysis",
+      "font": "\"CoFo Brilliant\"",
+      "size": "36px",
+      "weight": "400",
+      "lh": "43.2px",
+      "ls": "-0.36px"
+    },
+    {
+      "tag": "H3",
+      "text": "A visual, interactive coding instructor",
+      "font": "\"CoFo Brilliant\"",
+      "size": "36px",
+      "weight": "400",
+      "lh": "43.2px",
+      "ls": "-0.36px"
+    },
+    {
+      "tag": "H3",
+      "text": "Build the CS skills that actually matter",
+      "font": "\"CoFo Brilliant\"",
+      "size": "36px",
+      "weight": "400",
+      "lh": "43.2px",
+      "ls": "-0.36px"
+    },
+    {
+      "tag": "H3",
+      "text": "Real-time progress tracking & analysis",
+      "font": "\"CoFo Brilliant\"",
+      "size": "36px",
+      "weight": "400",
+      "lh": "43.2px",
+      "ls": "-0.36px"
+    },
+    {
+      "tag": "H2",
+      "text": "Effective and trusted",
+      "font": "coFoRobertFont",
+      "size": "50px",
+      "weight": "500",
+      "lh": "55px",
+      "ls": "-0.5px"
+    },
+    {
+      "tag": "H3",
+      "text": "Lesson interventions",
+      "font": "\"CoFo Brilliant\"",
+      "size": "16px",
+      "weight": "400",
+      "lh": "24px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Mastery assessments",
+      "font": "\"CoFo Brilliant\"",
+      "size": "16px",
+      "weight": "400",
+      "lh": "24px",
+      "ls": "normal"
+    }
+  ],
+  "colors": [
+    [
+      "rgb(0, 0, 0)",
+      829
+    ],
+    [
+      "rgba(0, 0, 0, 0.3)",
+      71
+    ],
+    [
+      "rgb(255, 255, 255)",
+      69
+    ],
+    [
+      "rgba(0, 0, 0, 0.6)",
+      66
+    ],
+    [
+      "rgba(0, 0, 0, 0.4)",
+      52
+    ],
+    [
+      "rgb(245, 243, 241)",
+      29
+    ],
+    [
+      "rgb(153, 153, 153)",
+      22
+    ],
+    [
+      "rgb(85, 85, 85)",
+      16
+    ],
+    [
+      "rgb(39, 69, 92)",
+      8
+    ],
+    [
+      "rgb(41, 204, 87)",
+      4
+    ],
+    [
+      "rgb(255, 237, 224)",
+      4
+    ],
+    [
+      "rgb(231, 238, 226)",
+      4
+    ]
+  ],
+  "nav": [
+    {
+      "t": "",
+      "h": "/"
+    }
+  ],
+  "links": [
+    "https://brilliant.org/",
+    "https://brilliant.org/coding-skills/",
+    "https://kidsafe.com/member/brilliant",
+    "https://www.kidsafe.com/",
+    "https://brilliant.org/educators/?from=brilliant",
+    "https://play.google.com/store/apps/details?id=org.brilliant.android&listing=try-brilliant-app",
+    "https://apps.apple.com/app/apple-store/id913335252?pt=105095803&ct=nux_qr_code&mt=8",
+    "https://brilliant.org/courses/",
+    "https://brilliant.org/subscribe/",
+    "https://brilliant.org/gift-premium/",
+    "https://brilliant.org/resources/",
+    "https://brilliant.org/help/",
+    "https://brilliant.org/start/homeschool/",
+    "https://brilliant.org/practice/",
+    "https://brilliant.org/about/",
+    "https://brilliant.org/careers/",
+    "https://blog.brilliant.org/a-world-class-tutor-in-every-home/",
+    "https://blog.brilliant.org/hand-crafted-machine-made/",
+    "https://www.facebook.com/brilliantorg",
+    "https://www.instagram.com/brilliantorg",
+    "https://twitter.com/brilliantorg",
+    "https://www.linkedin.com/company/brilliant-org/",
+    "https://brilliant.org/terms-of-use/",
+    "https://brilliant.org/ccpa-policy/",
+    "https://brilliant.org/privacy/",
+    "https://brilliant.org/cookie-policy/",
+    "https://www.onetrust.com/solutions/consent-and-preferences/"
+  ],
+  "desktopOverflow": 0,
+  "mobileOverflow": 0
+}

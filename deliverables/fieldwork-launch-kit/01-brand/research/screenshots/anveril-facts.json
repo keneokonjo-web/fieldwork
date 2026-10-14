@@ -1,0 +1,233 @@
+{
+  "status": 200,
+  "finalUrl": "https://anveril.com/",
+  "title": "Anveril | Enterprise AI Transformation & Infrastructure",
+  "height": 15662,
+  "fonts": [
+    [
+      "\"Saans TRIAL Medium\"",
+      496
+    ],
+    [
+      "\"Saans TRIAL Regular\"",
+      479
+    ],
+    [
+      "\"Saans TRIAL Light\"",
+      334
+    ],
+    [
+      "sans-serif",
+      38
+    ],
+    [
+      "Inter",
+      1
+    ]
+  ],
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "Intelligence",
+      "font": "\"Saans TRIAL Medium\"",
+      "size": "60px",
+      "weight": "500",
+      "lh": "60px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H1",
+      "text": "Without Limits™",
+      "font": "\"Saans TRIAL Medium\"",
+      "size": "60px",
+      "weight": "500",
+      "lh": "60px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "A New Class",
+      "font": "\"Saans TRIAL Medium\"",
+      "size": "60px",
+      "weight": "500",
+      "lh": "84px",
+      "ls": "-2.4px"
+    },
+    {
+      "tag": "H2",
+      "text": "Of Enterprise",
+      "font": "\"Saans TRIAL Medium\"",
+      "size": "60px",
+      "weight": "500",
+      "lh": "84px",
+      "ls": "-2.4px"
+    },
+    {
+      "tag": "H2",
+      "text": "Anveril Deploys Intelligence Into Enterprise Operations",
+      "font": "\"Saans TRIAL Medium\"",
+      "size": "60px",
+      "weight": "500",
+      "lh": "60px",
+      "ls": "-1.2px"
+    },
+    {
+      "tag": "H3",
+      "text": "Diagnose",
+      "font": "\"Saans TRIAL Regular\"",
+      "size": "16px",
+      "weight": "400",
+      "lh": "16px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Structure",
+      "font": "\"Saans TRIAL Regular\"",
+      "size": "16px",
+      "weight": "400",
+      "lh": "16px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Engineer",
+      "font": "\"Saans TRIAL Regular\"",
+      "size": "16px",
+      "weight": "400",
+      "lh": "16px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Transform",
+      "font": "\"Saans TRIAL Regular\"",
+      "size": "16px",
+      "weight": "400",
+      "lh": "16px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H2",
+      "text": "Anveril Engineers AI For The Real Economy",
+      "font": "\"Saans TRIAL Medium\"",
+      "size": "60px",
+      "weight": "500",
+      "lh": "60px",
+      "ls": "-1.2px"
+    },
+    {
+      "tag": "H3",
+      "text": "Healthcare",
+      "font": "\"Saans TRIAL Regular\"",
+      "size": "16px",
+      "weight": "400",
+      "lh": "16px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Insurance",
+      "font": "\"Saans TRIAL Regular\"",
+      "size": "16px",
+      "weight": "400",
+      "lh": "16px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Defence",
+      "font": "\"Saans TRIAL Regular\"",
+      "size": "16px",
+      "weight": "400",
+      "lh": "16px",
+      "ls": "normal"
+    },
+    {
+      "tag": "H3",
+      "text": "Energy",
+      "font": "\"Saans TRIAL Regular\"",
+      "size": "16px",
+      "weight": "400",
+      "lh": "16px",
+      "ls": "normal"
+    }
+  ],
+  "colors": [
+    [
+      "rgb(38, 37, 29)",
+      930
+    ],
+    [
+      "rgb(0, 0, 0)",
+      583
+    ],
+    [
+      "rgba(38, 37, 29, 0.12)",
+      336
+    ],
+    [
+      "rgb(0, 0, 238)",
+      94
+    ],
+    [
+      "rgb(247, 247, 244)",
+      65
+    ],
+    [
+      "rgba(247, 247, 244, 0)",
+      24
+    ],
+    [
+      "rgba(247, 247, 244, 0.12)",
+      20
+    ],
+    [
+      "rgb(255, 255, 255)",
+      11
+    ],
+    [
+      "rgba(38, 37, 29, 0.2)",
+      9
+    ],
+    [
+      "rgb(189, 191, 176)",
+      5
+    ],
+    [
+      "rgb(242, 241, 238)",
+      5
+    ],
+    [
+      "rgba(38, 37, 29, 0)",
+      4
+    ]
+  ],
+  "nav": [
+    {
+      "t": "",
+      "h": "./"
+    }
+  ],
+  "links": [
+    "https://anveril.com/",
+    "https://anveril.com/research/anveril-manifesto",
+    "https://anveril.com/contact",
+    "https://anveril.com/industries",
+    "https://anveril.com/company#open-roles",
+    "https://anveril.com/research/defense-ai-data-readiness",
+    "https://anveril.com/research/insurance-ai-legacy-systems",
+    "https://anveril.com/research/healthcare-ai-two-gates",
+    "https://anveril.com/research/defense-ai-data-program",
+    "https://anveril.com/privacy-policy",
+    "https://anveril.com/company",
+    "https://anveril.com/terms-of-service",
+    "mailto:info@anveril.com",
+    "https://anveril.com/#manifesto",
+    "https://anveril.com/research",
+    "https://x.com/anveriltech",
+    "https://anveril.com/solutions"
+  ],
+  "desktopOverflow": 0,
+  "mobileOverflow": 0
+}
