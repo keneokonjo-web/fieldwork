@@ -1,0 +1,48 @@
+{
+  "name": "fieldwork-web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fieldwork: practical AI learning and training. Website, learning experience and launch system.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run lint && npm run test",
+    "brand:build": "node scripts/brand/build-brand-assets.mjs",
+    "docs:pdf": "node scripts/docs/build-pdfs.mjs",
+    "qa:browser": "node scripts/qa/browser-tests.mjs",
+    "qa:links": "node scripts/qa/link-check.mjs",
+    "kit:build": "node scripts/docs/build-launch-kit.mjs"
+  },
+  "engines": {
+    "node": ">=20.9"
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource-variable/instrument-sans": "^5.3.0",
+    "next": "^16.4.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@fontsource/fraunces": "^5.3.0",
+    "@fontsource/instrument-sans": "^5.3.0",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.1",
+    "exceljs": "^4.4.0",
+    "marked": "^18.1.1",
+    "opentype.js": "^2.0.0",
+    "playwright": "^1.56.1",
+    "pptxgenjs": "^4.0.1",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.4"
+  }
+}

@@ -1,0 +1,43 @@
+import type { Article } from './types';
+
+export const fivePartBrief: Article = {
+  slug: 'five-part-brief',
+  title: 'The five-part brief: how to ask an AI tool for something useful',
+  description: 'A simple structure for briefing any AI chat tool, with a before-and-after example and a template you can copy.',
+  audience: 'Anyone who has tried an AI chat tool and got a vague or generic answer.',
+  category: 'Method',
+  published: '2026-10-14',
+  readingMinutes: 6,
+  basis: 'An explanation of a working method. It describes how to structure a request. It is not a test or benchmark of any tool.',
+  related: ['check-ai-answers'],
+  blocks: [
+    { t: 'p', text: 'Most disappointing AI answers come from thin requests. “Write an email about the delay” leaves the tool to guess who it is for, how it should sound, what is true and how long it should be. It guesses, and the guess is generic.' },
+    { t: 'p', text: 'The fix is to brief the tool the way you would brief a capable new colleague who knows nothing about your situation. Five parts cover most everyday tasks.' },
+    { t: 'h2', text: 'The five parts' },
+    { t: 'ol', items: [
+      'Task. One sentence that starts with a verb. “Write a reply to this customer.” Not “Help me with customers”.',
+      'Audience. Who will read or use the result, and what they need from it. “A customer worried about a wedding date.”',
+      'Tone. How it should sound. “Warm and direct. Plain English. No corporate phrases.”',
+      'Shape. What the answer should look like. “Under 90 words. One clear next step.” Headings, bullets, order and length all go here.',
+      'Rules. What must stay exactly as given and what must not be invented. “Only use my facts. Mark anything missing as [needs checking].”',
+    ] },
+    { t: 'p', text: 'Then add the material: the real notes, message or facts the tool should work from. The material is what makes the result yours.' },
+    { t: 'h2', text: 'Before and after' },
+    { t: 'p', text: 'Thin version:' },
+    { t: 'prompt', title: 'Before', text: 'Write a reply to a customer whose order is late.' },
+    { t: 'p', text: 'Briefed version:' },
+    { t: 'prompt', title: 'After', text: 'I am doing a real piece of work and want your help drafting it.\n\nTask: Write a reply to this customer that explains the delay honestly and offers what I can offer.\nWho it is for: A customer who is worried the order will miss a wedding.\nTone: Warm, direct and respectful. Plain English.\nOutput format: A short message for WhatsApp or email. Under 90 words. One clear next step.\n\nRules:\n- Use only the material I give you. Do not invent facts, names, numbers or dates.\n- If something I need is missing, write [needs checking] instead of guessing.\n- Do not promise anything that is not in my facts.\n\nMaterial:\n---\n[customer message and your facts]\n---' },
+    { t: 'p', text: 'The second version takes about two minutes to write and saves the rounds of “make it shorter, make it warmer, that is not what happened” that the first one invites.' },
+    { t: 'h2', text: 'Common mistakes' },
+    { t: 'ul', items: [
+      'Describing the topic instead of the task. “Customer service” is a topic. “Reply to this message” is a task.',
+      'Leaving out the material and hoping the tool knows your situation. It does not.',
+      'Asking for “the best” anything. Say what “good” means: shorter, simpler, more formal, for a particular reader.',
+      'Skipping the rules. The rules are where you ask it not to invent things, which is the most useful line in the whole brief.',
+      'Treating the first answer as final. A brief gets you a better first draft. You still check it.',
+    ] },
+    { t: 'note', title: 'A small habit worth building', text: 'Keep the briefs that work. When a brief produces a good result, save it with a note of what you had to fix afterwards. That saved brief is a workflow, and it is more valuable than any single answer.' },
+    { t: 'h2', text: 'Try it on a real task' },
+    { t: 'p', text: 'The free Fieldwork exercise walks you through this structure with a task of your choice, then shows you how to check the answer. It takes about 15 minutes and needs no account.' },
+  ],
+};

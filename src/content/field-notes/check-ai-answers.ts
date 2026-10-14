@@ -1,0 +1,41 @@
+import type { Article } from './types';
+
+export const checkAiAnswers: Article = {
+  slug: 'check-ai-answers',
+  title: 'How to check an AI answer before you use it',
+  description: 'Six practical checks that catch the usual errors in AI-written text, and when to check harder.',
+  audience: 'Anyone who uses AI-written text for work, study or customers.',
+  category: 'Checking',
+  published: '2026-10-14',
+  readingMinutes: 6,
+  basis: 'An explanation of a checking method. The examples are illustrative and were written by Fieldwork. No tool was tested or compared for this note.',
+  related: ['five-part-brief', 'what-not-to-paste'],
+  blocks: [
+    { t: 'p', text: 'AI tools write fluently whether or not the content is right. A confident paragraph with one wrong figure reads exactly like a confident paragraph with none. So the skill that matters is not only asking well. It is checking well.' },
+    { t: 'p', text: 'The good news is that checking is quick if you do it deliberately. Here are six checks, in the order that catches most problems.' },
+    { t: 'h2', text: 'Six checks' },
+    { t: 'ol', items: [
+      'Facts against the source. Pick three specific details: a date, an amount, a name. Find each in your own material. Do not rely on memory.',
+      'Nothing invented. Read every sentence and ask where it came from. Anything you cannot trace to your material or a source you trust needs removing or verifying.',
+      'Nothing missing. Reread your material with the reader in mind. Is there something they need that did not make it in?',
+      'Does it sound right? Read it aloud. If you would not say it, or it sounds like someone else, rewrite it.',
+      'Format. Count the headings, bullets and words against what you asked for.',
+      'Safe to share. Check for personal or confidential details, in what you pasted and in what came back.',
+    ] },
+    { t: 'h2', text: 'A small example' },
+    { t: 'p', text: 'Your notes say: “Credit note still to be issued.” The draft update says: “The credit note has been issued.” One word differs, and your manager would now believe a job is done that is not. Check one catches it, if you actually open your notes. If you only skim the draft, it passes.' },
+    { t: 'h2', text: 'When to check harder' },
+    { t: 'table', caption: 'How much checking different content deserves', head: ['Content', 'Risk', 'What to do'], rows: [
+      ['A rewrite of text you wrote', 'Low', 'Read it through. Check names and numbers.'],
+      ['A summary of a document you have', 'Medium', 'Spot-check against the document. Look for missing points.'],
+      ['Numbers, dates, quotations, names', 'High', 'Verify each against the original source.'],
+      ['References, links, “studies show”', 'High', 'Open each one. Do not use anything you cannot find.'],
+      ['Legal, medical, financial, safety statements', 'Very high', 'Do not rely on AI output. Use a qualified source or professional.'],
+    ] },
+    { t: 'h2', text: 'Make the tool help you check' },
+    { t: 'p', text: 'You can ask the tool to make its own work easier to verify. This does not replace your check, but it makes it faster.' },
+    { t: 'prompt', title: 'Follow-up: show your working', text: 'Check your answer against my material line by line. For every date, name and amount, quote the part of my material it came from. Mark anything you cannot match as [not in material].' },
+    { t: 'prompt', title: 'Follow-up: find what you invented', text: 'List every statement in your answer that is not directly supported by my material. Then rewrite the answer without those statements.' },
+    { t: 'note', title: 'A useful rule', text: 'Never send, publish or submit AI-written text that you have not read in full and checked against a source. The responsibility stays with you, not the tool.' },
+  ],
+};
