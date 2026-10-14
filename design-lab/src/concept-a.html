@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept A: The Workbook | Fieldwork art direction</title>
+<style>
+/*FONTS:bricolage,newsreader,plexmono*/
+:root{
+  --paper:#F5F1E8; --paper2:#EAE4D6; --ink:#15130F; --soft:#5C564B; --line:#CFC8B8;
+  --orange:#F2481B; --cobalt:#2339D2; --yellow:#FFD83D;
+  --ok:#1E7A46; --warn:#9A5B00; --err:#B3141B;
+  --display:"Bricolage",system-ui,sans-serif; --serif:"Newsreader",Georgia,serif; --mono:"Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box} html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.55 var(--serif);overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+.wrap{width:min(1240px,100% - 2*clamp(16px,4vw,48px));margin-inline:auto}
+.mono{font:500 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--display);margin:0;font-weight:800;letter-spacing:-.035em;line-height:.95}
+/* board chrome */
+.bar{border-bottom:1.5px solid var(--ink);padding:14px 0;position:sticky;top:0;background:var(--paper);z-index:5}
+.bar .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+section.b{padding:clamp(40px,6vw,88px) 0;border-bottom:1.5px solid var(--ink)}
+.cap{display:flex;gap:14px;align-items:baseline;margin-bottom:28px}
+.cap b{font:800 clamp(28px,4vw,44px)/1 var(--display);letter-spacing:-.04em;color:var(--orange)}
+.cap span{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.grid{display:grid;gap:24px}
+.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr))}
+/* title */
+.title h1{font-size:clamp(56px,13vw,180px);line-height:.82;margin:.1em 0}
+.title h1 em{font-style:normal;color:var(--orange)}
+.title p{font-size:clamp(20px,2.4vw,28px);max-width:30ch}
+/* halftone */
+.ht{background-image:radial-gradient(circle,var(--ink) 1.4px,transparent 1.9px);background-size:8px 8px;-webkit-mask-image:linear-gradient(115deg,#000 0,transparent 70%);mask-image:linear-gradient(115deg,#000 0,transparent 70%)}
+.ov{mix-blend-mode:multiply}
+/* moodboard */
+.mood{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(110px,18vw);gap:12px}
+.mood>div{position:relative;overflow:hidden;border:1.5px solid var(--ink);background:var(--paper)}
+.mood .m1{grid-column:span 3;grid-row:span 2}.mood .m2{grid-column:span 3}.mood .m3{grid-column:span 2}.mood .m4{grid-column:span 1}
+.mood .m5{grid-column:span 3}.mood .m6{grid-column:span 3}
+.mood small{position:absolute;left:10px;bottom:8px;font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:700px){.mood{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.mood>div{grid-column:span 1!important;grid-row:span 1!important}.mood .m1{grid-column:span 2!important}}
+.circ{position:absolute;border-radius:50%}
+/* swatches */
+.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border:1.5px solid var(--ink)}
+.sw div{padding:70px 14px 14px;font:500 12px/1.5 var(--mono);border-right:1.5px solid var(--ink)} .sw div:last-child{border-right:0}
+.sw b{display:block;font:800 18px var(--display);letter-spacing:-.02em}
+.roles{display:grid;gap:10px;margin-top:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.role{border:1.5px solid var(--ink);padding:14px}
+.tag{display:inline-block;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:6px 8px;border:1.5px solid var(--ink)}
+.tag.do{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+.tag.ex{background:transparent;border-color:var(--cobalt);color:var(--cobalt)}
+.tag.re{background:var(--ink);color:var(--yellow)}
+/* type */
+.spec{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.spec>div{border:1.5px solid var(--ink);padding:22px;background:var(--paper)}
+.spec .big{font:800 clamp(64px,9vw,120px)/.85 var(--display);letter-spacing:-.05em}
+/* wordmark */
+.wm{display:inline-flex;align-items:baseline;font:800 clamp(56px,10vw,128px)/1 var(--display);letter-spacing:-.06em;font-stretch:90%}
+.wm .o{position:relative;display:inline-block;width:.7em;height:.7em;margin:0 .02em 0 .01em;vertical-align:baseline;transform:translateY(.02em)}
+.wm .o i{position:absolute;width:.62em;height:.62em;border-radius:50%;top:0}
+.wm .o i:first-child{left:0;background:var(--orange);mix-blend-mode:multiply}
+.wm .o i:last-child{left:.16em;background:var(--cobalt);mix-blend-mode:multiply}
+.wm.sm{font-size:36px}
+.wmrow{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.chipbox{border:1.5px solid var(--ink);padding:26px 30px;display:inline-flex;align-items:center;gap:20px}
+.dark{background:var(--ink);color:var(--paper)} .dark .wm .o i:first-child{background:var(--orange);mix-blend-mode:screen}.dark .wm .o i:last-child{background:var(--cobalt);mix-blend-mode:screen}
+.mono-ink .wm .o i{background:var(--ink)!important;mix-blend-mode:normal!important}
+.symbol{position:relative;width:120px;height:120px}
+.symbol i{position:absolute;width:76px;height:76px;border-radius:50%;top:22px}
+.symbol i:first-child{left:6px;background:var(--orange);mix-blend-mode:multiply}.symbol i:last-child{left:38px;background:var(--cobalt);mix-blend-mode:multiply}
+/* motif list */
+.devices{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.dev{border:1.5px solid var(--ink);padding:18px;min-height:230px;position:relative;overflow:hidden;background:var(--paper)}
+.dev h3{font-size:22px;margin-bottom:8px;letter-spacing:-.03em}
+.dev p{font-size:16px;margin:0;max-width:30ch}
+.reg{position:absolute;right:14px;top:14px;width:34px;height:34px}
+.stamp{display:inline-block;font:800 20px/1 var(--display);letter-spacing:-.01em;text-transform:uppercase;border:3px solid var(--orange);color:var(--orange);padding:8px 12px;transform:rotate(-6deg);mix-blend-mode:multiply}
+/* hero */
+.hero{position:relative;border:1.5px solid var(--ink);background:var(--paper);overflow:hidden;min-height:min(80vw,720px);padding:clamp(18px,3vw,40px)}
+.hero nav{display:flex;justify-content:space-between;align-items:center;gap:12px;position:relative;z-index:3}
+.hero nav ul{display:flex;gap:clamp(10px,2vw,28px);list-style:none;padding:0;margin:0;font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;flex-wrap:wrap}
+.hero h2{position:relative;z-index:3;font-size:clamp(44px,8.6vw,128px);line-height:.84;max-width:9.5ch;margin-top:clamp(28px,6vw,80px);letter-spacing:-.05em;font-stretch:88%}
+.hl{background:linear-gradient(transparent 12%,var(--yellow) 12%,var(--yellow) 88%,transparent 88%);mix-blend-mode:multiply;padding:0 .06em}
+.hero .lede{position:relative;z-index:3;max-width:30ch;font-size:clamp(17px,1.7vw,22px);margin:22px 0}
+.btn{display:inline-block;font:800 17px/1 var(--display);letter-spacing:-.01em;padding:16px 22px;background:var(--ink);color:var(--paper);text-decoration:none;border:1.5px solid var(--ink)}
+.btn.o{background:var(--orange);color:var(--ink)}
+.btn.g{background:transparent;color:var(--ink)}
+.hero .art{position:absolute;right:-1%;top:6%;width:min(58%,640px);aspect-ratio:1;z-index:1}
+@media(max-width:760px){.hero .art{position:relative;right:auto;top:auto;width:100%;margin-top:16px}.hero h2{max-width:none}}
+.sheet{position:absolute;max-width:92%;background:var(--paper);border:1.5px solid var(--ink);padding:16px 16px 18px;box-shadow:6px 6px 0 var(--ink);z-index:2}
+.sheet .row{border-bottom:1.5px dotted var(--soft);padding:7px 0;font-size:14px;line-height:1.3}
+.sheet .row b{font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--orange);display:block}
+/* worksheet card */
+.ws{border:1.5px solid var(--ink);background:var(--paper);position:relative}
+.ws header{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;border-bottom:1.5px solid var(--ink);background:var(--ink);color:var(--paper)}
+.ws .perf{height:10px;background:radial-gradient(circle at 6px 5px,var(--paper) 3px,transparent 3.5px) 0 0/16px 10px;background-color:var(--ink)}
+.ws .body{padding:18px 18px 22px;display:grid;gap:14px}
+.ws h3{font-size:30px;letter-spacing:-.04em}
+.ws .field{border-bottom:1.5px dotted var(--ink);padding:4px 0 6px}
+.ws .field b{display:block;font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.ws .out{background:var(--ink);color:var(--paper);padding:14px;position:relative}
+.ws .out mark{background:var(--yellow);color:var(--ink);padding:0 3px}
+.ws .foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 18px;border-top:1.5px solid var(--ink)}
+.prog{display:flex;gap:4px}.prog i{width:26px;height:8px;border:1.5px solid var(--ink)}.prog i.f{background:var(--orange);border-color:var(--orange)}
+/* corporate */
+.corp{display:grid;gap:24px;grid-template-columns:minmax(0,5fr) minmax(0,8fr);align-items:start}
+@media(max-width:900px){.corp{grid-template-columns:1fr}}
+.cover{aspect-ratio:210/297;border:1.5px solid var(--ink);background:var(--paper);padding:26px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.cover h3{font-size:clamp(34px,4.6vw,56px);line-height:.88}
+.slide{aspect-ratio:16/9;border:1.5px solid var(--ink);padding:clamp(14px,2.4vw,32px);position:relative;background:var(--paper);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.flow div{border:1.5px solid var(--cobalt);color:var(--cobalt);padding:10px;margin-left:-1.5px;font:500 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.06em;position:relative;min-height:70px}
+.flow div b{display:block;font:800 clamp(15px,2vw,24px)/1 var(--display);text-transform:none;letter-spacing:-.03em;color:var(--ink);margin-top:6px}
+.flow div:last-child{background:var(--cobalt);color:var(--paper)}.flow div:last-child b{color:var(--yellow)}
+/* evaluation */
+.eval{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.eval>div{border:1.5px solid var(--ink);padding:20px}
+.eval h3{font-size:24px;margin-bottom:10px}
+.eval ul{margin:0;padding-left:18px;font-size:16px}.eval li{margin-bottom:6px}
+.score{width:100%;border-collapse:collapse;font:500 13px var(--mono)} .score td,.score th{border:1.5px solid var(--ink);padding:8px 10px;text-align:left}
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap mono"><span>Fieldwork · art direction</span><span>Concept A of 3 · The Workbook</span><span>Provisional: references not yet visually inspected</span></div></div>
+
+<section class="b title"><div class="wrap">
+  <span class="mono">Concept A</span>
+  <h1>The<br><em>Work</em>book</h1>
+  <p>A two-ink printed workbook. Learning shown as marked-up worksheets, stamped results and overprinted colour.</p>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>01</b><span>Rationale</span></div>
+  <div class="grid two">
+    <div>
+      <p style="font-size:24px;line-height:1.3;margin:0 0 .8em">Fieldwork teaches by making you do the thing, then look at what happened. A printed workbook is the oldest format for exactly that: you write in it, mark it up, stamp it done.</p>
+      <p>This direction borrows from risograph and printed ephemera: two bright inks that overprint, halftone fades, registration marks, mono labels, big confident grotesque lettering and a reading serif. It is tactile and expressive without being illustrative, and it gives the product a visual grammar: <b>orange means you do something</b>, <b>cobalt means evidence or example</b>, <b>yellow highlight means the note that matters</b>, and <b>ink black means the finished result</b>.</p>
+    </div>
+    <div class="role"><div class="mono" style="margin-bottom:12px">The learning grammar</div>
+      <p style="margin:0 0 10px"><span class="tag do">Do</span> An instruction. Something you act on.</p>
+      <p style="margin:0 0 10px"><span class="tag ex">Example</span> A worked sample to compare against.</p>
+      <p style="margin:0"><span class="tag re">Result</span> The checked, finished output.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>02</b><span>Moodboard · original visual studies (no stock, no third-party imagery)</span></div>
+  <div class="mood">
+    <div class="m1"><div class="circ ov" style="left:8%;top:10%;width:62%;aspect-ratio:1;background:var(--orange)"></div><div class="circ ov" style="left:34%;top:26%;width:62%;aspect-ratio:1;background:var(--cobalt)"></div><small>Overprint: two inks, one overlap</small></div>
+    <div class="m2" style="background:var(--yellow)"><div class="ht" style="position:absolute;inset:0"></div><div style="position:absolute;left:14px;top:10px;font:800 clamp(60px,9vw,130px)/.8 var(--display);letter-spacing:-.06em">01</div><small>Halftone fade + oversize numeral</small></div>
+    <div class="m3"><svg viewBox="0 0 100 100" style="position:absolute;inset:0;width:100%;height:100%"><g stroke="#15130F" stroke-width="1.2" fill="none"><circle cx="50" cy="50" r="18"/><path d="M50 20v60M20 50h60"/><circle cx="50" cy="50" r="8"/></g></svg><small>Registration mark</small></div>
+    <div class="m4" style="background:var(--ink);color:var(--paper)"><div style="position:absolute;inset:0;display:grid;place-items:center"><span class="stamp" style="font-size:15px;border-color:var(--yellow);color:var(--yellow);mix-blend-mode:normal">Result</span></div><small style="color:var(--paper)">Stamp</small></div>
+    <div class="m5" style="background:var(--paper2)"><div style="position:absolute;left:16px;top:14px;right:16px;font:800 clamp(30px,4.6vw,64px)/.86 var(--display);letter-spacing:-.05em">do the <span class="hl">work</span> you already have</div><small>Type crop with highlighter</small></div>
+    <div class="m6"><div style="position:absolute;inset:14px 14px 34px;border:1.5px dotted var(--ink);padding:10px;font:500 11px/1.6 var(--mono);text-transform:uppercase;letter-spacing:.06em">1 task ............<br>2 who for ..........<br>3 tone .............<br>4 shape ............<br>5 rules ............</div><small>Worksheet fields</small></div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>03</b><span>Palette</span></div>
+  <div class="sw">
+    <div style="background:#F5F1E8"><b>Newsprint</b>#F5F1E8<br>Page ground</div>
+    <div style="background:#EAE4D6"><b>Stock</b>#EAE4D6<br>Secondary ground</div>
+    <div style="background:#15130F;color:#F5F1E8"><b>Ink</b>#15130F<br>Text, results</div>
+    <div style="background:#F2481B"><b>Orange</b>#F2481B<br>Instruction, signal</div>
+    <div style="background:#2339D2;color:#F5F1E8"><b>Cobalt</b>#2339D2<br>Example, evidence</div>
+    <div style="background:#FFD83D"><b>Highlighter</b>#FFD83D<br>Notes, marks</div>
+  </div>
+  <div class="roles">
+    <div class="role"><div class="mono">Large surfaces</div><p style="margin:6px 0 0;font-size:16px">Newsprint, Stock, Ink. Orange and cobalt only as one block per screen.</p></div>
+    <div class="role"><div class="mono">Text</div><p style="margin:6px 0 0;font-size:16px">Ink #15130F on Newsprint 16.7:1. Muted #5C564B 6.7:1. Cobalt text 8.6:1. Orange is not used for small text (3.2:1).</p></div>
+    <div class="role"><div class="mono">Functional</div><p style="margin:6px 0 0;font-size:16px">Success #1E7A46, warning #9A5B00, error #B3141B. Always paired with an icon or word.</p></div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>04</b><span>Typography</span></div>
+  <div class="spec">
+    <div><div class="mono">Display · Bricolage Grotesque 800, width 88%</div><div class="big">Aa do</div><p style="font:700 22px var(--display);letter-spacing:-.03em;margin:.6em 0 0">Headlines, big numerals, buttons</p></div>
+    <div><div class="mono">Reading · Newsreader 400 / italic</div><p style="font-size:26px;line-height:1.25;margin:.4em 0">A good brief tells the tool who the answer is for, <i>and what it must not invent.</i></p><p style="margin:0;font-size:16px;color:var(--soft)">Articles, exercises, long text at 18–21px, measure 62ch.</p></div>
+    <div><div class="mono">Annotation · IBM Plex Mono 500, caps, +8% tracking</div><p class="mono" style="margin:1em 0 .4em;font-size:14px">Exercise 01 · 15 min · Step 3 of 6</p><p style="margin:0;font-size:16px;color:var(--soft)">Labels, folios, step counters, margin notes. Never for body text.</p></div>
+  </div>
+  <p style="margin-top:20px;font-size:16px;max-width:70ch"><b>Rules.</b> Display type is reserved for hero lines, section openers and numerals; subheadings drop to the reading serif or small grotesque. Italics only in the serif. Uppercase only in mono labels.</p>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>05</b><span>Wordmark and symbol</span></div>
+  <div class="wmrow">
+    <div class="chipbox"><span class="wm">fieldw<span class="o"><i></i><i></i></span>rk</span></div>
+    <div class="chipbox dark"><span class="wm">fieldw<span class="o"><i></i><i></i></span>rk</span></div>
+    <div class="chipbox mono-ink"><span class="wm">fieldw<span class="o"><i></i><i></i></span>rk</span></div>
+    <div class="chipbox"><span class="symbol"><i></i><i></i></span><span class="wm sm">fieldw<span class="o"><i></i><i></i></span>rk</span></div>
+  </div>
+  <p style="max-width:62ch;margin-top:20px">Lower-case grotesque with the <b>o</b> replaced by two misregistered circles. The overlap is the idea: the thing you tried and the thing you checked, printed slightly off, never quite the same. It reads as a wordmark with a built-in symbol, so the circles alone can be the favicon and avatar. In monochrome the circles stay overlapped as a single figure-eight outline. Small sizes drop the overlap offset.</p>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>06</b><span>Graphic devices</span></div>
+  <div class="devices">
+    <div class="dev"><h3>Overprint</h3><p>Two circles or blocks that multiply. Used once per layout as the hero shape.</p><div style="position:absolute;right:-20px;bottom:-30px;width:150px;height:150px"><div class="circ ov" style="inset:0;background:var(--orange)"></div><div class="circ ov" style="left:50px;top:30px;width:150px;height:150px;background:var(--cobalt)"></div></div></div>
+    <div class="dev"><h3>Stamp</h3><p>Marks state: Example, Result, Draft, Checked. Slightly rotated, multiply.</p><div style="position:absolute;right:16px;bottom:26px"><span class="stamp">Checked</span></div></div>
+    <div class="dev"><h3>Registration</h3><p>Crosshair marks in page corners. Signals "this is a made thing".</p><svg class="reg" viewBox="0 0 34 34"><g stroke="#15130F" stroke-width="1.5" fill="none"><circle cx="17" cy="17" r="8"/><path d="M17 1v32M1 17h32"/></g></svg></div>
+    <div class="dev"><h3>Halftone</h3><p>Dot fields fade a colour into paper. Replaces gradients.</p><div class="ht" style="position:absolute;inset:auto 0 0 0;height:110px;background-color:transparent"></div></div>
+    <div class="dev"><h3>Margin note</h3><p>Mono label plus a rule: <span class="hl">the one thing to notice.</span></p><p class="mono" style="margin-top:24px;color:var(--orange)">↳ you check this part</p></div>
+    <div class="dev"><h3>Folio numerals</h3><p>Oversize 01 to 06 for steps and series.</p><div style="position:absolute;right:10px;bottom:-10px;font:800 120px/1 var(--display);letter-spacing:-.06em;color:var(--cobalt)">03</div></div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>07</b><span>Example hero composition</span></div>
+  <div class="hero">
+    <nav><span class="wm sm">fieldw<span class="o"><i></i><i></i></span>rk</span><ul><li>Individuals</li><li>For business</li><li>Field notes</li><li>About</li></ul></nav>
+    <svg class="reg" style="left:14px;bottom:14px;top:auto;right:auto" viewBox="0 0 34 34"><g stroke="#15130F" stroke-width="1.5" fill="none"><circle cx="17" cy="17" r="8"/><path d="M17 1v32M1 17h32"/></g></svg>
+    <h2>Learn AI by doing the <span class="hl">work</span> you already have.</h2>
+    <p class="lede">A real task, a method, a way to check the result. Start with a free exercise. No account.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:3"><a class="btn o">Start exercise 01</a><a class="btn g">Training for teams</a></div>
+    <div class="art">
+      <div class="circ ov" style="left:10%;top:6%;width:62%;aspect-ratio:1;background:var(--orange)"></div>
+      <div class="circ ov" style="left:36%;top:24%;width:60%;aspect-ratio:1;background:var(--cobalt)"></div>
+      <div class="sheet" style="left:6%;top:36%;width:56%;transform:rotate(-3deg)">
+        <div class="mono" style="display:flex;justify-content:space-between"><span>Exercise 01</span><span>15 min</span></div>
+        <div class="row"><b>1 · the task</b>Write a weekly update for my manager.</div>
+        <div class="row"><b>2 · rules</b>Keep dates exactly as written.</div>
+        <div style="margin-top:10px"><span class="tag do">Do</span> <span style="font-size:13px">Paste, run, then check.</span></div>
+      </div>
+      <div class="sheet" style="right:3%;top:56%;width:44%;transform:rotate(2.5deg);background:var(--ink);color:var(--paper);box-shadow:6px 6px 0 var(--yellow)"><span class="tag re" style="border-color:var(--yellow)">Result</span><p style="margin:8px 0 0;font-size:14px;line-height:1.35">Done · In progress · <mark style="background:var(--yellow);color:var(--ink)">Needs a decision</mark></p></div>
+      <div style="position:absolute;left:0;bottom:4%;z-index:3"><span class="stamp">Checked</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>08</b><span>Learning resource and editorial card</span></div>
+  <div class="grid two">
+    <div class="ws">
+      <header class="mono"><span>Exercise 01 · Weekly update</span><span>Step 3 / 6</span></header><div class="perf"></div>
+      <div class="body">
+        <h3>Brief the tool like a new colleague.</h3>
+        <div class="field"><b>1 · The task</b>Write a short weekly update for my manager.</div>
+        <div class="field"><b>2 · Who it is for</b>My manager, who has two minutes.</div>
+        <div class="field"><b>3 · Shape</b>Done / In progress / Needs a decision. Under 150 words.</div>
+        <div class="out"><span class="tag re" style="border-color:var(--yellow)">Result</span><p style="margin:10px 0 0;font-size:16px">Credit note <mark>still to be issued</mark>. Supplier slipped from the 14th to the 21st.</p></div>
+      </div>
+      <div class="foot"><div class="prog"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i><i></i></div><a class="btn o" style="padding:12px 16px;font-size:15px">Run it →</a></div>
+    </div>
+    <div class="ws">
+      <header class="mono" style="background:var(--cobalt)"><span>Field Note No. 02</span><span>6 min</span></header>
+      <div class="body" style="gap:10px">
+        <span class="mono" style="color:var(--cobalt)">Checking</span>
+        <h3 style="font-size:clamp(34px,4vw,48px)">How to check an AI answer before you use it.</h3>
+        <p style="margin:0;font-size:19px">Fluent is not the same as correct. Six checks that take two minutes and catch the usual errors.</p>
+        <p class="mono" style="margin:6px 0 0;color:var(--soft)">How this note was made: explanation, not a test.</p>
+      </div>
+      <div class="foot"><span class="mono">Read →</span><span class="stamp" style="font-size:14px;color:var(--cobalt);border-color:var(--cobalt)">Method</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>09</b><span>Extension into corporate materials</span></div>
+  <div class="corp">
+    <div class="cover">
+      <div style="display:flex;justify-content:space-between"><span class="wm sm">fieldw<span class="o"><i></i><i></i></span>rk</span><span class="mono">For business</span></div>
+      <div><span class="mono" style="color:var(--cobalt)">Pilot proposal · draft for discussion</span><h3 style="margin-top:12px">Practice sprint for estate agency teams.</h3></div>
+      <div class="mono" style="display:flex;justify-content:space-between;border-top:1.5px solid var(--ink);padding-top:12px"><span>Prepared for [Agency]</span><span>v0.1</span></div>
+    </div>
+    <div class="slide">
+      <div style="display:flex;justify-content:space-between" class="mono"><span>Real estate · Listing workflow</span><span>04</span></div>
+      <div><h3 style="font-size:clamp(26px,4.4vw,56px);max-width:16ch;margin-bottom:16px">AI drafts. <span style="color:var(--cobalt)">People decide.</span></h3>
+        <div class="flow"><div>01<b>Brief</b></div><div>02<b>Run</b></div><div>03<b>Check</b></div><div>04<b>Keep</b></div></div></div>
+      <div class="mono" style="display:flex;justify-content:space-between"><span>Cobalt on newsprint. Orange stays out of corporate unless it marks an action.</span></div>
+    </div>
+  </div>
+  <p style="max-width:70ch;margin-top:20px">Corporate material uses the same fonts and grammar but narrows the palette to ink and cobalt, drops overprint, and keeps one orange mark per page for the action. It reads as a printed brief from a studio, not as software.</p>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>10</b><span>Strengths, weaknesses, risks</span></div>
+  <div class="eval">
+    <div><h3>Strengths</h3><ul><li>The most ownable idea: a learning grammar (Do / Example / Result) that the product and the visuals share.</li><li>Tactile, colourful with a reason, easy to extend to worksheets, stamps and video graphics.</li><li>Cheap to produce: SVG and CSS, no photography needed.</li><li>Works at small size: two circles make a clear favicon.</li></ul></div>
+    <div><h3>Weaknesses</h3><ul><li>Orange and cobalt are loud. Corporate needs a deliberately restrained version.</li><li>Risograph aesthetics are currently fashionable and could date.</li><li>Needs discipline: overprint, stamps and halftone must stay occasional.</li></ul></div>
+    <div><h3>Risks</h3><ul><li>Could read as playful or youthful to a conservative agency owner.</li><li>Orange text fails contrast at small sizes, so it can only be used for blocks and large type.</li><li>Not yet checked against the real references.</li></ul></div>
+  </div>
+</div></section>
+</body></html>

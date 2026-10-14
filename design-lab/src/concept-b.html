@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept B: The Plan Set | Fieldwork art direction</title>
+<style>
+/*FONTS:newsreader,dmsans,plexmono*/
+:root{
+  --paper:#F6F4EE; --wash:#E6EBF4; --ink:#0E1B3D; --blue:#2F52B8; --red:#D8312B; --grey:#B9C0CF; --soft:#4A5778;
+  --serif:"Newsreader",Georgia,serif; --sans:"DM Sans",system-ui,sans-serif; --mono:"Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans);overflow-x:hidden}
+svg{max-width:100%}
+.wrap{width:min(1240px,100% - 2*clamp(16px,4vw,48px));margin-inline:auto}
+.mono{font:500 11.5px/1.35 var(--mono);letter-spacing:.09em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.025em;line-height:.98}
+h1 em,h2 em,h3 em{font-style:italic}
+.bar{border-bottom:1px solid var(--ink);padding:12px 0;background:var(--paper);position:sticky;top:0;z-index:5}
+.bar .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+section.b{padding:clamp(40px,6vw,88px) 0;border-bottom:1px solid var(--ink);position:relative}
+section.b:nth-of-type(even){background:linear-gradient(var(--wash),var(--wash))}
+.cap{display:flex;gap:14px;align-items:baseline;margin-bottom:28px}
+.cap b{font:400 clamp(30px,4vw,48px)/1 var(--serif);color:var(--red);font-style:italic}
+.grid{display:grid;gap:24px}.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr))}
+/* gridded sheet background */
+.sheetbg{background-image:linear-gradient(var(--grey) 1px,transparent 1px),linear-gradient(90deg,var(--grey) 1px,transparent 1px);background-size:40px 40px;background-position:-1px -1px}
+.title h1{font-size:clamp(60px,13vw,184px);line-height:.84;letter-spacing:-.04em}
+.title h1 em{color:var(--blue)}
+.title p{font:400 clamp(20px,2.3vw,27px)/1.35 var(--serif);max-width:32ch}
+.tb{border:1px solid var(--ink);display:grid;font:500 10.5px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--paper)}
+.tb>div{padding:8px 10px;border-bottom:1px solid var(--ink)} .tb>div:last-child{border-bottom:0}
+.tb .row2{display:grid;grid-template-columns:1fr 1fr;padding:0}.tb .row2>div{padding:8px 10px}.tb .row2>div+div{border-left:1px solid var(--ink)}
+.tb b{display:block;color:var(--soft);font-weight:500;font-size:9.5px}
+/* moodboard */
+.mood{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(110px,17vw);gap:0;border:1px solid var(--ink);background:var(--paper)}
+.mood>div{position:relative;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);overflow:hidden}
+.mood .m1{grid-column:span 3;grid-row:span 2}.mood .m2{grid-column:span 3}.mood .m3{grid-column:span 2}.mood .m4{grid-column:span 1}.mood .m5{grid-column:span 3}.mood .m6{grid-column:span 3}
+.mood small{position:absolute;left:10px;bottom:8px;font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--paper);padding:2px 4px}
+@media(max-width:700px){.mood{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.mood>div{grid-column:span 1!important;grid-row:span 1!important}.mood .m1{grid-column:span 2!important}}
+/* swatches */
+.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border:1px solid var(--ink)}
+.sw div{padding:64px 14px 14px;font:500 12px/1.5 var(--mono);border-right:1px solid var(--ink)}.sw div:last-child{border:0}
+.sw b{display:block;font:400 22px var(--serif);letter-spacing:-.01em}
+.roles{display:grid;gap:12px;margin-top:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.role{border:1px solid var(--ink);padding:14px;background:var(--paper)}
+.spec{display:grid;gap:0;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));border:1px solid var(--ink)}
+.spec>div{padding:22px;border-right:1px solid var(--ink);background:var(--paper)}.spec>div:last-child{border:0}
+.spec .big{font:400 clamp(70px,9vw,120px)/.85 var(--serif);letter-spacing:-.04em}
+/* wordmark */
+.wm{display:inline-block;font:400 clamp(54px,9vw,116px)/1 var(--serif);letter-spacing:-.035em;position:relative;padding-bottom:.28em}
+.wm::after{content:"";position:absolute;left:.03em;right:.03em;bottom:.08em;height:10px;border-left:1.5px solid var(--red);border-right:1.5px solid var(--red);background:linear-gradient(var(--red),var(--red)) center/100% 1.5px no-repeat}
+.wm.sm{font-size:34px}.wm.sm::after{height:6px;border-width:1px;background-size:100% 1px;bottom:.12em}
+.wm.k::after{display:none}
+.box{border:1px solid var(--ink);padding:26px 30px;display:inline-flex;align-items:center;gap:22px;background:var(--paper)}
+.dk{background:var(--ink);color:var(--paper)}.dk .wm::after{border-color:#FF7A73;background-image:linear-gradient(#FF7A73,#FF7A73)}
+.mn .wm::after{border-color:var(--ink);background-image:linear-gradient(var(--ink),var(--ink))}
+.row{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.devices{display:grid;gap:0;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));border:1px solid var(--ink)}
+.dev{padding:18px;min-height:230px;position:relative;overflow:hidden;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper)}
+.dev h3{font-size:26px;margin-bottom:8px}.dev p{font-size:15.5px;margin:0;max-width:30ch;color:var(--soft)}
+.dev svg.d{position:absolute;right:10px;bottom:10px;width:56%}
+/* hero */
+.hero{border:1px solid var(--ink);background:var(--paper);position:relative;overflow:hidden}
+.hero .sheetbg{position:absolute;inset:0;opacity:.35}
+.hero nav{position:relative;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(16px,3vw,36px);border-bottom:1px solid var(--ink);gap:12px}
+.hero nav ul{list-style:none;display:flex;gap:clamp(10px,2vw,26px);margin:0;padding:0;flex-wrap:wrap}
+.hero .in{position:relative;display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:20px;padding:clamp(20px,4vw,52px)}
+@media(max-width:860px){.hero .in{grid-template-columns:1fr}}
+.hero h2{font-size:clamp(46px,7.2vw,108px);line-height:.88;letter-spacing:-.04em}
+.hero h2 em{color:var(--blue)}
+.hero .lede{font:400 clamp(19px,2vw,25px)/1.35 var(--serif);max-width:30ch;margin:22px 0}
+.btn{display:inline-block;font:500 15px/1 var(--sans);padding:16px 22px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);text-decoration:none}
+.btn.r{background:var(--red);border-color:var(--red)}
+.btn.g{background:transparent;color:var(--ink)}
+.hero .tbpos{position:absolute;right:clamp(16px,3vw,36px);bottom:clamp(16px,3vw,28px);width:230px;z-index:2}
+@media(max-width:860px){.hero .tbpos{position:relative;right:auto;bottom:auto;width:100%;margin-top:18px}}
+/* sheet card */
+.sheet{border:1px solid var(--ink);background:var(--paper);position:relative}
+.sheet .hd{display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--ink)}
+.sheet .bd{padding:18px;display:grid;gap:12px}
+.sheet h3{font-size:34px}
+.f{border-bottom:1px solid var(--grey);padding:4px 0 6px}.f b{display:block;font:500 10px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--blue)}
+.strike{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px}
+.red{color:var(--red);font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.rev{width:100%;border-collapse:collapse;font:500 10.5px var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.rev td,.rev th{border-top:1px solid var(--ink);padding:6px 10px;text-align:left}
+.corp{display:grid;gap:24px;grid-template-columns:minmax(0,5fr) minmax(0,8fr);align-items:start}
+@media(max-width:900px){.corp{grid-template-columns:1fr}}
+.cover{aspect-ratio:210/297;border:1px solid var(--ink);background:var(--paper);padding:26px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.cover h3{font-size:clamp(34px,4.4vw,54px);line-height:.92}
+.slide{aspect-ratio:16/9;border:1px solid var(--ink);padding:clamp(14px,2.4vw,30px);position:relative;background:var(--paper);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.eval{display:grid;gap:0;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));border:1px solid var(--ink)}
+.eval>div{padding:20px;border-right:1px solid var(--ink);background:var(--paper)}.eval>div:last-child{border:0}
+.eval h3{font-size:28px;margin-bottom:10px}.eval ul{margin:0;padding-left:18px;font-size:16px}.eval li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap mono"><span>Fieldwork · art direction</span><span>Concept B of 3 · The Plan Set</span><span>Provisional: references not yet visually inspected</span></div></div>
+
+<section class="b title"><div class="wrap sheetbg" style="padding:clamp(20px,4vw,48px);background-color:transparent">
+  <span class="mono">Concept B</span>
+  <h1>The Plan<br><em>Set</em></h1>
+  <p>Work drawn as a set of architectural sheets: precise line, dimensions, revisions and one red correction.</p>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>01</b><span class="mono">Rationale</span></div>
+  <div class="grid two">
+    <div>
+      <p style="font:400 26px/1.3 var(--serif);margin:0 0 .8em">A plan is how you think before you build, and a revision is how you improve it. Fieldwork is about drafting, checking and keeping, so it borrows the drawing set.</p>
+      <p>Linework in drafting blue on warm-white paper. Mono dimension labels. Title blocks that carry sheet number, scale and revision. A single <b style="color:var(--red)">redline</b> that marks what to check, borrowed from the way contracts and drawings are reviewed. A big literary serif for headlines keeps it human. It speaks naturally to <b>real estate</b>, where drawings, floor plans and specifications are everyday objects, and it makes workflows legible as diagrams you can actually follow.</p>
+    </div>
+    <div class="role"><div class="mono" style="margin-bottom:12px">The learning grammar</div>
+      <p style="margin:0 0 10px"><b style="color:var(--blue)">Blue line</b>: the plan. Instructions and structure.</p>
+      <p style="margin:0 0 10px"><b style="color:var(--red)">Redline</b>: the check. What to verify or fix.</p>
+      <p style="margin:0"><b>Ink</b>: the issued result. Revision B, approved.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>02</b><span class="mono">Moodboard · original visual studies</span></div>
+  <div class="mood">
+    <div class="m1 sheetbg"><svg viewBox="0 0 300 200" style="position:absolute;inset:0;width:100%;height:100%" fill="none" stroke="#0E1B3D" stroke-width="1.5"><rect x="30" y="30" width="150" height="110"/><path d="M30 80h150M110 30v110" /><path d="M110 140v0" /><path d="M30 160h150M30 154v12M180 154v12" stroke="#D8312B"/><text x="105" y="176" font-size="9" fill="#D8312B" stroke="none" font-family="Plex Mono">4 MOVES</text></svg><small>Plan view + dimension line</small></div>
+    <div class="m2" style="background:var(--ink);color:var(--paper)"><div style="position:absolute;left:16px;top:12px;font:italic 400 clamp(70px,10vw,150px)/.8 var(--serif);letter-spacing:-.05em">A—A</div><small style="color:var(--ink)">Section mark as typographic device</small></div>
+    <div class="m3"><svg viewBox="0 0 100 100" style="position:absolute;inset:0;width:100%;height:100%" fill="none" stroke="#0E1B3D" stroke-width="1.2"><circle cx="50" cy="50" r="22"/><path d="M50 28v44M28 50h44"/><path d="M50 50 L78 28" stroke="#D8312B"/><path d="M28 50a22 22 0 0 1 22-22v44a22 22 0 0 1-22-22z" fill="#0E1B3D"/></svg><small>Section marker</small></div>
+    <div class="m4" style="background:repeating-linear-gradient(45deg,var(--blue) 0 1px,transparent 1px 7px)"><small>Hatch</small></div>
+    <div class="m5" style="background:var(--paper)"><div style="position:absolute;left:18px;top:16px;right:18px;font:400 clamp(26px,3.6vw,48px)/1 var(--serif)">Credit note <span class="strike">has been issued</span> <span style="color:var(--red);font-style:italic">still to be issued</span></div><small>Redline correction</small></div>
+    <div class="m6"><div class="tb" style="position:absolute;left:14px;right:14px;top:14px"><div class="row2"><div><b>Sheet</b>03 / 06</div><div><b>Scale</b>1:1 real work</div></div><div><b>Title</b>Brief the tool</div></div><small>Title block</small></div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>03</b><span class="mono">Palette</span></div>
+  <div class="sw">
+    <div style="background:#F6F4EE"><b>Sheet</b>#F6F4EE<br>Page ground</div>
+    <div style="background:#E6EBF4"><b>Wash</b>#E6EBF4<br>Secondary ground</div>
+    <div style="background:#0E1B3D;color:#F6F4EE"><b>Ink navy</b>#0E1B3D<br>Text, dark panels</div>
+    <div style="background:#2F52B8;color:#F6F4EE"><b>Drafting blue</b>#2F52B8<br>Lines, links, structure</div>
+    <div style="background:#D8312B;color:#F6F4EE"><b>Redline</b>#D8312B<br>Checks, corrections</div>
+    <div style="background:#B9C0CF"><b>Grid grey</b>#B9C0CF<br>Rules, grid</div>
+  </div>
+  <div class="roles">
+    <div class="role"><div class="mono">Large surfaces</div><p style="margin:6px 0 0;font-size:15.5px">Sheet, Wash, Ink navy. Blue only as thin line or one panel. Red is a mark, never a surface.</p></div>
+    <div class="role"><div class="mono">Contrast</div><p style="margin:6px 0 0;font-size:15.5px">Ink on Sheet 15.7:1. Blue on Sheet 6.1:1. Red on Sheet 4.6:1 (normal text acceptable, use bold). Paper on navy 15.7:1.</p></div>
+    <div class="role"><div class="mono">Warmth</div><p style="margin:6px 0 0;font-size:15.5px">The ground is warm. The linework is cool. Warmth comes from paper, serif and the red, so the whole is not clinical.</p></div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>04</b><span class="mono">Typography</span></div>
+  <div class="spec">
+    <div><div class="mono">Display and reading · Newsreader 400, italic accents</div><div class="big">Aa <em>do</em></div><p style="font:400 22px var(--serif);margin:.6em 0 0">Headlines, essays, long reading at 19–21px</p></div>
+    <div><div class="mono">Interface · DM Sans 400 / 500</div><p style="font:500 28px/1.2 var(--sans);margin:.5em 0">Run it in your own AI tool.</p><p style="margin:0;font-size:15.5px;color:var(--soft)">Buttons, forms, navigation, small UI copy.</p></div>
+    <div><div class="mono">Annotation · IBM Plex Mono 500, caps</div><p class="mono" style="margin:1em 0 .4em;font-size:14px">Sheet 03 / 06 · Rev B · 1:1</p><p style="margin:0;font-size:15.5px;color:var(--soft)">Dimensions, labels, sheet numbers.</p></div>
+  </div>
+  <p style="margin-top:18px;max-width:70ch;font-size:15.5px"><b>Rules.</b> Italic Newsreader marks the one word that carries the meaning in a headline. Mono caps for sheet furniture only. Measure 60–66ch.</p>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>05</b><span class="mono">Wordmark and symbol</span></div>
+  <div class="row">
+    <div class="box"><span class="wm">Fieldwork</span></div>
+    <div class="box dk"><span class="wm">Fieldwork</span></div>
+    <div class="box mn"><span class="wm">Fieldwork</span></div>
+    <div class="box"><svg width="84" height="84" viewBox="0 0 100 100" fill="none" stroke="#0E1B3D" stroke-width="3.5"><circle cx="50" cy="50" r="38"/><path d="M12 50a38 38 0 0 1 38-38v76a38 38 0 0 1-38-38z" fill="#0E1B3D"/><path d="M50 50 L84 18" stroke="#D8312B"/><path d="M76 17h10v10" stroke="#D8312B"/></svg><span class="wm sm">Fieldwork</span></div>
+  </div>
+  <p style="max-width:64ch;margin-top:20px">A serif wordmark with a drawn dimension line beneath it, red, with end ticks, as if the word had been measured. It says: we measure what we make. At small sizes the dimension line is dropped. The standalone symbol is a section marker: a circle with half cut away and a leader arrow, meaning "cut through a piece of real work and look inside". It is simple enough for a favicon and avatar.</p>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>06</b><span class="mono">Graphic devices</span></div>
+  <div class="devices">
+    <div class="dev"><h3>Dimension line</h3><p>Measures time, steps and scope on diagrams: 15 min, 4 moves.</p><svg class="d" viewBox="0 0 160 40" fill="none" stroke="#D8312B" stroke-width="1.5"><path d="M4 20h152M4 10v20M156 10v20"/><text x="62" y="14" font-size="10" fill="#D8312B" stroke="none" font-family="Plex Mono">15 MIN</text></svg></div>
+    <div class="dev"><h3>Redline</h3><p>Strike and correct. The visual form of checking.</p><p style="margin-top:34px;font:400 24px var(--serif)"><span class="strike">fluent</span> <em style="color:var(--red)">correct</em></p></div>
+    <div class="dev"><h3>Title block</h3><p>Sheet number, scale, revision on every exercise and note.</p><div class="tb" style="position:absolute;left:14px;right:14px;bottom:14px"><div class="row2"><div><b>Sheet</b>03/06</div><div><b>Rev</b>B</div></div></div></div>
+    <div class="dev"><h3>Section marker</h3><p>Points to the one part of a result worth checking.</p><svg class="d" style="width:90px" viewBox="0 0 100 100" fill="none" stroke="#0E1B3D" stroke-width="3"><circle cx="50" cy="50" r="30"/><path d="M20 50a30 30 0 0 1 30-30v60a30 30 0 0 1-30-30z" fill="#0E1B3D"/></svg></div>
+    <div class="dev sheetbg"><h3>Grid + coordinates</h3><p>A1–F6 reference for diagrams. Only behind drawings, never as decoration.</p></div>
+    <div class="dev" style="background:repeating-linear-gradient(45deg,var(--blue) 0 1px,var(--paper) 1px 8px)"><h3 style="background:var(--paper);display:inline-block;padding:2px 6px">Hatch</h3><p style="background:var(--paper);padding:2px 6px;display:inline-block">Marks "result" regions on diagrams.</p></div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>07</b><span class="mono">Example hero composition</span></div>
+  <div class="hero">
+    <div class="sheetbg"></div>
+    <nav><span class="wm sm">Fieldwork</span><ul class="mono"><li>Individuals</li><li>For business</li><li>Field notes</li><li>About</li></ul></nav>
+    <div class="in">
+      <div>
+        <p class="mono" style="color:var(--red)">Sheet 01 · Learn by doing</p>
+        <h2>Learn AI by doing the <em>work</em> you already have.</h2>
+        <p class="lede">A real task, a method, and a way to check the result. Start with a free exercise. No account.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn r">Start sheet 01</a><a class="btn g">Training for teams</a></div>
+      </div>
+      <div style="position:relative;min-height:340px">
+        <svg viewBox="0 0 420 380" style="width:100%;height:100%" fill="none" stroke="#0E1B3D" stroke-width="1.8">
+          <rect x="20" y="20" width="380" height="280" fill="#F6F4EE"/>
+          <path d="M20 150h200M220 20v280M220 190h180"/>
+          <rect x="22" y="22" width="196" height="126" fill="none"/>
+          <path d="M60 148a20 20 0 0 1 20 -20" stroke="#2F52B8"/>
+          <g font-family="Plex Mono" font-size="11" fill="#0E1B3D" stroke="none" letter-spacing="1"><text x="34" y="46">01 BRIEF</text><text x="34" y="176">02 RUN</text><text x="234" y="46">03 CHECK</text><text x="234" y="216">04 KEEP</text></g>
+          <rect x="228" y="28" width="164" height="154" fill="#E6EBF4" stroke="none"/>
+          <path d="M228 100l164 0" stroke="none"/>
+          <g stroke="#D8312B" stroke-width="2"><circle cx="318" cy="96" r="30"/><path d="M340 118l34 34"/></g>
+          <g font-family="Plex Mono" font-size="10" fill="#D8312B" stroke="none"><text x="302" y="160">VERIFY</text></g>
+          <g stroke="#2F52B8"><path d="M20 330h380M20 322v16M400 322v16"/></g>
+          <text x="170" y="352" font-family="Plex Mono" font-size="11" fill="#2F52B8" stroke="none">15 MIN · 4 MOVES</text>
+          <path d="M70 70h110M70 84h80M70 98h95" stroke="#B9C0CF"/><path d="M262 70h90M262 120h60" stroke="#B9C0CF" stroke-width="1.2"/>
+          <path d="M240 244h130M240 258h100M240 272h115" stroke="#0E1B3D" stroke-width="3"/>
+        </svg>
+      </div>
+    </div>
+    <div class="tb tbpos"><div class="row2"><div><b>Sheet</b>01 / 06</div><div><b>Rev</b>A</div></div><div><b>Title</b>The loop · brief, run, check, keep</div></div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>08</b><span class="mono">Learning resource and editorial card</span></div>
+  <div class="grid two">
+    <div class="sheet">
+      <div class="hd mono"><span>Sheet 03 · Brief</span><span>Rev B</span></div>
+      <div class="bd">
+        <h3>Brief the tool like a <em>new colleague.</em></h3>
+        <div class="f"><b>Task</b>Write a short weekly update for my manager.</div>
+        <div class="f"><b>Shape</b>Done / In progress / Needs a decision. Under 150 words.</div>
+        <div class="f"><b>Result · issued</b>Credit note <span class="strike">has been issued</span> <span class="red">still to be issued</span></div>
+        <table class="rev"><tr><th>Rev</th><th>Change</th></tr><tr><td>A</td><td>First draft from tool</td></tr><tr><td>B</td><td>3 errors found and fixed</td></tr></table>
+      </div>
+    </div>
+    <div class="sheet" style="background:var(--ink);color:var(--paper)">
+      <div class="hd mono" style="border-color:var(--paper)"><span>Field Note No. 02</span><span>6 min</span></div>
+      <div class="bd" style="gap:14px">
+        <span class="mono" style="color:#FF7A73">Checking</span>
+        <h3 style="font-size:clamp(34px,4vw,50px)">How to check an AI answer <em>before you use it.</em></h3>
+        <p style="margin:0;font:400 19px/1.4 var(--serif);color:#D4DAEA">Fluent is not the same as correct. Six checks that take two minutes.</p>
+        <p class="mono" style="margin:0;color:#8FA0CF">How this note was made: explanation, not a test.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>09</b><span class="mono">Extension into corporate materials</span></div>
+  <div class="corp">
+    <div class="cover sheetbg" style="background-color:var(--paper)">
+      <div style="display:flex;justify-content:space-between;align-items:start"><span class="wm sm">Fieldwork</span><span class="mono">For business</span></div>
+      <div style="background:var(--paper);padding:10px 0"><span class="mono" style="color:var(--red)">Drawing set · draft for discussion</span><h3 style="margin-top:12px">Practice sprint for estate agency teams.</h3></div>
+      <div class="tb"><div class="row2"><div><b>Prepared for</b>[Agency]</div><div><b>Issue</b>v0.1</div></div></div>
+    </div>
+    <div class="slide">
+      <div class="mono" style="display:flex;justify-content:space-between"><span>Real estate · Listing workflow</span><span>Sheet 04</span></div>
+      <div><h3 style="font-size:clamp(26px,4.2vw,54px);max-width:16ch">AI drafts. <em style="color:var(--blue)">People decide.</em></h3>
+        <svg viewBox="0 0 520 70" style="width:100%;margin-top:12px" fill="none" stroke="#0E1B3D" stroke-width="1.5"><rect x="2" y="2" width="124" height="46"/><rect x="126" y="2" width="124" height="46"/><rect x="250" y="2" width="124" height="46" stroke="#D8312B"/><rect x="374" y="2" width="144" height="46" fill="#0E1B3D"/><g font-family="Plex Mono" font-size="11" fill="#0E1B3D" stroke="none"><text x="14" y="30">01 BRIEF</text><text x="138" y="30">02 RUN</text><text x="262" y="30" fill="#D8312B">03 CHECK</text><text x="386" y="30" fill="#F6F4EE">04 KEEP</text></g><path d="M2 62h516M2 56v12M518 56v12" stroke="#2F52B8"/></svg></div>
+      <div class="mono">Blue line and ink. Red appears only where a person must verify.</div>
+    </div>
+  </div>
+  <p style="max-width:70ch;margin-top:20px">This is the most natural bridge to real estate: proposals look like a drawing set, workflows look like plans, and "AI drafts, people decide" is literally drawn as the red check step.</p>
+</div></section>
+
+<section class="b"><div class="wrap">
+  <div class="cap"><b>10</b><span class="mono">Strengths, weaknesses, risks</span></div>
+  <div class="eval">
+    <div><h3>Strengths</h3><ul><li>Highest credibility with property audiences; proposals feel like professional documents.</li><li>Workflows become legible diagrams, which helps selling and learning.</li><li>Calm, precise, elegant. Easiest direction to keep consistent.</li><li>The redline is a strong, meaningful device for checking.</li></ul></div>
+    <div><h3>Weaknesses</h3><ul><li>Cooler and less playful, so weaker for casual individual learners.</li><li>Line drawing needs craft. Poorly drawn diagrams look amateur.</li><li>Less colour, so weaker for social content at a glance.</li></ul></div>
+    <div><h3>Risks</h3><ul><li>Could feel like an architecture practice rather than a learning brand.</li><li>Pastiche risk if the drafting conventions are used loosely.</li><li>Not yet checked against the real references.</li></ul></div>
+  </div>
+</div></section>
+</body></html>
