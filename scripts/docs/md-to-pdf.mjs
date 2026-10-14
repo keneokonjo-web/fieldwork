@@ -10,7 +10,8 @@ const title = rest.includes('--title') ? rest[rest.indexOf('--title') + 1] : pat
 const landscape = rest.includes('--landscape');
 const root = process.cwd();
 const u = (p) => 'file://' + path.join(root, p);
-const md = fs.readFileSync(inp, 'utf8');
+// Drop internal production notes (blockquotes that start 'Production note') from the printed PDF.
+const md = fs.readFileSync(inp, 'utf8').replace(/^> \*\*Production note[\s\S]*?\n\n/m, '');
 const body = marked.parse(md, { gfm: true });
 const html = `<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>${title}</title><style>
 @font-face{font-family:Cormorant;font-weight:400;src:url(${u('node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-400-normal.woff2')})}

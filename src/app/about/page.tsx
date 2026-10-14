@@ -4,7 +4,7 @@ import { FREE_EXPERIENCE_PATH } from '@/config/site';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata({
-  title: 'About Fieldwork',
+  title: 'About',
   description: 'Fieldwork is a new practical AI learning company. Learn by doing, put knowledge to work. What we believe, how we work and what is and is not available yet.',
   path: '/about',
 });

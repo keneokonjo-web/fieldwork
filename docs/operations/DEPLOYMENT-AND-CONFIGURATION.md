@@ -18,8 +18,8 @@ There is **no `.env.example` in the repository** (`.gitignore` expects one). Cre
 | `NEXT_PUBLIC_CONTACT_EMAIL_BUSINESS` | public, build | Business address on the contact page | None | Recommended |
 | `NEXT_PUBLIC_CONTACT_EMAIL_PRIVACY` | public, build | Privacy requests on the privacy page; falls back to general | General address | Recommended (a monitored privacy contact matters for UK/Nigeria data rights) |
 | `NEXT_PUBLIC_LEGAL_ENTITY_NAME` | public, build | Legal operator name in footer, privacy notice, review box | None; pages say the entity is not confirmed | Yes, once a company exists |
-| `NEXT_PUBLIC_LEGAL_ADDRESS` | public, build | Registered address (declared in config; check pages for display) | None | Once real |
-| `NEXT_PUBLIC_COMPANY_NUMBER` | public, build | Company registration number | None | Once real |
+| `NEXT_PUBLIC_LEGAL_ADDRESS` | public, build | Registered address. Read into config but **not displayed by any page yet** | None | Once real |
+| `NEXT_PUBLIC_COMPANY_NUMBER` | public, build | Company registration number. Read into config but **not displayed by any page yet** | None | Once real |
 | `NEXT_PUBLIC_LEGAL_LAST_REVIEWED` | public, build | Date legal pages were reviewed; shown in the draft box | None: "It has not been reviewed" | Only set after a real review |
 | `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | public, build | Enables analytics code path + consent banner; value is the site's domain as registered with the analytics provider | Empty: no banner, no script | No |
 | `NEXT_PUBLIC_PLAUSIBLE_SRC` | public, build | Analytics script URL | `https://plausible.io/js/script.js` | No (set for self-hosted/proxy) |

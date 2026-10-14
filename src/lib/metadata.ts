@@ -5,7 +5,7 @@ interface Opts { title: string; description: string; path: string; type?: 'websi
 
 /** Per-page metadata. Canonical URLs are only emitted once a production URL is configured. */
 export function pageMetadata({ title, description, path, type = 'website', noindex }: Opts): Metadata {
-  const image = '/brand/og/og-default.png';
+  const image = '/brand/social/og-default.png';
   return {
     title,
     description,

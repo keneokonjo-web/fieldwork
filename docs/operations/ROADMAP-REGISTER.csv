@@ -1,0 +1,66 @@
+id,category,item,status,priority,dependency
+NC-01,not connected,"Lead delivery: no webhook, Resend or CRM configured; forms return honest 503 'not_configured'","prepared, unconnected",P0,Lead destination decision; webhook receiver or Resend account + domain
+NC-02,not connected,Analytics: no provider account or NEXT_PUBLIC_PLAUSIBLE_DOMAIN; no data ever collected,"prepared, unconnected",P2,Provider choice; domain
+NC-03,not connected,"Deployment: no Vercel project, no live URL",not done,P0,Vercel account; env vars
+NC-04,not connected,Domain: not purchased; DNS not configured,not done,P0,Name decision; payment method
+NC-05,not connected,"Email: no mailboxes or aliases (hello@, business@, privacy@)",not done,P0,Domain; email provider
+NC-06,not connected,"Email list platform: nobody is subscribed anywhere; no confirmation, welcome or unsubscribe flow",not built,P0,Email platform decision; legal wording
+NC-07,not connected,Social accounts: none created; footer links hidden until env vars set,not done,P2,Handle availability (unchecked)
+NC-08,not connected,Search Console / Bing: not set up,not done,P1,Domain
+NC-09,not connected,Payment provider: none chosen (UK and Nigeria need separate research),deferred,P3,Paid-product validation
+NC-10,not connected,Monitoring/alerts for lead failures and uptime,not done,P1,Deployment
+NB-01,not built,Onboarding and knowledge platform (PRD only),deferred,P3,Discovery interviews; paid pilots
+NB-02,not built,Guided projects (paid) and membership,deferred,P3,Evidence gates in CONSUMER-ROADMAP
+NB-03,not built,"User accounts, saved progress across devices",deferred,P3,"Auth, DB, privacy review"
+NB-04,not built,Second and further free exercises,not built,P2,Interviews showing a clear next task
+NB-05,not built,Durable lead queue/retry if adapters fail,not built,P2,Traffic volume
+NB-06,not built,Double opt-in for list signup,not built,P1,Email platform
+NB-07,not built,Lead types business_enquiry and assessment_report are defined but no form submits them,not built,P3,Product need
+NB-08,not built,Analytics event purchase_completed has no trigger,not built,P4,Payments
+NB-09,not built,JSON-LD structured data,not built,P2,Real entity and author details
+NB-10,not built,Per-article OG images,not built,P4,Design time
+NB-11,not built,Nigeria-specific landing content and examples,not built,P2,Nigeria research
+NB-12,not built,CMS or non-code content editing,not built,P4,Content volume
+NB-13,not built,Cookie/consent preference reachable from every page footer (only on /cookies and banner),not built,P3,Legal advice
+NB-14,not built,CI pipeline (no .github),not built,P2,Repository host settings
+NR-01,needs review,Privacy notice (draft-0.1) not reviewed by a solicitor,needs review,P0,Solicitor
+NR-02,needs review,Terms of use draft: governing law/liability missing,needs review,P0,Solicitor
+NR-03,needs review,Cookies/storage wording and analytics consent approach,needs review,P1,Solicitor; analytics choice
+NR-04,needs review,Accessibility statement claims; refers to a QA report file that does not exist,needs review,P1,Developer + adviser
+NR-05,needs review,Trademark/name risk (UK market research 'fieldwork'),needs review,P0,IP solicitor
+NR-06,needs review,Image credits: photographer names unknown; no model releases,needs review,P1,Founder lookup
+NR-07,needs review,"Unverified duration claims ('15 minutes', 'five-minute assessment')",needs review,P1,User testing
+NR-08,needs review,Test prices on /pricing are hypotheses with no market evidence,needs review,P2,Phase 2 pricing tests
+NR-09,needs review,Sales and marketing documents are templates; terms unreviewed,needs review,P2,Solicitor
+NR-10,needs review,Font and stock licence confirmation,needs review,P2,Founder / adviser
+DF-01,defect,OG/Twitter image path /brand/og/og-default.png does not exist (file is public/brand/social/og-default.png),open,P0,One-line fix in src/lib/metadata.ts
+DF-02,defect,No .env.example although .gitignore and comments expect one,open,P1,Developer
+DF-03,defect,"npm scripts docs:pdf, qa:links, kit:build point at files not found (checked 14 Oct)",open,P2,Developer
+DF-04,defect,"manifest.ts colours (#6B1D2B, #F6F0E4) are not current palette",open,P2,Developer
+DF-05,defect,?topic=business query on contact links is not read by the contact page,open,P3,Developer
+DF-06,defect,Source comments reference docs that do not exist under those names,open,P3,Developer
+DF-07,defect,sitemap lastModified for fixed pages is build time,open,P3,Developer
+DF-08,defect,"Titles over ~60 chars and duplicated brand name (/about, /contact); descriptions over 160",open,P2,Founder decision on wording
+DF-09,defect,NEXT_PUBLIC_LEGAL_ADDRESS and NEXT_PUBLIC_COMPANY_NUMBER are read into siteConfig but no page displays them (search of src),open,P2,Developer; legal advice on required disclosures
+PA-01,performance/accessibility,No Lighthouse/Core Web Vitals measurement recorded,not done,P1,Deployed preview
+PA-02,performance/accessibility,No manual screen-reader testing; no independent audit; no testing with disabled users,not done,P1,Auditor / volunteers
+PA-03,performance/accessibility,axe covered initial page states only; later exercise steps and consent banner (analytics on) not scanned,known gap,P2,Extend axe script with interaction
+PA-04,performance/accessibility,Browser tests run Chromium only; no Firefox/Safari; no real-device runs,known gap,P2,Playwright projects; devices
+PA-05,performance/accessibility,Four font families loaded globally; not audited for payload,known gap,P2,Lighthouse
+PA-06,performance/accessibility,"Screenshots exist for 14 pages x 2 widths; missing terms, cookies, accessibility, 3 articles",known gap,P4,Run shoot.mjs
+PA-07,performance/accessibility,Free exercise requires JavaScript,known limitation,P3,Text alternative in Field Notes exists
+PA-08,performance/accessibility,"Print of the workflow card prints the page, not only the card",known gap,P4,Print stylesheet
+PA-09,performance/accessibility,Clay on stone fails contrast for small text; relies on convention to avoid it,known limitation,P3,Design discipline
+SE-01,security,No Content-Security-Policy; HSTS unverified until deployment,open,P2,Deployment
+SE-02,security,In-memory rate limiting only (weak on serverless),open,P1,Vercel Firewall rule
+SE-03,security,Same-origin check on API relies on headers; no CAPTCHA,accepted for now,P3,Observe abuse
+ID-01,idea,Lead scoring from assessment answers in the CRM,idea,P4,CRM
+ID-02,idea,Public changelog and 'what's new' for honesty,idea,P4,
+ID-03,idea,"Exercise variants by market (UK vs Nigeria examples, naira prices in tasks)",idea,P3,Nigeria research
+ID-04,idea,Downloadable PDF version of the workflow card,idea,P4,
+ID-05,idea,Short email course from Field Notes,idea,P3,Email platform
+ID-06,idea,"Partner pages (e.g. universities, agencies' professional bodies)",idea,P4,Relationships
+ID-07,idea,Real estate pilot case study when permission exists,idea,P2,A real pilot
+ID-08,idea,Offline-friendly PWA behaviour for the exercise (manifest exists),idea,P4,Service worker work
+ID-09,idea,A/B test of headline and CTA wording,idea,P4,Traffic
+ID-10,idea,Accessible text-only version toggle,idea,P4,

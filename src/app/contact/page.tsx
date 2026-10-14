@@ -3,7 +3,7 @@ import { siteConfig } from '@/config/site';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata({
-  title: 'Contact Fieldwork',
+  title: 'Contact',
   description: 'Ask a question about learning with Fieldwork, or request a demonstration or pilot discussion for your business.',
   path: '/contact',
 });

@@ -11,11 +11,13 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "check": "npm run typecheck && npm run lint && npm run test",
-    "brand:build": "node scripts/brand/build-brand-assets.mjs",
+    "brand:build": "node scripts/brand/build-identity.mjs && node scripts/brand/build-art.mjs && node scripts/brand/build-templates.mjs && node scripts/brand/build-guidelines.mjs",
     "docs:pdf": "node scripts/docs/build-pdfs.mjs",
     "qa:browser": "node scripts/qa/browser-tests.mjs",
-    "qa:links": "node scripts/qa/link-check.mjs",
-    "kit:build": "node scripts/docs/build-launch-kit.mjs"
+    "qa:links": "node scripts/qa/links.mjs",
+    "kit:build": "node scripts/docs/build-launch-kit.mjs",
+    "qa:axe": "node scripts/qa/axe.mjs",
+    "qa:overflow": "node scripts/qa/overflow.mjs"
   },
   "engines": {
     "node": ">=20.9"

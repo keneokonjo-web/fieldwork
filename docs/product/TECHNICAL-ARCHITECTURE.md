@@ -107,7 +107,7 @@ Other: no secrets in client bundles (server env vars are not prefixed `NEXT_PUBL
 | Accessibility | `node scripts/qa/axe.mjs` | axe on 20 routes x 2 viewports |
 | Links | `node scripts/qa/links.mjs` | crawl internal links, fragments, images |
 | Overflow | `node scripts/qa/overflow.mjs` | no horizontal scroll at 390/768/1440 |
-| Screenshots | `node scripts/qa/screenshots.mjs` | 28 JPGs in `qa/screenshots/` |
+| Screenshots | `node scripts/qa/shoot.mjs <outDir> <paths> [width]` (the 28 JPGs in `qa/screenshots/` match its naming: 14 pages x widths 390 and 1440); `scripts/qa/screenshots.mjs` writes PNGs for 15 named routes | visual review only; no pixel comparison |
 
 Details in `docs/operations/QA-HOW-TO-RERUN.md`. Note: three `package.json` scripts point at files that do not exist at the time of writing (see `docs/operations/REPOSITORY-GUIDE.md`, "Known script mismatches").
 
