@@ -61,7 +61,7 @@ Choose after keyword testing; avoid changing live titles often.
 | D2 | OG image 1200x630 | Open | Verify dimensions of `og-default.png` (not checked) |
 | D3 | `twitter:card` summary_large_image | Done | `metadata.ts` |
 | D4 | Favicons (svg, 32, ico, apple-touch, 192, 512) | Done | `public/brand/favicon/*`, referenced in `layout.tsx` and `manifest.ts` |
-| D5 | `theme-color` | Done | `layout.tsx` viewport `#F1EFEA`; manifest uses `#6B1D2B` and `#F6F0E4`, which are **not** the current palette (chalk `#F1EFEA`, indigo `#25306E`). Update manifest `theme_color`/`background_color` to current tokens |
+| D5 | `theme-color` | Done | `layout.tsx` viewport `#121212` (the ink top bar); manifest `theme_color` `#2340FF` and `background_color` `#F3F2ED`, matching the current palette |
 | D6 | Per-article OG images | Deferred | Single default image |
 
 ## E. Structured data

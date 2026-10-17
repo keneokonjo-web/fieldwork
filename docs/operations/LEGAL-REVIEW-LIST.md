@@ -114,7 +114,7 @@ Drafted at `src/app/terms/page.tsx` (information only; no paid products).
 | # | Question | Prio |
 |---|---|---|
 | 10.1 | Stock photographs: Unsplash Licence reliance; photographer names unrecorded (`docs/website/IMAGE-CREDITS.md`); identifiable people without model releases; restrictions on implying endorsement; use in ads and on merchandise | A |
-| 10.2 | Fonts: licences of Cormorant Garamond, Hanken Grotesk, Geist Mono, Schibsted Grotesk (all via `@fontsource`; SIL OFL assumed: **verify** each) | B |
+| 10.2 | Fonts: licences of Schibsted Grotesk and Geist Mono (all via `@fontsource`; SIL OFL assumed: **verify** each) | B |
 | 10.3 | Generated artwork and logo: ownership (created with tooling), any third-party inspiration; reference sites captured for research in `deliverables/` contain third-party screenshots that should not be published or redistributed | A |
 | 10.4 | Trade mark of any AI tool logos if shown | A |
 | 10.5 | Field Notes: no copied text; statement of how each note was produced (`basis` field) is truthful | A |

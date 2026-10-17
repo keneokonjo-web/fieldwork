@@ -1,16 +1,16 @@
 # Sales deck outline: 14 slides
 
-Version 0.1, 14 October 2026. Slide text is final and concise. Speaker notes are for the presenter. Design: chalk #F1EFEA ground, charcoal #262422 text, indigo #25306E for the title, safety and next-step slides, clay #A8512F for small labels only (12px+). Headlines in Schibsted Grotesk bold; body Hanken Grotesk; quotes/ledes in Cormorant Garamond italic. Square corners, 1px charcoal rules, no stock-photo clichés. Photography only if labelled "Stock photograph, illustrative". 16:9. Presenting time 15 to 20 minutes. Replace [PLACEHOLDERS].
+Version 0.1, 14 October 2026. Slide text is final and concise. Speaker notes are for the presenter. Design (The Brief): paper #F3F2ED ground, ink #121212 text and dark slides, cobalt #2340FF for the title and next-step slides and for results, mono labels in brackets. Headlines in Schibsted Grotesk bold with tight tracking; labels in Geist Mono. Hairline rules, dot terrain, no stock-photo clichés. Photography only if labelled "Stock photograph, illustrative". 16:9. Presenting time 15 to 20 minutes. Replace [PLACEHOLDERS].
 
 ---
 
-## Slide 1: Title (indigo)
+## Slide 1: Title (cobalt)
 **Title:** Practise AI on real work.
 **Sub:** Practical AI training for estate and letting teams
 **Footer:** Fieldwork | [YOUR NAME] | [DATE] | Version 0.1
 **Notes:** "Thanks for the time. I will take about 15 minutes, then we talk. Fieldwork is new, and I will be clear about what exists and what does not."
 
-## Slide 2: Why we are here (chalk)
+## Slide 2: Why we are here (paper)
 **Title:** What we expect to hear. Tell us what is true.
 **Body (4 items):**
 - Staff already use AI tools, with no shared rules.
@@ -20,7 +20,7 @@ Version 0.1, 14 October 2026. Slide text is final and concise. Speaker notes are
 **Footer line:** These are hypotheses. We check them with you.
 **Notes:** Ask: "Which of these is closest to your week?" Write down their words. Do not assume. This matches the business page ("The problems").
 
-## Slide 3: What Fieldwork is (chalk)
+## Slide 3: What Fieldwork is (paper)
 **Title:** A new company teaching AI by doing real work.
 **Body:**
 - Task first: every lesson starts from a job someone actually has.
@@ -29,7 +29,7 @@ Version 0.1, 14 October 2026. Slide text is final and concise. Speaker notes are
 - Works on modest means: free tiers, mobile-friendly.
 **Notes:** Say it plainly: "We are new." Do not claim experience you do not have. Mention the free exercise exists today.
 
-## Slide 4: The method (chalk)
+## Slide 4: The method (paper)
 **Title:** Brief. Run. Check. Keep.
 **Body (4 columns):**
 1. **Brief:** write a clear instruction, including what the tool must not do.
@@ -38,13 +38,13 @@ Version 0.1, 14 October 2026. Slide text is final and concise. Speaker notes are
 4. **Keep:** save what worked as a workflow card.
 **Notes:** Emphasise the check step. Staff practise the same four moves on their own work.
 
-## Slide 5: Our principle (indigo)
+## Slide 5: Our principle (cobalt)
 **Title:** AI drafts. People decide.
 **Body:**
 We never suggest AI should value a property, give legal advice, or approve an offer, tenancy or transaction.
 **Notes:** Pause on this slide. It is the answer to most risk questions. If asked about valuations or tenant decisions: "No, and we will not teach it."
 
-## Slide 6: The seven workflows (chalk)
+## Slide 6: The seven workflows (paper)
 **Title:** Seven everyday tasks. A clear line between tool and person.
 **Body (list):**
 1. Listings from verified facts
@@ -57,7 +57,7 @@ We never suggest AI should value a property, give legal advice, or approve an of
 **Footer:** We recommend one or two to start.
 **Notes:** Ask which two matter most. This drives the pilot scope.
 
-## Slide 7: What a listing looks like in practice (chalk)
+## Slide 7: What a listing looks like in practice (paper)
 **Label:** FICTIONAL EXAMPLE
 **Title:** From verified facts to a checked draft.
 **Body:**
@@ -68,7 +68,7 @@ We never suggest AI should value a property, give legal advice, or approve an of
 **Footer:** The property is invented. No client or result is implied.
 **Notes:** Offer the live demo (DEMO-SCRIPT.md). Mention the typical things to catch: aspect, quiet street, who it suits, missing ground rent. Say "the kind of thing we expect to catch", not "what we always see".
 
-## Slide 8: What stays with people (charcoal)
+## Slide 8: What stays with people (ink)
 **Title:** Not for AI.
 **Body:**
 - Valuations and pricing advice.
@@ -77,7 +77,7 @@ We never suggest AI should value a property, give legal advice, or approve an of
 - Approving offers, tenancies or transactions.
 **Notes:** These are the defaults; the AI-use rule you write together can add more.
 
-## Slide 9: Three ways to start (chalk)
+## Slide 9: Three ways to start (paper)
 **Title:** Scoped and priced after a conversation.
 **Body (3 columns):**
 - **Practice session:** one workflow, a small team, reusable workflow cards. Live or remote.
@@ -86,7 +86,7 @@ We never suggest AI should value a property, give legal advice, or approve an of
 **Footer:** Separate UK (GBP) and Nigeria (NGN) pricing.
 **Notes:** Do not quote numbers unless the scorecard is high and you have the pricing hypothesis. Say: "I will send a one-page proposal with a fixed fee."
 
-## Slide 10: A four-week pilot (chalk)
+## Slide 10: A four-week pilot (paper)
 **Label:** ILLUSTRATIVE OUTLINE
 **Title:** Small, measured, easy to stop.
 **Body (timeline):**
@@ -96,7 +96,7 @@ We never suggest AI should value a property, give legal advice, or approve an of
 - **Week 4:** Review against your baseline. Keep, change or stop.
 **Notes:** "This is an outline we adapt. It is not a record of work done." Stop at the end of any week.
 
-## Slide 11: Data and regulation (chalk)
+## Slide 11: Data and regulation (paper)
 **Title:** Practice without personal data.
 **Body:**
 - Anonymised or fictional examples. No client personal data.
@@ -106,7 +106,7 @@ We never suggest AI should value a property, give legal advice, or approve an of
 - We teach your team to follow your rules. This is not legal advice.
 **Notes:** Always add "take advice from your professional body or a solicitor". Do not state what is compliant.
 
-## Slide 12: What we do not claim (charcoal)
+## Slide 12: What we do not claim (ink)
 **Title:** Honest about what we are.
 **Body:**
 - We are new. No client case studies yet.
@@ -115,7 +115,7 @@ We never suggest AI should value a property, give legal advice, or approve an of
 - The onboarding platform is planned. Not built. Not for sale.
 **Notes:** Linger. This is the trust slide. Invite the question: "What would you need to see to be comfortable?"
 
-## Slide 13: What you would receive (chalk)
+## Slide 13: What you would receive (paper)
 **Title:** Material your team keeps using.
 **Body:**
 - A practice plan built around your own workflows
@@ -126,7 +126,7 @@ We never suggest AI should value a property, give legal advice, or approve an of
 - A short review of what changed
 **Notes:** "You own the house briefs and rules."
 
-## Slide 14: Next step (indigo)
+## Slide 14: Next step (cobalt)
 **Title:** See it on your own workflows.
 **Body:**
 1. Try the free exercise: [WEBSITE]/learn/first-workflow

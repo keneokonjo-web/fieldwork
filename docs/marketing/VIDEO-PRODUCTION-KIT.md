@@ -47,21 +47,22 @@ Version 0.1, 14 October 2026. For one person with a phone and no budget. Platfor
 
 | Token | Hex | Use |
 |---|---|---|
-| Chalk | #F1EFEA | Background cards |
-| Charcoal | #262422 | Text on chalk; dark backgrounds |
-| Indigo | #25306E | Result panels, emphasis blocks |
-| Clay | #A8512F | Labels, highlight underline; use on chalk only for bold or 12px+; use #E3A98C on dark grounds |
-| Stone | #E8E4DB | Secondary panels |
+| Paper | #F3F2ED | Background cards |
+| Ink | #121212 | Text on paper; dark backgrounds |
+| Cobalt | #2340FF | The one signal: results, key word, dot terrain; paper text on cobalt |
+| Cobalt light | #7C8FFF | Cobalt on ink grounds |
+| Wash | #E8E7E0 | Secondary panels |
+| Grey | #6B6A63 | Muted text (use darker grey on wash) |
 
-Fonts: **Cormorant Garamond** for hook and headline cards; **Hanken Grotesk** for body text and captions; **Geist Mono** for labels such as `BRIEF`, `CHECK`, `STEP 2`. All three are free from Google Fonts (verify licence terms in the font page). CapCut may not include them: use Canva (free, can upload fonts only on paid plans; verify) or fall back to nearest available (a serif for headings, a clean sans for body, a monospace for labels). Keep contrast: charcoal on chalk (about 14:1), chalk on indigo (about 11:1). Do not use clay as small text on stone.
+Fonts: **Schibsted Grotesk** (bold for hook and headline cards, regular for body text and captions) and **Geist Mono** for labels such as `(01) BRIEF`, `CHECK`, `STEP 2`. Both are free from Google Fonts (SIL OFL; verify licence terms on the font page). CapCut may not include them: use Canva (free; uploading fonts needs a paid plan, verify) or fall back to the nearest available (a tight bold grotesque for headlines, a monospace for labels). Keep contrast: ink on paper (about 16.7:1), paper on cobalt (about 5.8:1; large text only below 18px). Do not use grey as small text on wash.
 
 ### On-screen text style
 
-- Hook card (first 2 seconds): Cormorant Garamond, 64 to 80pt equivalent on 1080x1920, charcoal on chalk, max 8 words.
-- Labels: Geist Mono uppercase, small, clay on chalk: `STEP 1 · BRIEF`.
-- Body overlays: Hanken Grotesk 36 to 44pt, max 2 lines, charcoal on chalk panel; avoid text in the bottom 20% and top 10% (UI overlays; verify safe zones per platform).
-- One highlight per scene using a clay underline. No emojis in on-screen text. No flashy transitions. Cuts or 150ms fades only.
-- Use square corners and thin charcoal rules, matching the site.
+- Hook card (first 2 seconds): Schibsted Grotesk Bold, tight tracking (-6%), 64 to 80pt equivalent on 1080x1920, ink on paper, max 8 words.
+- Labels: Geist Mono uppercase, small, cobalt on paper: `(01) BRIEF`.
+- Body overlays: Schibsted Grotesk 36 to 44pt, max 2 lines, ink on paper panel; avoid text in the bottom 20% and top 10% (UI overlays; verify safe zones per platform).
+- One highlight per scene using cobalt (colour or underline). No emojis in on-screen text. No flashy transitions. Cuts or 150ms fades only.
+- Use hairline rules, corner letters and dot terrain, matching the site.
 - Keep text on screen at least 1 second per 4 words.
 
 ## 6. Video specs (verify before use)
@@ -73,7 +74,7 @@ Fonts: **Cormorant Garamond** for hook and headline cards; **Hanken Grotesk** fo
 
 ## 7. Thumbnail template
 
-Layout (chalk background): top-left Geist Mono label `FIELDWORK · CHECK IT` in clay. Centre: hook in Cormorant Garamond, charcoal, 3 to 6 words. Bottom: a thin charcoal rule and small Hanken Grotesk line `Free exercise · no account`. No faces needed. No stock photo unless licensed. Variations: indigo background with chalk text for "Check it" videos.
+Layout (paper background): top-left Geist Mono label `(FIELDWORK · CHECK IT)` in cobalt. Centre: hook in Schibsted Grotesk Bold, ink, 3 to 6 words. Bottom: a hairline rule and a small line `Free exercise · no account`; the giant wordmark may be cropped at the very bottom. No faces needed. No stock photo unless licensed. Variations: ink background with paper text, or cobalt background for "Check it" videos.
 
 ## 8. Caption templates
 
