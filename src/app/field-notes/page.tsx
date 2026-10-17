@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { Plate } from '@/components/ui/Plate';
-import { Reveal } from '@/components/ui/Reveal';
+import Image from 'next/image';
+import { Corners } from '@/components/ui/Corners';
 import { articles } from '@/content/field-notes';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -10,39 +10,30 @@ export const metadata = pageMetadata({
   path: '/field-notes',
 });
 
-const noteImage: Record<string, string> = {
-  'five-part-brief': 'work-whiteboard', 'check-ai-answers': 'work-pair-laptop',
-  'property-ai-tasks': 'home-keys-model', 'what-not-to-paste': 'work-desk-pair',
-};
-
 export default function FieldNotesPage() {
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero corners">
+        <Corners n="07" letters={['N', 'O', 'T']} />
+        <Image className="page-hero__dots" src="/art/terrain-21-fade-right-cobalt-clear.svg" alt="" width={900} height={700} unoptimized aria-hidden="true" />
         <div className="container">
           <p className="eyebrow">Field Notes</p>
-          <h1>Short, practical <em>guides.</em></h1>
-          <p className="lede">Each note has a clear reader, a practical result and a statement of how it was made. We do not publish a note for the sake of publishing.</p>
+          <h1>Short, practical guides.</h1>
+          <p className="lede">Each note names its reader and says how it was made.</p>
         </div>
       </section>
-      <section className="section section--stone">
+      <section className="section">
         <div className="container">
-          <div className="grid grid--2">
+          <div className="lookback">
+            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) auto', gap: '1rem', padding: '0.6rem 0', borderBottom: 'var(--rule-soft)' }} className="index"><span>2026 · All notes</span><span>{articles.length} notes · 0 tests · {articles.length} explainers</span></div>
             {articles.map((a, i) => (
-              <Reveal key={a.slug} delay={(i % 2) * 70}>
-                <Link href={`/field-notes/${a.slug}`} className="card card--link note-card">
-                  {noteImage[a.slug] && <Plate photo={noteImage[a.slug]} ratio="16 / 9" framed={false} sizes="(min-width: 48rem) 40vw, 100vw" />}
-                  <p className="index">{a.category} · {a.readingMinutes} min read</p>
-                  <h2 style={{ fontSize: 'var(--step-2)' }}>{a.title}</h2>
-                  <p className="muted">{a.description}</p>
-                  <p className="small"><strong>For:</strong> {a.audience}</p>
-                  <span className="card__foot link-arrow">Read the note</span>
-                </Link>
-              </Reveal>
+              <Link key={a.slug} href={`/field-notes/${a.slug}`}>
+                <span>{a.category}</span><b>{a.title}</b><span>{a.readingMinutes} min</span><span>No. 0{i + 1}</span>
+              </Link>
             ))}
           </div>
           <div className="callout" style={{ marginTop: 'var(--s-7)' }}>
-            <p><strong>How Field Notes are made.</strong> Notes explain methods. Where we compare tools or report results, we will say exactly what was tested, when and by whom. If a note is an explanation rather than a test, it says so at the top.</p>
+            <p><strong>How notes are made.</strong> Notes explain methods. Where we compare tools or report results, we say what was tested, when and by whom. Otherwise the note says it is an explanation.</p>
           </div>
         </div>
       </section>

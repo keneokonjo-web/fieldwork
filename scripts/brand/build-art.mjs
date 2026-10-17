@@ -1,29 +1,20 @@
-// Pre-generates the field artwork library as static SVG files (no runtime generation, no layout shift).
-// Output: public/art/field-<kind>-<seed>-<tone>.svg. Tones: chalk (indigo ink on chalk), char (clay-light on charcoal), indigo (chalk on indigo), clay (chalk on clay).
+// Pre-generates the dot-terrain library (halftone terrain, Concept 2) as static SVG files.
+// Output: public/art/terrain-<seed>-<mask>-<tone>.svg. Tones: paper (cobalt dots on paper), ink (cobalt-light on ink), cobalt (paper on cobalt), wash (ink dots on wash).
 import fs from 'node:fs';
 import path from 'node:path';
-import { contourSvg, halftoneSvg } from './field-generator.mjs';
+import { halftoneSvg } from './field-generator.mjs';
 import { palette as P } from './palette.mjs';
 
 const out = path.join(process.cwd(), 'public/art');
 fs.mkdirSync(out, { recursive: true });
-const tones = {
-  chalk: { bg: P.chalk, ink: P.indigo },
-  char: { bg: P.charcoal, ink: P.clayLight },
-  indigo: { bg: P.indigo, ink: P.clayLight },
-};
-const paint = (svg, t, w, h) => svg.replace('aria-hidden="true"', `aria-hidden="true" color="${t.ink}"`).replace(/currentColor/g, t.ink)
-  .replace('focusable="false">', `focusable="false"><rect width="${w}" height="${h}" fill="${t.bg}"/>`);
-const W = 1000, H = 750;
-const contours = [8, 12, 17, 33];
-const dots = [5];
+const tones = { paper: { bg: P.paper, ink: P.cobalt }, ink: { bg: P.ink, ink: P.cobaltLight }, cobalt: { bg: P.cobalt, ink: P.paper }, wash: { bg: P.wash, ink: P.ink } };
+const W = 900, H = 700;
+const sets = [[6, 'circle'], [4, 'fade-right'], [9, 'fade-down'], [21, 'fade-right'], [12, 'circle']];
 let n = 0;
-for (const [tone, t] of Object.entries(tones)) {
-  for (const seed of contours) {
-    fs.writeFileSync(path.join(out, `field-contour-${seed}-${tone}.svg`), paint(contourSvg({ seed, w: W, h: H, levels: 20, scale: 2.4 }), t, W, H)); n++;
-  }
-  for (const seed of dots) {
-    fs.writeFileSync(path.join(out, `field-dots-${seed}-${tone}.svg`), paint(halftoneSvg({ seed, w: W, h: H, step: 20, maxR: 9 }), t, W, H)); n++;
-  }
+for (const [tone, t] of Object.entries(tones)) for (const [seed, mask] of sets) {
+  const svg = halftoneSvg({ seed, w: W, h: H, step: 26, maxR: 10, mask }).replace(/currentColor/g, t.ink).replace('focusable="false">', `focusable="false"><rect width="${W}" height="${H}" fill="${t.bg}"/>`);
+  fs.writeFileSync(path.join(out, `terrain-${seed}-${mask}-${tone}.svg`), svg); n++;
+  // transparent version for layering over page grounds (dots only)
+  if (tone === 'paper' || tone === 'ink') fs.writeFileSync(path.join(out, `terrain-${seed}-${mask}-${tone === 'paper' ? 'cobalt' : 'cobaltlight'}-clear.svg`), halftoneSvg({ seed, w: W, h: H, step: 26, maxR: 10, mask }).replace(/currentColor/g, t.ink)); 
 }
-console.log(`wrote ${n} art files`);
+console.log(`wrote ${n} art files (+clear)`);

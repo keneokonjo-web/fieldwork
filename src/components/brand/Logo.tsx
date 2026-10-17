@@ -1,16 +1,16 @@
 type Props = {
-  /** lockup = benchmark + caps (header, documents). wordmark = lowercase display wordmark. symbol = benchmark only. */
-  form?: 'lockup' | 'wordmark' | 'symbol' | 'stacked';
-  /** Colourway: light = for chalk grounds, dark = for charcoal/indigo grounds. */
-  tone?: 'light' | 'dark';
+  /** wordmark = lowercase display wordmark with the halftone-disc dot. lockup = target icon + wordmark. target = icon only. disc = dot-matrix symbol. */
+  form?: 'wordmark' | 'wordmark-small' | 'lockup' | 'target' | 'disc';
+  /** Colourway: light = for paper grounds, dark = for ink grounds, cobalt = for cobalt grounds. */
+  tone?: 'light' | 'dark' | 'cobalt';
   className?: string;
+  alt?: string;
 };
-const dims = { lockup: [554, 62], wordmark: [575, 138], symbol: [100, 100], stacked: [310, 120] } as const;
+const dims = { wordmark: [607, 138], 'wordmark-small': [607, 138], lockup: [690, 138], target: [100, 100], disc: [100, 100] } as const;
 
 /** Renders the exported logo files from /public/brand/logo so the site never redraws the mark. */
-export function Logo({ form = 'lockup', tone = 'light', className = 'logo' }: Props) {
-  const file = form === 'stacked' ? `fieldwork-lockup-stacked-${tone}.svg` : `fieldwork-${form}-${tone}.svg`;
+export function Logo({ form = 'wordmark-small', tone = 'light', className = 'logo', alt = 'Fieldwork' }: Props) {
   const [w, h] = dims[form];
   // eslint-disable-next-line @next/next/no-img-element
-  return <img src={`/brand/logo/${file}`} alt="Fieldwork" width={w} height={h} className={className} />;
+  return <img src={`/brand/logo/fieldwork-${form}-${tone}.svg`} alt={alt} width={w} height={h} className={className} />;
 }

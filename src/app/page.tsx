@@ -1,93 +1,80 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { LeadForm } from '@/components/forms/LeadForm';
 import { ButtonLink, TextLink } from '@/components/ui/ButtonLink';
-import { Chip } from '@/components/ui/Chip';
+import { Corners } from '@/components/ui/Corners';
 import { Plate } from '@/components/ui/Plate';
 import { Reveal } from '@/components/ui/Reveal';
 import { FREE_EXPERIENCE_PATH, siteConfig } from '@/config/site';
 import { articles } from '@/content/field-notes';
+import { STARTER_TASKS } from '@/content/learn/first-workflow';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata({
   title: 'Fieldwork: practise AI on real work',
-  description: 'Learn AI by doing the work you already have. Try a free guided exercise, then keep a workflow you can reuse. Practical AI training for real estate teams.',
+  description: 'Learn AI by doing the work you already have. A free guided exercise, then practical AI training for real estate teams.',
   path: '/',
 });
 
-const useCases = [
-  { n: '01', title: 'Get everyday work done faster', text: 'Updates, replies, summaries and notes, from rough material to something you can send.', status: 'available' as const, link: 'In the free exercise' },
-  { n: '02', title: 'Learn a tool by using it', text: 'A task, a method and a check, instead of a tour of features.', status: 'available' as const, link: 'In the free exercise' },
-  { n: '03', title: 'Research and shape a business idea', text: 'Structure what you know, find gaps, draft a one-page plan you can test.', status: 'planned' as const, link: 'Planned guided project' },
-  { n: '04', title: 'Make documents and presentations', text: 'Turn an outline into a clean document or deck, then edit it properly.', status: 'planned' as const, link: 'Planned guided project' },
-  { n: '05', title: 'Build a simple website or asset', text: 'From brief to first version, with the checks that stop it embarrassing you.', status: 'planned' as const, link: 'Planned guided project' },
-  { n: '06', title: 'Choose the right tool for the job', text: 'Compare tools on one specific task, with clear notes on what was really tested.', status: 'planned' as const, link: 'Planned Field Notes series' },
-];
+const mins = ['15 min', '10 min', '10 min'];
 
 export default function HomePage() {
-  const notes = articles.slice(0, 3);
+  const tasks = STARTER_TASKS.slice(0, 3);
   return (
     <>
-      <section className="hero" aria-labelledby="hero-title">
-        <div className="container hero__grid">
-          <div>
-            <p className="eyebrow">Practical AI learning</p>
-            <h1 id="hero-title">Practise AI on <em>real work.</em></h1>
-            <p className="lede">Fieldwork gives you a real task, a method, and a way to check the result. Start with a free guided exercise. No account needed.</p>
-            <div className="btn-row" style={{ marginTop: 'var(--s-6)' }}>
-              <ButtonLink href={FREE_EXPERIENCE_PATH} track="consumer_cta_clicked" trackLabel="hero-primary">Try the free exercise</ButtonLink>
-              <ButtonLink href="/business" variant="secondary" track="business_cta_clicked" trackLabel="hero-business">Training for businesses</ButtonLink>
-            </div>
-            <div className="hero-meta">
-              <span>About 15 minutes</span>
-              <span>Works with free AI tools</span>
-              <span>Light on data</span>
+      <section className="hero corners" aria-labelledby="hero-title">
+        <Corners n="01" />
+        <Image className="hero__dots" src="/art/terrain-6-circle-cobalt-clear.svg" alt="" width={900} height={700} unoptimized aria-hidden="true" priority />
+        <div className="container">
+          <div className="hero__mid">
+            <h1 id="hero-title">Learn AI by doing the work you already have.</h1>
+            <div className="hero__side">
+              <p>A real task, a method, and a way to check the result. Free. No account.</p>
+              <TextLink href={FREE_EXPERIENCE_PATH} track="consumer_cta_clicked" trackLabel="hero-primary">Start exercise (01)</TextLink>
             </div>
           </div>
-          <div className="hero-art">
-            <Plate className="plate--main" photo="work-hands-laptop" ratio="4 / 3" priority sizes="(min-width: 62rem) 46vw, 100vw" labelFloat
-              label={<><b>Plate 01. The brief</b>Notes in, draft out. Stock photograph, illustrative.</>} />
-            <Plate className="plate--inset" art="contour-8" tone="indigo" ratio="4 / 5" sizes="30vw" framed />
+          <div className="hero__index">
+            <div className="idx">
+              {tasks.map((t, i) => (
+                <Link key={t.id} href={FREE_EXPERIENCE_PATH} data-track="consumer_cta_clicked" data-track-label={`hero-task-${i + 1}`}>
+                  <span>(0{i + 1})</span><b>{t.title}</b><span>{mins[i]}</span><span className="visually-hidden-sm">Any AI tool</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="hero__big" src="/brand/logo/fieldwork-wordmark-light.svg" alt="" width={607} height={138} aria-hidden="true" />
+      </section>
+
+      <section className="section" aria-labelledby="what-title">
+        <div className="container">
+          <h2 id="what-title" className="visually-hidden">What Fieldwork does</h2>
+          <div className="ppr">
+            <div className="r reveal"><h3 className="k">(01) Problem</h3><p>Most AI advice starts with the tool.</p></div>
+            <div className="r reveal"><h3 className="k">(02) Practice</h3><p>We start with a task you have. Brief, run, check, keep.</p></div>
+            <div className="r reveal"><h3 className="k">(03) Result</h3><p className="res-line">A workflow you keep, and a result you checked.</p></div>
           </div>
         </div>
       </section>
 
-      <section className="section section--stone" aria-labelledby="routes-title">
+      <section className="section" aria-labelledby="ways-title">
         <div className="container">
-          <div className="section__head reveal">
-            <p className="eyebrow">Two ways in</p>
-            <h2 id="routes-title">Learning for yourself, or <em>for your team.</em></h2>
-          </div>
-          <div className="route-grid">
-            <Reveal className="route">
-              <Plate photo="work-hands-writing" ratio="4 / 3" label={<><b>Individuals</b>Filed under: practise</>} />
-              <p className="index">Fieldwork for Individuals</p>
+          <p className="eyebrow">Two ways in</p>
+          <h2 id="ways-title" className="visually-hidden">Two ways in</h2>
+          <div className="ways">
+            <Link href="/individuals" data-track="consumer_cta_clicked" data-track-label="route-individuals">
+              <Plate photo="work-hands-writing" ratio="3 / 2" framed={false} />
+              <span className="index">Individuals</span>
               <h3>Bring one task. Leave with a workflow.</h3>
-              <p>Practise on your own work or study. Start with the free exercise. Guided projects and a membership are planned and clearly marked as such.</p>
-              <div className="btn-row">
-                <ButtonLink href="/individuals" variant="secondary" small track="consumer_cta_clicked" trackLabel="route-individuals">See how it works</ButtonLink>
-              </div>
-            </Reveal>
-            <Reveal className="route route--biz" delay={80}>
-              <Plate photo="prop-exterior-timber-dusk" ratio="4 / 3" label={<><b>Business</b>Filed under: real estate first</>} />
-              <p className="index">Fieldwork for Business · real estate first</p>
+              <p>Free exercise now. Guided projects planned.</p>
+            </Link>
+            <Link href="/business" data-track="business_cta_clicked" data-track-label="route-business">
+              <Plate photo="prop-exterior-timber-dusk" ratio="3 / 2" framed={false} />
+              <span className="index">Business · real estate first</span>
               <h3>Your team, practising on your own work.</h3>
-              <p>Practical AI training for estate and letting agencies: listings, enquiries, reports and procedures. AI drafts. People decide.</p>
-              <div className="btn-row">
-                <ButtonLink href="/business/real-estate" variant="secondary" small track="business_cta_clicked" trackLabel="route-real-estate">Real estate teams</ButtonLink>
-                <TextLink href="/business">How it works</TextLink>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--indigo reg-brief" aria-labelledby="principle-title">
-        <div className="container">
-          <h2 id="principle-title" className="statement reveal" style={{ fontFamily: 'var(--font-wordmark)', fontWeight: 700, letterSpacing: '-0.06em', lineHeight: 0.92 }}>Most AI advice stops at what a tool can do. We start with what <em style={{ fontStyle: 'normal' }}>you need done.</em></h2>
-          <div className="principles">
-            <Reveal className="principle"><span className="bn">01</span><h3>A real task</h3><p>Every exercise begins with a job someone actually has, not a demo.</p></Reveal>
-            <Reveal className="principle" delay={80}><span className="bn">02</span><h3>A checked result</h3><p>You learn how to test what comes back, because fluent is not the same as correct.</p></Reveal>
-            <Reveal className="principle" delay={160}><span className="bn">03</span><h3>A workflow to keep</h3><p>You finish with a brief and checks you can reuse, which is the part that saves time later.</p></Reveal>
+              <p>Listings, enquiries, reports, procedures.</p>
+            </Link>
           </div>
         </div>
       </section>
@@ -95,116 +82,65 @@ export default function HomePage() {
       <section className="section" aria-labelledby="preview-title">
         <div className="container split">
           <div className="reveal">
-            <p className="eyebrow">The free exercise</p>
-            <h2 id="preview-title">Turn a messy task into a workflow you can <em>reuse.</em></h2>
-            <p className="lede">Pick a task, write a five-part brief, run it in whichever AI tool you already use, then check the result properly. It ends with a workflow card you can download.</p>
-            <ul className="ticks" style={{ marginTop: 'var(--s-5)' }}>
-              <li>Starter tasks for work, small business, study and property</li>
-              <li>Copyable prompts and follow-up fixes</li>
-              <li>A finished example with the mistakes caught</li>
-              <li>Your entries stay on your device</li>
-            </ul>
-            <div className="btn-row"><ButtonLink href={FREE_EXPERIENCE_PATH} track="consumer_cta_clicked" trackLabel="preview-start">Start the exercise</ButtonLink><TextLink href="/learn">What else is planned</TextLink></div>
+            <p className="eyebrow">Free exercise</p>
+            <h2 id="preview-title">Brief the tool like a new colleague.</h2>
+            <p className="lede">Fifteen minutes. Any AI tool. Ends with a workflow card.</p>
+            <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
+              <ButtonLink href={FREE_EXPERIENCE_PATH} track="consumer_cta_clicked" trackLabel="preview-start">Start the exercise</ButtonLink>
+              <TextLink href="/learn">What else is planned</TextLink>
+            </div>
           </div>
           <Reveal>
-            <div className="mock" role="img" aria-label="A preview of the exercise: a five-part brief on the left, and the prompt it builds.">
-              <div className="mock__bar"><i /><i /><i /><b>Step 3 · Write the brief</b></div>
-              <div className="mock__body" aria-hidden="true">
-                <div className="mock__field"><small>The task</small>Write a short weekly update for my manager.</div>
-                <div className="mock__field"><small>Shape of the answer</small>Done, In progress, Needs a decision. Under 150 words.</div>
-                <div className="mock__field"><small>Rules</small>Keep dates exactly as written. Do not add filler.</div>
-                <pre>{`Task: Write a short weekly update…\nRules:\n- Use only the material I give you.\n- If something is missing, write\n  [needs checking].\n…`}</pre>
+            <div className="sheet" role="img" aria-label="A preview of the exercise: task, shape of the answer, rules and a checked result.">
+              <div className="hd"><span>Exercise (01) · Step 3 of 6</span><span>15 min</span></div>
+              <div className="bd" aria-hidden="true">
+                <div className="kv"><b>Task</b><span>Write a short weekly update for my manager.</span></div>
+                <div className="kv"><b>Shape</b><span>Done / In progress / Needs a decision. Under 150 words.</span></div>
+                <div className="kv"><b>Rules</b><span>Keep dates exactly as written. Do not add filler.</span></div>
+                <div className="kv res"><b>Checked</b><span>Credit note still to be issued. Supplier slipped from the 14th to the 21st.</span></div>
+                <div style={{ marginTop: 'var(--s-4)' }}><div className="pbar"><i className="f" /><i className="f" /><i className="f" /><i /><i /><i /></div></div>
               </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="section section--stone" aria-labelledby="uses-title">
+      <section className="section section--ink" aria-labelledby="biz-title">
         <div className="container">
-          <div className="section__head reveal">
-            <p className="eyebrow">What you can practise</p>
-            <h2 id="uses-title">Recognisable jobs, <em>labelled honestly.</em></h2>
-            <p>Fieldwork is new. One exercise is available today. The others are planned and marked as planned.</p>
+          <p className="eyebrow">For real estate teams</p>
+          <h2 id="biz-title" style={{ maxWidth: '14ch' }}>AI drafts. <em style={{ color: 'var(--cobalt-light)' }}>People decide.</em></h2>
+          <div className="three reveal" style={{ marginTop: 'var(--s-6)' }}>
+            <div><b>(01) Problem</b>Listings differ across the office. Client details leak into free tools.</div>
+            <div><b>(02) Practice</b>Brief from verified facts. Run. Check every claim against the sheet.</div>
+            <div><b>(03) Result</b>One house brief and one checklist, kept as a workflow card.</div>
           </div>
-          <ol className="index-list" style={{ listStyle: 'none', padding: 0 }}>
-            {useCases.map((u) => (
-              <li key={u.n} className="reveal">
-                <span className="bn" style={{ fontSize: '1.9rem' }}>{u.n}</span>
-                <h3>{u.title}</h3>
-                <p>{u.text}</p>
-                <span><Chip tone={u.status}>{u.status === 'available' ? 'Available now' : 'Planned'}</Chip></span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="example-title">
-        <div className="container">
-          <div className="section__head reveal">
-            <p className="eyebrow">What you leave with</p>
-            <h2 id="example-title">From scattered notes to something you can <em>send.</em></h2>
-            <p>An illustration written by Fieldwork, not a live tool output. The checking step caught two errors before this went to a manager.</p>
+          <div className="btn-row" style={{ marginTop: 'var(--s-6)' }}>
+            <ButtonLink href="/business/real-estate" variant="light" track="business_cta_clicked" trackLabel="home-band-real-estate">Real estate teams</ButtonLink>
+            <ButtonLink href="/business/assessment" variant="outline-light" track="business_cta_clicked" trackLabel="home-band-assessment">Free workflow assessment</ButtonLink>
           </div>
-          <Reveal className="ppr">
-            <div><h3>Problem</h3><pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit', margin: 0, fontSize: '0.95rem' }}>{`Mon: call with Dan. Supplier delay, new date 21st (was 14th).\nTue: finished draft onboarding checklist, needs Sam to review.\nWed: Hartley invoice. They say £480 not £840. We typed it wrong. Credit note still to be issued.\nOpen: website photos, chase Jo.`}</pre></div>
-            <div><h3>Practice</h3><p>A five-part brief. One run in a free AI tool. Then a check against the notes, which caught the swapped invoice figure and a changed delivery date.</p></div>
-            <div><h3>Result</h3><pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit', margin: 0, fontSize: '0.95rem' }}>{`Done\n- Draft onboarding checklist finished. Needs Sam to review.\n- Hartley invoice error found: £840 typed instead of £480.\n\nIn progress\n- Credit note for Hartley still to be issued.\n- Supplier delivery slipped a week, from the 14th to the 21st.\n- Website photos not arrived. Chasing Jo.`}</pre></div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section section--char reg-brief" aria-labelledby="biz-title">
-        <div className="container split">
-          <div className="reveal">
-            <p className="eyebrow">For real estate teams</p>
-            <h2 id="biz-title">Better listings, faster replies, clearer procedures. <em>People still in charge.</em></h2>
-            <p className="lede">We teach your staff to use AI on the work they already do, with clear rules about what to hand to a tool and what to leave to people. Delivered mostly as reusable material, with an optional live session.</p>
-            <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
-              <ButtonLink href="/business/real-estate" variant="light" track="business_cta_clicked" trackLabel="home-band-real-estate">See the real estate approach</ButtonLink>
-              <ButtonLink href="/business/assessment" variant="outline-light" track="business_cta_clicked" trackLabel="home-band-assessment">Take the workflow assessment</ButtonLink>
-            </div>
-          </div>
-          <Reveal className="stack">
-            <Plate photo="prop-modernist" ratio="3 / 2" label={<><b>Plate 07. Listing copy</b>From verified facts, checked by a person.</>} />
-            <div className="safety">
-              <h3>AI drafts. People decide.</h3>
-              <p>We never suggest AI should value a property, give legal advice or approve a transaction. Practice focuses on drafting, tidying and organising from verified facts, with a human check before anything goes out.</p>
-            </div>
-          </Reveal>
         </div>
       </section>
 
       <section className="section" aria-labelledby="notes-title">
         <div className="container">
-          <div className="section__head reveal">
-            <p className="eyebrow">Field Notes</p>
-            <h2 id="notes-title">Short, practical <em>guides.</em></h2>
-            <p>Each note has a clear reader, a practical result and a statement of how it was made.</p>
-          </div>
-          <div className="grid grid--3">
-            {notes.map((a, i) => (
-              <Reveal key={a.slug} delay={i * 70}>
-                <Link href={`/field-notes/${a.slug}`} className="card card--link note-card">
-                  <p className="index">{a.category} · {a.readingMinutes} min</p>
-                  <h3>{a.title}</h3>
-                  <p className="muted">{a.description}</p>
-                  <span className="card__foot link-arrow">Read</span>
-                </Link>
-              </Reveal>
+          <p className="eyebrow">Field Notes</p>
+          <h2 id="notes-title" className="visually-hidden">Field Notes</h2>
+          <div className="lookback">
+            {articles.slice(0, 4).map((a, i) => (
+              <Link key={a.slug} href={`/field-notes/${a.slug}`}>
+                <span>{a.category}</span><b>{a.title}</b><span>{a.readingMinutes} min</span><span>No. 0{i + 1}</span>
+              </Link>
             ))}
           </div>
-          <p style={{ marginTop: 'var(--s-6)' }}><TextLink href="/field-notes">All Field Notes</TextLink></p>
+          <p style={{ marginTop: 'var(--s-5)' }}><TextLink href="/field-notes">All Field Notes</TextLink></p>
         </div>
       </section>
 
-      <section className="section section--indigo cta-band" aria-labelledby="final-title">
+      <section className="section section--cobalt cta-band" aria-labelledby="final-title">
         <div className="container cta-split">
           <div className="reveal">
-            <p className="eyebrow">Start with one task</p>
-            <h2 id="final-title" style={{ fontFamily: 'var(--font-wordmark)', fontWeight: 700, letterSpacing: '-0.07em' }}>Bring one task.</h2>
-            <p className="lede">Fifteen minutes, a tool you already have, and something finished at the end.</p>
+            <p className="eyebrow">Start</p>
+            <h2 id="final-title">Bring one task.</h2>
             <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
               <ButtonLink href={FREE_EXPERIENCE_PATH} variant="light" track="consumer_cta_clicked" trackLabel="final-cta">Try the free exercise</ButtonLink>
               <ButtonLink href="/contact?topic=business" variant="outline-light" track="business_cta_clicked" trackLabel="final-business">Talk to us about your team</ButtonLink>
@@ -212,7 +148,7 @@ export default function HomePage() {
           </div>
           <Reveal className="form-card">
             <h3>New exercises, by email</h3>
-            <p className="muted">Optional. We will tell you when new exercises and guided projects are ready. Nothing else.</p>
+            <p className="muted">Optional. Only when something new is ready.</p>
             <LeadForm type="newsletter" variant="email" submitLabel="Join the list" interest="home-footer" location="home-final"
               successTitle="You are on the list" successBody="Thank you. We will email you when the next exercise is ready. You can unsubscribe at any time." fallbackEmail={siteConfig.email.general} />
           </Reveal>

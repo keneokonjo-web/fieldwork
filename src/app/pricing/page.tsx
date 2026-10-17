@@ -1,3 +1,4 @@
+import { Corners } from '@/components/ui/Corners';
 import { LeadForm } from '@/components/forms/LeadForm';
 import { ConsumerPricing } from '@/components/pricing/ConsumerPricing';
 import { ButtonLink } from '@/components/ui/ButtonLink';
@@ -15,15 +16,16 @@ export const metadata = pageMetadata({
 export default function PricingPage() {
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero corners">
+        <Corners n="08" letters={['P', 'R', 'C']} />
         <div className="container">
           <p className="eyebrow">Pricing and availability</p>
-          <h1>What is free, what is planned, and what is not on sale yet.</h1>
-          <p className="lede">Fieldwork is new. The free exercise is available today. Everything else is described honestly below, with separate pricing for the UK and Nigeria.</p>
+          <h1>Free now. Planned next. Nothing else on sale.</h1>
+          <p className="lede">Separate prices for the UK and Nigeria.</p>
         </div>
       </section>
 
-      <section className="section section--stone" aria-labelledby="ind-title">
+      <section className="section section--wash" aria-labelledby="ind-title">
         <div className="container">
           <div className="section__head"><p className="eyebrow">Fieldwork for Individuals</p><h2 id="ind-title">Learning for yourself</h2></div>
           <ConsumerPricing />
@@ -56,8 +58,8 @@ export default function PricingPage() {
         <div className="container split">
           <div>
             <p className="eyebrow">In development</p>
-            <h2 id="future-title">An onboarding and knowledge platform for businesses.</h2>
-            <p className="lede">Checklists, role-based learning paths and an assistant grounded in your own approved information. It does not exist yet, it is not for sale, and we will not take payment for it. If you would like to hear when there is something to show, leave your email.</p>
+            <h2 id="future-title">An onboarding platform for businesses.</h2>
+            <p className="lede">Not built. Not for sale. We will not take payment for it. Leave your email to hear when there is something to show.</p>
           </div>
           <div className="form-card">
             <LeadForm type="newsletter" variant="email" submitLabel="Tell me when there is something to see" interest="onboarding-platform-waitlist" location="pricing-platform"
@@ -69,7 +71,7 @@ export default function PricingPage() {
       <section className="section" aria-labelledby="try-title">
         <div className="container">
           <h2 id="try-title">Start with the part that is free.</h2>
-          <p className="lede">A complete guided exercise. About 15 minutes. No account.</p>
+          <p className="lede">About 15 minutes. No account.</p>
           <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}><ButtonLink href={FREE_EXPERIENCE_PATH} track="consumer_cta_clicked" trackLabel="pricing-free">Try the free exercise</ButtonLink></div>
         </div>
       </section>

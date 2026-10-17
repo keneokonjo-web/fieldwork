@@ -1,6 +1,8 @@
+import Image from 'next/image';
 import { ButtonLink, TextLink } from '@/components/ui/ButtonLink';
 import { Chip } from '@/components/ui/Chip';
 import { PromptBlock } from '@/components/ui/PromptBlock';
+import { Corners } from '@/components/ui/Corners';
 import { Plate } from '@/components/ui/Plate';
 import { NOT_FOR_AI, WORKFLOWS } from '@/content/corporate/workflows';
 import { pageMetadata } from '@/lib/metadata';
@@ -29,31 +31,34 @@ Leasehold, 112 years remaining. Service charge £1,850 a year. No parking. EPC C
 export default function RealEstatePage() {
   return (
     <>
-      <section className="page-hero page-hero--wide reg-brief">
+      <section className="page-hero page-hero--wide corners">
+        <Corners n="04" letters={['R', 'E', 'A']} />
+        <Image className="page-hero__dots" src="/art/terrain-12-circle-cobalt-clear.svg" alt="" width={900} height={700} unoptimized aria-hidden="true" />
         <div className="container page-hero__grid">
           <div>
-          <p className="eyebrow">Fieldwork for Business · Real estate</p>
-          <h1>Better listings, faster replies, clearer procedures. <em>People still in charge.</em></h1>
-          <p className="lede">Practical AI training for estate agencies, letting agencies and property companies in the UK and Nigeria. Your staff practise on the work they already do, and learn what to hand to a tool and what to keep.</p>
-          <div className="btn-row" style={{ marginTop: 'var(--s-6)' }}>
-            <ButtonLink href="/contact?topic=business" track="business_cta_clicked" trackLabel="re-hero-demo">Request a demonstration</ButtonLink>
-            <ButtonLink href="/business/assessment" variant="secondary" track="business_cta_clicked" trackLabel="re-hero-assessment">Take the free assessment</ButtonLink>
+            <p className="eyebrow">Business · Real estate</p>
+            <h1>Better listings. Faster replies. People in charge.</h1>
+            <p className="lede">AI training for estate and letting teams in the UK and Nigeria, on the work they already do.</p>
+            <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
+              <ButtonLink href="/contact?topic=business" track="business_cta_clicked" trackLabel="re-hero-demo">Request a demonstration</ButtonLink>
+              <ButtonLink href="/business/assessment" variant="secondary" track="business_cta_clicked" trackLabel="re-hero-assessment">Free assessment</ButtonLink>
+            </div>
+            <p className="hero__note">Fieldwork is new, with no agency case studies yet. We would rather show a worked scenario than invent a testimonial.</p>
           </div>
-          <p className="hero__note">Fieldwork is new and has no agency case studies yet. We would rather show you a worked scenario than invent a testimonial.</p>
-          </div>
-          <Plate photo="prop-exterior-day" ratio="4 / 5" priority position="center 40%" sizes="(min-width: 62rem) 36vw, 100vw" label={<><b>Plate 01. The listing</b>Stock photograph, illustrative. Not a Fieldwork client.</>} />
+          <Plate photo="prop-exterior-day" ratio="4 / 5" priority position="center 40%" sizes="(min-width: 62rem) 36vw, 100vw" label={<><b>(01)</b>Stock photograph. Not a Fieldwork client.</>} />
         </div>
       </section>
 
-      <section className="section section--stone reg-brief" aria-labelledby="wf-title">
+      <section className="section" aria-labelledby="wf-title">
         <div className="container">
-          <div className="section__head"><p className="eyebrow">Workflows your team can practise</p><h2 id="wf-title">Seven everyday tasks, each with a clear line between tool and person.</h2></div>
+          <p className="eyebrow">Seven workflows</p>
+          <h2 id="wf-title" className="visually-hidden">Seven workflows your team can practise</h2>
           <ol className="index-list" style={{ listStyle: 'none', padding: 0 }}>
             {WORKFLOWS.map((w, i) => (
               <li key={w.id} className="reveal">
                 <span className="bn" style={{ fontSize: '1.9rem' }}>{String(i + 1).padStart(2, '0')}</span>
                 <h3>{w.title}</h3>
-                <div><p>{w.summary}</p><p className="small" style={{ marginTop: 'var(--s-2)', color: 'var(--charcoal)' }}><strong>People keep:</strong> {w.peopleKeep}</p></div>
+                <div><p>{w.summary}</p><p className="small" style={{ marginTop: 'var(--s-2)', color: 'var(--ink)' }}><strong>People keep:</strong> {w.peopleKeep}</p></div>
                 <span />
               </li>
             ))}
@@ -65,18 +70,17 @@ export default function RealEstatePage() {
         <div className="container split">
           <div>
             <Chip tone="neutral">Fictional demonstration</Chip>
-            <h2 id="scenario-title" style={{ marginTop: 'var(--s-4)' }}>What practice looks like: a listing from verified facts.</h2>
-            <p>This property and these facts are invented for illustration. No client, agency or result is implied.</p>
+            <h2 id="scenario-title" style={{ marginTop: 'var(--s-4)' }}>A listing from verified facts.</h2>
             <ol className="steps" style={{ marginTop: 'var(--s-5)' }}>
-              <li><h3>Brief</h3><p>Staff write the brief together, including what the tool must not do.</p></li>
-              <li><h3>Run</h3><p>Each person runs it in the approved tool on the same fact sheet.</p></li>
-              <li><h3>Check</h3><p>They compare every claim in the draft with the fact sheet. The kind of thing this step is designed to catch is a pleasant detail that is not in the facts, such as a “south-facing” aspect or a “quiet street”.</p></li>
-              <li><h3>Keep</h3><p>The team agrees one house brief and one checklist, and saves them as a workflow card.</p></li>
+              <li><h3>Brief</h3><p>Write it together, including what the tool must not do.</p></li>
+              <li><h3>Run</h3><p>Each person runs it on the same fact sheet.</p></li>
+              <li><h3>Check</h3><p>Compare every claim with the fact sheet. The kind of thing this catches: a “south-facing” aspect or a “quiet street” that is not in the facts.</p></li>
+              <li><h3>Keep</h3><p>One house brief and one checklist, saved as a workflow card.</p></li>
             </ol>
           </div>
           <div>
             <PromptBlock title="Example brief (fictional property)" text={scenarioBrief} context="real-estate" />
-            <p className="small muted">The brief tells the tool not to invent. The check step is where a person confirms it did not.</p>
+            <p className="small muted">The brief says not to invent. The check is where a person confirms it did not.</p>
           </div>
         </div>
       </section>
@@ -84,47 +88,49 @@ export default function RealEstatePage() {
       <section className="section" aria-label="Property types">
         <div className="container">
           <div className="photo-band">
-            <Plate photo="prop-villa-pool" ratio="4 / 3" label={<><b>Plate 02. Sales</b>Listings from verified facts</>} />
-            <Plate photo="home-living-gallery" ratio="4 / 3" label={<><b>Plate 03. Viewings</b>Enquiry replies and follow-ups</>} />
-            <Plate photo="prop-block" ratio="3 / 4" label={<><b>Plate 04. Lettings</b>Reports and procedures</>} sizes="(min-width: 48rem) 25vw, 50vw" />
+            <Plate photo="prop-villa-pool" ratio="4 / 3" label={<><b>(02)</b>Sales</>} />
+            <Plate photo="home-living-gallery" ratio="4 / 3" label={<><b>(03)</b>Viewings</>} />
+            <Plate photo="prop-block" ratio="4 / 3" label={<><b>(04)</b>Lettings</>} sizes="(min-width: 48rem) 33vw, 50vw" />
           </div>
         </div>
       </section>
 
-      <section className="section section--char reg-brief" aria-labelledby="people-title">
+      <section className="section section--ink" aria-labelledby="people-title">
         <div className="container split">
           <div>
             <p className="eyebrow">What stays with people</p>
-            <h2 id="people-title">AI drafts. People decide.</h2>
-            <p className="lede">Training teaches staff where a tool helps and where it must not be used. We never suggest AI should do these:</p>
-            <ul className="crosses" style={{ color: 'var(--chalk)' }}>{NOT_FOR_AI.map((n) => <li key={n}>{n}</li>)}</ul>
+            <h2 id="people-title">AI drafts. <em style={{ color: 'var(--cobalt-light)' }}>People decide.</em></h2>
+            <p className="lede">We never suggest AI should do these:</p>
+            <ul className="crosses">{NOT_FOR_AI.map((n) => <li key={n}>{n}</li>)}</ul>
           </div>
           <div className="safety">
             <h3>Rules and regulation</h3>
-            <p>Property description, consumer protection and data protection rules differ between the UK and Nigeria and change over time. Fieldwork training helps your team follow your own rules. It is not legal advice, and you should take advice from your professional body or a solicitor on what applies to you.</p>
+            <p>Property description, consumer and data protection rules differ between the UK and Nigeria and change. Training helps your team follow your own rules. It is not legal advice; take advice from your professional body or a solicitor.</p>
           </div>
         </div>
       </section>
 
       <section className="section" aria-labelledby="pilot-title">
         <div className="container">
-          <div className="section__head"><p className="eyebrow">An example pilot outline</p><h2 id="pilot-title">Small, measured and easy to stop.</h2><p>This is an illustrative outline we would adapt to your agency. It is not a record of work done.</p></div>
+          <p className="eyebrow">Example pilot</p>
+          <h2 id="pilot-title" style={{ maxWidth: '16ch' }}>Small, measured, easy to stop.</h2>
           <div className="flow">
-            <div className="flow__item"><p className="index">Week 0</p><h3>Conversation</h3><p>Agree one or two workflows, who takes part, and what you would measure.</p></div>
-            <div className="flow__item"><p className="index">Week 1</p><h3>Rules and briefs</h3><p>Write the AI-use rule and house briefs together.</p></div>
-            <div className="flow__item"><p className="index">Weeks 2 to 3</p><h3>Practice</h3><p>Staff practise on real, anonymised examples. A person checks each output.</p></div>
-            <div className="flow__item"><p className="index">Week 4</p><h3>Review</h3><p>Compare time and quality against your baseline. Decide what to keep.</p></div>
+            <div className="flow__item"><p className="index">Week 0</p><h3>Conversation</h3><p>Agree workflows, people and measures.</p></div>
+            <div className="flow__item"><p className="index">Week 1</p><h3>Rules and briefs</h3><p>Write the AI-use rule and house briefs.</p></div>
+            <div className="flow__item"><p className="index">Weeks 2 to 3</p><h3>Practice</h3><p>Anonymised real examples. A person checks each output.</p></div>
+            <div className="flow__item"><p className="index">Week 4</p><h3>Review</h3><p>Compare against your baseline. Decide what to keep.</p></div>
           </div>
-          <div className="grid grid--2" style={{ marginTop: 'var(--s-7)' }}>
-            <div className="card"><Plate photo="city-london-bridge" ratio="16 / 9" framed={false} sizes="(min-width: 48rem) 40vw, 100vw" /><h3>For UK agencies</h3><p>UK GDPR and the Data Protection Act 2018 apply to client personal data. We help staff practise with placeholders and anonymised examples so personal data stays out of tools that are not approved for it.</p></div>
-            <div className="card"><Plate photo="city-lagos-aerial" ratio="16 / 9" framed={false} sizes="(min-width: 48rem) 40vw, 100vw" /><h3>For Nigerian agencies</h3><p>The Nigeria Data Protection Act 2023 applies. We design practice for free tool tiers and mobile connections, so people do not need paid accounts or fast broadband to take part.</p></div>
+          <p className="hero__note">An illustrative outline we adapt. Not a record of work done.</p>
+          <div className="cells cells--2" style={{ marginTop: 'var(--s-6)' }}>
+            <div><Plate photo="city-london-bridge" ratio="16 / 9" sizes="(min-width: 48rem) 40vw, 100vw" /><h3 style={{ marginTop: 'var(--s-4)' }}>UK agencies</h3><p>UK GDPR and the Data Protection Act 2018 apply. Staff practise with placeholders and anonymised examples.</p></div>
+            <div><Plate photo="city-lagos-aerial" ratio="16 / 9" sizes="(min-width: 48rem) 40vw, 100vw" /><h3 style={{ marginTop: 'var(--s-4)' }}>Nigerian agencies</h3><p>The Nigeria Data Protection Act 2023 applies. Practice is designed for free tiers and mobile connections.</p></div>
           </div>
         </div>
       </section>
 
-      <section className="section section--indigo reg-brief" aria-labelledby="re-cta">
+      <section className="section section--cobalt cta-band" aria-labelledby="re-cta">
         <div className="container split">
-          <div><p className="eyebrow">Next step</p><h2 id="re-cta">Discuss a pilot, or see a demonstration.</h2><p className="lede">A short conversation is enough to see whether this fits. <TextLink href="/pricing">How pilots are priced</TextLink></p></div>
+          <div><p className="eyebrow">Next step</p><h2 id="re-cta">Discuss a pilot.</h2><p className="lede"><TextLink href="/pricing">How pilots are priced</TextLink></p></div>
           <div className="btn-row">
             <ButtonLink href="/contact?topic=business" variant="light" track="business_cta_clicked" trackLabel="re-cta-demo">Request a demonstration</ButtonLink>
             <ButtonLink href="/business/assessment" variant="outline-light" track="business_cta_clicked" trackLabel="re-cta-assessment">Take the assessment</ButtonLink>

@@ -6,8 +6,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Practise AI on real work.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#F1EFEA',
-    theme_color: '#262422',
+    background_color: '#F3F2ED',
+    theme_color: '#2340FF',
     icons: [
       { src: '/brand/favicon/icon-192.png', sizes: '192x192', type: 'image/png' },
       { src: '/brand/favicon/icon-512.png', sizes: '512x512', type: 'image/png' },

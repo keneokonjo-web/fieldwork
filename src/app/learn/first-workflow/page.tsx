@@ -1,3 +1,4 @@
+import { Corners } from '@/components/ui/Corners';
 import Link from 'next/link';
 import { FirstWorkflow } from '@/components/learn/FirstWorkflow';
 import { pageMetadata } from '@/lib/metadata';
@@ -11,10 +12,11 @@ export const metadata = pageMetadata({
 export default function FirstWorkflowPage() {
   return (
     <>
-      <section className="page-hero" style={{ paddingBottom: 'var(--s-6)' }}>
+      <section className="page-hero corners" style={{ paddingBottom: 'var(--s-6)' }}>
+        <Corners n="01" letters={['E', 'X', 'R']} />
         <div className="container">
           <p className="eyebrow"><Link href="/learn" style={{ textDecoration: 'none' }}>Learn</Link> / Free exercise</p>
-          <h1 style={{ fontSize: 'var(--step-4)', maxWidth: '24ch' }}>First workflow: from messy task to something you can reuse</h1>
+          <h1 style={{ fontSize: 'var(--step-4)', maxWidth: '18ch' }}>First workflow: from messy task to reusable.</h1>
         </div>
       </section>
       <section className="section section--tight" style={{ paddingTop: 0 }}>

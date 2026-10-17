@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Logo } from '@/components/brand/Logo';
-import { FREE_EXPERIENCE_PATH, mainNav } from '@/config/site';
+import { FREE_EXPERIENCE_PATH, mainNav, siteConfig } from '@/config/site';
 
 const isCurrent = (pathname: string, href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
@@ -41,19 +41,17 @@ export function SiteHeader() {
   }, [open, close]);
 
   return (
-    <header className="site-header">
-      <div className="container site-header__bar">
+    <header className="bar">
+      <div className="container bar__in">
         <Link href="/" className="brand-link" aria-label="Fieldwork, home">
-          <Logo />
+          <Logo form="wordmark-small" tone="dark" />
         </Link>
         <nav className="nav" aria-label="Main">
           {mainNav.map((l) => (
             <Link key={l.href} href={l.href} aria-current={isCurrent(pathname, l.href) ? 'page' : undefined}>{l.label}</Link>
           ))}
         </nav>
-        <Link href={FREE_EXPERIENCE_PATH} className="btn btn--small header-cta" data-track="consumer_cta_clicked" data-track-label="header">
-          Try the free exercise
-        </Link>
+        <span className="bar__slogan">{siteConfig.tagline}</span>
         <button
           ref={btnRef}
           type="button"

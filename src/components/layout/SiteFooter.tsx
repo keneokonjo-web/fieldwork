@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Logo } from '@/components/brand/Logo';
 import { footerNav, siteConfig } from '@/config/site';
 
 export function SiteFooter() {
@@ -10,10 +9,9 @@ export function SiteFooter() {
       <div className="container">
         <div className="footer-top">
           <div>
-            <Logo tone="dark" />
             <p className="footer-statement">{siteConfig.tagline}</p>
-            <p className="small" style={{ marginTop: 'var(--s-4)', maxWidth: '30rem', color: 'color-mix(in srgb, var(--chalk) 78%, transparent)' }}>
-              Fieldwork is new. The free exercise is live. Paid products and the business onboarding platform are planned, and we say so wherever they appear.
+            <p className="small muted" style={{ marginTop: 'var(--s-4)', maxWidth: '28rem' }}>
+              Fieldwork is new. The free exercise is live. Paid products and the business platform are planned, and marked that way.
             </p>
           </div>
           <div className="footer-cols">
@@ -31,7 +29,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-bottom">
           <span>© {year} Fieldwork. {siteConfig.legal.entityName ? siteConfig.legal.entityName : ''}</span>
-          <span>Written in British English. Prices shown separately for the UK and Nigeria.</span>
+          <span>British English. UK and Nigeria priced separately.</span>
           {socials.length > 0 && (
             <ul style={{ listStyle: 'none', display: 'flex', gap: '1rem', margin: 0, padding: 0 }}>
               {socials.map(([k, v]) => (
@@ -40,9 +38,9 @@ export function SiteFooter() {
             </ul>
           )}
         </div>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="footer-giant" src="/brand/logo/fieldwork-wordmark-dark.svg" alt="" width={575} height={138} aria-hidden="true" />
       </div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="footer-giant" src="/brand/logo/fieldwork-wordmark-light.svg" alt="" width={607} height={138} aria-hidden="true" />
     </footer>
   );
 }
