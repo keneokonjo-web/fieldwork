@@ -1,13 +1,13 @@
 # Final QA report
 
-Run on 14 October 2026 against a production build (`next build`, `next start`) in Chromium (Playwright 1.56). Raw results: `browser-results.json`, `axe-results.json`, `link-results.json`. Screenshots: `screenshots/` (1440 and 390 wide). Re-run commands: `docs/operations/QA-HOW-TO-RERUN.md`.
+Run on 17 October 2026 (after the Concept 2 rebuild) against a production build (`next build`, `next start`) in Chromium (Playwright 1.56). Raw results: `browser-results.json`, `axe-results.json`, `link-results.json`. Screenshots: `screenshots/` (1440 and 390 wide). Re-run commands: `docs/operations/QA-HOW-TO-RERUN.md`.
 
 ## Results
 | Check | Command | Result |
 |---|---|---|
 | Type check | `npm run typecheck` | Pass |
 | Lint | `npm run lint` | Pass, 0 errors, 0 warnings |
-| Unit tests | `npm test` | 27 of 27 pass (assessment logic, validation, design tokens match palette) |
+| Unit tests | `npm test` | 26 of 26 pass (assessment logic, validation, design tokens match palette) |
 | Production build | `npm run build` | Pass, 25 static pages |
 | Browser behaviour | `node scripts/qa/browser-tests.mjs` | 18 of 18 pass |
 | Accessibility (axe, WCAG 2.0/2.1/2.2 A and AA) | `node scripts/qa/axe.mjs` | 0 violations, 20 routes x 2 viewports |

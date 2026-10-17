@@ -9,7 +9,7 @@ const cp = (src, dest) => { if (!fs.existsSync(src)) return console.warn('missin
 // 01 brand
 cp('public/brand/logo', '01-brand/logos'); cp('public/brand/favicon', '01-brand/favicons'); cp('public/brand/social', '01-brand/social');
 cp('brand/guidelines', '01-brand/guidelines'); cp('brand/templates', '01-brand/templates'); cp('brand/graphics', '01-brand/graphics');
-cp('public/art', '01-brand/field-art'); cp('docs/brand/DESIGN-TOKENS.md', '01-brand/DESIGN-TOKENS.md'); cp('docs/brand/BRAND-STRATEGY.md', '01-brand/BRAND-STRATEGY.md');
+cp('public/art', '01-brand/dot-terrain'); cp('docs/brand/DESIGN-TOKENS.md', '01-brand/DESIGN-TOKENS.md'); cp('docs/brand/BRAND-STRATEGY.md', '01-brand/BRAND-STRATEGY.md');
 cp('docs/website/IMAGE-CREDITS.md', '01-brand/IMAGE-CREDITS.md'); cp('public/images', '01-brand/photography'); cp('src/styles/tokens.css', '01-brand/tokens.css');
 // 02 website
 cp('docs/website', '02-website/docs'); cp('docs/product', '05-product-and-operations/product'); 

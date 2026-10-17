@@ -28,7 +28,7 @@ Version 0.1, 14 October 2026. Profiles, templates, replies and rules for the con
 | YouTube channel description (first line) | Short, captioned lessons on using AI for real tasks, and checking the result. Free exercise on the site. Guided projects are planned, not on sale. | 146 | up to about 1,000 for the full description (verify) |
 | WhatsApp Business profile (if used) | Practise AI on real work. Free exercise, no account. Planned products are not on sale. | 86 | about 139 (verify) |
 
-**Display name:** Fieldwork (add descriptor if needed). **Profile picture:** brand mark on chalk (#F1EFEA) with charcoal wordmark, no photograph. **Link:** exercise URL with `utm_medium=bio-link` and the platform as source.
+**Display name:** Fieldwork (add descriptor if needed). **Profile picture:** the target icon in paper on cobalt (#2340FF) (`public/brand/social/fieldwork-avatar-1024.png`), no photograph. **Link:** exercise URL with `utm_medium=bio-link` and the platform as source.
 
 **Longer LinkedIn "About" (company page, optional)**
 

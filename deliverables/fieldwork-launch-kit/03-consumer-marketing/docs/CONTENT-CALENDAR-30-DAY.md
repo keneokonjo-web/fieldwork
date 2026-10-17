@@ -95,7 +95,7 @@ Read `CONSUMER-MARKETING-STRATEGY.md` first for pillars and CTA rules, and `VIDE
 - **Pillar:** Do it
 - **Format:** Carousel, 7 slides
 - **Hook:** The five-part brief on one page.
-- **Outline:** Slide 1 hook. Slides 2-6 one part each with a one-line example. Slide 7 'Try it on a real task' with link. Brand colours; Cormorant headings.
+- **Outline:** Slide 1 hook. Slides 2-6 one part each with a one-line example. Slide 7 'Try it on a real task' with link. Brand colours; Schibsted Grotesk Bold headings.
 - **CTA:** Field Note: The five-part brief
 - **Asset needed:** Canva (free) or Figma template using brand tokens; 7 slides
 - **Repurposing:** Export slide 2-6 as single-image posts for Stories

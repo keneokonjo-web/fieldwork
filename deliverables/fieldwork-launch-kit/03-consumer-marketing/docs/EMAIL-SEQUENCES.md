@@ -9,7 +9,7 @@ Version 0.1, 14 October 2026. Five sequences for Fieldwork for Individuals. All 
 3. **Sequence B needs an opt-in step after the exercise.** The exercise has no account and keeps entries on the device, so nobody is emailed after finishing unless you add a clearly optional email prompt at the end. That prompt does not exist yet.
 4. **UK and Nigeria data protection:** UK (UK GDPR and PECR) and Nigeria (NDPA 2023) rules apply to the people you email. Get professional advice for your set-up (verify before use). Include a working unsubscribe link in every email, and honour it promptly. Add your sender identity and a postal address or contact route as required (company details are placeholders in `src/config/site.ts`; fill them first).
 5. **Never put in email:** invented numbers, testimonials, urgency, claims that paid items are available, personal data from analytics.
-6. **Plain-text first.** Write so the email reads fine without styling. If HTML is used: charcoal text on chalk, Hanken Grotesk with a system fallback, no image-only emails (low data readers).
+6. **Plain-text first.** Write so the email reads fine without styling. If HTML is used: ink text on paper, a system font stack (Schibsted Grotesk is not safe in email), no image-only emails (low data readers).
 7. **Links** use UTMs: `utm_source=email&utm_medium=email&utm_campaign=<sequence>&utm_content=<email-id>` (see `FUNNEL-AND-METRICS.md`).
 8. **Standard footer for every email** (replace placeholders):
 

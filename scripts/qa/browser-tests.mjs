@@ -98,7 +98,7 @@ await check('contact form validates, then reports honest not-configured when no 
 });
 await check('business demo request is delivered to the mock webhook with attribution and secret', async () => {
   const p = await (await mk()).newPage(); await p.goto('http://localhost:3101/?utm_source=test&utm_campaign=qa'); await p.goto('http://localhost:3101/contact#business'); const form = p.locator('#business form');
-  await form.locator('input[name=name]').fill('Ada Okafor'); await form.locator('input[name=company]').fill('Test Estates'); await form.locator('input[name=email]').fill('ada@example.com'); await form.locator('select[name=market]').selectOption({ index: 1 }); await form.locator('textarea[name=message]').fill('We want our team to write better listings.'); await form.locator('input[name=privacy]').check();
+  await form.locator('input[name=name]').fill('Ada Okafor'); await form.locator('input[name=company]').fill('Test Estates'); await form.locator('input[name=email]').fill('ada@example.com'); await form.locator('select[name=market]').selectOption({ index: 1 }); await form.locator('textarea[name=message]').fill('We want our team to write better listings.'); await form.locator('input[name=privacy]').check(); await p.waitForTimeout(1500); // sub-1.2s submissions are treated as bots
   await form.getByRole('button', { name: 'Request a demonstration' }).click(); await p.getByText('Thank you, we have your request').waitFor({ timeout: 8000 });
   ok(received.length >= 1, 'webhook hit'); const last = received[received.length - 1]; ok(last.headers['x-fieldwork-secret'] === 's3cret', 'secret header'); ok(/Test Estates/.test(last.body) && /demo/.test(last.body), 'payload');
 });

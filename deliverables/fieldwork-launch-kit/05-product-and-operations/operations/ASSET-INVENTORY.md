@@ -38,140 +38,146 @@ Rights summary: photographs are Unsplash (free commercial licence, credits pendi
 | `public/images/work-team-table.jpg` | Team around a table | work | 231 KB |
 | `public/images/work-whiteboard.jpg` | Planning at a whiteboard | work | 142 KB |
 
-## public/art (generated field artwork, decorative SVG)
+## public/art (generated dot-terrain artwork, decorative SVG)
 
-Built by `scripts/brand/build-art.mjs` from `field-generator.mjs`. Naming `field-<kind>-<seed>-<tone>.svg`; tones chalk, char, indigo. Used through `Plate art="<kind>-<seed>"`.
-
-| File | Size |
-|---|---|
-| `public/art/field-contour-12-chalk.svg` | 110 KB |
-| `public/art/field-contour-12-char.svg` | 110 KB |
-| `public/art/field-contour-12-indigo.svg` | 110 KB |
-| `public/art/field-contour-17-chalk.svg` | 111 KB |
-| `public/art/field-contour-17-char.svg` | 111 KB |
-| `public/art/field-contour-17-indigo.svg` | 111 KB |
-| `public/art/field-contour-33-chalk.svg` | 126 KB |
-| `public/art/field-contour-33-char.svg` | 126 KB |
-| `public/art/field-contour-33-indigo.svg` | 126 KB |
-| `public/art/field-contour-8-chalk.svg` | 125 KB |
-| `public/art/field-contour-8-char.svg` | 125 KB |
-| `public/art/field-contour-8-indigo.svg` | 125 KB |
-| `public/art/field-dots-5-chalk.svg` | 99 KB |
-| `public/art/field-dots-5-char.svg` | 99 KB |
-| `public/art/field-dots-5-indigo.svg` | 99 KB |
+| File | Description | Size |
+|---|---|---|
+| `public/art/terrain-12-circle-cobalt-clear.svg` | Dot terrain, seed 12, mask circle, tone cobalt (transparent, for layering) | 12 KB |
+| `public/art/terrain-12-circle-cobalt.svg` | Dot terrain, seed 12, mask circle, tone cobalt | 12 KB |
+| `public/art/terrain-12-circle-cobaltlight-clear.svg` | Dot terrain, seed 12, mask circle, tone cobaltlight (transparent, for layering) | 12 KB |
+| `public/art/terrain-12-circle-ink.svg` | Dot terrain, seed 12, mask circle, tone ink | 12 KB |
+| `public/art/terrain-12-circle-paper.svg` | Dot terrain, seed 12, mask circle, tone paper | 12 KB |
+| `public/art/terrain-12-circle-wash.svg` | Dot terrain, seed 12, mask circle, tone wash | 12 KB |
+| `public/art/terrain-21-fade-right-cobalt-clear.svg` | Dot terrain, seed 21, mask fade-right, tone cobalt (transparent, for layering) | 26 KB |
+| `public/art/terrain-21-fade-right-cobalt.svg` | Dot terrain, seed 21, mask fade-right, tone cobalt | 26 KB |
+| `public/art/terrain-21-fade-right-cobaltlight-clear.svg` | Dot terrain, seed 21, mask fade-right, tone cobaltlight (transparent, for layering) | 26 KB |
+| `public/art/terrain-21-fade-right-ink.svg` | Dot terrain, seed 21, mask fade-right, tone ink | 26 KB |
+| `public/art/terrain-21-fade-right-paper.svg` | Dot terrain, seed 21, mask fade-right, tone paper | 26 KB |
+| `public/art/terrain-21-fade-right-wash.svg` | Dot terrain, seed 21, mask fade-right, tone wash | 26 KB |
+| `public/art/terrain-4-fade-right-cobalt-clear.svg` | Dot terrain, seed 4, mask fade-right, tone cobalt (transparent, for layering) | 30 KB |
+| `public/art/terrain-4-fade-right-cobalt.svg` | Dot terrain, seed 4, mask fade-right, tone cobalt | 30 KB |
+| `public/art/terrain-4-fade-right-cobaltlight-clear.svg` | Dot terrain, seed 4, mask fade-right, tone cobaltlight (transparent, for layering) | 30 KB |
+| `public/art/terrain-4-fade-right-ink.svg` | Dot terrain, seed 4, mask fade-right, tone ink | 30 KB |
+| `public/art/terrain-4-fade-right-paper.svg` | Dot terrain, seed 4, mask fade-right, tone paper | 30 KB |
+| `public/art/terrain-4-fade-right-wash.svg` | Dot terrain, seed 4, mask fade-right, tone wash | 30 KB |
+| `public/art/terrain-6-circle-cobalt-clear.svg` | Dot terrain, seed 6, mask circle, tone cobalt (transparent, for layering) | 17 KB |
+| `public/art/terrain-6-circle-cobalt.svg` | Dot terrain, seed 6, mask circle, tone cobalt | 17 KB |
+| `public/art/terrain-6-circle-cobaltlight-clear.svg` | Dot terrain, seed 6, mask circle, tone cobaltlight (transparent, for layering) | 17 KB |
+| `public/art/terrain-6-circle-ink.svg` | Dot terrain, seed 6, mask circle, tone ink | 17 KB |
+| `public/art/terrain-6-circle-paper.svg` | Dot terrain, seed 6, mask circle, tone paper | 17 KB |
+| `public/art/terrain-6-circle-wash.svg` | Dot terrain, seed 6, mask circle, tone wash | 17 KB |
+| `public/art/terrain-9-fade-down-cobalt-clear.svg` | Dot terrain, seed 9, mask fade-down, tone cobalt (transparent, for layering) | 23 KB |
+| `public/art/terrain-9-fade-down-cobalt.svg` | Dot terrain, seed 9, mask fade-down, tone cobalt | 23 KB |
+| `public/art/terrain-9-fade-down-cobaltlight-clear.svg` | Dot terrain, seed 9, mask fade-down, tone cobaltlight (transparent, for layering) | 23 KB |
+| `public/art/terrain-9-fade-down-ink.svg` | Dot terrain, seed 9, mask fade-down, tone ink | 23 KB |
+| `public/art/terrain-9-fade-down-paper.svg` | Dot terrain, seed 9, mask fade-down, tone paper | 23 KB |
+| `public/art/terrain-9-fade-down-wash.svg` | Dot terrain, seed 9, mask fade-down, tone wash | 23 KB |
 
 ## public/brand (logo system, favicons, social)
 
-| File | Purpose | Size |
+| File | Description | Size |
 |---|---|---|
-| `public/brand/favicon/apple-touch-icon.png` | Apple touch icon | 5 KB |
-| `public/brand/favicon/avatar.svg` | Avatar SVG | 1 KB |
-| `public/brand/favicon/favicon-16.png` | Favicon 16 px | 1 KB |
-| `public/brand/favicon/favicon-32.png` | Favicon 32 px | 1 KB |
-| `public/brand/favicon/favicon-48.png` | Favicon 48 px | 1 KB |
-| `public/brand/favicon/favicon.ico` | ICO favicon | 2 KB |
-| `public/brand/favicon/favicon.svg` | SVG favicon | 1 KB |
-| `public/brand/favicon/icon-192.png` | PWA icon 192 | 5 KB |
-| `public/brand/favicon/icon-512.png` | PWA icon 512 | 18 KB |
-| `public/brand/logo/fieldwork-lockup-dark.svg` | Horizontal lockup (symbol + caps wordmark); colourway dark | 7 KB |
-| `public/brand/logo/fieldwork-lockup-indigo.svg` | Horizontal lockup (symbol + caps wordmark); colourway indigo | 7 KB |
-| `public/brand/logo/fieldwork-lockup-light.svg` | Horizontal lockup (symbol + caps wordmark); colourway light | 7 KB |
-| `public/brand/logo/fieldwork-lockup-mono-ink.svg` | Horizontal lockup (symbol + caps wordmark); colourway mono-ink | 7 KB |
-| `public/brand/logo/fieldwork-lockup-mono-paper.svg` | Horizontal lockup (symbol + caps wordmark); colourway mono-paper | 7 KB |
-| `public/brand/logo/fieldwork-lockup-stacked-dark.svg` | Stacked lockup (symbol over wordmark); colourway dark | 7 KB |
-| `public/brand/logo/fieldwork-lockup-stacked-indigo.svg` | Stacked lockup (symbol over wordmark); colourway indigo | 7 KB |
-| `public/brand/logo/fieldwork-lockup-stacked-light.svg` | Stacked lockup (symbol over wordmark); colourway light | 7 KB |
-| `public/brand/logo/fieldwork-lockup-stacked-mono-ink.svg` | Stacked lockup (symbol over wordmark); colourway mono-ink | 7 KB |
-| `public/brand/logo/fieldwork-lockup-stacked-mono-paper.svg` | Stacked lockup (symbol over wordmark); colourway mono-paper | 7 KB |
-| `public/brand/logo/fieldwork-symbol-dark.svg` | Benchmark symbol; colourway dark | 1 KB |
-| `public/brand/logo/fieldwork-symbol-indigo.svg` | Benchmark symbol; colourway indigo | 1 KB |
-| `public/brand/logo/fieldwork-symbol-light.svg` | Benchmark symbol; colourway light | 1 KB |
-| `public/brand/logo/fieldwork-symbol-mono-ink.svg` | Benchmark symbol; colourway mono-ink | 1 KB |
-| `public/brand/logo/fieldwork-symbol-mono-paper.svg` | Benchmark symbol; colourway mono-paper | 1 KB |
-| `public/brand/logo/fieldwork-symbol-small-dark.svg` | Symbol optimised for small sizes; colourway dark | 1 KB |
-| `public/brand/logo/fieldwork-symbol-small-light.svg` | Symbol optimised for small sizes; colourway light | 1 KB |
-| `public/brand/logo/fieldwork-wordmark-dark.svg` | Lowercase display wordmark; colourway dark | 3 KB |
-| `public/brand/logo/fieldwork-wordmark-indigo.svg` | Lowercase display wordmark; colourway indigo | 3 KB |
-| `public/brand/logo/fieldwork-wordmark-light.svg` | Lowercase display wordmark; colourway light | 3 KB |
-| `public/brand/logo/fieldwork-wordmark-mono-ink.svg` | Lowercase display wordmark; colourway mono-ink | 3 KB |
-| `public/brand/logo/fieldwork-wordmark-mono-paper.svg` | Lowercase display wordmark; colourway mono-paper | 3 KB |
-| `public/brand/logo/archive/fieldwork-brief-wordmark-dark.svg` | Archived Concept 2 "Brief" wordmark (liked by founder; kept for reference) | 4 KB |
-| `public/brand/logo/archive/fieldwork-brief-wordmark-light.svg` | Archived Concept 2 "Brief" wordmark (liked by founder; kept for reference) | 4 KB |
-| `public/brand/logo/concepts/fieldwork-logo-directions.svg` | Logo direction evaluation sheet (design record) | 21 KB |
-| `public/brand/logo/png/fieldwork-lockup-dark.png` | Horizontal lockup (symbol + caps wordmark); colourway dark | 41 KB |
-| `public/brand/logo/png/fieldwork-lockup-indigo.png` | Horizontal lockup (symbol + caps wordmark); colourway indigo | 41 KB |
-| `public/brand/logo/png/fieldwork-lockup-light.png` | Horizontal lockup (symbol + caps wordmark); colourway light | 41 KB |
-| `public/brand/logo/png/fieldwork-lockup-mono-ink.png` | Horizontal lockup (symbol + caps wordmark); colourway mono-ink | 41 KB |
-| `public/brand/logo/png/fieldwork-lockup-mono-paper.png` | Horizontal lockup (symbol + caps wordmark); colourway mono-paper | 34 KB |
-| `public/brand/logo/png/fieldwork-lockup-stacked-dark.png` | Stacked lockup (symbol over wordmark); colourway dark | 55 KB |
-| `public/brand/logo/png/fieldwork-lockup-stacked-indigo.png` | Stacked lockup (symbol over wordmark); colourway indigo | 55 KB |
-| `public/brand/logo/png/fieldwork-lockup-stacked-light.png` | Stacked lockup (symbol over wordmark); colourway light | 54 KB |
-| `public/brand/logo/png/fieldwork-lockup-stacked-mono-ink.png` | Stacked lockup (symbol over wordmark); colourway mono-ink | 54 KB |
-| `public/brand/logo/png/fieldwork-lockup-stacked-mono-paper.png` | Stacked lockup (symbol over wordmark); colourway mono-paper | 45 KB |
-| `public/brand/logo/png/fieldwork-logo-dark-2000w.png` | Full logo PNG 2000 px wide | 42 KB |
-| `public/brand/logo/png/fieldwork-logo-light-2000w.png` | Full logo PNG 2000 px wide | 41 KB |
-| `public/brand/logo/png/fieldwork-logo-mono-ink-2000w.png` | Full logo PNG 2000 px wide | 40 KB |
-| `public/brand/logo/png/fieldwork-logo-mono-paper-2000w.png` | Full logo PNG 2000 px wide | 41 KB |
-| `public/brand/logo/png/fieldwork-symbol-dark-1024.png` | Benchmark symbol; colourway dark-1024 | 30 KB |
-| `public/brand/logo/png/fieldwork-symbol-dark.png` | Benchmark symbol; colourway dark | 58 KB |
-| `public/brand/logo/png/fieldwork-symbol-indigo.png` | Benchmark symbol; colourway indigo | 58 KB |
-| `public/brand/logo/png/fieldwork-symbol-light-1024.png` | Benchmark symbol; colourway light-1024 | 29 KB |
-| `public/brand/logo/png/fieldwork-symbol-light.png` | Benchmark symbol; colourway light | 51 KB |
-| `public/brand/logo/png/fieldwork-symbol-mono-ink-1024.png` | Benchmark symbol; colourway mono-ink-1024 | 27 KB |
-| `public/brand/logo/png/fieldwork-symbol-mono-ink.png` | Benchmark symbol; colourway mono-ink | 49 KB |
-| `public/brand/logo/png/fieldwork-symbol-mono-paper-1024.png` | Benchmark symbol; colourway mono-paper-1024 | 29 KB |
-| `public/brand/logo/png/fieldwork-symbol-mono-paper.png` | Benchmark symbol; colourway mono-paper | 37 KB |
-| `public/brand/logo/png/fieldwork-wordmark-dark-1600w.png` | Lowercase display wordmark; colourway dark-1600w | 35 KB |
-| `public/brand/logo/png/fieldwork-wordmark-dark.png` | Lowercase display wordmark; colourway dark | 59 KB |
-| `public/brand/logo/png/fieldwork-wordmark-indigo.png` | Lowercase display wordmark; colourway indigo | 59 KB |
-| `public/brand/logo/png/fieldwork-wordmark-light-1600w.png` | Lowercase display wordmark; colourway light-1600w | 34 KB |
-| `public/brand/logo/png/fieldwork-wordmark-light.png` | Lowercase display wordmark; colourway light | 58 KB |
-| `public/brand/logo/png/fieldwork-wordmark-mono-ink-1600w.png` | Lowercase display wordmark; colourway mono-ink-1600w | 34 KB |
-| `public/brand/logo/png/fieldwork-wordmark-mono-ink.png` | Lowercase display wordmark; colourway mono-ink | 58 KB |
-| `public/brand/logo/png/fieldwork-wordmark-mono-paper-1600w.png` | Lowercase display wordmark; colourway mono-paper-1600w | 34 KB |
-| `public/brand/logo/png/fieldwork-wordmark-mono-paper.png` | Lowercase display wordmark; colourway mono-paper | 45 KB |
-| `public/brand/social/fieldwork-avatar-1024.png` | Social avatar 1024 px | 38 KB |
-| `public/brand/social/fieldwork-avatar-400.png` | Social avatar 400 px | 9 KB |
-| `public/brand/social/og-default.png` | Open Graph default image (the app references a different path: see defect DF-01) | 35 KB |
+| `public/brand/favicon/apple-touch-icon.png` | Apple touch icon | 4 KB |
+| `public/brand/favicon/avatar.svg` | Social avatar (target icon) | 1 KB |
+| `public/brand/favicon/favicon-16.png` | Brand asset | 1 KB |
+| `public/brand/favicon/favicon-32.png` | Brand asset | 1 KB |
+| `public/brand/favicon/favicon-48.png` | Brand asset | 1 KB |
+| `public/brand/favicon/favicon.ico` | ICO 16/32/48 | 2 KB |
+| `public/brand/favicon/favicon.svg` | Adaptive favicon (light/dark) | 1 KB |
+| `public/brand/favicon/icon-192.png` | Brand asset | 4 KB |
+| `public/brand/favicon/icon-512.png` | Brand asset | 17 KB |
+| `public/brand/logo/fieldwork-disc-cobalt.svg` | Dot-matrix disc symbol; colourway cobalt | 3 KB |
+| `public/brand/logo/fieldwork-disc-dark.svg` | Dot-matrix disc symbol; colourway dark | 3 KB |
+| `public/brand/logo/fieldwork-disc-light.svg` | Dot-matrix disc symbol; colourway light | 3 KB |
+| `public/brand/logo/fieldwork-disc-mono-ink.svg` | Dot-matrix disc symbol; colourway mono-ink | 3 KB |
+| `public/brand/logo/fieldwork-disc-mono-paper.svg` | Dot-matrix disc symbol; colourway mono-paper | 3 KB |
+| `public/brand/logo/fieldwork-lockup-cobalt.svg` | Target icon + wordmark lockup; colourway cobalt | 6 KB |
+| `public/brand/logo/fieldwork-lockup-dark.svg` | Target icon + wordmark lockup; colourway dark | 6 KB |
+| `public/brand/logo/fieldwork-lockup-light.svg` | Target icon + wordmark lockup; colourway light | 6 KB |
+| `public/brand/logo/fieldwork-lockup-mono-ink.svg` | Target icon + wordmark lockup; colourway mono-ink | 6 KB |
+| `public/brand/logo/fieldwork-lockup-mono-paper.svg` | Target icon + wordmark lockup; colourway mono-paper | 6 KB |
+| `public/brand/logo/fieldwork-target-cobalt.svg` | Target icon (benchmark); colourway cobalt | 1 KB |
+| `public/brand/logo/fieldwork-target-dark.svg` | Target icon (benchmark); colourway dark | 1 KB |
+| `public/brand/logo/fieldwork-target-light.svg` | Target icon (benchmark); colourway light | 1 KB |
+| `public/brand/logo/fieldwork-target-mono-ink.svg` | Target icon (benchmark); colourway mono-ink | 1 KB |
+| `public/brand/logo/fieldwork-target-mono-paper.svg` | Target icon (benchmark); colourway mono-paper | 1 KB |
+| `public/brand/logo/fieldwork-target-small-cobalt.svg` | Target icon, small variant; colourway cobalt | 1 KB |
+| `public/brand/logo/fieldwork-target-small-dark.svg` | Target icon, small variant; colourway dark | 1 KB |
+| `public/brand/logo/fieldwork-target-small-light.svg` | Target icon, small variant; colourway light | 1 KB |
+| `public/brand/logo/fieldwork-target-small-mono-ink.svg` | Target icon, small variant; colourway mono-ink | 1 KB |
+| `public/brand/logo/fieldwork-target-small-mono-paper.svg` | Target icon, small variant; colourway mono-paper | 1 KB |
+| `public/brand/logo/fieldwork-wordmark-cobalt.svg` | Primary wordmark with halftone-disc dot; colourway cobalt | 6 KB |
+| `public/brand/logo/fieldwork-wordmark-dark.svg` | Primary wordmark with halftone-disc dot; colourway dark | 6 KB |
+| `public/brand/logo/fieldwork-wordmark-light.svg` | Primary wordmark with halftone-disc dot; colourway light | 6 KB |
+| `public/brand/logo/fieldwork-wordmark-mono-ink.svg` | Primary wordmark with halftone-disc dot; colourway mono-ink | 6 KB |
+| `public/brand/logo/fieldwork-wordmark-mono-paper.svg` | Primary wordmark with halftone-disc dot; colourway mono-paper | 6 KB |
+| `public/brand/logo/fieldwork-wordmark-small-cobalt.svg` | Wordmark, small-size disc; colourway cobalt | 4 KB |
+| `public/brand/logo/fieldwork-wordmark-small-dark.svg` | Wordmark, small-size disc; colourway dark | 4 KB |
+| `public/brand/logo/fieldwork-wordmark-small-light.svg` | Wordmark, small-size disc; colourway light | 4 KB |
+| `public/brand/logo/fieldwork-wordmark-small-mono-ink.svg` | Wordmark, small-size disc; colourway mono-ink | 4 KB |
+| `public/brand/logo/fieldwork-wordmark-small-mono-paper.svg` | Wordmark, small-size disc; colourway mono-paper | 4 KB |
+| `public/brand/logo/png/fieldwork-disc-cobalt.png` | Dot-matrix disc symbol; colourway cobalt | 153 KB |
+| `public/brand/logo/png/fieldwork-disc-dark.png` | Dot-matrix disc symbol; colourway dark | 149 KB |
+| `public/brand/logo/png/fieldwork-disc-light.png` | Dot-matrix disc symbol; colourway light | 136 KB |
+| `public/brand/logo/png/fieldwork-disc-mono-ink.png` | Dot-matrix disc symbol; colourway mono-ink | 114 KB |
+| `public/brand/logo/png/fieldwork-disc-mono-paper.png` | Dot-matrix disc symbol; colourway mono-paper | 98 KB |
+| `public/brand/logo/png/fieldwork-lockup-cobalt.png` | Target icon + wordmark lockup; colourway cobalt | 63 KB |
+| `public/brand/logo/png/fieldwork-lockup-dark.png` | Target icon + wordmark lockup; colourway dark | 64 KB |
+| `public/brand/logo/png/fieldwork-lockup-light.png` | Target icon + wordmark lockup; colourway light | 61 KB |
+| `public/brand/logo/png/fieldwork-lockup-mono-ink.png` | Target icon + wordmark lockup; colourway mono-ink | 60 KB |
+| `public/brand/logo/png/fieldwork-lockup-mono-paper.png` | Target icon + wordmark lockup; colourway mono-paper | 50 KB |
+| `public/brand/logo/png/fieldwork-target-cobalt.png` | Target icon (benchmark); colourway cobalt | 56 KB |
+| `public/brand/logo/png/fieldwork-target-dark.png` | Target icon (benchmark); colourway dark | 56 KB |
+| `public/brand/logo/png/fieldwork-target-light.png` | Target icon (benchmark); colourway light | 45 KB |
+| `public/brand/logo/png/fieldwork-target-mono-ink.png` | Target icon (benchmark); colourway mono-ink | 43 KB |
+| `public/brand/logo/png/fieldwork-target-mono-paper.png` | Target icon (benchmark); colourway mono-paper | 37 KB |
+| `public/brand/logo/png/fieldwork-wordmark-cobalt.png` | Primary wordmark with halftone-disc dot; colourway cobalt | 72 KB |
+| `public/brand/logo/png/fieldwork-wordmark-dark.png` | Primary wordmark with halftone-disc dot; colourway dark | 72 KB |
+| `public/brand/logo/png/fieldwork-wordmark-light.png` | Primary wordmark with halftone-disc dot; colourway light | 69 KB |
+| `public/brand/logo/png/fieldwork-wordmark-mono-ink.png` | Primary wordmark with halftone-disc dot; colourway mono-ink | 68 KB |
+| `public/brand/logo/png/fieldwork-wordmark-mono-paper.png` | Primary wordmark with halftone-disc dot; colourway mono-paper | 57 KB |
+| `public/brand/social/fieldwork-avatar-1024.png` | Brand asset | 37 KB |
+| `public/brand/social/fieldwork-avatar-400.png` | Brand asset | 9 KB |
+| `public/brand/social/og-default.png` | Open Graph image 1200x630 | 73 KB |
 
 ## brand/ (brand deliverables)
 
-Generated by `scripts/brand/build-guidelines.mjs` (guidelines) and `build-templates.mjs` (templates, graphics). HTML files are the editable sources; PNG/PDF are renders.
-
-| File | Purpose | Size |
+| File | Description | Size |
 |---|---|---|
-| `brand/graphics/benchmark-pattern.html` | Benchmark pattern graphic (editable HTML source) | 3 KB |
-| `brand/graphics/benchmark-pattern.png` | Benchmark pattern graphic (PNG render) | 18 KB |
-| `brand/graphics/bracket-numerals.html` | Bracket numerals graphic (editable HTML source) | 2 KB |
-| `brand/graphics/bracket-numerals.png` | Bracket numerals graphic (PNG render) | 19 KB |
-| `brand/graphics/corner-marks.html` | Corner letters graphic (editable HTML source) | 3 KB |
-| `brand/graphics/corner-marks.png` | Corner letters graphic (PNG render) | 4 KB |
-| `brand/graphics/field-art-sheet.html` | Field art sheet (editable HTML source) | 3 KB |
-| `brand/graphics/field-art-sheet.png` | Field art sheet (PNG render) | 1.0 MB |
-| `brand/graphics/museum-label.html` | Museum label graphic (editable HTML source) | 2 KB |
-| `brand/graphics/museum-label.png` | Museum label graphic (PNG render) | 10 KB |
-| `brand/graphics/plate-frame.html` | Plate frame graphic (editable HTML source) | 2 KB |
-| `brand/graphics/plate-frame.png` | Plate frame graphic (PNG render) | 538 KB |
-| `brand/graphics/process-diagram.html` | Process diagram (brief, run, check, keep) (editable HTML source) | 3 KB |
-| `brand/graphics/process-diagram.png` | Process diagram (brief, run, check, keep) (PNG render) | 24 KB |
-| `brand/guidelines/fieldwork-brand-guidelines.html` | Brand guidelines (editable HTML source) | 22 KB |
-| `brand/guidelines/fieldwork-brand-guidelines.pdf` | Brand guidelines (PDF render) | 2.9 MB |
-| `brand/templates/document-cover-a4.html` | A4 document cover template (editable HTML source) | 3 KB |
-| `brand/templates/document-cover-a4.png` | A4 document cover template (PNG render) | 430 KB |
-| `brand/templates/email-signature.html` | Email signature template (editable HTML source) | 3 KB |
-| `brand/templates/email-signature.png` | Email signature template (PNG render) | 11 KB |
-| `brand/templates/linkedin-banner-1584x396.html` | LinkedIn banner template 1584x396 (editable HTML source) | 3 KB |
-| `brand/templates/linkedin-banner-1584x396.png` | LinkedIn banner template 1584x396 (PNG render) | 252 KB |
-| `brand/templates/slide-content-1920x1080.html` | Slide template: content (editable HTML source) | 4 KB |
-| `brand/templates/slide-content-1920x1080.png` | Slide template: content (PNG render) | 65 KB |
-| `brand/templates/slide-title-1920x1080.html` | Slide template: title (editable HTML source) | 3 KB |
-| `brand/templates/slide-title-1920x1080.png` | Slide template: title (PNG render) | 644 KB |
-| `brand/templates/social-post-business-1080x1350.html` | Social post template 1080x1350 (business) (editable HTML source) | 3 KB |
-| `brand/templates/social-post-business-1080x1350.png` | Social post template 1080x1350 (business) (PNG render) | 683 KB |
-| `brand/templates/social-post-consumer-1080x1350.html` | Social post template 1080x1350 (consumer) (editable HTML source) | 3 KB |
-| `brand/templates/social-post-consumer-1080x1350.png` | Social post template 1080x1350 (consumer) (PNG render) | 487 KB |
-| `brand/templates/social-story-1080x1920.html` | Story template 1080x1920 (editable HTML source) | 3 KB |
-| `brand/templates/social-story-1080x1920.png` | Story template 1080x1920 (PNG render) | 534 KB |
+| `brand/templates/document-cover-a4.html` | document cover a4 (editable HTML source) | 2 KB |
+| `brand/templates/document-cover-a4.png` | document cover a4 (PNG render) | 128 KB |
+| `brand/templates/email-signature.html` | email signature (editable HTML source) | 2 KB |
+| `brand/templates/email-signature.png` | email signature (PNG render) | 10 KB |
+| `brand/templates/linkedin-banner-1584x396.html` | linkedin banner 1584x396 (editable HTML source) | 2 KB |
+| `brand/templates/linkedin-banner-1584x396.png` | linkedin banner 1584x396 (PNG render) | 56 KB |
+| `brand/templates/slide-content-1920x1080.html` | slide content 1920x1080 (editable HTML source) | 3 KB |
+| `brand/templates/slide-content-1920x1080.png` | slide content 1920x1080 (PNG render) | 78 KB |
+| `brand/templates/slide-title-1920x1080.html` | slide title 1920x1080 (editable HTML source) | 2 KB |
+| `brand/templates/slide-title-1920x1080.png` | slide title 1920x1080 (PNG render) | 118 KB |
+| `brand/templates/social-post-business-1080x1350.html` | social post business 1080x1350 (editable HTML source) | 2 KB |
+| `brand/templates/social-post-business-1080x1350.png` | social post business 1080x1350 (PNG render) | 66 KB |
+| `brand/templates/social-post-consumer-1080x1350.html` | social post consumer 1080x1350 (editable HTML source) | 2 KB |
+| `brand/templates/social-post-consumer-1080x1350.png` | social post consumer 1080x1350 (PNG render) | 110 KB |
+| `brand/templates/social-story-1080x1920.html` | social story 1080x1920 (editable HTML source) | 2 KB |
+| `brand/templates/social-story-1080x1920.png` | social story 1080x1920 (PNG render) | 115 KB |
+| `brand/graphics/bracket-numerals.html` | bracket numerals (editable HTML source) | 1 KB |
+| `brand/graphics/bracket-numerals.png` | bracket numerals (PNG render) | 26 KB |
+| `brand/graphics/corner-marks.html` | corner marks (editable HTML source) | 1 KB |
+| `brand/graphics/corner-marks.png` | corner marks (PNG render) | 4 KB |
+| `brand/graphics/giant-wordmark-crop.html` | giant wordmark crop (editable HTML source) | 1 KB |
+| `brand/graphics/giant-wordmark-crop.png` | giant wordmark crop (PNG render) | 36 KB |
+| `brand/graphics/hairline-key-values.html` | hairline key values (editable HTML source) | 2 KB |
+| `brand/graphics/hairline-key-values.png` | hairline key values (PNG render) | 10 KB |
+| `brand/graphics/index-list.html` | index list (editable HTML source) | 2 KB |
+| `brand/graphics/index-list.png` | index list (PNG render) | 36 KB |
+| `brand/graphics/problem-practice-result.html` | problem practice result (editable HTML source) | 2 KB |
+| `brand/graphics/problem-practice-result.png` | problem practice result (PNG render) | 44 KB |
+| `brand/graphics/target-and-disc.html` | target and disc (editable HTML source) | 2 KB |
+| `brand/graphics/target-and-disc.png` | target and disc (PNG render) | 23 KB |
+| `brand/graphics/terrain-sheet.html` | terrain sheet (editable HTML source) | 2 KB |
+| `brand/graphics/terrain-sheet.png` | terrain sheet (PNG render) | 176 KB |
+| `brand/guidelines/fieldwork-brand-guidelines.html` | Brand guidelines (PDF or editable HTML) | 22 KB |
+| `brand/guidelines/fieldwork-brand-guidelines.pdf` | Brand guidelines (PDF or editable HTML) | 2590 KB |
 
 ## docs/ (documentation)
 
@@ -238,7 +244,6 @@ Generated by `scripts/brand/build-guidelines.mjs` (guidelines) and `build-templa
 | `scripts/_shot.mjs` |  | 1 KB |
 | `scripts/_sm.mjs` |  | 1 KB |
 | `scripts/brand/build-art.mjs` | Pre-generates the field artwork library as static SVG files (no runtime generation, no layout shift). | 1 KB |
-| `scripts/brand/build-brand-assets.mjs` | Builds every logo asset from one geometry definition so the website, documents | 12 KB |
 | `scripts/brand/build-guidelines.mjs` | Builds the brand guidelines as HTML (editable source) and prints to PDF with Chromium. | 20 KB |
 | `scripts/brand/build-identity.mjs` | Builds the Fieldwork logo system as outlined SVG (no font dependency) + PNG/ICO exports. | 10 KB |
 | `scripts/brand/build-templates.mjs` | Renders brand templates (editable HTML + PNG) into brand/templates and graphic assets into brand/graphics. | 12 KB |
@@ -249,7 +254,6 @@ Generated by `scripts/brand/build-guidelines.mjs` (guidelines) and `build-templa
 | `scripts/brand/field-generator.mjs` | "The field": seeded generative terrain used as Fieldwork's signature artwork. | 7 KB |
 | `scripts/brand/image-sheet.mjs` | Labelled contact sheet of images in a folder. Usage: node image-sheet.mjs <dir> <from> <to> <cols> <thumbW> <out> | 1 KB |
 | `scripts/brand/palette.mjs` | Single source of truth for brand colours used by build scripts. Mirrored in src/styles/tokens.css (checked by tests/tokens.test.ts). | 1 KB |
-| `scripts/brand/summit.mjs` | Extracts nested closed contour rings around the highest point of a seeded field: the Fieldwork "summit" mark. | 4 KB |
 | `scripts/docs/build-deck.mjs` | Builds the sales deck PPTX from docs/sales/SALES-DECK-OUTLINE.md (slide text is the single source). | 3 KB |
 | `scripts/docs/md-to-pdf.mjs` | Brand-styled Markdown → PDF (Chromium). Usage: node scripts/docs/md-to-pdf.mjs <in.md> <out.pdf> [--title "..."] [--landscape] | 4 KB |
 | `scripts/qa/axe.mjs` | axe-core accessibility scan of every route at desktop and mobile. Writes qa/axe-results.json. | 2 KB |

@@ -115,3 +115,4 @@ body:has(.hero__big) .footer-giant { display: none; }
 body:has(.hero__big) .site-footer { padding-bottom: var(--s-6); }
 @media (max-width: 47.99rem) { .visually-hidden-sm { display: none; } }
 @media (min-width: 48rem) { .idx a .visually-hidden-sm { display: inline; } }
+@media (max-width: 47.99rem) { .hero__dots { opacity: 0.4; top: 28%; width: 95vw; right: -25%; } .page-hero__dots { opacity: 0.35; width: 80vw; right: -25%; } }

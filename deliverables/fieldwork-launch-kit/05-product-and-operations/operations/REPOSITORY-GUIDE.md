@@ -34,7 +34,7 @@ Not present: `.env.example`, `README.md` at the root, `vercel.json`, `.github/` 
 
 - `src/app`: `layout.tsx` (fonts, global CSS, header/footer, analytics, motion), `page.tsx` (home), one folder per route, `api/lead/route.ts`, `sitemap.ts`, `robots.ts`, `manifest.ts`, `not-found.tsx`, `favicon.ico`.
 - `src/content/images.json`: photograph register (file, subject, alt, group, size, Unsplash id, licence, photographer note).
-- `scripts/brand/build-brand-assets.mjs` also writes `src/components/brand/logo-data.ts` (intrinsic logo sizes) and copies `favicon.ico` to `src/app/`. `logo-data.ts` is **not currently in the repository** and `Logo.tsx` does not import it (sizes are hard-coded in `Logo.tsx`), so nothing breaks; running `npm run brand:build` would create an unused file.
+- `scripts/brand/build-identity.mjs` also copies `favicon.ico` to `src/app/`.
 - Path alias `@/*` -> `src/*` (tsconfig and vitest).
 - ESLint ignores `.next`, `node_modules`, `public`, `deliverables`, `qa`, `scripts`: scripts are not linted.
 
@@ -49,7 +49,7 @@ Not present: `.env.example`, `README.md` at the root, `vercel.json`, `.github/` 
 | `typecheck` | `tsc --noEmit` | works |
 | `test` | `vitest run` | works |
 | `check` | typecheck + lint + test | works |
-| `brand:build` | `node scripts/brand/build-brand-assets.mjs` | regenerates logo SVG/PNG/favicons into `public/brand`, copies `favicon.ico` to `src/app`, writes `logo-data.ts` |
+| `brand:build` | `build-identity.mjs`, `build-art.mjs`, `build-templates.mjs`, `build-guidelines.mjs` | regenerates logos, favicons, terrain art, templates, graphics and the guidelines |
 | `docs:pdf` | `node scripts/docs/build-pdfs.mjs` | **script file not found** when checked (only `md-to-pdf.mjs` and `build-deck.mjs` exist in `scripts/docs/`). Use `node scripts/docs/md-to-pdf.mjs <in.md> <out.pdf> [--title "..."] [--landscape]` |
 | `qa:browser` | `node scripts/qa/browser-tests.mjs` | works with server on 3100 |
 | `qa:links` | `node scripts/qa/link-check.mjs` | **script file not found**; use `scripts/qa/links.mjs` |
@@ -59,7 +59,7 @@ Fix suggestion (not applied): correct the three paths in `package.json` or add t
 
 ## 4. Scripts directory
 
-`scripts/brand/`: `palette.mjs` (colour source of truth, tested against CSS), `build-brand-assets.mjs` (logo system + favicons + generated TS data; used by `npm run brand:build`), `build-identity.mjs` (earlier/alternative logo builder with archive wordmark; not wired to npm), `build-art.mjs` + `field-generator.mjs` + `summit.mjs` (generative field art -> `public/art`), `build-guidelines.mjs` (brand guidelines HTML+PDF -> `brand/guidelines`), `build-templates.mjs` (templates and graphics -> `brand/templates`, `brand/graphics`), `contrast.mjs` (WCAG contrast calculator), `curate-images.mjs` (candidates -> `public/images`), `fetch-imagery.mjs` (Wikimedia Commons PD/CC0 search), `fetch-unsplash-ids.sh` (download Unsplash CDN ids), `image-sheet.mjs` (contact sheets).
+`scripts/brand/`: `palette.mjs` (colour source of truth, tested against CSS), `build-identity.mjs` (logo system, favicons, avatar, Open Graph image -> `public/brand`; part of `npm run brand:build`), `build-art.mjs` + `field-generator.mjs` (halftone dot terrain -> `public/art`), `build-guidelines.mjs` (brand guidelines HTML+PDF -> `brand/guidelines`), `build-templates.mjs` (templates and graphics -> `brand/templates`, `brand/graphics`), `contrast.mjs` (WCAG contrast calculator), `curate-images.mjs` (candidates -> `public/images`), `fetch-imagery.mjs` (Wikimedia Commons PD/CC0 search), `fetch-unsplash-ids.sh` (download Unsplash CDN ids), `image-sheet.mjs` (contact sheets).
 `scripts/qa/`: see `QA-HOW-TO-RERUN.md`.
 `scripts/docs/`: `md-to-pdf.mjs` (brand-styled Markdown to PDF), `build-deck.mjs` (sales deck builder, added during this work: check its header before use).
 `scripts/_ft.mjs`, `_shot.mjs`, `_sm.mjs`: scratch helpers for design experiments (palette in `_ft.mjs` is from rejected concepts).

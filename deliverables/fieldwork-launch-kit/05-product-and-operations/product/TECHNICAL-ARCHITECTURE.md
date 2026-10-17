@@ -91,7 +91,7 @@ Other: no secrets in client bundles (server env vars are not prefixed `NEXT_PUBL
 ## 9. Performance notes
 
 - Static generation for all pages; images through `next/image` with explicit dimensions (`images.json` width/height) to avoid layout shift; art SVGs are pre-generated and `unoptimized`.
-- Fonts self-hosted; four families imported globally in `layout.tsx` (Cormorant 400/400i/500 and variable Hanken, Geist Mono, Schibsted). Not yet subsetted or preloaded manually; Next/`@fontsource` imports include all subsets present in the CSS files (**check bundle with a real audit**).
+- Fonts self-hosted; two variable families imported globally in `layout.tsx` (Schibsted Grotesk and Geist Mono). Not yet subsetted or preloaded manually; Next/`@fontsource` imports include all subsets present in the CSS files (**check bundle with a real audit**).
 - **No Lighthouse or Core Web Vitals run is recorded in `qa/`.** Any speed claim is unmeasured. Run PageSpeed Insights against the deployed preview before launch.
 - Build and bundle sizes were not recorded in the repo.
 
