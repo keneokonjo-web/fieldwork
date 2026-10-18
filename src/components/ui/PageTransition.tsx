@@ -52,6 +52,7 @@ export function PageTransition() {
   // Hide once the new page is in and at least a second has passed.
   useEffect(() => {
     if (!active || pathname === from.current) return;
+    if (!window.location.hash) window.scrollTo(0, 0); // new pages always start at the top, instantly
     const wait = Math.max(0, MIN_MS - (Date.now() - started.current));
     const t = setTimeout(() => { setActive(false); if (failsafe.current) clearTimeout(failsafe.current); }, wait);
     return () => clearTimeout(t);

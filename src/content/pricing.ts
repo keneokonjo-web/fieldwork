@@ -3,13 +3,14 @@
 export type Market = 'uk' | 'ng';
 export type BizMarket = 'uk' | 'ng' | 'us';
 
+export interface PricePoint { label: string; price: Record<Market, { amount: string; unit?: string }> }
 export interface Tier {
   id: string;
   name: string;
   status: 'available' | 'planned';
   summary: string;
   includes: string[];
-  price: Record<Market, { amount: string; unit?: string }>;
+  prices: PricePoint[];
   priceNote: string;
 }
 
@@ -19,33 +20,37 @@ export const MARKET_PAY: Record<Market, string> = {
   ng: 'Planned: Nigerian cards, bank transfer and other local methods, through a payment provider that is still to be set up. Paid in naira.',
 };
 
+/* Individuals. GBP prices for AI learning were set by the founder (19 October 2026). The Business Builder prices (one-off and monthly)
+ * and all NGN figures are proposed and need confirmation. Nothing is on sale. */
 export const consumerTiers: Tier[] = [
   {
-    id: 'free', name: 'Free exercise', status: 'available',
-    summary: 'A complete guided exercise. Brief, run, check, keep.',
-    includes: ['Starter tasks for work, small business, study and property', 'Copyable prompts and follow-up fixes', 'A finished example', 'A downloadable workflow card'],
-    price: { uk: { amount: 'Free' }, ng: { amount: 'Free' } }, priceNote: 'No account needed.',
-  },
-  {
-    id: 'project', name: 'Guided project', status: 'planned',
-    summary: 'One real output, start to finish: a document, a plan or a simple site, with the checks that make it usable.',
-    includes: ['Step-by-step brief and prompts', 'A checking guide specific to the project', 'Templates you can reuse', 'Works with free AI tools'],
-    price: { uk: { amount: '£14', unit: 'one-off' }, ng: { amount: '₦7,500', unit: 'one-off' } }, priceNote: 'Planned test price. Not on sale.',
+    id: 'free', name: 'Free', status: 'available',
+    summary: 'Build your business: the basics.',
+    includes: ['Choose a type of business, or get an idea', 'A refined business idea', 'A basic opportunity assessment', 'Logo and colour choices, and a website outline', 'A project workspace with a checklist'],
+    prices: [{ label: '', price: { uk: { amount: '£0' }, ng: { amount: '₦0' } } }], priceNote: 'No payment needed.',
   },
   {
     id: 'builder', name: 'Business Builder (full)', status: 'planned',
-    summary: 'Take a business from idea to launch with the complete builder. The basic builder is free.',
+    summary: 'Take a business from idea to launch with the complete builder.',
     includes: ['Build and develop a complete business', 'More detailed market research and validation tools', 'Full editable business plan and financial model', 'Complete brand and marketing toolkits', 'Website building guidance and expanded generation tools', 'Ongoing access to the business-building assistant'],
-    price: { uk: { amount: '£19', unit: 'a month' }, ng: { amount: '₦9,500', unit: 'a month' } }, priceNote: 'Placeholder test price, to be confirmed. Not on sale.',
+    prices: [
+      { label: 'One-off, one business', price: { uk: { amount: '£99', unit: 'one-off' }, ng: { amount: '₦49,000', unit: 'one-off' } } },
+      { label: 'Monthly', price: { uk: { amount: '£19', unit: 'a month' }, ng: { amount: '₦9,500', unit: 'a month' } } },
+    ],
+    priceNote: 'Proposed prices, to be confirmed. Not on sale.',
   },
   {
-    id: 'membership', name: 'Membership', status: 'planned',
-    summary: 'New guided projects and a growing set of workflows, once there are enough to be worth a subscription.',
-    includes: ['Every guided project', 'A library of tested workflow cards', 'Updates as tools change'],
-    price: { uk: { amount: '£9', unit: 'a month' }, ng: { amount: '₦4,500', unit: 'a month' } }, priceNote: 'Under consideration. We will only offer it once the cancellation and support process is ready.',
+    id: 'learning', name: 'AI learning', status: 'planned',
+    summary: 'Workshops and guided AI learning for real work.',
+    includes: ['Workshops on using AI for everyday work', 'Guided AI learning paths', 'Saved workflow cards', 'Updates as tools change'],
+    prices: [
+      { label: 'Per workshop', price: { uk: { amount: '£20', unit: 'a workshop' }, ng: { amount: '₦10,000', unit: 'a workshop' } } },
+      { label: 'Monthly', price: { uk: { amount: '£15', unit: 'a month' }, ng: { amount: '₦7,500', unit: 'a month' } } },
+      { label: 'Every three months', price: { uk: { amount: '£45', unit: 'every 3 months' }, ng: { amount: '₦22,500', unit: 'every 3 months' } } },
+    ],
+    priceNote: 'GBP prices set by the founder; NGN prices proposed. Not on sale.',
   },
 ];
-
 
 /* ---------- Business pricing ----------
  * GBP and NGN figures for Starter, Team, Business bundle, pilot and add-ons were set by the founder (18 October 2026).

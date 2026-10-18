@@ -30,7 +30,7 @@ Set by the founder on 18 October 2026 for the GBP and NGN figures marked **set**
 | Custom workflow implementation | Quoted separately | Quoted separately | Quoted separately |
 
 ## Individuals (for reference)
-Free exercise and the basic Build a business flow are free. Guided project £14 one-off, membership £9 a month and the full Business Builder £19 a month (placeholder test prices, not on sale); NGN equivalents are set separately in `src/content/pricing.ts`.
+Free: the basic Build a business flow (the free exercise is not part of the pricing plans). Business Builder (full): £99 one-off or £19 a month (proposed). AI learning: £20 per workshop, £15 a month, £45 every three months. NGN equivalents are set separately in `src/content/pricing.ts`. None of this is on sale; see `docs/operations/PAYMENTS-PLAN.md`.
 
 ## Open decisions
 USD figures; NGN figures marked proposed; the 16 to 50 employee range; the pilot credit period; whether pilot and plans are billed monthly or annually; refund terms; VAT treatment per market (verify with an accountant).

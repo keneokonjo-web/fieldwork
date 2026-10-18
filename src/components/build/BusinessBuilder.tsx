@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { navigate } from '@/components/ui/PageTransition';
 import { track } from '@/lib/analytics';
 import {
-  ASSESS_QUESTIONS, BUSINESS_TYPES, LOGO_PRESETS, OPS_ITEMS, PALETTES, SALES_CHANNELS, WEBSITE_SECTIONS, assessOpportunity, generateIdea, logoSvg, refineIdea, reviveBuilder, EMPTY_BUILDER,
+  ASSESS_QUESTIONS, BUSINESS_TYPES, LOGO_PRESETS, OPS_ITEMS, PALETTES, SALES_CHANNELS, WEBSITE_PAGES, DOMAIN_TLDS, assessOpportunity, cleanDomainName, webAddress, generateIdea, logoSvg, refineIdea, reviveBuilder, EMPTY_BUILDER,
   type BuilderState, type LogoId,
 } from '@/lib/builder';
 import { useSession } from '@/lib/session';
@@ -12,6 +12,7 @@ import { useStoredState } from '@/lib/storage';
 
 export const BUILDER_KEY = 'fw-builder';
 const STEPS = ['Choose', 'Find an idea', 'Create the design', 'Build the product', 'Create the website', 'Sales and operations', 'Launch and improve'];
+const STEP_TITLES: Record<number, string> = { 4: 'Choose your pages and web address' };
 const MAX_LOGO_BYTES = 400 * 1024;
 
 export function BusinessBuilder() {
@@ -73,7 +74,7 @@ export function BusinessBuilder() {
       </nav>
 
       <div className="learn-step" role="region" aria-labelledby="bb-heading">
-        <h2 id="bb-heading" ref={headingRef} tabIndex={-1}>{step === 0 ? 'What kind of business?' : STEPS[step]}</h2>
+        <h2 id="bb-heading" ref={headingRef} tabIndex={-1}>{step === 0 ? 'What kind of business?' : STEP_TITLES[step] ?? STEPS[step]}</h2>
 
         {step === 0 && (
           <>
@@ -165,16 +166,27 @@ export function BusinessBuilder() {
 
         {step === 4 && (
           <div className="stack">
-            <fieldset className="assess-q"><legend style={{ fontSize: 'var(--step-1)' }}>Sections for a one-page website</legend>
+            <fieldset className="assess-q"><legend style={{ fontSize: 'var(--step-1)' }}>Which pages do you want on your website?</legend>
               <div className="assess-opts">
-                {WEBSITE_SECTIONS.map((sec) => (
-                  <div className="check" key={sec}><input id={`w-${sec}`} type="checkbox" checked={b.website.sections.includes(sec)} onChange={() => patch((s) => ({ ...s, website: { sections: toggle(s.website.sections, sec) } }))} /><label htmlFor={`w-${sec}`}>{sec}</label></div>
+                {WEBSITE_PAGES.map((pg) => (
+                  <div className="check" key={pg}><input id={`w-${pg}`} type="checkbox" checked={b.website.sections.includes(pg)} onChange={() => patch((s) => ({ ...s, website: { ...s.website, sections: toggle(s.website.sections, pg) } }))} /><label htmlFor={`w-${pg}`}>{pg}</label></div>
                 ))}
               </div>
             </fieldset>
-            <div className="bb__site" style={{ background: palette.bg, color: palette.ink, borderColor: palette.ink }} aria-label="Website outline preview">
+            <div className="field">
+              <label className="field__label" htmlFor="w-domain">Choose your web address</label>
+              <div className="domain">
+                <input id="w-domain" className="input" value={b.website.domain.name} onChange={(e) => patch((s) => ({ ...s, website: { ...s.website, domain: { ...s.website.domain, name: e.target.value } } }))} placeholder={cleanDomainName(b.brand.name) || 'yourbusiness'} maxLength={60} aria-describedby="w-domain-h" />
+                <select className="select" aria-label="Domain ending" value={b.website.domain.tld} onChange={(e) => patch((s) => ({ ...s, website: { ...s.website, domain: { ...s.website.domain, tld: e.target.value } } }))}>
+                  {DOMAIN_TLDS.map((t) => <option key={t} value={t}>{t}</option>)}
+                </select>
+              </div>
+              <span id="w-domain-h" className="field__hint">Letters, numbers and hyphens only. We do not check availability or register domains: search a registrar before you decide.</span>
+            </div>
+            <div className="bb__site" style={{ background: palette.bg, color: palette.ink, borderColor: palette.ink }} aria-label="Website preview">
+              <div className="bb__url" style={{ borderColor: palette.ink }}><span>{webAddress(b.website.domain) || `${cleanDomainName(b.brand.name) || 'yourbusiness'}${b.website.domain.tld}`}</span></div>
               <div className="bb__site-bar" style={{ borderColor: palette.ink }}>{chosenLogo}<b>{b.brand.name || 'Your business'}</b></div>
-              {b.website.sections.length === 0 ? <p className="small">Choose sections to see the outline.</p> : b.website.sections.map((sec, i) => <div key={sec} className="bb__site-row" style={{ borderColor: palette.ink }}><span>({String(i + 1).padStart(2, '0')})</span>{sec}</div>)}
+              {b.website.sections.length === 0 ? <p className="small">Choose pages to see them here.</p> : <nav className="bb__pages" aria-label="Pages">{b.website.sections.map((pg) => <span key={pg} style={{ borderColor: palette.ink }}>{pg}</span>)}</nav>}
             </div>
             <p className="small muted">Full website building guidance and expanded generation tools are in the paid builder.</p>
           </div>

@@ -103,7 +103,13 @@ export function logoSvg(id: LogoId, name: string, p: { bg: string; ink: string; 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo option">${bgRect}${shapes[id]}</svg>`;
 }
 
-export const WEBSITE_SECTIONS = ['Headline and one-line promise', 'What you offer', 'Who it is for', 'How it works', 'Prices', 'About you', 'Questions answered', 'Contact or buy button'];
+export const WEBSITE_PAGES = ['Home', 'About', 'Products or services', 'Pricing', 'How it works', 'Reviews or case studies', 'FAQ', 'Blog or news', 'Contact', 'Shop or booking'];
+export const DOMAIN_TLDS = ['.com', '.co.uk', '.us', '.ng', '.com.ng', '.shop', '.online'];
+/** Turns what someone types into a valid web address label: lower case letters, numbers and single hyphens, up to 40 characters. */
+export function cleanDomainName(input: string): string {
+  return input.toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/-{2,}/g, '-').replace(/^-+|-+$/g, '').slice(0, 40);
+}
+export function webAddress(d: { name: string; tld: string }): string { const n = cleanDomainName(d.name); return n ? `${n}${d.tld}` : ''; }
 export const SALES_CHANNELS = ['Friends and family', 'Social media', 'WhatsApp groups', 'Local community or events', 'Marketplaces', 'Search (website)', 'Partnerships'];
 export const OPS_ITEMS = ['A way to take payment', 'A simple way to deliver or fulfil', 'A place to keep customer details safely', 'A basic record of income and costs', 'A way to answer questions', 'Terms and a refund approach'];
 
@@ -115,17 +121,17 @@ export interface BuilderState {
   assessed: boolean;
   brand: { name: string; logo: LogoId | 'custom' | null; customLogo: string; palette: string };
   product: { features: string; firstVersion: string };
-  website: { sections: string[] };
+  website: { sections: string[]; domain: { name: string; tld: string } };
   sales: { channels: string[]; ops: string[] };
   launched: boolean;
 }
 export const EMPTY_BUILDER: BuilderState = {
   type: null, idea: { sells: '', audience: '', problem: '', price: '' }, refined: '', answers: {}, assessed: false,
-  brand: { name: '', logo: null, customLogo: '', palette: 'ink-cobalt' }, product: { features: '', firstVersion: '' }, website: { sections: [] }, sales: { channels: [], ops: [] }, launched: false,
+  brand: { name: '', logo: null, customLogo: '', palette: 'ink-cobalt' }, product: { features: '', firstVersion: '' }, website: { sections: [], domain: { name: '', tld: '.com' } }, sales: { channels: [], ops: [] }, launched: false,
 };
 export function reviveBuilder(p: unknown): BuilderState {
   const o = (p ?? {}) as Partial<BuilderState>;
-  return { ...EMPTY_BUILDER, ...o, idea: { ...EMPTY_BUILDER.idea, ...(o.idea ?? {}) }, brand: { ...EMPTY_BUILDER.brand, ...(o.brand ?? {}) }, product: { ...EMPTY_BUILDER.product, ...(o.product ?? {}) }, website: { sections: o.website?.sections ?? [] }, sales: { channels: o.sales?.channels ?? [], ops: o.sales?.ops ?? [] }, answers: o.answers ?? {} };
+  return { ...EMPTY_BUILDER, ...o, idea: { ...EMPTY_BUILDER.idea, ...(o.idea ?? {}) }, brand: { ...EMPTY_BUILDER.brand, ...(o.brand ?? {}) }, product: { ...EMPTY_BUILDER.product, ...(o.product ?? {}) }, website: { sections: o.website?.sections ?? [], domain: { name: o.website?.domain?.name ?? '', tld: o.website?.domain?.tld ?? '.com' } }, sales: { channels: o.sales?.channels ?? [], ops: o.sales?.ops ?? [] }, answers: o.answers ?? {} };
 }
 
 export type Status = 'complete' | 'in-progress' | 'not-started';
@@ -154,7 +160,7 @@ export function builderDocs(b: BuilderState): BuilderDoc[] {
   return [
     { id: 'idea', name: 'Business idea', filename: 'business-idea.txt', text: `${name}\n\nIdea statement\n${b.refined || '(not written yet)'}\n\nWhat you sell: ${b.idea.sells}\nWho it is for: ${b.idea.audience}\nProblem: ${b.idea.problem}\nFirst price to test: ${b.idea.price}\n\nOpportunity snapshot (self-reported): ${a.level}, ${a.score} of ${a.max}\n${a.next.map((n) => `- ${n}`).join('\n')}\n` },
     { id: 'model', name: 'Product and first version', filename: 'product.txt', text: `${name}: product\n\nBenefits\n${b.product.features || '(not written yet)'}\n\nFirst version\n${b.product.firstVersion || '(not written yet)'}\n` },
-    { id: 'brand', name: 'Brand sheet', filename: 'brand.txt', text: `${name}: brand\n\nLogo: ${b.brand.logo === 'custom' ? 'your own upload' : b.brand.logo ?? '(not chosen)'}\nPalette: ${pal ? `${pal.name} (${pal.bg}, ${pal.ink}, ${pal.accent})` : '(not chosen)'}\n\nWebsite sections\n${list(b.website.sections)}\n` },
+    { id: 'brand', name: 'Brand sheet', filename: 'brand.txt', text: `${name}: brand\n\nLogo: ${b.brand.logo === 'custom' ? 'your own upload' : b.brand.logo ?? '(not chosen)'}\nPalette: ${pal ? `${pal.name} (${pal.bg}, ${pal.ink}, ${pal.accent})` : '(not chosen)'}\n\nWebsite pages\n${list(b.website.sections)}\n\nPreferred web address: ${webAddress(b.website.domain) || '(not chosen yet)'}\n(Availability is not checked here. Search a domain registrar before you decide.)\n` },
     { id: 'launch', name: 'Sales and operations checklist', filename: 'launch.txt', text: `${name}: sales and operations\n\nWhere the first customers come from\n${list(b.sales.channels)}\n\nOperations to have in place\n${list(b.sales.ops)}\n` },
   ];
 }

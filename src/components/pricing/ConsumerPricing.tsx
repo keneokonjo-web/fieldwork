@@ -26,7 +26,14 @@ export function ConsumerPricing() {
           <div key={t.id} id={`tier-${t.id}`} className={`card${t.status === 'available' ? ' is-available' : ''}`}>
             <div><Chip tone={t.status}>{t.status === 'available' ? 'Available now' : 'Planned, not on sale'}</Chip></div>
             <h3>{t.name}</h3>
-            <p className="price">{t.price[market].amount} {t.price[market].unit && <small>{t.price[market].unit}</small>}</p>
+            <div className="price-lines">
+              {t.prices.map((pp) => (
+                <p className="price-line" key={pp.label + pp.price[market].amount}>
+                  {pp.label && <span className="index">{pp.label}</span>}
+                  <span className="price">{pp.price[market].amount} {pp.price[market].unit && <small>{pp.price[market].unit}</small>}</span>
+                </p>
+              ))}
+            </div>
             <p className="small muted">{t.priceNote}</p>
             <p>{t.summary}</p>
             <ul className="ticks">{t.includes.map((i) => <li key={i}>{i}</li>)}</ul>
@@ -34,7 +41,7 @@ export function ConsumerPricing() {
         ))}
       </div>
       <div className="callout" style={{ marginTop: 'var(--s-6)' }}>
-        <p><strong>Payments are not open yet.</strong> {MARKET_PAY[market]} Prices marked as planned are test prices we intend to try. They may change before anything goes on sale, and nothing here is a discount or a limited offer.</p>
+        <p><strong>Payments are not open yet.</strong> {MARKET_PAY[market]} Prices marked as planned are proposed. They may change before anything goes on sale, and nothing here is a discount or a limited offer.</p>
       </div>
     </div>
   );

@@ -122,7 +122,7 @@ await check('login: pick business, demo sign-in, business dashboard shows a welc
   for (const n of ['Google', 'LinkedIn', 'Apple']) ok(await p.getByRole('button', { name: new RegExp('Continue with ' + n) }).isVisible(), n);
   await p.getByRole('button', { name: /Continue with Google/ }).click(); ok(await p.getByText('not connected yet').first().isVisible(), 'honest notice');
   await p.getByLabel(/Your name/).fill('Bob Smith'); await p.getByRole('button', { name: 'Continue in demo mode' }).click(); await p.waitForURL(B + '/business/dashboard');
-  ok(await p.getByText('Welcome back, Bob Smith.').isVisible(), 'welcome');
+  ok(await p.getByText('Hi, Bob Smith').isVisible(), 'welcome');
   for (const t of ['Learning library', 'Interactive exercise studio', 'AI learning assistant', 'Workflow library']) ok(await p.getByRole('heading', { name: t }).isVisible(), t);
 });
 await check('dashboards ask you to log in first', async () => {
@@ -137,11 +137,11 @@ await check('build a business: free flow, then login, then workspace with paid a
   await p.getByRole('button', { name: 'Assess my idea' }).click(); ok(await p.getByText('Strong start').isVisible(), 'assessment'); await p.getByRole('button', { name: 'Next' }).click();
   await p.getByLabel('Business name').fill('Test Co'); await p.getByRole('button', { name: 'Logo option monogram-circle' }).click(); await p.getByRole('button', { name: 'Next' }).click();
   await p.getByLabel(/Three benefits/).fill('Fast. Cheap. Clear.'); await p.getByRole('button', { name: 'Next' }).click();
-  await p.getByLabel('Headline and one-line promise').check(); await p.getByRole('button', { name: 'Next' }).click();
+  await p.getByLabel('Home', { exact: true }).check(); await p.getByLabel('Choose your web address').fill('Test Co!'); ok(await p.getByLabel('Website preview').getByText('test-co.com').isVisible(), 'address preview'); await p.getByRole('button', { name: 'Next' }).click();
   await p.getByLabel('Social media').check(); await p.getByRole('button', { name: 'Next' }).click();
   await p.locator('.learn-step').getByRole('button', { name: 'Launch and improve' }).click(); await p.waitForURL(/\/login/); ok(p.url().includes('role=individual'), 'login with role');
   await p.getByLabel(/Your name/).fill('Ada Test'); await p.getByRole('button', { name: 'Continue in demo mode' }).click(); await p.waitForURL(B + '/individuals/dashboard');
-  ok(await p.getByText('Welcome back, Ada Test.').isVisible(), 'welcome'); ok(await p.getByRole('heading', { name: 'Test Co' }).isVisible(), 'project name');
+  ok(await p.getByText('Hi, Ada Test').isVisible(), 'welcome'); ok(await p.getByRole('heading', { name: 'Test Co' }).isVisible(), 'project name');
   const items = await p.locator('[aria-label="Project checklist"] li').allInnerTexts(); ok(/Business idea[\s\S]*Complete/i.test(items[0]) && /Business model[\s\S]*In progress/i.test(items[1]) && /Launch[\s\S]*In progress/i.test(items[3]), 'checklist ' + items.join('|'));
   ok(await p.getByText('part of the paid builder').count() >= 2, 'documents and ask AI locked');
   await p.getByRole('button', { name: /Preview the paid view/ }).click(); ok(await p.getByRole('button', { name: 'Download' }).first().isVisible(), 'documents unlocked in the paid preview');

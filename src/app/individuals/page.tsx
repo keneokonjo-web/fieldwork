@@ -41,21 +41,23 @@ const uses = [
 export default function IndividualsPage() {
   return (
     <>
-      <section className="page-hero corners">
+      <section className="hero hero--page corners" aria-labelledby="ind-hero">
         <Corners n="02" letters={['I', 'N', 'D']} />
-        <div className="container page-hero__grid">
+        <div className="container hero__page">
           <div>
             <p className="eyebrow">Individuals</p>
-            <h1>Put AI to work for you.</h1>
-            <p className="lede">Get everyday work done faster, or build a business with it from scratch.</p>
+            <h1 id="ind-hero">Build with AI.</h1>
+            <p className="lede">Get everyday work done faster, or start a business with it.</p>
             <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
               <ButtonLink href="/build" variant="cobalt" track="consumer_cta_clicked" trackLabel="individuals-build">Build a business</ButtonLink>
               <ButtonLink href={FREE_EXPERIENCE_PATH} variant="secondary" track="consumer_cta_clicked" trackLabel="individuals-hero">Try the free exercise</ButtonLink>
             </div>
-            <p className="hero__note">Free to start · no account to try · works with free AI tools</p>
+            <p className="hero__note">Free to start · works with free AI tools</p>
           </div>
-          <Plate photo="work-hands-laptop" ratio="4 / 3" priority label={<><b>(01)</b>Stock photograph, illustrative</>} />
+          <Plate photo="work-whiteboard" ratio="4 / 3" priority label={<><b>(01)</b>Stock photograph, illustrative</>} />
         </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="hero__big" src="/brand/logo/fieldwork-wordmark-light.svg" alt="" width={607} height={138} aria-hidden="true" />
       </section>
 
       <section className="section" aria-labelledby="do-title">
@@ -111,10 +113,10 @@ export default function IndividualsPage() {
 
       <section className="section section--ink" aria-labelledby="join-title">
         <div className="container split">
-          <div><p className="eyebrow">Early access</p><h2 id="join-title">Hear when guided projects are ready.</h2><p className="lede">One email when something real exists.</p></div>
+          <div><p className="eyebrow">Early access</p><h2 id="join-title">Hear when workshops and the full builder are ready.</h2><p className="lede">One email when something real exists.</p></div>
           <div className="form-card">
             <LeadForm type="newsletter" variant="email" submitLabel="Join early access" interest="early-access-individuals" location="individuals"
-              successTitle="You are on the list" successBody="Thank you. We will email you when guided projects are ready." fallbackEmail={siteConfig.email.general} />
+              successTitle="You are on the list" successBody="Thank you. We will email you when workshops and the full builder are ready." fallbackEmail={siteConfig.email.general} />
           </div>
         </div>
       </section>

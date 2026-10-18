@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { ButtonLink, TextLink } from '@/components/ui/ButtonLink';
 import { Chip } from '@/components/ui/Chip';
 import { PromptBlock } from '@/components/ui/PromptBlock';
@@ -32,13 +31,12 @@ Leasehold, 112 years remaining. Service charge £1,850 a year. No parking. EPC C
 export default function BusinessPage() {
   return (
     <>
-      <section className="page-hero page-hero--wide corners">
+      <section className="hero hero--page corners" aria-labelledby="biz-hero">
         <Corners n="04" letters={['R', 'E', 'A']} />
-        <Image className="page-hero__dots" src="/art/terrain-12-circle-cobalt-clear.svg" alt="" width={900} height={700} unoptimized aria-hidden="true" />
-        <div className="container page-hero__grid">
+        <div className="container hero__page">
           <div>
             <p className="eyebrow">Business · Real estate</p>
-            <h1>Better listings. Faster replies. People in charge.</h1>
+            <h1 id="biz-hero">Better listings. Faster replies. People in charge.</h1>
             <p className="lede">AI training for estate and letting teams in the UK, Nigeria and the USA, on the work they already do.</p>
             <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
               <ButtonLink href="/contact?topic=business" track="business_cta_clicked" trackLabel="re-hero-demo">Request a demonstration</ButtonLink>
@@ -46,9 +44,12 @@ export default function BusinessPage() {
             </div>
             <p className="hero__note">Fieldwork is new, with no agency case studies yet. We would rather show a worked scenario than invent a testimonial.</p>
           </div>
-          <Plate photo="prop-exterior-day" ratio="4 / 5" priority position="center 40%" sizes="(min-width: 62rem) 36vw, 100vw" label={<><b>(01)</b>Stock photograph. Not a Fieldwork client.</>} />
+          <Plate photo="prop-exterior-day" ratio="4 / 3" priority position="center 45%" sizes="(min-width: 62rem) 40vw, 100vw" label={<><b>(01)</b>Stock photograph. Not a Fieldwork client.</>} />
         </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="hero__big" src="/brand/logo/fieldwork-wordmark-light.svg" alt="" width={607} height={138} aria-hidden="true" />
       </section>
+
       <section className="section" aria-labelledby="wf-title">
         <div className="container">
           <p className="eyebrow">Seven workflows</p>

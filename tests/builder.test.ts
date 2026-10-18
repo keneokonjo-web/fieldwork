@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ASSESS_QUESTIONS, EMPTY_BUILDER, assessOpportunity, checklist, generateIdea, logoSvg, refineIdea, reviveBuilder } from '../src/lib/builder';
+import { cleanDomainName, webAddress, ASSESS_QUESTIONS, EMPTY_BUILDER, assessOpportunity, checklist, generateIdea, logoSvg, refineIdea, reviveBuilder } from '../src/lib/builder';
 import { businessPlans, businessPilot, businessAddOns } from '../src/content/pricing';
 
 describe('idea generator', () => {
@@ -55,5 +55,17 @@ describe('business pricing data', () => {
   });
   it('prices every market for every priced plan', () => {
     for (const p of businessPlans.filter((x) => !x.quoted)) for (const m of ['uk', 'ng', 'us'] as const) expect(p.price?.[m]).toBeTruthy();
+  });
+});
+
+describe('web address', () => {
+  it('cleans what is typed into a valid label', () => {
+    expect(cleanDomainName('  My Cool Shop!! ')).toBe('my-cool-shop');
+    expect(cleanDomainName('--a__b--')).toBe('a-b');
+    expect(cleanDomainName('x'.repeat(80)).length).toBe(40);
+  });
+  it('joins name and ending, or returns nothing when empty', () => {
+    expect(webAddress({ name: 'Test Co', tld: '.com.ng' })).toBe('test-co.com.ng');
+    expect(webAddress({ name: '!!!', tld: '.com' })).toBe('');
   });
 });

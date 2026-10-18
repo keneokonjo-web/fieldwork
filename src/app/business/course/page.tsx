@@ -12,11 +12,11 @@ export const metadata = pageMetadata({
   path: '/business/course',
 });
 
-const rhythm = [
-  ['Week 1', 'Rules and basics', 'The AI-use rule, what may be pasted, the five-part brief. First workflow card.'],
-  ['Weeks 2 to 3', 'Core workflows', 'Listings, enquiries and viewing feedback, on anonymised examples with a person checking.'],
-  ['Weeks 4 to 5', 'Everyday admin', 'Research, internal documents and reports, procedures and new-starter guides.'],
-  ['Week 6', 'Marketing and review', 'Marketing content, then a review of what changed and what to keep.'],
+const weeks = [
+  { when: 'Week 1', title: 'Rules and basics', what: 'Write your AI-use rule: what may be pasted, what never is, and who checks what. Learn the five-part brief.', modules: 'Module 00 · about 45 minutes', finish: 'A written AI-use rule and a first workflow card.' },
+  { when: 'Weeks 2 to 3', title: 'Core workflows', what: 'Listings from verified facts, enquiries and lead follow-up, and viewing feedback, on anonymised examples. A person checks every output.', modules: 'Modules 01 to 03 · about 2 hours a week', finish: 'Three workflow cards: a listing, a reply and a viewing update.' },
+  { when: 'Weeks 4 to 5', title: 'Everyday admin', what: 'Research and organising information, internal documents and reports, procedures and new-starter guides.', modules: 'Modules 04 to 06 · about 2 hours a week', finish: 'Three more cards and a house checklist.' },
+  { when: 'Week 6', title: 'Marketing and review', what: 'Marketing content and posts, then a review of what changed, what to keep and what to drop.', modules: 'Module 07 · about 1 hour', finish: 'A short review and a plan for what comes next.' },
 ];
 
 export default function CoursePage() {
@@ -39,48 +39,32 @@ export default function CoursePage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="how-title">
+      <section className="section" aria-labelledby="week-title">
         <div className="container">
-          <p className="eyebrow">How a module works</p>
-          <h2 id="how-title" style={{ maxWidth: '16ch' }}>Brief, run, check, keep.</h2>
-          <div className="flow">
-            <div className="flow__item"><p className="index">01</p><h3>Brief</h3><p>A short lesson, then write the brief, including what the tool must not do.</p></div>
-            <div className="flow__item"><p className="index">02</p><h3>Run</h3><p>Use your approved AI tool on an anonymised example.</p></div>
-            <div className="flow__item"><p className="index">03</p><h3>Check</h3><p>Compare every claim with the source. A person decides.</p></div>
-            <div className="flow__item"><p className="index">04</p><h3>Keep</h3><p>Save the brief and checks as a workflow card in your library.</p></div>
-          </div>
-          <p className="hero__note">About 45 minutes a module, self-paced. Live or remote sessions are optional.</p>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="modules-title">
-        <div className="container">
-          <p className="eyebrow">The modules</p>
-          <h2 id="modules-title" className="visually-hidden">Course modules</h2>
-          <ol className="index-list" style={{ listStyle: 'none', padding: 0 }}>
-            <li><span className="bn" style={{ fontSize: '1.9rem' }}>00</span><h3>Rules and safe handling</h3><p>Write your AI-use rule: what may be pasted, what never is, who checks what.</p><span /></li>
-            {WORKFLOWS.map((w, i) => (
-              <li key={w.id}><span className="bn" style={{ fontSize: '1.9rem' }}>{String(i + 1).padStart(2, '0')}</span><h3>{w.title}</h3><div><p>{w.summary}</p><p className="small" style={{ marginTop: 'var(--s-2)', color: 'var(--ink)' }}><strong>People keep:</strong> {w.peopleKeep}</p></div><span /></li>
+          <p className="eyebrow">How the course runs</p>
+          <h2 id="week-title" style={{ maxWidth: '14ch' }}>A typical six weeks.</h2>
+          <p className="lede" style={{ marginBottom: 'var(--s-6)' }}>Self-paced online, about two hours a week for each person. A live or remote session every fortnight is optional.</p>
+          <ol className="weeks" style={{ listStyle: 'none', padding: 0 }}>
+            {weeks.map((w) => (
+              <li key={w.when} className="week reveal">
+                <p className="week__when">{w.when}</p>
+                <div>
+                  <h3>{w.title}</h3>
+                  <p className="week__what">{w.what}</p>
+                  <p className="week__meta">{w.modules}</p>
+                  <p className="week__finish"><span className="index">You finish with</span> {w.finish}</p>
+                </div>
+              </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      <section className="section section--ink" aria-labelledby="week-title">
-        <div className="container">
-          <p className="eyebrow">A typical six weeks</p>
-          <h2 id="week-title" className="visually-hidden">A typical six weeks</h2>
-          <div className="ppr">
-            {rhythm.map(([k, t, d]) => <div className="r" key={k}><h3 className="k">{k}</h3><p><strong>{t}.</strong> {d}</p></div>)}
-          </div>
-          <p className="hero__note" style={{ color: 'color-mix(in srgb, var(--paper) 72%, transparent)' }}>An outline we adapt to your team. Not a record of work done.</p>
+          <p className="hero__note">An outline we adapt to your team. Not a record of work done.</p>
         </div>
       </section>
 
       <section className="section" aria-labelledby="get-title">
         <div className="container split">
           <div><p className="eyebrow">What you receive</p><h2 id="get-title">Material your team keeps using.</h2></div>
-          <ul className="ticks">
+          <ul className="ticks ticks--large">
             <li>The relevant industry course, with guided exercises and assessments</li>
             <li>A personal workflow library for each person</li>
             <li>Completion tracking; manager dashboard and team reports on larger plans</li>
@@ -88,6 +72,20 @@ export default function CoursePage() {
             <li>Optional live or remote sessions and workshops</li>
             <li>For the UK, Nigeria and the USA, with market-specific data and fair-housing notes</li>
           </ul>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="modules-title">
+        <div className="container">
+          <p className="eyebrow">The modules</p>
+          <h2 id="modules-title" style={{ maxWidth: '18ch' }}>Eight modules, each one brief, run, check, keep.</h2>
+          <p className="lede" style={{ marginBottom: 'var(--s-5)' }}>About 45 minutes each: a short lesson, a guided exercise on an anonymised example, a check against the source, and a saved workflow card.</p>
+          <ol className="index-list" style={{ listStyle: 'none', padding: 0 }}>
+            <li><span className="bn" style={{ fontSize: '1.9rem' }}>00</span><h3>Rules and safe handling</h3><p>Write your AI-use rule: what may be pasted, what never is, who checks what.</p><span /></li>
+            {WORKFLOWS.map((w, i) => (
+              <li key={w.id}><span className="bn" style={{ fontSize: '1.9rem' }}>{String(i + 1).padStart(2, '0')}</span><h3>{w.title}</h3><div><p>{w.summary}</p><p className="small" style={{ marginTop: 'var(--s-2)', color: 'var(--ink)' }}><strong>People keep:</strong> {w.peopleKeep}</p></div><span /></li>
+            ))}
+          </ol>
         </div>
       </section>
 

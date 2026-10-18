@@ -1,69 +1,70 @@
 'use client';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
+import { AppleIcon, GoogleIcon, LinkedInIcon } from '@/components/auth/BrandIcons';
 import { navigate } from '@/components/ui/PageTransition';
 import { track } from '@/lib/analytics';
-import { homeFor, useSession, type Provider, type Role } from '@/lib/session';
+import { homeFor, useSession, type Role } from '@/lib/session';
 
-const PROVIDERS: { id: Exclude<Provider, 'demo'>; label: string; glyph: string }[] = [
-  { id: 'google', label: 'Continue with Google', glyph: 'G' },
-  { id: 'linkedin', label: 'Continue with LinkedIn', glyph: 'in' },
-  { id: 'apple', label: 'Continue with Apple', glyph: 'A' },
-];
+type Mode = 'login' | 'signup';
+const PROVIDERS = [
+  { id: 'google', name: 'Google', Icon: GoogleIcon },
+  { id: 'linkedin', name: 'LinkedIn', Icon: LinkedInIcon },
+  { id: 'apple', name: 'Apple', Icon: AppleIcon },
+] as const;
 
 export function LoginPanel() {
   const params = useSearchParams();
   const initial = params.get('role');
   const next = params.get('next');
-  const [pick, setPick] = useState<Role | null>(initial === 'business' || initial === 'individual' ? initial : null);
+  const [role, setRole] = useState<Role>(initial === 'business' ? 'business' : 'individual');
+  const [mode, setMode] = useState<Mode>(params.get('mode') === 'signup' ? 'signup' : 'login');
   const [notice, setNotice] = useState<string | null>(null);
   const [name, setName] = useState('');
   const { signIn } = useSession();
-  const role = pick;
+  const signup = mode === 'signup';
 
   function demo(e: React.FormEvent) {
     e.preventDefault();
-    if (!role) return;
     signIn({ role, name: name.trim() || 'there', plan: 'free', provider: 'demo' });
     const safeNext = next && next.startsWith('/') && !next.startsWith('//') ? next : homeFor(role);
     navigate(safeNext);
   }
 
-  if (!role) {
-    return (
-      <div className="entry__choices" role="group" aria-label="Choose how you will use Fieldwork">
-        <button type="button" className="entry__choice entry__button" onClick={() => { setPick('individual'); track('login_started', { audience: 'individual' }); }}>
-          <span className="index">01</span><span className="entry__name">Individual</span><span className="entry__line">Learn AI on your own work, or build a business.</span>
-        </button>
-        <button type="button" className="entry__choice entry__choice--ink entry__button" onClick={() => { setPick('business'); track('login_started', { audience: 'business' }); }}>
-          <span className="index">02</span><span className="entry__name">Business</span><span className="entry__line">Your team’s course, library and progress.</span>
-        </button>
-      </div>
-    );
-  }
   return (
-    <div className="login">
-      <p className="index">{role === 'business' ? 'Business' : 'Individual'}</p>
-      <h2 style={{ fontSize: 'var(--step-3)' }}>Log in</h2>
-      <div className="providers">
-        {PROVIDERS.map((p) => (
-          <button key={p.id} type="button" className="provider" onClick={() => setNotice(`${p.label.replace('Continue with ', '')} sign-in is not connected yet. No account is created. You can continue in demo mode below to preview your ${role === 'business' ? 'business' : 'workspace'} dashboard.`)}>
-            <span className="provider__glyph" aria-hidden="true">{p.glyph}</span>{p.label}
+    <div className="auth__card">
+      <div className="auth__tabs" role="tablist" aria-label="Log in or create an account">
+        <button type="button" role="tab" aria-selected={!signup} onClick={() => { setMode('login'); setNotice(null); }}>Log in</button>
+        <button type="button" role="tab" aria-selected={signup} onClick={() => { setMode('signup'); setNotice(null); }}>Create account</button>
+      </div>
+
+      <div className="auth__role" role="group" aria-label="I am an">
+        {(['individual', 'business'] as Role[]).map((r) => (
+          <button key={r} type="button" aria-pressed={role === r} onClick={() => { setRole(r); track('login_started', { audience: r }); }}>{r === 'individual' ? 'Individual' : 'Business'}</button>
+        ))}
+      </div>
+
+      <div className="auth__providers">
+        {PROVIDERS.map(({ id, name: n, Icon }) => (
+          <button key={id} type="button" className="provider" onClick={() => setNotice(`${n} sign-in is not connected yet. No account is created. Continue in demo mode below to preview your ${role === 'business' ? 'business dashboard' : 'workspace'}.`)}>
+            <span className="provider__icon"><Icon /></span>{signup ? 'Sign up' : 'Continue'} with {n}
           </button>
         ))}
       </div>
-      {notice && <p className="alert alert--warning" role="status">{notice}</p>}
-      <form className="form" onSubmit={demo} style={{ marginTop: 'var(--s-5)' }}>
-        <div className="field">
-          <label className="field__label" htmlFor="login-name">Your name (for the demo welcome)</label>
-          <input id="login-name" className="input" value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" maxLength={60} />
-          <span className="field__hint">Stored in this browser only.</span>
+      {notice && <p className="alert alert--warning" role="status" style={{ textAlign: 'left' }}>{notice}</p>}
+
+      <p className="auth__or"><span>or</span></p>
+      <form className="form" onSubmit={demo}>
+        <div className="field" style={{ textAlign: 'left' }}>
+          <label className="field__label" htmlFor="login-name">Your name {signup ? '' : '(for the demo welcome)'}</label>
+          <input id="login-name" className="input" value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" maxLength={60} required={signup} />
         </div>
-        <div className="btn-row">
-          <button type="submit" className="btn">Continue in demo mode</button>
-          <button type="button" className="btn btn--secondary" onClick={() => { setPick(null); setNotice(null); }}>Back</button>
-        </div>
+        <button type="submit" className="btn" style={{ width: '100%' }}>{signup ? 'Create demo account' : 'Continue in demo mode'}</button>
       </form>
+      <p className="auth__switch">
+        {signup ? 'Already have an account? ' : 'New to Fieldwork? '}
+        <button type="button" className="auth__link" onClick={() => { setMode(signup ? 'login' : 'signup'); setNotice(null); }}>{signup ? 'Log in' : 'Create an account'}</button>
+      </p>
     </div>
   );
 }
