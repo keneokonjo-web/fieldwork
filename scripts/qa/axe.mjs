@@ -2,7 +2,7 @@
 import { chromium } from 'playwright';
 import { AxeBuilder } from '@axe-core/playwright';
 import fs from 'node:fs';
-const routes = ['/', '/individuals', '/learn', '/learn/first-workflow', '/business', '/business/real-estate', '/business/assessment', '/pricing', '/field-notes', '/field-notes/five-part-brief', '/field-notes/check-ai-answers', '/field-notes/property-ai-tasks', '/field-notes/what-not-to-paste', '/about', '/contact', '/privacy', '/terms', '/cookies', '/accessibility', '/not-a-page'];
+const routes = ['/', '/home', '/individuals', '/build', '/login', '/business/dashboard', '/individuals/dashboard', '/learn', '/learn/first-workflow', '/business', '/business/course', '/business/assessment', '/pricing', '/field-notes', '/field-notes/five-part-brief', '/field-notes/check-ai-answers', '/field-notes/property-ai-tasks', '/field-notes/what-not-to-paste', '/about', '/contact', '/privacy', '/terms', '/cookies', '/accessibility', '/not-a-page'];
 const b = await chromium.launch(); const out = []; let total = 0;
 for (const [label, vp] of [['desktop', { width: 1440, height: 900 }], ['mobile', { width: 390, height: 844 }]]) {
   const p = await (await b.newContext({ viewport: vp })).newPage();

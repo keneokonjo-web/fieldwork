@@ -18,6 +18,10 @@ export const EVENTS = [
   'assessment_completed',
   'pricing_viewed',
   'purchase_completed',
+  'builder_started',
+  'builder_launch_clicked',
+  'popup_cta_clicked',
+  'login_started',
 ] as const;
 export type FieldworkEvent = (typeof EVENTS)[number];
 

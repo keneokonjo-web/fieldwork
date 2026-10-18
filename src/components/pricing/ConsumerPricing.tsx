@@ -23,7 +23,7 @@ export function ConsumerPricing() {
       </div>
       <div className="pricing-grid" style={{ marginTop: 'var(--s-6)' }}>
         {consumerTiers.map((t) => (
-          <div key={t.id} className={`card${t.status === 'available' ? ' is-available' : ''}`}>
+          <div key={t.id} id={`tier-${t.id}`} className={`card${t.status === 'available' ? ' is-available' : ''}`}>
             <div><Chip tone={t.status}>{t.status === 'available' ? 'Available now' : 'Planned, not on sale'}</Chip></div>
             <h3>{t.name}</h3>
             <p className="price">{t.price[market].amount} {t.price[market].unit && <small>{t.price[market].unit}</small>}</p>

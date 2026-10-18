@@ -346,5 +346,17 @@
     "licence": "Unsplash Licence (free for commercial use, no permission or attribution required)",
     "unsplashCdnId": "photo-1523240795612-9a054b0db644",
     "photographer": "Not retrievable in the build environment: see docs/website/IMAGE-CREDITS.md"
+  },
+  {
+    "file": "/images/city-new-york.jpg",
+    "subject": "Manhattan skyline from the water",
+    "alt": "The Manhattan skyline across the water at the Brooklyn Bridge on a bright day with clouds",
+    "group": "city",
+    "width": 2000,
+    "height": 1333,
+    "source": "Unsplash",
+    "licence": "Unsplash Licence (free for commercial use, no permission or attribution required)",
+    "unsplashCdnId": "photo-1499092346589-b9b6be3e94b2",
+    "photographer": "Not retrievable in the build environment: see docs/website/IMAGE-CREDITS.md"
   }
 ]

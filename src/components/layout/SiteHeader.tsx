@@ -3,12 +3,15 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Logo } from '@/components/brand/Logo';
-import { FREE_EXPERIENCE_PATH, mainNav, siteConfig } from '@/config/site';
+import { FREE_EXPERIENCE_PATH, mainNav } from '@/config/site';
+import { homeFor, useSession } from '@/lib/session';
 
 const isCurrent = (pathname: string, href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const { session } = useSession();
+  const account = session ? { href: homeFor(session.role), label: 'Dashboard' } : { href: '/login', label: 'Log in' };
   // The menu is open only for the path it was opened on, so navigating closes it without an effect.
   const [openFor, setOpenFor] = useState<string | null>(null);
   const open = openFor === pathname;
@@ -43,7 +46,7 @@ export function SiteHeader() {
   return (
     <header className="bar">
       <div className="container bar__in">
-        <Link href="/" className="brand-link" aria-label="Fieldwork, home">
+        <Link href="/home" className="brand-link" aria-label="Fieldwork, home">
           <Logo form="wordmark-small" tone="dark" />
         </Link>
         <nav className="nav" aria-label="Main">
@@ -51,7 +54,7 @@ export function SiteHeader() {
             <Link key={l.href} href={l.href} aria-current={isCurrent(pathname, l.href) ? 'page' : undefined}>{l.label}</Link>
           ))}
         </nav>
-        <span className="bar__slogan">{siteConfig.tagline}</span>
+        <Link href={account.href} className="bar__login" data-track="login_started" data-track-label="header">{account.label}</Link>
         <button
           ref={btnRef}
           type="button"
@@ -74,6 +77,7 @@ export function SiteHeader() {
               </li>
             ))}
             <li><Link className="mobile-nav__link" href="/contact" aria-current={pathname === '/contact' ? 'page' : undefined}>Contact</Link></li>
+            <li><Link className="mobile-nav__link" href={account.href} aria-current={pathname === account.href ? 'page' : undefined}>{account.label}</Link></li>
           </ul>
         </nav>
         <Link href={FREE_EXPERIENCE_PATH} className="btn" data-track="consumer_cta_clicked" data-track-label="mobile-menu">Try the free exercise</Link>

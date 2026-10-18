@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import type { FieldworkEvent } from '@/lib/analytics';
 
-type Variant = 'primary' | 'secondary' | 'light' | 'outline-light';
+type Variant = 'primary' | 'secondary' | 'light' | 'outline-light' | 'cobalt';
 type Props = {
   href: string;
   children: ReactNode;
@@ -13,7 +13,7 @@ type Props = {
   trackLabel?: string;
   className?: string;
 };
-const cls: Record<Variant, string> = { primary: '', secondary: ' btn--secondary', light: ' btn--light', 'outline-light': ' btn--outline-light' };
+const cls: Record<Variant, string> = { primary: '', secondary: ' btn--secondary', light: ' btn--light', 'outline-light': ' btn--outline-light', cobalt: ' btn--cobalt' };
 
 export function ButtonLink({ href, children, variant = 'primary', small, track, trackLabel, className = '' }: Props) {
   return (

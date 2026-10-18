@@ -280,7 +280,7 @@ export function FirstWorkflow() {
                 <div className="grid grid--3">
                   <Link className="card card--link" href="/field-notes/five-part-brief"><h3>Field Notes</h3><p>Go deeper on writing a brief, then on checking answers.</p></Link>
                   <Link className="card card--link" href="/pricing"><h3>What is planned</h3><p>Guided projects and a membership are in development. See honest status and test prices.</p></Link>
-                  <Link className="card card--link" href="/business/real-estate"><h3>Working in property?</h3><p>See how teams practise the same method on listings and enquiries.</p></Link>
+                  <Link className="card card--link" href="/business"><h3>Working in property?</h3><p>See how teams practise the same method on listings and enquiries.</p></Link>
                 </div>
                 <div className="card">
                   <h3>Want the next exercise when it is ready?</h3>

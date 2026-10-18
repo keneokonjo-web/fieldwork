@@ -1,15 +1,14 @@
 import { Corners } from '@/components/ui/Corners';
 import { LeadForm } from '@/components/forms/LeadForm';
 import { ConsumerPricing } from '@/components/pricing/ConsumerPricing';
-import { ButtonLink } from '@/components/ui/ButtonLink';
-import { Chip } from '@/components/ui/Chip';
+import { ButtonLink, TextLink } from '@/components/ui/ButtonLink';
 import { FREE_EXPERIENCE_PATH, siteConfig } from '@/config/site';
-import { businessLevels } from '@/content/pricing';
+import { BusinessPricing } from '@/components/pricing/BusinessPricing';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata({
   title: 'Pricing and availability',
-  description: 'What is free, what is planned and how business pilots are priced. Separate UK (GBP) and Nigeria (NGN) pricing. Nothing is on sale yet.',
+  description: 'Free for individuals; priced plans for businesses. Separate pricing for the UK, Nigeria and the USA. Payments are not open yet.',
   path: '/pricing',
 });
 
@@ -20,14 +19,14 @@ export default function PricingPage() {
         <Corners n="08" letters={['P', 'R', 'C']} />
         <div className="container">
           <p className="eyebrow">Pricing and availability</p>
-          <h1>Free now. Planned next. Nothing else on sale.</h1>
-          <p className="lede">Separate prices for the UK and Nigeria.</p>
+          <h1>Free for individuals. Priced for business.</h1>
+          <p className="lede">Separate prices for the UK, Nigeria and the USA.</p>
         </div>
       </section>
 
       <section className="section section--wash" aria-labelledby="ind-title">
         <div className="container">
-          <div className="section__head"><p className="eyebrow">Fieldwork for Individuals</p><h2 id="ind-title">Learning for yourself</h2></div>
+          <div className="section__head"><p className="eyebrow">Fieldwork for Individuals</p><h2 id="ind-title">Free first. Paid later.</h2></div>
           <ConsumerPricing />
           <div className="form-card" style={{ marginTop: 'var(--s-7)', maxWidth: '40rem' }}>
             <h3>Join the early-access list</h3>
@@ -40,15 +39,11 @@ export default function PricingPage() {
 
       <section className="section" aria-labelledby="biz-title">
         <div className="container">
-          <div className="section__head"><p className="eyebrow">Fieldwork for Business</p><h2 id="biz-title">Scoped to your business, priced once we understand it.</h2>
-            <p>Business pilots are quoted after a short conversation, because the right size depends on your team, your workflows and how much you want delivered live. We would rather propose a fixed price you can understand than publish a number that fits nobody.</p></div>
-          <div className="grid grid--3">
-            {businessLevels.map((l) => (
-              <div className="card" key={l.name}><Chip tone="neutral">{l.status}</Chip><h3>{l.name}</h3><p>{l.text}</p><p className="small muted"><strong>Fits:</strong> {l.fit}</p></div>
-            ))}
-          </div>
+          <div className="section__head"><p className="eyebrow">Fieldwork for Business</p><h2 id="biz-title">Plans for teams.</h2>
+            <p>Smaller teams pay per employee. Larger ones are quoted. <TextLink href="/business/course">See what the course looks like</TextLink></p></div>
+          <BusinessPricing />
           <div className="btn-row" style={{ marginTop: 'var(--s-6)' }}>
-            <ButtonLink href="/contact?topic=business" track="business_cta_clicked" trackLabel="pricing-business">Request a demonstration or pilot discussion</ButtonLink>
+            <ButtonLink href="/contact?topic=business" track="business_cta_clicked" trackLabel="pricing-demo">Request a demonstration</ButtonLink>
             <ButtonLink href="/business/assessment" variant="secondary" track="business_cta_clicked" trackLabel="pricing-assessment">Take the free assessment first</ButtonLink>
           </div>
         </div>

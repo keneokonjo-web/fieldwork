@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-17T20:48:01.980Z",
+  "ranAt": "2026-10-18T18:35:17.073Z",
   "results": [
     {
       "name": "every route returns 200 with one h1, a title, no console errors, no broken images",
@@ -31,6 +31,58 @@
     },
     {
       "name": "reduced motion shows content immediately and disables reveal transforms",
+      "pass": true
+    },
+    {
+      "name": "entry page offers individual or business and routes to each page",
+      "pass": true
+    },
+    {
+      "name": "a loading animation runs for about a second between pages",
+      "pass": true
+    },
+    {
+      "name": "reduced motion skips the loading animation",
+      "pass": true
+    },
+    {
+      "name": "/business/real-estate redirects to /business, which is the real estate page",
+      "pass": true
+    },
+    {
+      "name": "business page sections are in the requested order and include the USA",
+      "pass": true
+    },
+    {
+      "name": "business pop-up appears after 10 seconds and leads to the course page",
+      "pass": true
+    },
+    {
+      "name": "individuals pop-up appears after 15 seconds and leads to the exercise",
+      "pass": true
+    },
+    {
+      "name": "course page shows the pricing tiers, with a USA view",
+      "pass": true
+    },
+    {
+      "name": "pricing page shows individuals first (free) then business plans",
+      "pass": true
+    },
+    {
+      "name": "individuals page has the new hero, build CTA, what we do, everyday uses and pricing",
+      "pass": true
+    },
+    {
+      "name": "login: pick business, demo sign-in, business dashboard shows a welcome and the four areas",
+      "pass": true
+    },
+    {
+      "name": "dashboards ask you to log in first",
+      "pass": true
+    },
+    {
+      "name": "build a business: free flow, then login, then workspace with paid areas locked",
       "pass": true
     },
     {

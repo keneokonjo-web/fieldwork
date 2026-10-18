@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { absoluteUrl } from '@/config/site';
 import { articles } from '@/content/field-notes';
 
-const routes = ['/', '/individuals', '/learn', '/learn/first-workflow', '/business', '/business/real-estate', '/business/assessment', '/pricing', '/field-notes', '/about', '/contact', '/privacy', '/terms', '/cookies', '/accessibility'];
+const routes = ['/', '/home', '/individuals', '/build', '/learn', '/learn/first-workflow', '/business', '/business/course', '/business/assessment', '/pricing', '/field-notes', '/about', '/contact', '/privacy', '/terms', '/cookies', '/accessibility'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

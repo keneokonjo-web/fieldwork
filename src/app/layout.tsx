@@ -9,6 +9,7 @@ import { SiteFooter } from '@/components/layout/SiteFooter';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { Analytics } from '@/components/ui/Analytics';
 import { MotionInit } from '@/components/ui/MotionInit';
+import { PageTransition } from '@/components/ui/PageTransition';
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteFooter />
         <Analytics />
         <MotionInit />
+        <PageTransition />
       </body>
     </html>
   );

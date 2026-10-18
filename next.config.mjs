@@ -3,6 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   trailingSlash: false,
   poweredByHeader: false,
+  async redirects() {
+    return [{ source: '/business/real-estate', destination: '/business', permanent: true }];
+  },
   async headers() {
     return [
       {

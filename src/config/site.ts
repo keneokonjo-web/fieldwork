@@ -54,19 +54,22 @@ export const mainNav = [
 export const footerNav = {
   Learn: [
     { href: FREE_EXPERIENCE_PATH, label: 'Free exercise' },
+    { href: '/build', label: 'Build a business' },
     { href: '/individuals', label: 'For individuals' },
     { href: '/field-notes', label: 'Field Notes' },
     { href: '/pricing', label: 'Pricing' },
   ],
   Business: [
     { href: '/business', label: 'For Business' },
-    { href: '/business/real-estate', label: 'Real estate' },
+    { href: '/business/course', label: 'Course and pricing' },
     { href: '/business/assessment', label: 'Workflow assessment' },
     { href: '/contact?topic=business', label: 'Request a demonstration' },
   ],
   Company: [
+    { href: '/home', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
+    { href: '/login', label: 'Log in' },
     { href: '/accessibility', label: 'Accessibility' },
   ],
   Legal: [
