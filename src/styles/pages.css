@@ -24,7 +24,7 @@
 .page-hero--wide h1 { max-width: 17ch; }
 .page-hero__dots { position: absolute; z-index: 0; right: -8%; top: 0; width: min(50vw, 44rem); pointer-events: none; opacity: 0.9; }
 .page-hero .lede { max-width: 30rem; }
-.page-hero__grid { display: grid; gap: var(--s-6); align-items: end; }
+.page-hero__grid { display: grid; gap: var(--s-6); align-items: start; }
 @media (min-width: 62rem) { .page-hero__grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: var(--s-8); } }
 .badge-line { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-3); align-items: center; margin-bottom: var(--s-4); }
 .hero__note { font: 400 0.72rem/1.5 var(--font-mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--grey); margin-top: var(--s-4); max-width: 34rem; }

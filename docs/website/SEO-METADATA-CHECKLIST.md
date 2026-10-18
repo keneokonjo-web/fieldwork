@@ -20,8 +20,8 @@ Version 0.1, 14 October 2026. Status values: Done (in code and visible in the ex
 | # | Check | Status | Action |
 |---|---|---|---|
 | B1 | One unique title and description per page | Done | `pageMetadata()` on every page; see SEO-KEYWORD-MAP section 3 |
-| B2 | Titles at or under about 60 chars | Open | Over: `/individuals` 66, `/learn/first-workflow` 72, `/business` 71, `/business/real-estate` 78, `five-part-brief` 75, `property-ai-tasks` 85 |
-| B3 | Descriptions at or under about 160 chars | Open | Over: `/individuals` 205, `/business` 179, `/business/assessment` 179, `/business/real-estate` 188 |
+| B2 | Titles at or under about 60 chars | Open | Over: `/individuals` 66, `/learn/first-workflow` 72, `/business` 71, `/business` 78, `five-part-brief` 75, `property-ai-tasks` 85 |
+| B3 | Descriptions at or under about 160 chars | Open | Over: `/individuals` 205, `/business` 179, `/business/assessment` 179, `/business` 188 |
 | B4 | No duplicated brand in title | Open | `/about` and `/contact` render "About Fieldwork \| Fieldwork" and "Contact Fieldwork \| Fieldwork"; also `Fieldwork for Individuals ... \| Fieldwork` |
 | B5 | Home title has no suffix (intentional) | Done | Build output |
 | B6 | Description matches page promise; no unverifiable claims | Done (reviewed by reading) | Re-check on any copy change. "Free 15-minute" duration is an estimate |
@@ -31,7 +31,7 @@ Candidate shortened titles (suffix ` | Fieldwork` is added by the template; keep
 - `/individuals`: "Learn AI through real tasks" 
 - `/learn/first-workflow`: "Free AI exercise: build a reusable workflow"
 - `/business`: "Practical AI training for your team"
-- `/business/real-estate`: "AI training for real estate teams"
+- `/business`: "AI training for real estate teams"
 - `/about`: "About us" (renders "About us | Fieldwork")
 - `/contact`: "Contact"
 - `five-part-brief`: "The five-part brief for AI tools"

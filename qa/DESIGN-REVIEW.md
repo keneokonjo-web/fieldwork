@@ -33,3 +33,13 @@ Reviewed from real screenshots in `qa/screenshots/` (Chromium, 1440 and 390 wide
 - Corner letters on inner pages spell route fragments (IND, BUS, REA) and may read as arbitrary; revisit.
 - The sales deck PPTX is functional, not polished, and needs a designer's pass.
 - Not tested: real devices, Safari, Firefox, screen readers, slow networks, users.
+
+## Round 5 review (18 October 2026)
+Reviewed from screenshots at 1440 and 390 wide.
+- **Entry page:** two large cells (white and ink), dot terrain and the giant wordmark. Clear and quick; the wordmark is cropped at the bottom of the first screen on purpose.
+- **Individuals hero:** the heading and graphic the founder disliked were replaced with "Put AI to work for you.", a photograph, and a cobalt Build a business button as the main action.
+- **Business hero:** text now starts at the top of the hero instead of centring against the tall photo, which removed the blank space above it.
+- **Everyday uses:** photo and list share one centre line; checked by a test.
+- **Pricing:** four business plans in one hairline grid with Enterprise in ink, then the pilot and add-ons. Dense but scannable; on phones the plans stack.
+- **Loading animation:** the target icon draws itself over about a second. It is a deliberate cost of one second per page.
+- **Weaknesses:** the pricing grid is text-heavy; the pop-ups sit over page content and could annoy returning visitors; the builder is long on small screens; dashboards are basic and unconnected; the builder logo presets are generic.

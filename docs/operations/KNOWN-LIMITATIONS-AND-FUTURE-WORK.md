@@ -117,10 +117,24 @@ Things that are only **prepared, not proven**: the Resend adapter (never run aga
 
 ## Notes on selected items
 
-- **DF-01 (OG image path)**: `src/lib/metadata.ts` uses `/brand/og/og-default.png`. The existing build output contains the same wrong URL. Every social link preview would show no image. One-line fix.
+- **DF-01 (OG image path), fixed 17 October 2026**: `src/lib/metadata.ts` used `/brand/og/og-default.png`; it now points at `/brand/social/og-default.png`. Original note: it used `/brand/og/og-default.png`. The existing build output contains the same wrong URL. Every social link preview would show no image. One-line fix.
 - **NC-06 (email list)**: the forms say "I can unsubscribe at any time" but there is no list platform. Do not send any marketing email, and do not claim a list exists, until one is set up with unsubscribe handling and the consent wording is reviewed.
 - **NR-04**: `src/app/accessibility/page.tsx` says "The full results are in the project's QA report", but `qa/` contains only JSON results and screenshots. Either publish a short QA summary or change the sentence.
 - **PA-03**: the browser test exercises later exercise steps functionally, but axe is run only on initial page loads.
 - **SE-01/SE-02**: security header set is minimal by design (see `TECHNICAL-ARCHITECTURE.md` section 7).
 - **NB-07/NB-08**: reserved names in the code that nothing uses; harmless but do not document them as features.
 - Market statements in other documents (competitor prices, SEO volumes, regulator procedures) are not verified; each is marked "verify" where it appears.
+
+## Round 5 additions (18 October 2026)
+
+| ID | Item | Status | Priority | Dependency |
+|---|---|---|---|---|
+| R5-01 | Log in with Google, LinkedIn and Apple is not connected. The login page offers a demo session stored in the browser only; no account is created and no password or token is handled | not connected | P1 | OAuth provider keys, an auth service, a database, privacy review |
+| R5-02 | Dashboards (business and individual workspace) are previews. Team accounts, progress tracking, saved workflow cards and the AI learning assistant are not built | not built | P1 | Auth, database, product decisions |
+| R5-03 | Build a business uses a curated idea list and fixed rules for the refined idea and the opportunity assessment. There is no AI model and no market data. "Ask AI" and the business-building assistant are not built | not built | P2 | AI provider, safety review |
+| R5-04 | The paid builder and all paid plans cannot be bought: no payment provider. The "Preview the paid view (demo)" toggle only shows layout | not connected | P1 | Payment provider, terms, refund policy |
+| R5-05 | USD prices, some NGN prices and the 16 to 50 employee range are proposed, not set (see `docs/sales/BUSINESS-PRICING.md`) | needs decision | P1 | Founder |
+| R5-06 | US content (Fair Housing, state privacy law) is general and unreviewed; the USA has no tested pilots, data or partners | needs review | P2 | US counsel, local research |
+| R5-07 | Page transition intercepts internal link clicks to show a one-second animation. It does not cover browser back and forward, and is skipped with reduced motion. The delay is deliberate and costs a second per navigation | design choice | P3 | none |
+| R5-08 | The pop-ups appear once per browser session after 10 s (business) and 15 s (individuals). Not A/B tested; may annoy returning visitors | design choice | P3 | Analytics evidence |
+| R5-09 | A custom logo uploaded in the builder is stored in the browser (limit 400 KB) and is never sent anywhere | by design | P3 | none |

@@ -40,7 +40,7 @@ What we covered:
 2. A check of each claim against the fact sheet, including what was missing (such as ground rent).
 3. Saving the result as a workflow card.
 
-The page: [WEBSITE]/business/real-estate
+The page: [WEBSITE]/business
 
 Suggested next step: a four-week pilot on [WORKFLOWS] with [N] people. I'll send a one-page proposal by [DATE]. If it doesn't fit, tell me what is missing.
 

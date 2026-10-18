@@ -23,7 +23,8 @@ export function BusinessBuilder() {
   const { session } = useSession();
   const palette = PALETTES.find((p) => p.id === b.brand.palette) ?? PALETTES[0];
 
-  useEffect(() => { headingRef.current?.focus(); }, [step]);
+  const firstRun = useRef(true);
+  useEffect(() => { if (firstRun.current) { firstRun.current = false; return; } headingRef.current?.focus(); }, [step]);
   const patch = (f: (s: BuilderState) => BuilderState) => { if (!started.current) { started.current = true; track('builder_started'); } setB(f); };
   const toggle = (list: string[], v: string) => (list.includes(v) ? list.filter((x) => x !== v) : [...list, v]);
 

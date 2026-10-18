@@ -26,3 +26,11 @@ Square cells, hairlines, pill buttons only. No shadows, no serif, no italics, no
 
 ## Accessibility and performance
 Contrast measured and guarded (grey on wash uses a darker grey). Focus outline 3px. Reduced motion respected. One font family plus one mono. Dot terrain is static SVG (about 25 KB each); photographs are optimised by Next at 2000px sources.
+
+## Added 18 October 2026
+- **Entry page** (`/`): "Who is it for?" with two cells, dot terrain and the giant wordmark. The old home is at `/home`.
+- **Top bar:** the slogan was replaced by a Log in link (Dashboard once signed in).
+- **Page transition:** a one-second animation of the target icon (ring draws, cross-hairs slide in, centre dot pops) between internal pages; skipped with reduced motion.
+- **Pop-ups:** ink card with the target icon, corner letter and two buttons; appear once per session (10 s on business, 15 s on individuals).
+- **Individuals page:** photo hero, a cobalt "Build a business" button as the primary action, "What we do", a Build a business band, everyday uses (photo and list centred together), pricing.
+- **Business page:** hero text aligned to the top; sections ordered: workflows, listing scenario, example pilot (UK, Nigeria, USA), what stays with people, photo band, next step.
