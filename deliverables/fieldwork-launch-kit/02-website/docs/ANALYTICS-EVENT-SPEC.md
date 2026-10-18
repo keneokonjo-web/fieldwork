@@ -51,7 +51,7 @@ Notes
 | Funnel | Steps (events) |
 |---|---|
 | Free exercise | page view `/learn/first-workflow` -> `free_experience_started` -> `step_completed` (step = "Write the brief") -> `step_completed` (step = "Check it") -> `free_experience_completed` -> `email_signup_submitted` (location `free-exercise-complete`) |
-| Business | page view `/business` or `/business/real-estate` -> `business_cta_clicked` -> page view `/contact` or `/business/assessment` -> `assessment_started` -> `assessment_completed` -> `demo_request_submitted` |
+| Business | page view `/business` or `/business` -> `business_cta_clicked` -> page view `/contact` or `/business/assessment` -> `assessment_started` -> `assessment_completed` -> `demo_request_submitted` |
 | Email list | `email_signup_submitted` by `location`: `home-final`, `individuals`, `pricing`, `pricing-platform`, `free-exercise-complete` |
 
 Provider-specific custom properties usually need registering in the provider's settings (**verify** for the chosen provider).
@@ -80,3 +80,12 @@ Provider-specific custom properties usually need registering in the provider's s
 ## 8. QA
 
 Tested: no analytics script requests without configuration or consent (browser test). Not tested: events arriving at a real provider; banner behaviour with analytics configured (needs `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` set at build time; the QA scripts do not set it). Test plan: set the variable on a preview, grant consent, trigger each event, confirm in the provider's live view, then decline and confirm nothing is sent.
+
+## Added 18 October 2026
+| Event | Fires when | Properties | Where |
+|---|---|---|---|
+| `builder_started` | First edit in Build a business | none | `BusinessBuilder.tsx` |
+| `builder_launch_clicked` | "Launch and improve" pressed | none | `BusinessBuilder.tsx` |
+| `popup_cta_clicked` | The call to action in a timed pop-up is clicked | `location=popup`, `label` = storage key | `TimedPopup.tsx` |
+| `login_started` | Log in link clicked, or a role chosen on the login page | `audience` | header, `LoginPanel.tsx` |
+| `pricing_viewed` | Now also fires on the business pricing component | `audience=business` | `BusinessPricing.tsx` |

@@ -22,7 +22,7 @@ Intent key: I = informational, C = commercial investigation, T = transactional/l
 | `/learn` | AI exercise free; free AI practice | I | both | not measured |
 | `/learn/first-workflow` | free AI exercise; AI prompt template for work; how to write a good AI prompt; five-part prompt; reusable AI workflow | I/T (signup) | both | not measured |
 | `/business` | AI training for employees; AI training for teams; practical AI training for staff | C/T | UK: "AI training for staff UK"; Nigeria: "AI training for companies Nigeria" (**verify**) | not measured |
-| `/business/real-estate` | AI training for estate agents; AI for letting agents; AI for property listings; AI for real estate teams | C/T | UK: estate agents, letting agents, lettings; Nigeria: real estate firms, property agents (terms differ; **verify**) | not measured |
+| `/business` | AI training for estate agents; AI for letting agents; AI for property listings; AI for real estate teams | C/T | UK: estate agents, letting agents, lettings; Nigeria: real estate firms, property agents (terms differ; **verify**) | not measured |
 | `/business/assessment` | AI readiness assessment real estate; AI workflow assessment for agencies | C/T | both | not measured |
 | `/pricing` | (mostly navigational, low SEO value; keep honest) | N | both | not measured |
 | `/field-notes` | practical AI guides; AI tips for work | I | both | not measured |
@@ -43,7 +43,7 @@ The root layout template is `'%s | Fieldwork'`; the home page title renders with
 | `/learn` | Learn: the free exercise and what is planned \| Fieldwork | 56 | 136 | ok |
 | `/learn/first-workflow` | Free exercise: turn a messy task into a reusable AI workflow \| Fieldwork | 72 | 157 | long |
 | `/business` | Fieldwork for Business: practical AI training for your team \| Fieldwork | 71 | 179 | long; brand repeated |
-| `/business/real-estate` | AI training for real estate teams: listings, enquiries, procedures \| Fieldwork | 78 | 188 | long |
+| `/business` | AI training for real estate teams: listings, enquiries, procedures \| Fieldwork | 78 | 188 | long |
 | `/business/assessment` | Real estate AI workflow assessment \| Fieldwork | 46 | 179 | ok |
 | `/pricing` | Pricing and availability \| Fieldwork | 36 | 134 | ok |
 | `/field-notes` | Field Notes: practical AI guides \| Fieldwork | 44 | 135 | ok |
@@ -73,7 +73,7 @@ Today: 4 notes, all published 2026-10-14. A cluster plan, ordered by usefulness 
 
 **Pillar C: Real estate (business)**
 - Existing: `property-ai-tasks`. Planned: "Viewing feedback to vendors: a safe workflow"; "Listing copy from verified facts: a checklist"; "What to write in an AI-use policy for an estate agency" (no legal advice; point to a solicitor/professional body); "New-starter checklists from your procedures".
-- Internal links: to `/business/real-estate`, `/business/assessment`.
+- Internal links: to `/business`, `/business/assessment`.
 
 **Pillar D: Tool choice (planned, only after testing)**
 - Planned series "Choosing a tool for one task". Rule: publish only what was actually tested, with date and version; the brand strategy forbids implying untested comparisons.
@@ -86,7 +86,7 @@ Cadence: set by what the founder can maintain without quality loss. Not measured
 ## 5. Internal linking rules
 
 1. Every Field Note links to the free exercise (a `consumer_cta_clicked` label `article` button exists) and to at least one related note (`related` field).
-2. Real estate content links to `/business/real-estate`, then the assessment.
+2. Real estate content links to `/business`, then the assessment.
 3. `/pricing` links to the exercise, assessment and contact. The platform is mentioned only as "planned".
 4. Legal and utility pages stay in the footer, not in the body.
 5. Avoid orphaning `/learn`: it is not in the header or footer navigation (see IA doc).
@@ -101,7 +101,7 @@ None is emitted today (no `ld+json` in `src`). Suggested, once a domain and lega
 | Site-wide | `Organization` (name, url, logo from `public/brand/...`, sameAs for real social URLs only) and `WebSite` | Do not add `Organization` details (address, contact points) until real and confirmed |
 | `/field-notes/[slug]` | `Article` (headline, datePublished, dateModified, author as Organization or named person, image) | Author must be real; do not invent a person |
 | `/learn/first-workflow` | `HowTo` is largely deprecated for rich results (**verify**); use `WebPage`/`LearningResource` only if useful | Do not mark up anything not visible on the page |
-| `/business/real-estate`, `/business` | `Service` (areaServed UK, Nigeria) | Only when services are actually offered and legal entity is set; no price |
+| `/business`, `/business` | `Service` (areaServed UK, Nigeria) | Only when services are actually offered and legal entity is set; no price |
 | Breadcrumbs | `BreadcrumbList` on nested pages | Match visible breadcrumbs if added |
 | FAQs | `FAQPage` is limited in visibility today (**verify**); do not add for rich results |
 | Never | `Review`/`AggregateRating`, `Product` with price, `Course` with fabricated provider/offers | No reviews or products exist |

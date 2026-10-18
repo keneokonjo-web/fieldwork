@@ -1,5 +1,7 @@
 # Sales pricing assumptions
 
+> **Superseded in part (18 October 2026).** The founder has set per-employee plans, a 30-day pilot and add-on prices. The current figures are in `docs/sales/BUSINESS-PRICING.md` and on the website. The sections below are the earlier pilot-pricing hypotheses and delivery-hours model; use them for margin thinking only, not as prices.
+
 Version 0.1, 14 October 2026. **Every figure here is an ASSUMPTION or hypothesis to test with real prospects. Nothing is a published price.** The website says business pilots are "scoped and priced after a conversation", and this document does not change that: it gives the founder a starting point for those conversations. UK (GBP) and Nigeria (NGN) are separate pricing contexts. NGN figures are not converted from GBP. Anything about local market conditions that cannot be verified is marked **verify before use**.
 
 ## 1. Principles

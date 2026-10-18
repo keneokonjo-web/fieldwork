@@ -1,6 +1,6 @@
 # Demo script: 20 minutes, "A listing from verified facts"
 
-Version 0.1, 14 October 2026. Uses the fictional listing scenario on the website page [WEBSITE]/business/real-estate (section "What practice looks like"). The property, facts and result are invented. No client, agency or result is implied. Say so at the start and again at the end.
+Version 0.1, 14 October 2026. Uses the fictional listing scenario on the website page [WEBSITE]/business (section "What practice looks like"). The property, facts and result are invented. No client, agency or result is implied. Say so at the start and again at the end.
 
 **Audience:** owner or director plus 1 to 3 team leads. **Format:** screen share (or in the room with a laptop). **Goal:** they understand the method (brief, run, check, keep), see why the check matters, and agree to a next step.
 

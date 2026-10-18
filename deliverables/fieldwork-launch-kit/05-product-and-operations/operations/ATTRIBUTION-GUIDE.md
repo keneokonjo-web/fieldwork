@@ -53,7 +53,7 @@ Rules: lowercase; hyphens not spaces; no personal data; no campaign names that r
 
 Examples (replace the domain):
 - TikTok bio link: `https://<domain>/learn/first-workflow?utm_source=tiktok&utm_medium=profile-link&utm_campaign=evergreen`
-- LinkedIn post to business page: `https://<domain>/business/real-estate?utm_source=linkedin&utm_medium=organic-social&utm_campaign=2026-11-re-assessment&utm_content=post-02`
+- LinkedIn post to business page: `https://<domain>/business?utm_source=linkedin&utm_medium=organic-social&utm_campaign=2026-11-re-assessment&utm_content=post-02`
 - Email: `https://<domain>/field-notes/check-ai-answers?utm_source=email&utm_medium=email&utm_campaign=2026-11-welcome&utm_content=email-3`
 - QR on printed material: `https://<domain>/business?utm_source=qr-leaflet&utm_medium=qr&utm_campaign=2026-11-agency-visit`
 

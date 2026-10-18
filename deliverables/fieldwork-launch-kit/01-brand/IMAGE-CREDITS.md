@@ -35,6 +35,7 @@ All photographs on the site are stock images from **Unsplash**, used under the [
 | /images/portrait-woman-red.jpg | Portrait | people | photo-1531123897727-8f129e1688ce | to confirm |
 | /images/work-meeting-room.jpg | Presentation in a meeting room | work | photo-1542744173-8e7e53415bb0 | to confirm |
 | /images/work-library-team.jpg | Colleagues learning together | work | photo-1523240795612-9a054b0db644 | to confirm |
+| /images/city-new-york.jpg | Manhattan skyline from the water | city | photo-1499092346589-b9b6be3e94b2 | to confirm |
 
 ## Generated artwork
 

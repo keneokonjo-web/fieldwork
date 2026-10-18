@@ -11,7 +11,7 @@ Derived from `src/app/**`, `src/config/site.ts` (navigation), `src/app/sitemap.t
 | `/learn` | `learn/page.tsx` | static | Hub: free exercise now, planned guided projects | Start first workflow | yes |
 | `/learn/first-workflow` | `learn/first-workflow/page.tsx` | static shell + client component | The free interactive exercise | Complete exercise; email form at end | yes |
 | `/business` | `business/page.tsx` | static | Business offer, three engagement sizes, platform "is a plan" | Request demonstration (`/contact?topic=business`); assessment | yes |
-| `/business/real-estate` | `business/real-estate/page.tsx` | static | Real estate vertical: seven workflows, pilot outline | Demo; assessment | yes |
+| `/business` | `business/real-estate/page.tsx` | static | Real estate vertical: seven workflows, pilot outline | Demo; assessment | yes |
 | `/business/assessment` | `business/assessment/page.tsx` | static shell + client component | Five-minute self-assessment, on-screen report, optional demo request | Complete assessment | yes |
 | `/pricing` | `pricing/page.tsx` | static + client toggle | Honest availability, UK GBP / Nigeria NGN test prices, business scoping, platform waitlist | Free exercise; early access; business contact | yes |
 | `/field-notes` | `field-notes/page.tsx` | static | Article index | Read an article | yes |
@@ -48,7 +48,7 @@ Total public pages: 15 fixed + 4 articles = 19, plus the 404 (matches `qa/link-r
 │   └─ /learn (hub)
 │       └─ /learn/first-workflow   [free exercise]
 ├─ /business
-│   ├─ /business/real-estate
+│   ├─ /business
 │   └─ /business/assessment
 ├─ /pricing
 ├─ /field-notes
@@ -66,7 +66,7 @@ Total public pages: 15 fixed + 4 articles = 19, plus the 404 (matches `qa/link-r
 | Audience | Entry points | Path to conversion |
 |---|---|---|
 | Individual (UK / Nigeria) | `/`, `/individuals`, Field Notes (search/social) | free exercise -> email form -> (future) paid project |
-| Business (real estate) | `/business`, `/business/real-estate`, `property-ai-tasks` note | assessment -> demo request, or contact -> demo request |
+| Business (real estate) | `/business`, `/business`, `property-ai-tasks` note | assessment -> demo request, or contact -> demo request |
 | Both/curious | `/about`, `/pricing` | free exercise or business contact |
 
 ## 5. Conversion points and where they live
@@ -96,3 +96,15 @@ Lead type `business_enquiry` and `assessment_report` are defined in `src/lib/val
 2. A dedicated `/business/onboarding` page is deliberately absent; the platform is not built. Keep the explanation inside `/business` and `/pricing`.
 3. Future pages not yet built: Nigeria-specific landing page(s), guided project pages, a public changelog, press/brand page, thank-you pages for conversion tracking. Not in scope until needed.
 4. Real estate is the only vertical page. Recruitment and others are noted as later in the brand strategy and are not on the site.
+
+## Changes on 18 October 2026
+| Route | Change |
+|---|---|
+| `/` | Now the entry page: choose individual (to `/individuals`) or business (to `/business`) |
+| `/home` | The previous home page; the logo links here |
+| `/business` | Now the real estate page (the earlier business overview page was removed). `/business/real-estate` redirects here permanently |
+| `/business/course` | New: how the real estate course works, and business pricing for the UK, Nigeria and the USA |
+| `/business/dashboard` | New: demo business dashboard (noindex) |
+| `/build` | New: Build a business (free builder) |
+| `/individuals/dashboard` | New: demo project workspace (noindex) |
+| `/login` | New: individual or business, then provider buttons and demo mode (noindex) |
