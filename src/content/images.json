@@ -33,7 +33,8 @@
     "source": "Unsplash",
     "licence": "Unsplash Licence (free for commercial use, no permission or attribution required)",
     "unsplashCdnId": "photo-1600607687939-ce8a6c25118c",
-    "photographer": "Not retrievable in the build environment: see docs/website/IMAGE-CREDITS.md"
+    "photographer": "Not retrievable in the build environment: see docs/website/IMAGE-CREDITS.md",
+    "place": "Interior, stock photograph"
   },
   {
     "file": "/images/home-living-gallery.jpg",
@@ -189,7 +190,8 @@
     "source": "Unsplash",
     "licence": "Unsplash Licence (free for commercial use, no permission or attribution required)",
     "unsplashCdnId": "photo-1618828665011-0abd973f7bb8",
-    "photographer": "Not retrievable in the build environment: see docs/website/IMAGE-CREDITS.md"
+    "photographer": "Not retrievable in the build environment: see docs/website/IMAGE-CREDITS.md",
+    "place": "Lagos"
   },
   {
     "file": "/images/city-london-bridge.jpg",
@@ -201,7 +203,8 @@
     "source": "Unsplash",
     "licence": "Unsplash Licence (free for commercial use, no permission or attribution required)",
     "unsplashCdnId": "photo-1533929736458-ca588d08c8be",
-    "photographer": "Not retrievable in the build environment: see docs/website/IMAGE-CREDITS.md"
+    "photographer": "Not retrievable in the build environment: see docs/website/IMAGE-CREDITS.md",
+    "place": "London"
   },
   {
     "file": "/images/city-london-bigben.jpg",
@@ -225,7 +228,8 @@
     "source": "Unsplash",
     "licence": "Unsplash Licence (free for commercial use, no permission or attribution required)",
     "unsplashCdnId": "photo-1454165804606-c3d57bc86b40",
-    "photographer": "Not retrievable in the build environment: see docs/website/IMAGE-CREDITS.md"
+    "photographer": "Not retrievable in the build environment: see docs/website/IMAGE-CREDITS.md",
+    "place": "Working at a laptop"
   },
   {
     "file": "/images/work-hands-writing.jpg",
@@ -261,7 +265,8 @@
     "source": "Unsplash",
     "licence": "Unsplash Licence (free for commercial use, no permission or attribution required)",
     "unsplashCdnId": "photo-1521737604893-d14cc237f11d",
-    "photographer": "Not retrievable in the build environment: see docs/website/IMAGE-CREDITS.md"
+    "photographer": "Not retrievable in the build environment: see docs/website/IMAGE-CREDITS.md",
+    "place": "Team at work"
   },
   {
     "file": "/images/work-studio-office.jpg",
@@ -358,5 +363,173 @@
     "licence": "Unsplash Licence (free for commercial use, no permission or attribution required)",
     "unsplashCdnId": "photo-1499092346589-b9b6be3e94b2",
     "photographer": "Not retrievable in the build environment: see docs/website/IMAGE-CREDITS.md"
+  },
+  {
+    "file": "/images/ng-lagos-skyline.jpg",
+    "subject": "Victoria Island, Lagos, aerial",
+    "alt": "An aerial view of Victoria Island in Lagos with a harbour full of yachts and office towers behind",
+    "group": "nigeria",
+    "width": 1920,
+    "height": 1245,
+    "place": "Victoria Island, Lagos",
+    "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_victoria_island_in_Lagos,_Nigeria_with_habours_for_yatches.jpg",
+    "artist": "Ayorinde Ogundele",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/ng-ikoyi.jpg",
+    "subject": "Ikoyi, Lagos, homes and towers",
+    "alt": "Looking over the tree-lined homes and apartment towers of Ikoyi, Lagos",
+    "group": "nigeria",
+    "width": 1920,
+    "height": 1279,
+    "place": "Ikoyi, Lagos",
+    "source": "https://commons.wikimedia.org/wiki/File:Ikoyi,_Lagos,_Nigeria.jpg",
+    "artist": "Reginald Bassey",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/ng-lekki.jpg",
+    "subject": "Lagos apartments and homes",
+    "alt": "Apartment blocks and houses packed together across Ikoyi in Lagos, with the lagoon in the distance",
+    "group": "nigeria",
+    "width": 1920,
+    "height": 1279,
+    "place": "Ikoyi, Lagos",
+    "source": "https://commons.wikimedia.org/wiki/File:Ikoyi_and_Beyond.jpg",
+    "artist": "Reginald Bassey",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/ng-estate.jpg",
+    "subject": "The Monarch building, Lagos",
+    "alt": "A white columned building behind a fence and gates in Lagos",
+    "group": "nigeria",
+    "width": 1920,
+    "height": 1280,
+    "place": "The Monarch building, Lagos",
+    "source": "https://commons.wikimedia.org/wiki/File:(Photo-walk_Nigeria),_The_Mornarch_building.jpg",
+    "artist": "Yemi festus",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/ng-abuja.jpg",
+    "subject": "Abuja homes below a rocky hill",
+    "alt": "A street in Abuja with houses climbing a rocky hillside",
+    "group": "nigeria",
+    "width": 1920,
+    "height": 1076,
+    "place": "Abuja",
+    "source": "https://commons.wikimedia.org/wiki/File:Abuja_rocks.jpg",
+    "artist": "Ojlajyz",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/ng-lekki-street.jpg",
+    "subject": "Lagos skyline",
+    "alt": "The Lagos skyline of office towers seen across a main road",
+    "group": "nigeria",
+    "width": 1920,
+    "height": 1015,
+    "place": "Lagos",
+    "source": "https://commons.wikimedia.org/wiki/File:Lagos_skyline.jpg",
+    "artist": "Clara Sanchiz",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/ng-vi-aerial.jpg",
+    "subject": "Lagos waterfront",
+    "alt": "Looking across the water at Ikoyi in Lagos",
+    "group": "nigeria",
+    "width": 1920,
+    "height": 1434,
+    "place": "Ikoyi, Lagos",
+    "source": "https://commons.wikimedia.org/wiki/File:Ikoyi_Lagos.jpg",
+    "artist": "Taiwo Ayanleye",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/uk-georgian.jpg",
+    "subject": "Pelham Place, London",
+    "alt": "A white stucco Georgian terrace with clipped hedges and a street lamp in London",
+    "group": "uk",
+    "width": 1920,
+    "height": 1280,
+    "place": "Pelham Place, London",
+    "source": "https://commons.wikimedia.org/wiki/File:Pelham_Place,_London_24.JPG",
+    "artist": "Edwardx",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/uk-agent-sign.jpg",
+    "subject": "Estate agent's sale board",
+    "alt": "An estate agent's sale board in front of a red brick building",
+    "group": "uk",
+    "width": 1920,
+    "height": 1440,
+    "place": "Estate agent's sale board, England",
+    "source": "https://commons.wikimedia.org/wiki/File:Estate_Agents_Sale_Board_-_geograph.org.uk_-_5982271.jpg",
+    "artist": "Geographer",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/uk-flats.jpg",
+    "subject": "Modern apartment block, Upton Park",
+    "alt": "A modern apartment building with a patterned facade on a London street",
+    "group": "uk",
+    "width": 1920,
+    "height": 1440,
+    "place": "New apartments, Upton Park, London",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_apartment_block,_Upton_Park_-_geograph.org.uk_-_3264001.jpg",
+    "artist": "David Anstiss",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/uk-london.jpg",
+    "subject": "Mansion block, Clerkenwell",
+    "alt": "A red brick mansion block overlooking a garden on Rosebery Avenue in London",
+    "group": "uk",
+    "width": 1920,
+    "height": 1209,
+    "place": "Rosebery Avenue, Clerkenwell, London",
+    "source": "https://commons.wikimedia.org/wiki/File:Rosebery_Ave,_Clerkenwell,_London,_EC1_(geograph_3399015).jpg",
+    "artist": "David Hallam-Jones",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/uk-suburb.jpg",
+    "subject": "1930s semi-detached house, Cheltenham",
+    "alt": "A 1930s semi-detached house with a low stone wall in Cheltenham",
+    "group": "uk",
+    "width": 1920,
+    "height": 1081,
+    "place": "Cheltenham",
+    "source": "https://commons.wikimedia.org/wiki/File:1930's_semi-detached_suburban_Cheltenham_-_geograph.org.uk_-_4317689.jpg",
+    "artist": "Jonathan Billinger",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/uk-terrace.jpg",
+    "subject": "Terraced houses, Wynyatt Street, London",
+    "alt": "A long terrace of brick Victorian houses on Wynyatt Street in London",
+    "group": "uk",
+    "width": 1920,
+    "height": 1444,
+    "place": "Wynyatt Street, London",
+    "source": "https://commons.wikimedia.org/wiki/File:Terraced_houses,_Wynyatt_Street_-_geograph.org.uk_-_3685539.jpg",
+    "artist": "Jim Osley",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/uk-newbuild.jpg",
+    "subject": "New housing estate at Cutsyke",
+    "alt": "Rows of newly built brick homes along a curving road on a housing estate",
+    "group": "uk",
+    "width": 1920,
+    "height": 1440,
+    "place": "New homes, Cutsyke, West Yorkshire",
+    "source": "https://commons.wikimedia.org/wiki/File:New_housing_estate_at_Cutsyke_-_geograph.org.uk_-_5664790.jpg",
+    "artist": "derek dye",
+    "licence": "CC BY-SA 4.0"
   }
 ]

@@ -138,7 +138,7 @@ export default function HomePage() {
             </ul>
             <p className="small muted" style={{ marginTop: 'var(--s-4)' }}>You pay your own hosting, messaging and software subscriptions directly to those providers.</p>
           </div>
-          <Reveal><Plate photo="uk-interior" ratio="4 / 5" /></Reveal>
+          <Reveal><Plate photo="home-living-premium" ratio="4 / 5" /></Reveal>
         </div>
       </section>
 

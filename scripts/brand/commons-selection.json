@@ -1,0 +1,114 @@
+[
+ {
+  "key": "ng-lagos-skyline",
+  "id": "ng-vi-01",
+  "subject": "Victoria Island, Lagos, aerial",
+  "place": "Victoria Island, Lagos",
+  "alt": "An aerial view of Victoria Island in Lagos with a harbour full of yachts and office towers behind",
+  "group": "nigeria"
+ },
+ {
+  "key": "ng-ikoyi",
+  "id": "ng-ikoyi-01",
+  "subject": "Ikoyi, Lagos, homes and towers",
+  "place": "Ikoyi, Lagos",
+  "alt": "Looking over the tree-lined homes and apartment towers of Ikoyi, Lagos",
+  "group": "nigeria"
+ },
+ {
+  "key": "ng-lekki",
+  "id": "ng-ikoyi-02",
+  "subject": "Lagos apartments and homes",
+  "place": "Ikoyi, Lagos",
+  "alt": "Apartment blocks and houses packed together across Ikoyi in Lagos, with the lagoon in the distance",
+  "group": "nigeria"
+ },
+ {
+  "key": "ng-estate",
+  "id": "ng-lekki-03",
+  "subject": "The Monarch building, Lagos",
+  "place": "The Monarch building, Lagos",
+  "alt": "A white columned building behind a fence and gates in Lagos",
+  "group": "nigeria"
+ },
+ {
+  "key": "ng-abuja",
+  "id": "ng-abuja-03",
+  "subject": "Abuja homes below a rocky hill",
+  "place": "Abuja",
+  "alt": "A street in Abuja with houses climbing a rocky hillside",
+  "group": "nigeria"
+ },
+ {
+  "key": "ng-lekki-street",
+  "id": "ng-vi-04",
+  "subject": "Lagos skyline",
+  "place": "Lagos",
+  "alt": "The Lagos skyline of office towers seen across a main road",
+  "group": "nigeria"
+ },
+ {
+  "key": "ng-vi-aerial",
+  "id": "ng-ikoyi-06",
+  "subject": "Lagos waterfront",
+  "place": "Ikoyi, Lagos",
+  "alt": "Looking across the water at Ikoyi in Lagos",
+  "group": "nigeria"
+ },
+ {
+  "key": "uk-georgian",
+  "id": "uk-georgian-02",
+  "subject": "Pelham Place, London",
+  "place": "Pelham Place, London",
+  "alt": "A white stucco Georgian terrace with clipped hedges and a street lamp in London",
+  "group": "uk"
+ },
+ {
+  "key": "uk-terrace",
+  "id": "uk-terrace-03",
+  "subject": "Terraced houses, Wynyatt Street, London",
+  "place": "Wynyatt Street, London",
+  "alt": "A long terrace of brick Victorian houses on Wynyatt Street in London",
+  "group": "uk"
+ },
+ {
+  "key": "uk-newbuild",
+  "id": "uk-newbuild-02",
+  "subject": "New housing estate at Cutsyke",
+  "place": "New homes, Cutsyke, West Yorkshire",
+  "alt": "Rows of newly built brick homes along a curving road on a housing estate",
+  "group": "uk"
+ },
+ {
+  "key": "uk-agent-sign",
+  "id": "uk-sign-02",
+  "subject": "Estate agent's sale board",
+  "place": "Estate agent's sale board, England",
+  "alt": "An estate agent's sale board in front of a red brick building",
+  "group": "uk"
+ },
+ {
+  "key": "uk-flats",
+  "id": "uk-flats-01",
+  "subject": "Modern apartment block, Upton Park",
+  "place": "New apartments, Upton Park, London",
+  "alt": "A modern apartment building with a patterned facade on a London street",
+  "group": "uk"
+ },
+ {
+  "key": "uk-london",
+  "id": "uk-flats-04",
+  "subject": "Mansion block, Clerkenwell",
+  "place": "Rosebery Avenue, Clerkenwell, London",
+  "alt": "A red brick mansion block overlooking a garden on Rosebery Avenue in London",
+  "group": "uk"
+ },
+ {
+  "key": "uk-suburb",
+  "id": "uk-semi-01",
+  "subject": "1930s semi-detached house, Cheltenham",
+  "place": "Cheltenham",
+  "alt": "A 1930s semi-detached house with a low stone wall in Cheltenham",
+  "group": "uk"
+ }
+]

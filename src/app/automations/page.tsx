@@ -149,7 +149,7 @@ export default function AutomationsPage() {
               <li>Custom integrations.</li>
               <li>Portal feeds and live calendar sync.</li>
             </ul>
-            <Plate photo="uk-interior" ratio="3 / 2" className="mt" />
+            <Plate photo="home-living-premium" ratio="3 / 2" className="mt" />
           </div>
         </div>
       </section>

@@ -26,7 +26,7 @@ for (const s of sel) {
     await sleep(1500);
   }
   const m = await sharp(out).metadata();
-  const entry = { file: `/images/${s.key}.jpg`, subject: s.subject, alt: s.alt, group: s.group, width: m.width, height: m.height, place: s.place, source: c.page, artist: c.artist, licence: c.licence };
+  const entry = { file: `/images/${s.key}.jpg`, subject: s.subject, alt: s.alt, group: s.group, width: m.width, height: m.height, place: s.place, source: c.page, artist: c.artist.replace(/&#\d+;/g, ' ').replace(/\s+/g, ' ').trim(), licence: c.licence };
   const i = reg.findIndex((r) => r.file === entry.file); if (i >= 0) reg[i] = entry; else reg.push(entry);
   console.log('ok', s.key, m.width + 'x' + m.height, '|', c.artist.slice(0, 30), c.licence);
 }
