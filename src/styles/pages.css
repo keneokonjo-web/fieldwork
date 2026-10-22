@@ -50,7 +50,7 @@ body:has(.hero__big) .site-footer { padding-bottom: var(--s-6); }
 @media (max-width: 61.99rem) { .hero__duo .shot__img { height: 14rem; } }
 .hero__price { display: flex; align-items: baseline; gap: var(--s-4); margin: var(--s-5) 0 0; }
 .hero__price .price { margin: 0; font-size: var(--step-3); }
-.price-inline { font-variant-numeric: tabular-nums; }
+
 .page-hero__dots { position: absolute; z-index: 0; right: -8%; top: 0; width: min(50vw, 44rem); pointer-events: none; opacity: 0.9; }
 .page-hero__grid { display: grid; gap: var(--s-6); align-items: center; }
 .page-hero .shot__img { aspect-ratio: auto; height: min(40vh, 22rem); }
@@ -72,7 +72,7 @@ body:has(.hero__big) .site-footer { padding-bottom: var(--s-6); }
 .who__col { display: grid; gap: var(--s-3); align-content: start; }
 .who__col h3 { margin: var(--s-2) 0 0; font-size: var(--step-2); letter-spacing: -0.05em; }
 .band { display: grid; gap: var(--s-4); }
-@media (min-width: 48rem) { .band { grid-template-columns: repeat(3, 1fr); } .band .shot:nth-child(2) { margin-top: var(--s-6); } }
+@media (min-width: 48rem) { .band { grid-template-columns: repeat(3, 1fr); } .band .shot:nth-child(3n+2) { margin-top: var(--s-6); } }
 .mt { margin-top: var(--s-5); }
 .home__art { width: min(100%, 30rem); justify-self: end; height: auto; }
 
@@ -101,9 +101,10 @@ body:has(.hero__big) .site-footer { padding-bottom: var(--s-6); }
 .prices__item { padding: var(--s-5); display: grid; gap: var(--s-1); align-content: start; }
 .prices__item + .prices__item { border-top: var(--rule); }
 @media (min-width: 48rem) { .prices__item + .prices__item { border-top: 0; } }
-.prices__item .price { margin: var(--s-2) 0 var(--s-1); font-size: var(--step-3); font-variant-numeric: tabular-nums; }
+.prices__item .price { margin: var(--s-2) 0 var(--s-1); font-size: var(--step-3); }
 .prices__item p { margin: 0; }
 .prices__note { color: var(--grey); max-width: 46rem; margin: 0; }
+.prices--ink .index, .prices--ink .small { color: var(--paper); }
 .prices--ink .price { color: var(--paper); font-size: var(--step-3); margin: var(--s-1) 0; }
 
 /* ---------- Listing admin illustration ---------- */
@@ -123,3 +124,4 @@ body:has(.hero__big) .site-footer { padding-bottom: var(--s-6); }
 .credits td, .credits th { vertical-align: top; }
 
 @media (max-width: 47.99rem) { .page-hero__dots { opacity: 0.35; width: 80vw; right: -25%; } }
+.section--ink .chip--neutral { color: var(--paper); }

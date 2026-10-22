@@ -153,6 +153,9 @@ export default function HomePage() {
             <Plate photo="ng-abuja" ratio="3 / 2" />
             <Plate photo="uk-flats" ratio="3 / 2" />
             <Plate photo="ng-estate" ratio="3 / 2" />
+            <Plate photo="uk-suburb" ratio="3 / 2" />
+            <Plate photo="ng-ikoyi" ratio="3 / 2" />
+            <Plate photo="uk-terrace" ratio="3 / 2" />
           </div>
         </div>
       </section>

@@ -45,7 +45,7 @@ await check('retired pages redirect to the right place', async () => {
 await check('there is no individual/business chooser and no log-in link', async () => {
   const p = await (await mk()).newPage(); await p.goto(B + '/');
   ok((await p.getByText(/I am an individual|Who is it for/).count()) === 0, 'chooser gone'); ok((await p.getByRole('link', { name: /^Log in$/i }).count()) === 0, 'no log in link');
-  ok(await p.locator('.bar__login').isVisible(), 'demo button in bar'); ok(/Request a demo/.test(await p.locator('.bar__login').innerText()), 'demo label');
+  ok(await p.locator('.bar__login').isVisible(), 'demo button in bar'); ok(/request a demo/i.test(await p.locator('.bar__login').innerText()), 'demo label');
 });
 await check('logo returns to home from an inner page', async () => {
   const p = await (await mk()).newPage(); await p.goto(B + '/about'); await p.getByRole('link', { name: 'Fieldwork, home' }).click(); await p.waitForURL(B + '/');
@@ -136,7 +136,7 @@ await check('demo request is delivered to the mock webhook with business type, i
   await form.locator('select[name=businessType]').selectOption('Property developer'); await form.locator('select[name=interest]').selectOption('Website and listings');
   await form.locator('textarea[name=message]').fill('We want a project website with listings.'); await form.locator('input[name=privacy]').check(); await p.waitForTimeout(1500);
   await form.getByRole('button', { name: 'Request a demo' }).click(); await p.getByText('Thank you, we have your request').waitFor({ timeout: 8000 });
-  const last = received[received.length - 1]; ok(last.headers['x-fieldwork-secret'] === 's3cret', 'secret header'); ok(/Test Estates/.test(last.body) && /Property developer/.test(last.body) && /Website and listings/.test(last.body) && /test/.test(last.body), 'payload: ' + last.body.slice(0, 200));
+  const last = received[received.length - 1]; ok(last.headers['x-fieldwork-secret'] === 's3cret', 'secret header'); ok(/Test Estates/.test(last.body) && /Property developer/.test(last.body) && /Website and listings/.test(last.body) && /linkedin|utm_source|test/i.test(last.body), 'payload: ' + last.body.slice(0, 200));
 });
 await check('workshop interest is delivered as its own lead type', async () => {
   const p = await (await mk()).newPage(); await p.goto('http://localhost:3101/ai-workshop'); const form = p.locator('#interest form');

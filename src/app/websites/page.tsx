@@ -67,7 +67,7 @@ export default function WebsitesPage() {
               <ButtonLink href="#price" variant="secondary">See the price</ButtonLink>
             </div>
           </div>
-          <Plate photo="ng-lekki" ratio="4 / 3" priority sizes="(min-width: 62rem) 40vw, 100vw" />
+          <Plate photo="ng-lagos-skyline" ratio="4 / 3" priority sizes="(min-width: 62rem) 40vw, 100vw" />
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img className="hero__big" src="/brand/logo/fieldwork-wordmark-light.svg" alt="" width={607} height={138} aria-hidden="true" />
@@ -134,7 +134,7 @@ export default function WebsitesPage() {
               </ul>
             </Reveal>
             <Reveal className="who__col" delay={90}>
-              <Plate photo="ng-estate" ratio="3 / 2" />
+              <Plate photo="ng-lekki" ratio="3 / 2" />
               <h3>Developer set-up</h3>
               <ul className="ticks">
                 <li>A landing page for each development, with photos and approved descriptions.</li>

@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-18T22:08:06.807Z",
+  "ranAt": "2026-10-22T21:37:07.479Z",
   "results": [
     {
       "name": "every route returns 200 with one h1, a title, no console errors, no broken images",
@@ -7,6 +7,14 @@
     },
     {
       "name": "unknown route shows the custom 404 with a 404 status",
+      "pass": true
+    },
+    {
+      "name": "retired pages redirect to the right place",
+      "pass": true
+    },
+    {
+      "name": "there is no individual/business chooser and no log-in link",
       "pass": true
     },
     {
@@ -18,7 +26,7 @@
       "pass": true
     },
     {
-      "name": "mobile menu opens, traps Escape, navigates and closes",
+      "name": "mobile menu opens, closes with Escape, navigates and closes",
       "pass": true
     },
     {
@@ -30,83 +38,51 @@
       "pass": true
     },
     {
-      "name": "reduced motion shows content immediately and disables reveal transforms",
+      "name": "reduced motion shows content immediately and skips the page transition",
       "pass": true
     },
     {
-      "name": "entry page offers individual or business and routes to each page",
+      "name": "page transition: a paper curtain with the wordmark covers, then lifts away, without scrolling",
       "pass": true
     },
     {
-      "name": "a loading animation runs for about a second between pages",
+      "name": "home hero has the cropped wordmark at its bottom edge, and the page does not auto-scroll",
       "pass": true
     },
     {
-      "name": "reduced motion skips the loading animation",
+      "name": "home page shows the three products, the CRM message and a demo call to action",
       "pass": true
     },
     {
-      "name": "/business/real-estate redirects to /business, which is the real estate page",
+      "name": "websites page: prices follow the market toggle and Nigeria shows the new price",
       "pass": true
     },
     {
-      "name": "business page sections are in the requested order and include the USA",
+      "name": "automations page: three ways in, both workflows, channels and the three prices",
       "pass": true
     },
     {
-      "name": "business pop-up appears after 10 seconds and leads to the course page",
+      "name": "AI Workshop page is clearly planned, lists sixteen modules and states no price",
       "pass": true
     },
     {
-      "name": "individuals pop-up appears after 15 seconds and leads to the exercise",
+      "name": "about page states the honest position; there is no pricing page",
       "pass": true
     },
     {
-      "name": "course page shows the pricing tiers, with a USA view",
+      "name": "photographs of Nigeria and the UK are credited, with a credits page",
       "pass": true
     },
     {
-      "name": "pricing page shows individuals first (free) then business plans",
+      "name": "demo request form validates, then reports honest not-configured when no adapter is set",
       "pass": true
     },
     {
-      "name": "individuals page has the new hero, build CTA, what we do, everyday uses and pricing",
+      "name": "demo request is delivered to the mock webhook with business type, interest, attribution and secret",
       "pass": true
     },
     {
-      "name": "login: pick business, demo sign-in, business dashboard shows a welcome and the four areas",
-      "pass": true
-    },
-    {
-      "name": "dashboards ask you to log in first",
-      "pass": true
-    },
-    {
-      "name": "build a business: free flow, then login, then workspace with paid areas locked",
-      "pass": true
-    },
-    {
-      "name": "free exercise runs start to finish, copies prompt, downloads card, stores locally",
-      "pass": true
-    },
-    {
-      "name": "exercise state survives reload (stored on the device only)",
-      "pass": true
-    },
-    {
-      "name": "business assessment produces a report",
-      "pass": true
-    },
-    {
-      "name": "pricing market toggle switches between GBP and NGN",
-      "pass": true
-    },
-    {
-      "name": "contact form validates, then reports honest not-configured when no adapter is set",
-      "pass": true
-    },
-    {
-      "name": "business demo request is delivered to the mock webhook with attribution and secret",
+      "name": "workshop interest is delivered as its own lead type",
       "pass": true
     },
     {
@@ -122,7 +98,7 @@
       "pass": true
     },
     {
-      "name": "no horizontal overflow at 390, 768 and 1440 on key pages",
+      "name": "no horizontal overflow at 390, 768 and 1440 on every page",
       "pass": true
     }
   ]

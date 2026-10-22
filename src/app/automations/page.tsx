@@ -127,6 +127,16 @@ export default function AutomationsPage() {
         </div>
       </section>
 
+      <section className="section" aria-label="Photographs">
+        <div className="container">
+          <div className="band">
+            <Plate photo="uk-georgian" ratio="3 / 2" />
+            <Plate photo="ng-vi-aerial" ratio="3 / 2" />
+            <Plate photo="uk-newbuild" ratio="3 / 2" />
+          </div>
+        </div>
+      </section>
+
       <section className="section" aria-labelledby="scope-title">
         <div className="container split">
           <div>
