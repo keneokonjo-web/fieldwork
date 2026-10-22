@@ -8,9 +8,8 @@ const outDir = path.resolve(import.meta.dirname, '../../qa/screenshots');
 fs.mkdirSync(outDir, { recursive: true });
 const only = process.argv[2];
 const routes = [
-  ['home', '/'], ['individuals', '/individuals'], ['learn', '/learn'], ['free-exercise', '/learn/first-workflow'], ['business', '/business'], ['real-estate', '/business/real-estate'],
-  ['assessment', '/business/assessment'], ['pricing', '/pricing'], ['field-notes', '/field-notes'], ['article', '/field-notes/five-part-brief'], ['about', '/about'], ['contact', '/contact'],
-  ['privacy', '/privacy'], ['terms', '/terms'], ['cookies', '/cookies'], ['accessibility', '/accessibility'], ['404', '/does-not-exist'],
+  ['home', '/'], ['websites', '/websites'], ['automations', '/automations'], ['ai-workshop', '/ai-workshop'], ['about', '/about'], ['request-demo', '/request-demo'],
+  ['image-credits', '/image-credits'], ['privacy', '/privacy'], ['terms', '/terms'], ['cookies', '/cookies'], ['accessibility', '/accessibility'], ['404', '/does-not-exist'],
 ];
 const viewports = { desktop: { width: 1440, height: 900 }, mobile: { width: 390, height: 844 } };
 const browser = await chromium.launch();

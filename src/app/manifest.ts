@@ -3,7 +3,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Fieldwork',
     short_name: 'Fieldwork',
-    description: 'Practise AI on real work.',
+    description: 'Websites and workflows for property businesses.',
     start_url: '/',
     display: 'standalone',
     background_color: '#F3F2ED',

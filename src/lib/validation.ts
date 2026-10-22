@@ -1,6 +1,6 @@
 /** Lead form validation. Used on the client for early feedback and on the server as the source of truth. */
 
-export const LEAD_TYPES = ['newsletter', 'business_enquiry', 'demo_request', 'assessment_report', 'contact'] as const;
+export const LEAD_TYPES = ['demo_request', 'workshop_interest', 'contact'] as const;
 export type LeadType = (typeof LEAD_TYPES)[number];
 export const MARKETS = ['uk', 'nigeria', 'other'] as const;
 export type Market = (typeof MARKETS)[number];
@@ -44,7 +44,7 @@ const str = (v: unknown, max: number): string | undefined => {
   return t ? t.slice(0, max) : undefined;
 };
 
-export const NEEDS_BUSINESS_FIELDS: LeadType[] = ['business_enquiry', 'demo_request'];
+export const NEEDS_BUSINESS_FIELDS: LeadType[] = ['demo_request', 'workshop_interest'];
 
 export function validateLead(raw: unknown): ValidationResult {
   const errors: FieldErrors = {};
@@ -70,7 +70,7 @@ export function validateLead(raw: unknown): ValidationResult {
   if (NEEDS_BUSINESS_FIELDS.includes(type)) {
     if (!name) errors.name = 'Enter your name.';
     if (!company) errors.company = 'Enter your company name.';
-    if (!message || message.length < 10) errors.message = 'Tell us briefly what you want to achieve (at least a sentence).';
+    if (type === 'demo_request' && (!message || message.length < 10)) errors.message = 'Tell us briefly what you want to achieve (at least a sentence).';
     if (!market) errors.market = 'Choose where your business is based.';
   }
   if (type === 'contact') {
@@ -78,10 +78,7 @@ export function validateLead(raw: unknown): ValidationResult {
     if (!message || message.length < 10) errors.message = 'Write a short message (at least a sentence).';
   }
   if (r.privacyAcknowledged !== true) {
-    errors.privacyAcknowledged =
-      type === 'newsletter' || type === 'assessment_report'
-        ? 'Tick the box to confirm you agree to us emailing you.'
-        : 'Tick the box to confirm you have read the privacy notice.';
+    errors.privacyAcknowledged = 'Tick the box to confirm you have read the privacy notice.';
   }
   if (Object.keys(errors).length) return { ok: false, errors };
 

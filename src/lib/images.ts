@@ -1,6 +1,6 @@
 import images from '@/content/images.json';
 
-export type Photo = { file: string; alt: string; subject: string; width: number; height: number; group: string };
+export type Photo = { file: string; alt: string; subject: string; width: number; height: number; group: string; place?: string; artist?: string; licence?: string; source?: string };
 const byKey = new Map<string, Photo>(
   (images as Photo[]).map((i) => [i.file.replace(/^\/images\//, '').replace(/\.jpg$/, ''), i]),
 );

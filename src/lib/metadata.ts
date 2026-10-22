@@ -11,7 +11,7 @@ export function pageMetadata({ title, description, path, type = 'website', noind
     description,
     alternates: siteConfig.url ? { canonical: path } : undefined,
     robots: !siteConfig.allowIndexing || noindex ? { index: false, follow: false } : { index: true, follow: true },
-    openGraph: { title: `${title} | Fieldwork`, description, url: path, siteName: 'Fieldwork', locale: 'en_GB', type, images: [{ url: image, width: 1200, height: 630, alt: 'Fieldwork. Practise AI on real work.' }] },
+    openGraph: { title: `${title} | Fieldwork`, description, url: path, siteName: 'Fieldwork', locale: 'en_GB', type, images: [{ url: image, width: 1200, height: 630, alt: 'Fieldwork. Websites and workflows for property businesses.' }] },
     twitter: { card: 'summary_large_image', title: `${title} | Fieldwork`, description, images: [image] },
   };
 }

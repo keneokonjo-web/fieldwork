@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { photo } from '@/lib/images';
 
 type Ratio = '4 / 3' | '3 / 4' | '16 / 9' | '1 / 1' | '21 / 9' | '3 / 2' | '4 / 5';
-type Common = { ratio?: Ratio; className?: string; priority?: boolean; sizes?: string; label?: ReactNode; labelFloat?: boolean; framed?: boolean; position?: string };
+type Common = { caption?: boolean; ratio?: Ratio; className?: string; priority?: boolean; sizes?: string; label?: ReactNode; labelFloat?: boolean; framed?: boolean; position?: string };
 type PhotoProps = Common & { photo: string; art?: never };
 type ArtProps = Common & { art: string; tone?: 'paper' | 'ink' | 'cobalt' | 'wash'; photo?: never };
 
@@ -12,7 +12,7 @@ type ArtProps = Common & { art: string; tone?: 'paper' | 'ink' | 'cobalt' | 'was
  * in a hairline cell with a mono caption. Named Plate for continuity with earlier code.
  */
 export function Plate(props: PhotoProps | ArtProps) {
-  const { ratio = '4 / 3', className = '', priority, sizes = '(min-width: 62rem) 50vw, 100vw', label, labelFloat, position } = props;
+  const { ratio = '4 / 3', className = '', priority, sizes = '(min-width: 62rem) 50vw, 100vw', label, labelFloat, position, caption = true } = props;
   const isArt = 'art' in props && props.art;
   const p = !isArt ? photo((props as PhotoProps).photo) : null;
   const tone = isArt ? (props as ArtProps).tone ?? 'paper' : null;
@@ -27,6 +27,12 @@ export function Plate(props: PhotoProps | ArtProps) {
         {label && labelFloat && <div className="label label--float">{label}</div>}
       </div>
       {label && !labelFloat && <figcaption className="shot__cap">{label}</figcaption>}
+      {!label && caption && p?.place && (
+        <figcaption className="shot__cap">
+          <b>{p.place}</b>
+          {p.artist ? <span>Photo: {p.artist}, {p.licence}</span> : <span>Stock photograph, illustrative</span>}
+        </figcaption>
+      )}
     </figure>
   );
 }

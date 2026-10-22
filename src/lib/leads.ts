@@ -34,7 +34,7 @@ export interface LeadRecord {
 
 export function toRecord(input: LeadInput, now = new Date()): LeadRecord {
   const iso = now.toISOString();
-  const business = input.type === 'business_enquiry' || input.type === 'demo_request' || input.type === 'assessment_report';
+  const business = true;
   return {
     id: `${now.getTime().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
     receivedAt: iso,
@@ -48,10 +48,10 @@ export function toRecord(input: LeadInput, now = new Date()): LeadRecord {
     message: input.message,
     interest: input.interest,
     context: input.context,
-    consent: { privacyNoticeVersion: PRIVACY_NOTICE_VERSION, privacyAcknowledged: true, marketingOptIn: Boolean(input.marketingOptIn) || input.type === 'newsletter', at: iso },
+    consent: { privacyNoticeVersion: PRIVACY_NOTICE_VERSION, privacyAcknowledged: true, marketingOptIn: Boolean(input.marketingOptIn) , at: iso },
     attribution: input.attribution ?? {},
     crm: {
-      lifecycleStage: input.type === 'newsletter' ? 'subscriber' : 'lead',
+      lifecycleStage: 'lead',
       leadSource: input.attribution?.utm_source || (input.attribution?.referrer ? 'referral' : 'direct'),
       audience: business ? 'business' : 'individual',
     },

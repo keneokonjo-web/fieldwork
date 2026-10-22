@@ -11,7 +11,7 @@ export function SiteFooter() {
           <div>
             <p className="footer-statement">{siteConfig.tagline}</p>
             <p className="small muted" style={{ marginTop: 'var(--s-4)', maxWidth: '28rem' }}>
-              Fieldwork is new. The free exercise is live. Paid products and the business platform are planned, and marked that way.
+              Fieldwork is new. We have no client results to show yet. Product demonstrations are being built, and anything not yet available is marked that way.
             </p>
           </div>
           <div className="footer-cols">

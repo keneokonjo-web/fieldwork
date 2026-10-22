@@ -4,24 +4,12 @@
  * Never pass personal data (emails, names, free text) in event properties.
  */
 export const EVENTS = [
-  'consumer_cta_clicked',
-  'business_cta_clicked',
-  'free_experience_started',
-  'free_experience_step_completed',
-  'free_experience_completed',
-  'prompt_copied',
-  'email_signup_submitted',
-  'business_enquiry_submitted',
+  'demo_request_clicked',
   'demo_request_submitted',
+  'workshop_interest_submitted',
   'contact_submitted',
-  'assessment_started',
-  'assessment_completed',
   'pricing_viewed',
-  'purchase_completed',
-  'builder_started',
-  'builder_launch_clicked',
-  'popup_cta_clicked',
-  'login_started',
+  'market_switched',
 ] as const;
 export type FieldworkEvent = (typeof EVENTS)[number];
 

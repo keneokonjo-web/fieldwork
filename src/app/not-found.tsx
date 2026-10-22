@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ButtonLink } from '@/components/ui/ButtonLink';
-import { FREE_EXPERIENCE_PATH } from '@/config/site';
+import { DEMO_PATH } from '@/config/site';
 
 export const metadata = { title: 'Page not found', robots: { index: false, follow: false } };
 
@@ -15,13 +15,13 @@ export default function NotFound() {
         <p className="lede">The link may be old or mistyped. These routes will get you back to something useful.</p>
         <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
           <ButtonLink href="/">Go to the homepage</ButtonLink>
-          <ButtonLink href={FREE_EXPERIENCE_PATH} variant="secondary">Try the free exercise</ButtonLink>
+          <ButtonLink href={DEMO_PATH} variant="secondary">Request a demo</ButtonLink>
         </div>
         <ul className="ticks" style={{ marginTop: 'var(--s-6)' }}>
-          <li><Link href="/individuals">Fieldwork for Individuals</Link></li>
-          <li><Link href="/business">Fieldwork for Business</Link></li>
-          <li><Link href="/field-notes">Field Notes</Link></li>
-          <li><Link href="/contact">Contact us</Link></li>
+          <li><Link href="/websites">Websites &amp; Listings</Link></li>
+          <li><Link href="/automations">Automations</Link></li>
+          <li><Link href="/ai-workshop">AI Workshop</Link></li>
+          <li><Link href="/request-demo">Request a demo</Link></li>
         </ul>
       </div>
     </section>

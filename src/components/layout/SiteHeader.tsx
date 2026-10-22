@@ -3,15 +3,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Logo } from '@/components/brand/Logo';
-import { FREE_EXPERIENCE_PATH, mainNav } from '@/config/site';
-import { homeFor, useSession } from '@/lib/session';
+import { DEMO_PATH, mainNav } from '@/config/site';
 
 const isCurrent = (pathname: string, href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const { session } = useSession();
-  const account = session ? { href: homeFor(session.role), label: 'Dashboard' } : { href: '/login', label: 'Log in' };
   // The menu is open only for the path it was opened on, so navigating closes it without an effect.
   const [openFor, setOpenFor] = useState<string | null>(null);
   const open = openFor === pathname;
@@ -46,7 +43,7 @@ export function SiteHeader() {
   return (
     <header className="bar">
       <div className="container bar__in">
-        <Link href="/home" className="brand-link" aria-label="Fieldwork, home">
+        <Link href="/" className="brand-link" aria-label="Fieldwork, home">
           <Logo form="wordmark-small" tone="dark" />
         </Link>
         <nav className="nav" aria-label="Main">
@@ -54,7 +51,7 @@ export function SiteHeader() {
             <Link key={l.href} href={l.href} aria-current={isCurrent(pathname, l.href) ? 'page' : undefined}>{l.label}</Link>
           ))}
         </nav>
-        <Link href={account.href} className="bar__login" data-track="login_started" data-track-label="header">{account.label}</Link>
+        <Link href={DEMO_PATH} className="bar__login" data-track="demo_request_clicked" data-track-label="header">Request a demo</Link>
         <button
           ref={btnRef}
           type="button"
@@ -76,11 +73,9 @@ export function SiteHeader() {
                 <Link className="mobile-nav__link" href={l.href} aria-current={isCurrent(pathname, l.href) ? 'page' : undefined}>{l.label}</Link>
               </li>
             ))}
-            <li><Link className="mobile-nav__link" href="/contact" aria-current={pathname === '/contact' ? 'page' : undefined}>Contact</Link></li>
-            <li><Link className="mobile-nav__link" href={account.href} aria-current={pathname === account.href ? 'page' : undefined}>{account.label}</Link></li>
           </ul>
         </nav>
-        <Link href={FREE_EXPERIENCE_PATH} className="btn" data-track="consumer_cta_clicked" data-track-label="mobile-menu">Try the free exercise</Link>
+        <Link href={DEMO_PATH} className="btn btn--cobalt" data-track="demo_request_clicked" data-track-label="mobile-menu">Request a demo</Link>
       </div>
     </header>
   );

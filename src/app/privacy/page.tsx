@@ -24,25 +24,24 @@ export default function PrivacyPage() {
           {email ? <>To ask about your information, email <a href={`mailto:${email}`}>{email}</a>.</> : <>A privacy contact address will be published here before launch. Until then, use the contact forms on this site.</>}</p>
 
         <h2>What stays on your device</h2>
-        <p>The free exercise, the assessment and the pricing market switch work in your browser. What you type into them is stored only in your browser (in local storage) so you can continue later. It is not sent to us. Fieldwork does not send your entries to any AI model. You can clear your exercise entries from the last step of the exercise, or by clearing site data in your browser.</p>
+        <p>The price market switch (UK or Nigeria) works in your browser and is stored only there, in local storage. It is not sent to us. You can clear it by clearing site data in your browser.</p>
         <table className="table" style={{ minWidth: 0 }}>
           <caption>Browser storage used by this site</caption>
           <thead><tr><th scope="col">Key</th><th scope="col">Purpose</th><th scope="col">Lifetime</th></tr></thead>
           <tbody>
-            <tr><th scope="row">fw-learn-v1</th><td>Saves your progress and entries in the free exercise</td><td>Until you clear it</td></tr>
-            <tr><th scope="row">fw-market</th><td>Remembers UK or Nigeria on the pricing page</td><td>Until you clear it</td></tr>
+            <tr><th scope="row">fw-market</th><td>Remembers UK or Nigeria for the prices shown on product pages</td><td>Until you clear it</td></tr>
             <tr><th scope="row">fw-consent</th><td>Remembers your analytics choice</td><td>Until you clear it</td></tr>
             <tr><th scope="row">fw-attribution</th><td>Remembers which campaign link brought you here, only used if you later submit a form</td><td>This browser tab session</td></tr>
           </tbody>
         </table>
 
         <h2>What we collect when you submit a form</h2>
-        <p>If you submit a form, we receive what you type (such as your name, email address, company, role, location, team size and message) and the page you were on. If you arrived through a campaign link we also receive its source, medium and campaign names, and the website you came from. We record that you agreed, the version of this notice and the time. We ask only for what we need.</p>
+        <p>If you submit a form, we receive what you type (such as your name, email address, company, role, location, the type of business, what you are interested in, and your message) and the page you were on. If you arrived through a campaign link we also receive its source, medium and campaign names, and the website you came from. We record that you agreed, the version of this notice and the time. We ask only for what we need.</p>
 
         <h2>Why we use it, and our lawful basis</h2>
         <ul>
           <li><strong>To reply to your enquiry or request.</strong> Basis: taking steps at your request, or our legitimate interest in responding to enquiries.</li>
-          <li><strong>To email you about new exercises and products if you opt in.</strong> Basis: your consent, which you can withdraw at any time.</li>
+          <li><strong>To email you occasional updates about Fieldwork products if you opt in, or when the AI Workshop is ready if you registered interest.</strong> Basis: your consent, which you can withdraw at any time.</li>
           <li><strong>To understand which pages and campaigns are useful.</strong> Basis: your consent, if analytics is switched on (see Cookies and storage).</li>
         </ul>
         <p className="small muted">Lawful bases need confirming by a qualified adviser for each country where we operate.</p>

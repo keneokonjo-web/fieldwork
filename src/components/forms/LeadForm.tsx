@@ -5,7 +5,7 @@ import { readAttribution } from '@/lib/attribution';
 import { track, type FieldworkEvent } from '@/lib/analytics';
 import { validateLead, type FieldErrors, type LeadInput, type LeadType } from '@/lib/validation';
 
-type Variant = 'email' | 'business' | 'contact';
+type Variant = 'business' | 'contact';
 type Status = 'idle' | 'submitting' | 'success' | 'error' | 'not_configured';
 
 interface Props {
@@ -30,10 +30,8 @@ interface Props {
 }
 
 const EVENT_FOR: Record<LeadType, FieldworkEvent> = {
-  newsletter: 'email_signup_submitted',
-  assessment_report: 'email_signup_submitted',
-  business_enquiry: 'business_enquiry_submitted',
   demo_request: 'demo_request_submitted',
+  workshop_interest: 'workshop_interest_submitted',
   contact: 'contact_submitted',
 };
 
@@ -50,7 +48,7 @@ export function LeadForm(props: Props) {
   useEffect(() => { startedAt.current = Date.now(); }, []);
 
   const isBusiness = variant === 'business';
-  const needsName = variant !== 'email';
+  const needsName = true;
 
   useEffect(() => {
     if (Object.keys(errors).length) summaryRef.current?.focus();
@@ -72,10 +70,9 @@ export function LeadForm(props: Props) {
       company: get('company'),
       role: get('role'),
       market: (get('market') || undefined) as LeadInput['market'],
-      teamSize: get('teamSize'),
       message: get('message'),
-      interest,
-      context,
+      interest: get('interest') || interest,
+      context: [get('businessType') && `Business type: ${get('businessType')}`, context].filter(Boolean).join('. ') || undefined,
       privacyAcknowledged: fd.get('privacy') === 'on',
       marketingOptIn: fd.get('marketing') === 'on',
       website: get('website'),
@@ -90,7 +87,7 @@ export function LeadForm(props: Props) {
       const body = await res.json().catch(() => ({}));
       if (res.ok && body.ok) {
         setStatus('success');
-        track(EVENT_FOR[type], { location, audience: isBusiness ? 'business' : 'individual' });
+        track(EVENT_FOR[type], { location, audience: 'business' });
         form.reset();
         return;
       }
@@ -119,7 +116,7 @@ export function LeadForm(props: Props) {
 
   const consentLabel =
     props.consentLabel ??
-    (variant === 'email' ? 'Email me new exercises and Field Notes. I can unsubscribe at any time.' : 'I have read the privacy notice and agree to you using my details to reply to this enquiry.');
+    'I have read the privacy notice and agree to you using my details to reply to this enquiry.';
 
   return (
     <form className="form" onSubmit={onSubmit} noValidate aria-label={submitLabel}>
@@ -159,7 +156,7 @@ export function LeadForm(props: Props) {
       )}
 
       <div className="field">
-        <label className="field__label" htmlFor={id('email')}>{isBusiness ? 'Work email' : 'Email address'}</label>
+        <label className="field__label" htmlFor={id('email')}>Work email</label>
         <input className="input" id={id('email')} name="email" type="email" inputMode="email" autoComplete="email" aria-invalid={err('email') ? true : undefined} aria-describedby={describe('email')} />
         {err('email') && <p className="field__error" id={id('email-err')}>{err('email')}</p>}
       </div>
@@ -182,15 +179,30 @@ export function LeadForm(props: Props) {
               {err('market') && <p className="field__error" id={id('market-err')}>{err('market')}</p>}
             </div>
           </div>
-          <div className="field">
-            <label className="field__label" htmlFor={id('teamSize')}>Roughly how many people would take part? <span className="opt">(optional)</span></label>
-            <select className="select" id={id('teamSize')} name="teamSize" defaultValue="">
-              <option value="">Not sure yet</option>
-              <option value="1-5">1 to 5</option>
-              <option value="6-15">6 to 15</option>
-              <option value="16-50">16 to 50</option>
-              <option value="50+">More than 50</option>
-            </select>
+          <div className="form-row form-row--2">
+            <div className="field">
+              <label className="field__label" htmlFor={id('businessType')}>What kind of business? <span className="opt">(optional)</span></label>
+              <select className="select" id={id('businessType')} name="businessType" defaultValue="">
+                <option value="">Choose one</option>
+                <option value="Property developer">Property developer</option>
+                <option value="Estate agency or brokerage">Estate agency or brokerage</option>
+                <option value="Other property business">Other property business</option>
+              </select>
+            </div>
+            {!interest && (
+              <div className="field">
+                <label className="field__label" htmlFor={id('interest')}>What are you interested in? <span className="opt">(optional)</span></label>
+                <select className="select" id={id('interest')} name="interest" defaultValue="">
+                  <option value="">Not sure yet</option>
+                  <option value="Website and listings">Website and listings</option>
+                  <option value="Lead capture and follow-up">Lead capture and follow-up</option>
+                  <option value="Viewing and feedback">Viewing and feedback</option>
+                  <option value="Both automations">Both automations</option>
+                  <option value="Brand and social starter pack">Brand and social starter pack</option>
+                  <option value="AI Workshop">AI Workshop</option>
+                </select>
+              </div>
+            )}
           </div>
         </>
       )}

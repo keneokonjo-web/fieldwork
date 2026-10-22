@@ -9,10 +9,10 @@ const url = clean(process.env.NEXT_PUBLIC_SITE_URL)?.replace(/\/+$/, '');
 
 export const siteConfig = {
   name: 'Fieldwork',
-  tagline: 'Practise AI on real work.',
-  strategicLine: 'Learn by doing. Put knowledge to work.',
+  tagline: 'Websites and workflows for property businesses.',
+  strategicLine: 'Practical technology for real estate.',
   description:
-    'Fieldwork teaches practical AI through real tasks. Try a free guided exercise, then practise on your own work. Training for real estate teams.',
+    'Fieldwork builds websites with self-managed listings, enquiry and viewing automation, and AI training for estate agencies and property developers in the UK and Nigeria.',
   locale: 'en-GB',
   /** Confirmed production origin, e.g. https://example.com. Empty until the domain is chosen. */
   url,
@@ -41,41 +41,32 @@ export const siteConfig = {
   },
 } as const;
 
-export const FREE_EXPERIENCE_PATH = '/learn/first-workflow';
-
 export const mainNav = [
-  { href: '/individuals', label: 'Individuals' },
-  { href: '/business', label: 'For Business' },
-  { href: '/field-notes', label: 'Field Notes' },
-  { href: '/pricing', label: 'Pricing' },
+  { href: '/websites', label: 'Websites & Listings' },
+  { href: '/automations', label: 'Automations' },
+  { href: '/ai-workshop', label: 'AI Workshop' },
   { href: '/about', label: 'About' },
 ] as const;
 
+export const DEMO_PATH = '/request-demo';
+
 export const footerNav = {
-  Learn: [
-    { href: FREE_EXPERIENCE_PATH, label: 'Free exercise' },
-    { href: '/build', label: 'Build a business' },
-    { href: '/individuals', label: 'For individuals' },
-    { href: '/field-notes', label: 'Field Notes' },
-    { href: '/pricing', label: 'Pricing' },
-  ],
-  Business: [
-    { href: '/business', label: 'For Business' },
-    { href: '/business/course', label: 'Course and pricing' },
-    { href: '/business/assessment', label: 'Workflow assessment' },
-    { href: '/contact?topic=business', label: 'Request a demonstration' },
+  Products: [
+    { href: '/websites', label: 'Websites & Listings' },
+    { href: '/automations', label: 'Automations' },
+    { href: '/ai-workshop', label: 'AI Workshop' },
   ],
   Company: [
-    { href: '/home', label: 'Home' },
+    { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' },
-    { href: '/login', label: 'Log in' },
-    { href: '/accessibility', label: 'Accessibility' },
+    { href: DEMO_PATH, label: 'Request a demo' },
+    { href: '/image-credits', label: 'Image credits' },
   ],
   Legal: [
     { href: '/privacy', label: 'Privacy notice' },
     { href: '/terms', label: 'Terms of use' },
     { href: '/cookies', label: 'Cookies' },
+    { href: '/accessibility', label: 'Accessibility' },
   ],
 } as const;
 

@@ -2,7 +2,8 @@
 import { usePathname, useRouter } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-const MIN_MS = 1000;
+const MIN_MS = 950; // the curtain stays down at least this long, then lifts
+const EXIT_MS = 620;
 const MAX_MS = 5000;
 export const NAVIGATE_EVENT = 'fw-navigate';
 /** Navigate with the loading animation from code (for example after signing in). */
@@ -16,7 +17,8 @@ export function navigate(href: string) { window.dispatchEvent(new CustomEvent(NA
 export function PageTransition() {
   const router = useRouter();
   const pathname = usePathname();
-  const [active, setActive] = useState(false);
+  const [phase, setPhase] = useState<'idle' | 'cover' | 'lift'>('idle');
+  const active = phase === 'cover';
   const started = useRef(0);
   const from = useRef(pathname);
   const failsafe = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -25,9 +27,9 @@ export function PageTransition() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { router.push(href); return; }
     started.current = Date.now();
     from.current = window.location.pathname;
-    setActive(true);
+    setPhase('cover');
     if (failsafe.current) clearTimeout(failsafe.current);
-    failsafe.current = setTimeout(() => setActive(false), MAX_MS);
+    failsafe.current = setTimeout(() => setPhase('lift'), MAX_MS);
     router.push(href);
   }, [router]);
 
@@ -54,20 +56,27 @@ export function PageTransition() {
     if (!active || pathname === from.current) return;
     if (!window.location.hash) window.scrollTo(0, 0); // new pages always start at the top, instantly
     const wait = Math.max(0, MIN_MS - (Date.now() - started.current));
-    const t = setTimeout(() => { setActive(false); if (failsafe.current) clearTimeout(failsafe.current); }, wait);
+    const t = setTimeout(() => { setPhase('lift'); if (failsafe.current) clearTimeout(failsafe.current); }, wait);
     return () => clearTimeout(t);
   }, [pathname, active]);
 
-  if (!active) return null;
+  // After the curtain lifts, remove it from the page.
+  useEffect(() => {
+    if (phase !== 'lift') return;
+    const t = setTimeout(() => setPhase('idle'), EXIT_MS);
+    return () => clearTimeout(t);
+  }, [phase]);
+
+  if (phase === 'idle') return null;
   return (
-    <div className="transition" role="status" aria-live="polite">
-      <svg className="transition__mark" viewBox="0 0 100 100" aria-hidden="true">
-        <circle className="t-ring" cx="50" cy="50" r="27.5" fill="none" strokeWidth="6" pathLength="100" />
-        <path className="t-tick t-tick--n" d="M50 4v21" /><path className="t-tick t-tick--s" d="M50 75v21" />
-        <path className="t-tick t-tick--w" d="M4 50h21" /><path className="t-tick t-tick--e" d="M75 50h21" />
-        <circle className="t-dot" cx="50" cy="50" r="7" />
-      </svg>
-      <span className="transition__label">Loading</span>
+    <div className={`curtain${phase === 'lift' ? ' curtain--lift' : ''}`} role="status" aria-live="polite" aria-label="Loading page">
+      <div className="curtain__inner">
+        <span className="curtain__word">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/logo/fieldwork-wordmark-light.svg" alt="" width={607} height={138} aria-hidden="true" />
+        </span>
+        <span className="curtain__rule" aria-hidden="true"><i /></span>
+      </div>
     </div>
   );
 }
