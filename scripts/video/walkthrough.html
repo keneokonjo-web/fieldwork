@@ -2,187 +2,416 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<title>Automation walkthrough (scene for recording)</title>
+<title>Automation walkthrough (scene for rendering)</title>
 <style>
 @font-face{font-family:"SG";src:url("../../node_modules/@fontsource-variable/schibsted-grotesk/files/schibsted-grotesk-latin-wght-normal.woff2") format("woff2");font-weight:400 900}
 @font-face{font-family:"GM";src:url("../../node_modules/@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2") format("woff2");font-weight:100 900}
-:root{--paper:#F3F2ED;--ink:#121212;--cobalt:#2340FF;--grey:#6B6A63;--hair:#D3D2CA;--wash:#E8E7E0;--green:#1f7a3d;--amber:#c47a00}
-*{box-sizing:border-box;margin:0}
-html,body{width:1280px;height:720px;overflow:hidden;background:var(--paper);font-family:"SG",system-ui,sans-serif;color:var(--ink)}
-.mono{font:400 13px/1.3 "GM",monospace;letter-spacing:.07em;text-transform:uppercase}
-.stage{position:absolute;inset:0}
-.top{position:absolute;left:48px;right:140px;top:30px;display:flex;justify-content:space-between;z-index:5}
-.prog{position:absolute;left:0;bottom:0;height:5px;background:var(--cobalt);width:0}
-.chap{position:absolute;left:48px;bottom:34px;display:flex;gap:26px;z-index:5}
-.chap span{opacity:.35;transition:opacity .4s,color .4s}.chap span.on{opacity:1;color:var(--cobalt)}
-.sc{position:absolute;inset:0;opacity:0;transition:opacity .55s;pointer-events:none}.sc.on{opacity:1}
-.in{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .7s cubic-bezier(.22,1,.36,1)}.in.show{opacity:1;transform:none}
-h1,h2{letter-spacing:-.055em;line-height:.95;font-weight:700}
-.cap{position:absolute;left:48px;top:84px;max-width:430px}
-.cap h2{font-size:54px;margin:10px 0 14px}.cap p{font-size:19px;color:var(--grey);line-height:1.4}
-.card{background:#fff;border:1px solid var(--ink);box-shadow:0 30px 60px -34px rgba(0,0,0,.45)}
-.field{border:1px solid var(--hair);padding:9px 12px;margin-top:8px;font-size:17px;min-height:42px;background:#fff}
-.lbl{font:400 11px "GM";text-transform:uppercase;letter-spacing:.08em;color:var(--grey);margin-top:12px}
-.btn{display:inline-block;background:var(--cobalt);color:#fff;border-radius:99px;padding:12px 26px;font-weight:600;font-size:17px;transition:transform .15s,background .3s}
-.btn.press{transform:scale(.94)}
-.cursor{position:absolute;width:22px;height:22px;z-index:9;transition:left .8s cubic-bezier(.4,0,.2,1),top .8s cubic-bezier(.4,0,.2,1);opacity:0}
-.cursor svg{width:22px;height:22px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))}
-table{border-collapse:collapse;width:100%;font-size:15px}
-td,th{border-bottom:1px solid var(--hair);padding:10px 12px;text-align:left}
-th{font:400 11px "GM";text-transform:uppercase;letter-spacing:.08em;color:var(--grey);background:var(--wash)}
-tr.new td{background:#e9edff}
-.pill{display:inline-block;border:1px solid currentColor;border-radius:99px;padding:2px 10px;font:500 11px "GM";text-transform:uppercase;letter-spacing:.06em}
+:root{--paper:#F3F2ED;--ink:#121212;--cobalt:#2340FF;--grey:#6B6A63;--hair:#D3D2CA;--wash:#E8E7E0;--green:#1f7a3d;--amber:#c47a00;--blue:#1d7bff}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--paper);font-family:"SG",system-ui,sans-serif;color:var(--ink)}
+.mono{font:400 17px/1.3 "GM",monospace;letter-spacing:.07em;text-transform:uppercase}
+.stage{position:absolute;inset:0;overflow:hidden}
+.sc{position:absolute;inset:0;visibility:hidden}
+.top{position:absolute;left:80px;right:210px;top:44px;display:flex;justify-content:space-between;z-index:8;color:var(--ink)}
+.chap{position:absolute;left:80px;bottom:46px;display:flex;gap:40px;z-index:8}
+.chap span{opacity:.35}.chap span.on{opacity:1;color:var(--cobalt)}
+.hd{position:absolute;left:80px;top:170px;width:560px}
+.hd .lab{color:var(--cobalt);margin-bottom:18px}
+.hd h2{font-size:76px;letter-spacing:-.055em;line-height:.95;font-weight:700;margin-bottom:26px}
+.hd .sub{font-size:27px;line-height:1.4;color:var(--grey)}
+.abs{position:absolute}
+.win{position:absolute;background:#fff;border:1px solid #1b1b1b;border-radius:14px;box-shadow:0 40px 80px -36px rgba(0,0,0,.5);overflow:hidden}
+.wbar{height:50px;background:#ecebe6;border-bottom:1px solid var(--hair);display:flex;align-items:center;gap:9px;padding:0 18px}
+.wbar i{width:13px;height:13px;border-radius:50%;background:#d6d4cc}.wbar i.r{background:#ee6a5e}.wbar i.y{background:#f4bf4f}.wbar i.g{background:#61c454}
+.wbar .url{margin-left:18px;flex:1;max-width:420px;background:#fff;border:1px solid var(--hair);border-radius:99px;padding:5px 16px;font:400 15px "GM";color:var(--grey)}
+.wbar .wt{margin:0 auto;font:600 16px "SG";color:var(--grey);transform:translateX(-30px)}
+/* property page + form */
+.ph-img{height:150px;background:#222 center/cover;position:relative}
+.ph-img b{position:absolute;left:24px;bottom:14px;color:#fff;font-size:30px;letter-spacing:-.04em;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.ph-img span{position:absolute;right:24px;bottom:18px;color:#fff;font-size:20px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.fm{padding:20px 28px 24px}
+.tabs{display:flex;border-bottom:1px solid var(--hair);margin-bottom:16px}
+.tabs b{flex:1;text-align:center;padding:12px 0;font:600 14px "GM";letter-spacing:.12em;text-transform:uppercase;color:var(--grey);border-bottom:3px solid transparent;margin-bottom:-1px}
+.tabs b.on{color:var(--ink);border-color:#d63f22}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fl{margin-bottom:12px}
+.fl label{display:block;font:500 13px "GM";letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:5px}
+.fi{border:1px solid #cfcdc4;border-radius:11px;padding:0 14px;height:52px;display:flex;align-items:center;font-size:21px;background:#fff;overflow:hidden;white-space:nowrap}
+.fi.ta{height:84px;align-items:flex-start;padding-top:12px;white-space:normal;line-height:1.35}
+.typing::after{content:"";display:inline-block;width:2px;height:1.05em;background:var(--ink);margin-left:2px;vertical-align:-3px}
+.chk{display:flex;gap:12px;align-items:center;font-size:18px;color:var(--grey);margin:6px 0 14px}
+.chk i{width:22px;height:22px;border:1.5px solid #8d8b82;border-radius:6px;display:grid;place-items:center;font-style:normal;color:#fff;font-size:15px}
+.chk i.on{background:var(--ink);border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:#121212;color:#f3f2ee;border-radius:99px;height:54px;padding:0 34px;font-weight:600;font-size:19px}
+.btn.red{background:#d63f22}.btn.blue{background:var(--blue)}.btn.press{transform:scale(.95)}
+.btn.ok{background:var(--green);color:#fff}
+/* lead list */
+.card{position:absolute;background:#fff;border:1px solid #1b1b1b;border-radius:14px;box-shadow:0 36px 70px -36px rgba(0,0,0,.45);overflow:hidden}
+.card .ch{padding:14px 20px;border-bottom:1px solid #1b1b1b;display:flex;justify-content:space-between;align-items:center}
+.seg{display:flex;gap:6px}.seg span{border:1px solid var(--hair);border-radius:99px;padding:5px 13px;font:500 13px "GM";letter-spacing:.06em;text-transform:uppercase;color:var(--grey)}
+.seg span.on{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+table{border-collapse:collapse;width:100%;font-size:19px}
+td,th{border-bottom:1px solid var(--hair);padding:13px 18px;text-align:left;white-space:nowrap}
+th{font:500 12px "GM";text-transform:uppercase;letter-spacing:.1em;color:var(--grey);background:#f1f0eb}
+tr.new td{background:#e8ecff}
+.pill{display:inline-block;border:1px solid currentColor;border-radius:99px;padding:2px 11px;font:500 12px "GM";text-transform:uppercase;letter-spacing:.06em}
 .ok{color:var(--green)}.am{color:var(--amber)}.bl{color:var(--cobalt)}
-.dots{position:absolute;right:-120px;top:-140px;width:620px;height:620px;opacity:.9;color:var(--cobalt)}
+.kv{padding:16px 20px;font-size:18px;line-height:1.7}
+.kv div{display:flex;justify-content:space-between;border-bottom:1px dashed var(--hair);padding:2px 0}.kv span{color:var(--grey)}
+/* mail */
+.mhead{padding:22px 32px 16px;border-bottom:1px solid var(--hair)}
+.subj{font-size:32px;letter-spacing:-.035em;font-weight:700;margin-bottom:14px}
+.from{display:flex;gap:14px;align-items:center;font-size:19px;line-height:1.45}.from span{color:var(--grey);font-size:15px}
+.av{width:46px;height:46px;border-radius:50%;background:#121212;color:#f3f2ee;display:grid;place-items:center;font:400 30px/1 "SG";padding-bottom:5px}
+.mbody{padding:0 0 20px;background:#f7f6f2}
+.mhero{height:190px;background:#222 center/cover}
+.mcard{margin:0 32px;padding:24px 28px;background:#fff;position:relative;top:-26px;border:1px solid var(--hair)}
+.mcard h3{font-size:34px;letter-spacing:-.045em;margin-bottom:12px}
+.mcard p{font-size:20px;line-height:1.5;color:#333;margin-bottom:12px}
+.det{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);margin:14px 0;padding:10px 0;font-size:18px;line-height:1.7}
+.det div{display:flex;justify-content:space-between}.det span{color:var(--grey)}
+.mfoot{padding:0 32px;font-size:14px;color:var(--grey);line-height:1.5;margin-top:-6px}
+/* phone */
+.phone{position:absolute;background:#0c0c0c;border-radius:54px;padding:12px;box-shadow:0 50px 90px -40px rgba(0,0,0,.65)}
+.pscr{background:#fff;border-radius:44px;height:100%;overflow:hidden;position:relative}
+.notch{position:absolute;left:50%;top:10px;width:96px;height:26px;border-radius:99px;background:#0c0c0c;transform:translateX(-50%);z-index:3}
+.phd{padding:46px 14px 10px;text-align:center;border-bottom:1px solid #e3e3e6;background:#f7f7f8}
+.pav{width:44px;height:44px;border-radius:50%;background:#121212;color:#f3f2ee;margin:0 auto 4px;display:grid;place-items:center;font:400 28px/1 "SG";padding-bottom:5px}
+.phd b{display:block;font-size:17px}.phd span{font-size:13px;color:#8a8a8e}
+.thread{padding:12px 14px;display:flex;flex-direction:column;gap:7px}
+.ts{text-align:center;font-size:13px;color:#8a8a8e;margin:6px 0 2px}
+.bw{position:relative;display:flex}
+.bw.out{justify-content:flex-end}
+.bub{max-width:82%;padding:11px 16px;border-radius:22px;font-size:18px;line-height:1.32}
+.bub.in{background:#e9e9eb;color:#111;border-bottom-left-radius:6px}
+.bub.out{background:var(--blue);color:#fff;border-bottom-right-radius:6px}
+.bub b{display:block;margin-bottom:3px}
+.typ{position:absolute;left:0;top:0;background:#e9e9eb;border-radius:21px;border-bottom-left-radius:6px;padding:14px 16px;display:flex;gap:5px}
+.typ i{width:9px;height:9px;border-radius:50%;background:#8a8a8e}
+.dlv{font-size:11px;color:#8a8a8e;text-align:right;margin-top:-3px;padding-right:4px}
+.lockbar{padding:60px 0 0;text-align:center}
+.lockbar b{font:300 78px/1 "SG";letter-spacing:-.02em}.lockbar span{display:block;font-size:17px;margin-top:6px;color:#444}
+.lock{background:linear-gradient(160deg,#2a3f9f,#8aa0ff 60%,#d7dcff)}
+.push{margin:30px 12px 0;background:rgba(255,255,255,.92);border-radius:22px;padding:14px 16px;font-size:16.5px;line-height:1.35;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.push .pt{display:flex;justify-content:space-between;font-size:12px;color:#666;margin-bottom:4px}
+.push b{display:block;font-size:18px;margin-bottom:2px}
+/* tasks */
+.task{display:flex;gap:16px;align-items:center;padding:17px 22px;border-bottom:1px solid var(--hair);font-size:21px}
+.task i{width:24px;height:24px;border:1.6px solid #8d8b82;border-radius:7px;flex:none;display:grid;place-items:center;font-style:normal;color:#fff;font-size:15px}
+.task em{margin-left:auto;font:500 13px "GM";letter-spacing:.06em;text-transform:uppercase;font-style:normal;color:var(--grey)}
+.task.nw{background:#e8ecff}.task.nw em{color:var(--cobalt)}
+.rule{padding:16px 22px;font-size:18px;display:flex;gap:14px;align-items:center}
+.rule .pill{flex:none}
+/* feedback form */
+.fb{padding:20px 30px 24px}
+.fb h3{font-size:34px;letter-spacing:-.045em;margin-bottom:2px}
+.fb .sm{font-size:17px;color:var(--grey);margin-bottom:12px}
+.fbl{font:500 13px "GM";letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin:12px 0 7px}
+.stars{display:flex;gap:6px;font-size:36px;line-height:1;color:#d6d4cc}
+.stars i{font-style:normal}.stars i.on{color:#e8a400}
+.stars.s{font-size:22px;gap:3px}
+.cat{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 26px}
+.cat div{display:flex;justify-content:space-between;align-items:center;font-size:19px;border-bottom:1px solid var(--hair);padding-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border:1px solid #bdbbb2;border-radius:99px;padding:6px 16px;font-size:18px}
+.chips span.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opts span{border:1px solid #bdbbb2;border-radius:11px;padding:9px 14px;font-size:18px;display:flex;gap:10px;align-items:center}
+.opts span::before{content:"";width:16px;height:16px;border-radius:50%;border:1.6px solid #8d8b82;flex:none}
+.opts span.on{border-color:var(--cobalt);background:#eef0ff}.opts span.on::before{border-color:var(--cobalt);background:radial-gradient(var(--cobalt) 45%,transparent 50%)}
+.price{grid-template-columns:repeat(3,1fr)}.price span{justify-content:center;text-align:center}.price span::before{display:none}
+.agentc{padding:22px 24px}
+.agentc .big{font-size:34px;letter-spacing:-.045em;font-weight:700;margin:8px 0 12px}
+.agentc .tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+.agentc .tags span{background:#eef0ff;color:var(--cobalt);border-radius:99px;padding:4px 13px;font-size:15px}
+.agentc q{display:block;font-size:21px;color:#444;margin-bottom:16px;quotes:"“" "”"}
+.nudge{background:#e8ecff;border-radius:12px;padding:14px 16px;font-size:19px}
+.cursor{position:absolute;width:30px;height:30px;z-index:20;pointer-events:none;opacity:0}
+.cursor svg{width:30px;height:30px;filter:drop-shadow(0 3px 4px rgba(0,0,0,.4))}
+.ripple{position:absolute;width:60px;height:60px;border-radius:50%;border:3px solid var(--cobalt);z-index:19;opacity:0;pointer-events:none}
+.dots{position:absolute;right:-160px;top:-200px;width:940px;height:940px;color:var(--cobalt)}
+.big{font-weight:700;letter-spacing:-.06em;line-height:.9}
+.mask{overflow:hidden;padding-bottom:.16em;margin-bottom:-.06em}
 </style>
+<script src="timeline.js"></script>
 </head>
 <body>
 <div class="stage" id="stage">
-  <div class="top mono"><span>Fieldwork · Automations walkthrough</span><span id="cn">Intro</span></div>
-  <div class="chap mono" id="chap"><span>01 Enquiry</span><span>02 Confirmation</span><span>03 Agent</span><span>04 Viewing</span><span>05 Feedback</span></div>
-  <div class="prog" id="prog"></div>
+  <div class="top mono" id="top"><span>Fieldwork · Automations walkthrough</span><span id="cn">Introduction</span></div>
+  <div class="chap mono" id="chap"><span>01 Enquiry</span><span>02 Automated reply</span><span>03 Agent</span><span>04 Viewing</span><span>05 Feedback</span></div>
 
-  <!-- 0 title -->
-  <section class="sc on" id="s0">
+  <!-- 0: title -->
+  <section class="sc" id="sc0">
     <svg class="dots" viewBox="0 0 100 100" aria-hidden="true"><g fill="currentColor" id="dg"></g></svg>
-    <div style="position:absolute;left:48px;top:230px">
-      <p class="mono in" id="t0a" style="color:var(--cobalt)">Automations</p>
-      <h1 class="in" id="t0b" style="font-size:112px;margin-top:14px">Lead capture<br>&amp; viewings.</h1>
-      <p class="in" id="t0c" style="font-size:22px;color:var(--grey);margin-top:22px">A one-minute walkthrough. Fictional people and properties.</p>
+    <div class="abs" style="left:80px;top:250px">
+      <div class="mask"><div class="big" id="w1" style="font-size:176px">Every enquiry.</div></div>
+      <div class="mask"><div class="big" id="w2" style="font-size:176px">Every viewing.</div></div>
+      <div class="mask"><div class="big" id="w3" style="font-size:176px;color:var(--cobalt)">Handled.</div></div>
+      <p class="mono" id="w4" style="margin-top:48px;color:var(--grey);font-size:21px">Fieldwork automations · an illustrative walkthrough with fictional people and properties</p>
     </div>
   </section>
 
-  <!-- 1 enquiry -->
-  <section class="sc" id="s1">
-    <div class="cap"><p class="mono bl">01 / Enquiry arrives</p><h2>An enquiry comes in.</h2><p>From your website form, or typed in by your team. The details are checked and recorded.</p></div>
-    <div class="card in" id="form" style="position:absolute;left:560px;top:96px;width:300px;padding:20px 22px 22px">
-      <b style="font-size:20px;letter-spacing:-.03em">Enquire about Larch Court</b>
-      <div class="lbl">Your name</div><div class="field" id="f1"></div>
-      <div class="lbl">Email</div><div class="field" id="f2"></div>
-      <div class="lbl">Message</div><div class="field" id="f3" style="min-height:72px;font-size:15px"></div>
-      <div style="margin-top:16px"><span class="btn" id="send">Send enquiry</span></div>
+  <!-- 1: enquiry -->
+  <section class="sc" id="sc1">
+    <div class="hd" id="h1"><p class="mono lab">01 / Enquiry arrives</p><h2>A buyer asks to view.</h2><p class="sub">The form on your website sends the details straight to your team’s list: your CRM, or a shared sheet.</p></div>
+    <div class="win" id="browser" style="left:700px;top:120px;width:640px;height:830px">
+      <div class="wbar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">halden.example/properties/larch-court</span></div>
+      <div class="ph-img" style="background-image:url(../../public/concepts/img/prop-modernist.jpg)"><b>Larch Court</b><span>£2,750,000 · 4 bed · Richmond</span></div>
+      <div class="fm">
+        <div class="tabs"><b class="on">Book a viewing</b><b>Enquire</b></div>
+        <div class="row2"><div class="fl"><label>Your name</label><div class="fi" id="f_name"></div></div><div class="fl"><label>Email</label><div class="fi" id="f_email"></div></div></div>
+        <div class="row2"><div class="fl"><label>Phone</label><div class="fi" id="f_phone"></div></div><div class="fl"><label>Preferred day</label><div class="fi" id="f_day"></div></div></div>
+        <div class="fl"><label>Message</label><div class="fi ta" id="f_msg"></div></div>
+        <div class="chk"><i id="f_chk">✓</i>I agree to Halden contacting me about this property.</div>
+        <span class="btn red" id="f_btn">Request viewing</span>
+      </div>
     </div>
-    <div class="card in" id="sheet" style="position:absolute;left:890px;top:96px;width:342px;padding:0">
-      <div class="mono" style="padding:12px;border-bottom:1px solid var(--ink)">Lead list · your CRM or a shared sheet</div>
+    <div class="card" id="leads" style="left:1380px;top:130px;width:460px">
+      <div class="ch"><b style="font-size:18px">Lead list</b><div class="seg"><span id="seg1">Your CRM</span><span id="seg2">Shared sheet</span></div></div>
       <table><tr><th>Name</th><th>Property</th><th>Status</th></tr>
         <tr><td>A. Patel</td><td>Elm Terrace</td><td><span class="pill ok">Booked</span></td></tr>
         <tr><td>J. Moore</td><td>The Forge</td><td><span class="pill am">Waiting</span></td></tr>
-        <tr class="new in" id="newrow"><td>Sam Test</td><td>Larch Court</td><td><span class="pill bl">New</span></td></tr>
+        <tr id="newrow" class="new"><td>Sam Test</td><td>Larch Court</td><td><span class="pill bl">New</span></td></tr>
       </table>
     </div>
-    <div class="mono in" id="arrow1" style="position:absolute;left:566px;top:476px;color:var(--cobalt);font-size:15px">Checked → recorded → in the list</div>
+    <div class="card" id="rec" style="left:1380px;top:430px;width:460px">
+      <div class="ch"><b style="font-size:16px">Recorded automatically</b><span class="pill ok">Checked</span></div>
+      <div class="kv"><div><span>Name</span>Sam Test</div><div><span>Contact</span>email · phone</div><div><span>Property</span>Larch Court</div><div><span>Viewing</span>Saturday</div><div><span>Source</span>Website form</div><div><span>Consent</span>Given</div></div>
+    </div>
     <div class="cursor" id="cur1"><svg viewBox="0 0 24 24"><path d="M3 2l7 19 3-8 8-3z" fill="#121212" stroke="#fff" stroke-width="1.5"/></svg></div>
   </section>
 
-  <!-- 2 confirmation -->
-  <section class="sc" id="s2">
-    <div class="cap"><p class="mono bl">02 / Confirmation sent</p><h2>They hear back at once.</h2><p>An approved acknowledgement goes out in your wording. Nothing is promised that your team has not agreed.</p></div>
-    <div class="card in" id="mail" style="position:absolute;left:560px;top:110px;width:640px;padding:0">
-      <div style="padding:16px 22px;border-bottom:1px solid var(--hair);display:grid;gap:4px"><span class="mono" style="color:var(--grey)">To: sam@example.com</span><b style="font-size:21px;letter-spacing:-.03em">We have your enquiry about Larch Court</b></div>
-      <div style="padding:22px;font-size:19px;line-height:1.5;min-height:200px" id="mailbody"></div>
-      <div style="padding:0 22px 20px"><span class="pill ok" id="sentpill" style="opacity:0;transition:opacity .5s">✓ Sent automatically · approved wording</span></div>
+  <!-- 2: instant automated reply -->
+  <section class="sc" id="sc2">
+    <div class="hd" id="h2"><p class="mono lab">02 / Instant automated reply</p><h2>Instant automated reply.</h2><p class="sub">An approved email and a text message go out in your wording, with the right property and the right name.</p></div>
+    <div class="win" id="mail" style="left:700px;top:120px;width:740px;height:810px">
+      <div class="wbar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="wt">Inbox</span></div>
+      <div class="mhead"><div class="subj">We have your enquiry about Larch Court</div>
+        <div class="from"><div class="av">h</div><div><b>Halden</b> &lt;hello@halden.example&gt;<br><span>To: Sam Test · Mon 19 Oct, 10:42</span></div></div></div>
+      <div class="mbody">
+        <div class="mhero" style="background-image:url(../../public/concepts/img/prop-modernist.jpg)"></div>
+        <div class="mcard"><h3>Thank you, Sam.</h3>
+          <p>We have your enquiry about Larch Court, and your agent will be in touch shortly to arrange your viewing.</p>
+          <div class="det"><div><span>Property</span>Larch Court, Richmond TW10</div><div><span>Guide price</span>£2,750,000</div><div><span>Your agent</span>Amara Okoye</div><div><span>Your request</span>Viewing, Saturday</div></div>
+          <span class="btn" style="height:48px;font-size:17px">View the property</span></div>
+        <div class="mfoot">You are receiving this because you enquired on halden.example. Halden · 14 Cavendish Mews, London W1G 0AA · Unsubscribe</div>
+      </div>
+    </div>
+    <div class="abs" id="autochip" style="left:700px;top:946px"><span class="pill ok" style="font-size:14px;padding:5px 14px">Sent automatically · approved wording</span></div>
+    <div class="phone" id="ph2" style="left:1490px;top:150px;width:350px;height:720px"><div class="notch"></div><div class="pscr">
+      <div class="phd"><div class="pav">h</div><b>Halden</b><span>Business text</span></div>
+      <div class="thread"><div class="ts">Mon 19 Oct, 10:42</div>
+        <div class="bw"><div class="typ" id="typ2"><i></i><i></i><i></i></div><div class="bub in" id="b2">Hi Sam, thanks for your enquiry about Larch Court. We’ve received it and Amara from Halden will be in touch shortly to arrange your viewing.</div></div>
+      </div></div></div>
+  </section>
+
+  <!-- 3: agent notified -->
+  <section class="sc" id="sc3">
+    <div class="hd" id="h3"><p class="mono lab">03 / Agent notified</p><h2>The right agent knows.</h2><p class="sub">The lead is assigned by the rules you choose, and a follow-up is created so nobody has to remember.</p></div>
+    <div class="phone" id="ph3" style="left:700px;top:140px;width:360px;height:760px"><div class="notch"></div><div class="pscr lock">
+      <div class="lockbar"><b>10:42</b><span>Monday 19 October</span></div>
+      <div class="push" id="push"><div class="pt"><span>HALDEN CRM</span><span>now</span></div><b>New lead: Sam Test</b>Viewing request · Larch Court, Richmond. Assigned to you.</div>
+    </div></div>
+    <div class="card" id="rulec" style="left:1110px;top:160px;width:730px"><div class="rule"><span class="pill bl">Assignment rule</span>Richmond enquiries go to <b>Amara Okoye</b></div></div>
+    <div class="card" id="tasks" style="left:1110px;top:290px;width:730px">
+      <div class="ch"><b style="font-size:18px">Amara’s follow-ups</b><span class="mono" style="font-size:13px;color:var(--grey)">Today</span></div>
+      <div class="task"><i></i>Call J. Moore about The Forge<em>Today 14:00</em></div>
+      <div class="task"><i></i>Send floor plan to A. Patel<em>Today 16:30</em></div>
+      <div class="task nw" id="newtask"><i id="tk"></i><b>Follow up Sam Test · Larch Court</b><em>Tomorrow 09:00</em></div>
+    </div>
+    <div class="card" id="leadc" style="left:1110px;top:640px;width:730px">
+      <div class="ch"><b style="font-size:18px">Lead record</b><span class="pill bl">New</span></div>
+      <div class="kv" style="columns:2;column-gap:40px"><div><span>Name</span>Sam Test</div><div><span>Phone</span>07700 900123</div><div><span>Email</span>sam.test@example.com</div><div><span>Property</span>Larch Court</div><div><span>Source</span>Website form</div><div><span>Consent</span>Given</div></div>
     </div>
   </section>
 
-  <!-- 3 agent -->
-  <section class="sc" id="s3">
-    <div class="cap"><p class="mono bl">03 / Agent notified</p><h2>The right agent knows.</h2><p>The lead is assigned by the rules you agree, and a follow-up reminder is created so nobody has to remember.</p></div>
-    <div class="card in" id="push" style="position:absolute;left:600px;top:110px;width:520px;padding:18px 22px;border-radius:22px">
-      <span class="mono" style="color:var(--grey)">Notification · now</span>
-      <b style="display:block;font-size:24px;letter-spacing:-.03em;margin:6px 0 4px">New lead: Sam Test</b>
-      <span style="font-size:18px;color:var(--grey)">Larch Court · asked about a viewing · assigned to Amara</span>
+  <!-- 4: viewing confirmed -->
+  <section class="sc" id="sc4">
+    <div class="hd" id="h4"><p class="mono lab">04 / Viewing confirmed</p><h2>Confirmed in one click.</h2><p class="sub">The agent confirms the viewing. A second message then tells the buyer, and a reminder follows the day before.</p></div>
+    <div class="card" id="vcard" style="left:700px;top:150px;width:540px">
+      <div class="ch"><b style="font-size:18px">Viewing request</b><span class="pill am" id="vstat">Needs confirming</span></div>
+      <div class="kv" style="padding:22px 24px;font-size:19px;line-height:1.8"><div><span>Property</span>Larch Court, Richmond</div><div><span>Buyer</span>Sam Test</div><div><span>Requested</span>Saturday 24 Oct, 11:00</div><div><span>Agent</span>Amara Okoye</div></div>
+      <div style="padding:0 24px 24px"><span class="btn blue" id="confirm" style="width:100%">Confirm viewing</span></div>
     </div>
-    <div class="card in" id="tasks" style="position:absolute;left:600px;top:300px;width:520px;padding:0">
-      <div class="mono" style="padding:12px 22px;border-bottom:1px solid var(--ink)">Amara's follow-ups</div>
-      <div style="padding:16px 22px;border-bottom:1px solid var(--hair);font-size:18px">☐ &nbsp;Call J. Moore about The Forge <span class="mono" style="float:right;color:var(--grey)">Today</span></div>
-      <div id="trow" class="in" style="padding:16px 22px;font-size:18px;background:#e9edff">☐ &nbsp;<b>Follow up Sam Test · Larch Court</b> <span class="mono" style="float:right;color:var(--cobalt)">Tomorrow 09:00</span></div>
+    <div class="abs mono" id="told" style="left:700px;top:520px;width:540px;color:var(--cobalt);font-size:17px;line-height:1.5">→ A second message goes to Sam: <br>the date, time, address and your agent.</div>
+    <div class="card" id="invite" style="left:700px;top:640px;width:540px">
+      <div class="ch"><b style="font-size:16px">Calendar</b><span class="pill ok">Invite sent</span></div>
+      <div style="padding:18px 22px;display:flex;gap:18px;align-items:center"><div style="width:6px;height:64px;background:var(--cobalt);border-radius:4px"></div><div style="font-size:20px;line-height:1.35"><b>Viewing · Larch Court</b><br><span style="color:var(--grey);font-size:17px">Sat 24 Oct, 11:00–11:30 · Amara &amp; Sam</span></div></div>
+    </div>
+    <div class="phone" id="ph4" style="left:1360px;top:110px;width:400px;height:860px"><div class="notch"></div><div class="pscr">
+      <div class="phd"><div class="pav">h</div><b>Halden</b><span>Business text</span></div>
+      <div class="thread">
+        <div class="ts">Mon 19 Oct, 10:42</div>
+        <div class="bw"><div class="bub in">Hi Sam, thanks for your enquiry about Larch Court. We’ve received it and Amara from Halden will be in touch shortly to arrange your viewing.</div></div>
+        <div class="ts" id="ts4a">Mon 19 Oct, 11:05</div>
+        <div class="bw"><div class="typ" id="typ4"><i></i><i></i><i></i></div><div class="bub in" id="b4a"><b>Your viewing is confirmed.</b>Larch Court, 3 Larch Court, Richmond TW10 6QX<br>Saturday 24 October, 11:00<br>With Amara Okoye<br>Need to change it? Reply here.</div></div>
+        <div class="bw out"><div class="bub out" id="b4b">Perfect, thank you!</div></div>
+        <div class="dlv" id="dl4">Delivered</div>
+        <div class="ts" id="ts4b">Fri 23 Oct, 17:00</div>
+        <div class="bw"><div class="bub in" id="b4c"><b>Reminder</b>Your viewing at Larch Court is tomorrow at 11:00. Amara will meet you at the front door.</div></div>
+      </div></div></div>
+  </section>
+
+  <!-- 5: feedback -->
+  <section class="sc" id="sc5">
+    <div class="hd" id="h5"><p class="mono lab">05 / Feedback collected</p><h2>Feedback, in detail.</h2><p class="sub">A short form follows the viewing. The answers reach the agent with a prompt to follow up.</p></div>
+    <div class="phone" id="ph5" style="left:700px;top:150px;width:350px;height:640px"><div class="notch"></div><div class="pscr">
+      <div class="phd"><div class="pav">h</div><b>Halden</b><span>Business text</span></div>
+      <div class="thread"><div class="ts">Sat 24 Oct, 13:10</div>
+        <div class="bw"><div class="bub in" id="b5">Thanks for visiting Larch Court today, Sam. How did it go? It takes a minute: <span style="color:var(--blue);text-decoration:underline">halden.example/feedback/k29x</span></div></div>
+      </div></div></div>
+    <div class="ripple" id="rip5"></div>
+    <div class="win" id="fbwin" style="left:700px;top:112px;width:760px;height:870px">
+      <div class="wbar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">halden.example/feedback/k29x</span></div>
+      <div class="fb">
+        <h3>How was Larch Court?</h3><div class="sm">Thank you for viewing with Halden. This takes about a minute.</div>
+        <div class="fbl">Overall</div><div class="stars" id="st0"></div>
+        <div class="fbl">Rate each part</div>
+        <div class="cat"><div>Property<span class="stars s" id="st1"></span></div><div>Location<span class="stars s" id="st2"></span></div><div>Value<span class="stars s" id="st3"></span></div><div>Your agent<span class="stars s" id="st4"></span></div></div>
+        <div class="fbl">What did you like?</div>
+        <div class="chips" id="chips"><span>Garden</span><span>Kitchen</span><span>Natural light</span><span>Location</span><span>Layout</span><span>Parking</span></div>
+        <div class="fbl">How did the price feel?</div>
+        <div class="opts price" id="price"><span>Below my budget</span><span>About right</span><span>Above my budget</span></div>
+        <div class="fbl">What would you like to do next?</div>
+        <div class="opts" id="next"><span>Arrange a second viewing</span><span>Make an offer</span><span>See similar homes</span><span>Not for me</span></div>
+        <div class="fbl">Anything else?</div><div class="fi ta" id="f_comment" style="height:64px"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px"><div class="chips" id="pref"><span>Phone</span><span>Email</span><span>Text</span></div><span class="btn red" id="fsub">Send feedback</span></div>
+      </div>
+    </div>
+    <div class="card agentc" id="agentcard" style="left:1500px;top:170px;width:340px">
+      <span class="mono bl" style="font-size:14px">Feedback received</span>
+      <div class="big">Sam Test · 4 of 5</div>
+      <div class="tags"><span>Garden</span><span>Kitchen</span><span>Natural light</span></div>
+      <q>Loved the garden. Would like a second viewing.</q>
+      <div style="font-size:15px;color:var(--grey);margin-bottom:12px">Price: about right · Next: second viewing · Contact: text</div>
+      <div class="nudge" id="nudge"><b>Prompt:</b> offer Sam a second viewing</div>
     </div>
   </section>
 
-  <!-- 4 viewing -->
-  <section class="sc" id="s4">
-    <div class="cap"><p class="mono bl">04 / Viewing confirmed</p><h2>Confirmed by a person.</h2><p>The agent reviews the request and confirms it. Only then is the buyer told, and a reminder goes out before the day.</p></div>
-    <div class="card in" id="cal" style="position:absolute;left:560px;top:96px;width:330px;padding:0">
-      <div class="mono" style="padding:12px 18px;border-bottom:1px solid var(--ink)">Viewing request</div>
-      <div style="padding:18px"><b style="font-size:22px;letter-spacing:-.03em">Larch Court, Richmond</b><div style="color:var(--grey);margin:4px 0 14px;font-size:17px">Sam Test · Saturday 11:00</div>
-      <span class="pill am" id="vstat">Needs confirming</span>
-      <div style="margin-top:20px"><span class="btn" id="confirm">Confirm viewing</span></div></div>
-    </div>
-    <div class="card in" id="msg" style="position:absolute;left:920px;top:96px;width:312px;padding:18px;border-radius:20px">
-      <span class="mono" style="color:var(--grey)">To Sam · just now</span>
-      <b style="display:block;font-size:21px;letter-spacing:-.03em;margin:6px 0">Your viewing is confirmed</b>
-      <span style="font-size:17px;color:var(--grey)">Larch Court, Saturday at 11:00. We look forward to seeing you.</span>
-    </div>
-    <div class="card in" id="rem" style="position:absolute;left:920px;top:300px;width:312px;padding:16px 18px;border-radius:20px">
-      <span class="mono bl">Reminder scheduled</span><div style="font-size:18px;margin-top:6px">Friday 17:00 · “See you tomorrow at 11:00.”</div>
-    </div>
-    <div class="cursor" id="cur2"><svg viewBox="0 0 24 24"><path d="M3 2l7 19 3-8 8-3z" fill="#121212" stroke="#fff" stroke-width="1.5"/></svg></div>
-  </section>
-
-  <!-- 5 feedback -->
-  <section class="sc" id="s5">
-    <div class="cap"><p class="mono bl">05 / Feedback collected</p><h2>And afterwards, a reply.</h2><p>A short form goes out after the viewing. The answer reaches the agent, with a nudge to follow up.</p></div>
-    <div class="card in" id="fb" style="position:absolute;left:560px;top:96px;width:340px;padding:20px 22px">
-      <b style="font-size:20px;letter-spacing:-.03em">How was Larch Court?</b>
-      <div id="stars" style="font-size:36px;letter-spacing:6px;margin:12px 0;color:var(--hair)">★★★★★</div>
-      <div class="field" id="fbtext" style="min-height:84px;font-size:15px"></div>
-      <div style="margin-top:14px"><span class="btn" id="fbsend">Send feedback</span></div>
-    </div>
-    <div class="card in" id="agent" style="position:absolute;left:930px;top:96px;width:302px;padding:18px">
-      <span class="mono bl">Feedback received</span>
-      <b style="display:block;font-size:22px;letter-spacing:-.03em;margin:8px 0 6px">Sam Test · 4 of 5</b>
-      <div style="font-size:16px;color:var(--grey)">“Loved the garden. Would like a second viewing.”</div>
-      <div style="margin-top:14px;padding:10px 12px;background:#e9edff;font-size:16px"><b>Prompt:</b> offer a second viewing</div>
-    </div>
-  </section>
-
-  <!-- 6 end -->
-  <section class="sc" id="s6" style="background:var(--ink);color:var(--paper)">
-    <div style="position:absolute;left:48px;top:210px">
-      <h1 class="in" id="e1" style="font-size:96px">Every enquiry recorded.<br>Every viewing <span style="color:#7d8fff">confirmed.</span></h1>
-      <p class="in" id="e2" style="font-size:24px;margin-top:26px;color:#bdbdb4">Fixed price. Set up on your accounts. Works beside your CRM.</p>
-      <p class="in mono" id="e3" style="margin-top:36px;color:#8f8f86">Fieldwork · Illustrative walkthrough with fictional people and properties</p>
+  <!-- 6: end -->
+  <section class="sc" id="sc6" style="background:var(--ink);color:var(--paper)">
+    <div class="abs" style="left:80px;top:260px">
+      <div class="mask"><div class="big" id="e1" style="font-size:132px">Every enquiry recorded.</div></div>
+      <div class="mask"><div class="big" id="e2" style="font-size:132px">Every viewing <span style="color:#8d9dff">confirmed.</span></div></div>
+      <p id="e3" style="font-size:36px;margin-top:44px;color:#c7c7be;max-width:1100px;line-height:1.35">Fixed price. Set up on your own accounts. Works beside your CRM.</p>
+      <div class="big mask" style="margin-top:56px"><div id="e4" style="font-size:150px">fieldwork</div></div>
+      <p class="mono" id="e5" style="margin-top:34px;color:#8f8f86;font-size:17px">Illustrative walkthrough with fictional people and properties</p>
     </div>
   </section>
 </div>
 <script>
 const $ = (s) => document.querySelector(s), $$ = (s) => [...document.querySelectorAll(s)];
-// halftone dots for the title
+const TLs = TL.scenes; const S = (i) => TLs[i].start; const C = {}; for (const [k, [sc, r]] of Object.entries(TL.cues)) C[k] = TLs[sc].start + r;
+const TY = {}; for (const [k, v] of Object.entries(TL.type)) TY[k] = { ...v, t0: TLs[v.scene].start + v.t };
+const END = TLs[TLs.length - 1].start + TLs[TLs.length - 1].dur;
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const EZ = { out: (t) => 1 - Math.pow(1 - t, 3), io: (t) => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2), lin: (t) => t, soft: (t) => 1 - Math.pow(1 - t, 4) };
+// halftone dots
 (() => { let h = ''; for (let y = 0; y < 14; y++) for (let x = 0; x < 14; x++) { const d = Math.hypot(x - 6.5, y - 6.5); if (d < 7) h += `<circle cx="${8 + x * 6.4}" cy="${8 + y * 6.4}" r="${Math.max(.4, 2.6 - d * .34)}"/>`; } $('#dg').innerHTML = h; })();
-const T0 = performance.now(); const total = 64000;
-const at = (ms, fn) => setTimeout(fn, ms);
-const show = (sel, ms) => at(ms, () => $(sel).classList.add('show'));
-const scene = (n, ms, label) => at(ms, () => { $$('.sc').forEach((s) => s.classList.remove('on')); $('#s' + n).classList.add('on'); $('#cn').textContent = label; $$('#chap span').forEach((c, i) => c.classList.toggle('on', i === n - 1)); document.body.style.color = n === 6 ? '#f3f2ed' : ''; });
-const type = (sel, text, ms, cps = 22) => { const el = $(sel); for (let i = 1; i <= text.length; i++) at(ms + i * (1000 / cps), () => { el.textContent = text.slice(0, i); }); return ms + text.length * (1000 / cps); };
-const move = (c, x, y, ms) => at(ms, () => { const el = $(c); el.style.opacity = 1; el.style.left = x + 'px'; el.style.top = y + 'px'; });
-(function loop() { const p = Math.min(1, (performance.now() - T0) / total); $('#prog').style.width = p * 100 + '%'; requestAnimationFrame(loop); })();
-// 0 intro
-show('#t0a', 300); show('#t0b', 600); show('#t0c', 1300);
-// 1 enquiry 3.0s
-scene(1, 3000, '01 / 05'); show('#form', 3300); show('#sheet', 3700);
-let e = type('#f1', 'Sam Test', 4200, 14); e = type('#f2', 'sam@example.com', e + 250, 20); e = type('#f3', 'Could I view Larch Court this Saturday?', e + 250, 24);
-move('#cur1', 640, 330, e + 300); at(e + 500, () => { $('#cur1').style.left = '646px'; $('#cur1').style.top = '388px'; });
-at(e + 1500, () => $('#send').classList.add('press')); at(e + 1700, () => $('#send').classList.remove('press'));
-show('#newrow', e + 2200); show('#arrow1', e + 2500);
-// 2 confirmation 14s
-scene(2, 14000, '02 / 05'); show('#mail', 14300);
-type('#mailbody', 'Hello Sam, thank you for your interest in Larch Court. We have your enquiry and an agent will be in touch today to arrange a viewing.', 15000, 38);
-at(20500, () => { $('#sentpill').style.opacity = 1; });
-// 3 agent 25s
-scene(3, 25000, '03 / 05'); show('#push', 25400); show('#tasks', 26600); show('#trow', 28500);
-// 4 viewing 36s
-scene(4, 36000, '04 / 05'); show('#cal', 36300); move('#cur2', 740, 360, 37800); at(38800, () => { $('#cur2').style.left = '748px'; $('#cur2').style.top = '372px'; });
-at(40000, () => $('#confirm').classList.add('press')); at(40200, () => { $('#confirm').classList.remove('press'); $('#vstat').className = 'pill ok'; $('#vstat').textContent = 'Confirmed'; });
-show('#msg', 41200); show('#rem', 43200);
-// 5 feedback 48s
-scene(5, 48000, '05 / 05'); show('#fb', 48300);
-[0, 1, 2, 3].forEach((i) => at(50000 + i * 280, () => { $('#stars').style.color = ''; $('#stars').innerHTML = '★'.repeat(i + 1).split('').map((s) => `<span style="color:#e8a400">${s}</span>`).join('') + '<span style="color:var(--hair)">' + '★'.repeat(4 - i) + '</span>'; }));
-let f = type('#fbtext', 'Loved the garden. Would like a second viewing.', 51400, 24);
-at(f + 600, () => $('#fbsend').classList.add('press')); at(f + 800, () => $('#fbsend').classList.remove('press'));
-show('#agent', f + 1400);
-// 6 end 58s
-scene(6, 58000, 'End'); show('#e1', 58300); show('#e2', 59400); show('#e3', 60400);
-at(total - 100, () => { document.title = 'done'; window.__done = true; });
+// star rows and chip groups
+const starHTML = (n) => '<i>★</i>'.repeat(n);
+['#st0'].forEach((s) => $(s).innerHTML = starHTML(5)); ['#st1', '#st2', '#st3', '#st4'].forEach((s) => $(s).innerHTML = starHTML(5));
+
+const anims = []; const A = (sel, t0, d, p, ez = 'out') => anims.push({ els: $$(sel), t0, d, p, ez });
+const toggles = []; const K = (sel, t0, cls, t1 = Infinity) => toggles.push({ els: $$(sel), t0, cls, t1 });
+const texts = []; const X = (sel, list) => texts.push({ els: $$(sel), list });
+const paths = []; const P = (sel, pts) => paths.push({ el: $(sel), pts });
+anims.sort((a, b) => a.t0 - b.t0);
+const IN = (sel, t0, from = {}, d = .7) => A(sel, t0, d, { o: [0, 1], y: [from.y ?? 26, 0], x: [from.x ?? 0, 0], s: [from.s ?? 1, 1] });
+
+// ---------- scene 0
+A('#w1', C['s0.l1'], .9, { y: [105, 0] }, 'soft'); A('#w2', C['s0.l2'], .9, { y: [105, 0] }, 'soft'); A('#w3', C['s0.l3'], .9, { y: [105, 0] }, 'soft'); A('#w4', C['s0.sub'], .8, { o: [0, 1], y: [14, 0] });
+A('.dots', S(0), 2.4, { o: [0, 1], s: [.9, 1] });
+// ---------- scene 1
+['#h1', '#h2', '#h3', '#h4', '#h5'].forEach((h, i) => IN(h, S(i + 1) + .1, { y: 18 }, .8));
+A('#browser', C['s1.win'], .9, { o: [0, 1], y: [50, 0] }); A('#leads', C['s1.list'], .9, { o: [0, 1], x: [60, 0] });
+const typeAt = [['#f_name', 's1.name'], ['#f_email', 's1.email'], ['#f_phone', 's1.phone'], ['#f_msg', 's1.msg'], ['#f_comment', 's5.comment']];
+X('#f_day', [[S(1) + 4.3, 'Saturday, 11:00']]);
+K('#f_chk', C['s1.click'] - .35, 'on');
+P('#cur1', [[S(1) + 4.9, 1120, 640], [C['s1.click'] - .1, 800, 762, 0], [C['s1.click'] + .5, 820, 790, 0]]);
+A('#f_btn', C['s1.click'] - .05, .15, { s: [1, .95] }); A('#f_btn', C['s1.click'] + .1, .2, { s: [.95, 1] });
+K('#f_btn', C['s1.sent'], 'ok'); X('#f_btn', [[C['s1.sent'], 'Request sent ✓']]);
+A('#newrow', C['s1.row'], .6, { o: [0, 1], x: [-30, 0] });
+A('#rec', C['s1.rec'], .8, { o: [0, 1], y: [30, 0] });
+K('#seg1', C['s1.crm'], 'on', C['s1.sheet']); K('#seg2', C['s1.sheet'], 'on');
+// ---------- scene 2
+A('#mail', C['s2.mail'], .9, { o: [0, 1], x: [-60, 0] }); A('#autochip', C['s2.auto'], .6, { o: [0, 1], y: [10, 0] });
+A('#ph2', C['s2.phone'], .9, { o: [0, 1], x: [80, 0] });
+A('#typ2', C['s2.typing'], .2, { o: [0, 1] }); A('#typ2', C['s2.bubble'] - .05, .1, { o: [1, 0] });
+A('#b2', C['s2.bubble'], .35, { o: [0, 1], s: [.85, 1] }, 'out');
+// ---------- scene 3
+A('#ph3', C['s3.phone'], .9, { o: [0, 1], y: [60, 0] }); A('#push', C['s3.push'], .6, { o: [0, 1], y: [-30, 0] });
+A('#rulec', C['s3.rule'], .7, { o: [0, 1], x: [40, 0] }); A('#tasks', C['s3.tasks'], .8, { o: [0, 1], x: [40, 0] }); A('#leadc', C['s3.tasks'] + .5, .8, { o: [0, 1], x: [40, 0] }); A('#newtask', C['s3.task'], .6, { o: [0, 1], x: [-24, 0] });
+K('#tk', C['s3.tick'], 'noop');
+// ---------- scene 4
+A('#vcard', C['s4.card'], .8, { o: [0, 1], y: [40, 0] });
+A('#confirm', C['s4.click'] - .05, .12, { s: [1, .96] }); A('#confirm', C['s4.click'] + .08, .2, { s: [.96, 1] });
+K('#vstat', C['s4.confirmed'], 'okp'); X('#vstat', [[C['s4.confirmed'], 'Confirmed']]);
+A('#told', C['s4.told'], .7, { o: [0, 1], y: [10, 0] }); A('#invite', C['s4.invite'], .7, { o: [0, 1], y: [24, 0] });
+A('#ph4', C['s4.phone'], .9, { o: [0, 1], x: [80, 0] });
+A('#ts4a', C['s4.typing'], .3, { o: [0, 1] }); A('#typ4', C['s4.typing'], .2, { o: [0, 1] }); A('#typ4', C['s4.bubble'] - .05, .1, { o: [1, 0] }); A('#b4a', C['s4.bubble'], .35, { o: [0, 1], s: [.85, 1] });
+A('#b4b', C['s4.reply'], .3, { o: [0, 1], s: [.85, 1] }); A('#dl4', C['s4.reply'] + .5, .3, { o: [0, 1] });
+A('#ts4b', C['s4.day'], .4, { o: [0, 1] }); A('#b4c', C['s4.remind'], .35, { o: [0, 1], s: [.85, 1] });
+// ---------- scene 5
+A('#ph5', C['s5.phone'], .8, { o: [0, 1], y: [50, 0] }); A('#b5', C['s5.sms'], .35, { o: [0, 1], s: [.85, 1] });
+A('#rip5', C['s5.tap'], .5, { o: [.9, 0], s: [.3, 1.6] }); A('#ph5', C['s5.form'] + .1, .7, { o: [1, 0], x: [0, -120] });
+A('#fbwin', C['s5.form'], .9, { o: [0, 1], y: [50, 0] });
+const sT = (id, t0, n, gap = .18) => { for (let i = 0; i < n; i++) K(`${id} i:nth-child(${i + 1})`, t0 + i * gap, 'on'); };
+sT('#st0', S(5) + 3.0, 4); sT('#st1', S(5) + 3.7, 4, .12); sT('#st2', S(5) + 4.0, 5, .12); sT('#st3', S(5) + 4.25, 4, .12); sT('#st4', S(5) + 4.5, 5, .12);
+[[4.8, 1], [5.0, 2], [5.2, 3]].forEach(([t, n]) => K(`#chips span:nth-child(${n}) `, S(5) + t, 'on')); K('#chips span:nth-child(4)', S(5) + 5.4, 'on');
+K('#price span:nth-child(2)', S(5) + 5.6, 'on'); K('#next span:nth-child(1)', S(5) + 5.9, 'on'); K('#pref span:nth-child(3)', S(5) + 7.7, 'on');
+A('#fsub', C['s5.submit'] - .05, .15, { s: [1, .95] }); A('#fsub', C['s5.submit'] + .1, .2, { s: [.95, 1] }); X('#fsub', [[C['s5.submit'] + .1, 'Sent ✓']]);
+A('#agentcard', C['s5.agent'], .8, { o: [0, 1], x: [60, 0] }); A('#nudge', C['s5.prompt'], .6, { o: [0, 1], y: [14, 0] });
+// ---------- scene 6
+A('#e1', C['s6.l1'], .9, { y: [120, 0] }, 'soft'); A('#e2', C['s6.l2'], .9, { y: [120, 0] }, 'soft'); A('#e3', C['s6.l3'], .8, { o: [0, 1], y: [16, 0] }); A('#e4', C['s6.word'], 1.0, { y: [170, 0] }, 'soft'); A('#e5', C['s6.word'] + .7, .8, { o: [0, 1] });
+anims.sort((a, b) => a.t0 - b.t0);
+
+const cn = $('#cn'); const chips = $$('#chap span');
+const LABELS = ['', '01 / 05', '02 / 05', '03 / 05', '04 / 05', '05 / 05', 'End'];
+function render(t) {
+  // scenes
+  let cur = 0;
+  TLs.forEach((s, i) => {
+    const el = $('#sc' + i); let o = 1;
+    if (i > 0) o = Math.min(o, clamp((t - (s.start - .45)) / .45));
+    if (i < TLs.length - 1) o = Math.min(o, 1 - clamp((t - (s.start + s.dur - .05)) / .05));
+    el.style.opacity = o; el.style.visibility = o > 0 ? 'visible' : 'hidden'; el.style.zIndex = i; if (t >= s.start) cur = i;
+  });
+  cn.textContent = LABELS[cur]; chips.forEach((c, i) => c.classList.toggle('on', i === cur - 1));
+  const dark = cur === 6 && t > TLs[6].start - .2; $('#top').style.color = dark ? '#f3f2ed' : ''; $('#chap').style.opacity = dark ? 0 : 1;
+  // animations (per element and channel)
+  const state = new Map();
+  for (const a of anims) {
+    const p = EZ[a.ez]((t - a.t0) / a.d < 0 ? 0 : clamp((t - a.t0) / a.d));
+    for (const el of a.els) {
+      let st = state.get(el); if (!st) { st = {}; state.set(el, st); }
+      for (const [ch, [f, to]] of Object.entries(a.p)) { if (t < a.t0) { if (st[ch] === undefined) st[ch] = f; } else st[ch] = f + (to - f) * p; }
+    }
+  }
+  for (const [el, st] of state) {
+    if (st.o !== undefined) el.style.opacity = st.o;
+    const tr = []; if (st.x !== undefined || st.y !== undefined) tr.push(`translate(${st.x ?? 0}px,${st.y ?? 0}px)`); if (st.s !== undefined) tr.push(`scale(${st.s})`);
+    if (tr.length) el.style.transform = tr.join(' ');
+  }
+  // class toggles
+  for (const k of toggles) for (const el of k.els) { const on = t >= k.t0 && t < k.t1; el.classList.toggle(k.cls === 'okp' ? 'ok' : k.cls, on); if (k.cls === 'okp') el.classList.toggle('am', !on); }
+  $$('#tk').forEach((el) => { const on = t >= C['s3.tick']; el.style.background = on ? 'var(--cobalt)' : ''; el.style.borderColor = on ? 'var(--cobalt)' : ''; el.textContent = on ? '✓' : ''; });
+  // texts
+  for (const x of texts) for (const el of x.els) { el.dataset.orig ??= el.textContent; let v = null; for (const [t0, s] of x.list) if (t >= t0) v = s; if (v !== null) el.textContent = v; else if (!el.dataset.keep) el.textContent = el.dataset.orig ?? el.textContent; }
+  // typing
+  for (const [sel, id] of typeAt) { const y = TY[id], el = $(sel); const n = clamp(Math.floor((t - y.t0) * y.cps), 0, y.text.length); el.textContent = y.text.slice(0, n); el.classList.toggle('typing', t >= y.t0 && n < y.text.length); }
+  $$('.typ').forEach((el) => [...el.children].forEach((d, i) => { d.style.opacity = .35 + .65 * (.5 + .5 * Math.sin(t * 9 - i * 1.2)); }));
+  // cursors
+  for (const c of paths) {
+    const pts = c.pts; let x, y; const first = pts[0], last = pts[pts.length - 1];
+    if (t <= first[0]) { x = first[1]; y = first[2]; } else if (t >= last[0]) { x = last[1]; y = last[2]; } else { for (let i = 0; i < pts.length - 1; i++) if (t >= pts[i][0] && t <= pts[i + 1][0]) { const p = EZ.io((t - pts[i][0]) / (pts[i + 1][0] - pts[i][0])); x = pts[i][1] + (pts[i + 1][1] - pts[i][1]) * p; y = pts[i][2] + (pts[i + 1][2] - pts[i][2]) * p; } }
+    c.el.style.left = x + 'px'; c.el.style.top = y + 'px'; c.el.style.opacity = clamp((t - first[0] + .3) / .3) * (1 - clamp((t - last[0] - .6) / .3));
+  }
+}
+window.render = render; window.TOTAL = END;
+// extra cursor for scene 4 (added to the DOM so it can sit above the cards)
+(() => { const c = document.createElement('div'); c.className = 'cursor'; c.id = 'cur4'; c.innerHTML = $('#cur1').innerHTML; $('#sc4').appendChild(c); P('#cur4', [[S(4) + 1.0, 1220, 620], [C['s4.click'] - .1, 975, 409], [C['s4.click'] + .6, 990, 430]]); })();
+render(0);
 </script>
 </body>
 </html>

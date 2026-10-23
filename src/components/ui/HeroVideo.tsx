@@ -3,7 +3,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 const FILE = '/media/automation-walkthrough.mp4';
 const POSTER = '/media/automation-walkthrough-poster.jpg';
-const CHAPTERS: [number, string][] = [[0, 'Introduction'], [2.8, '01 · Enquiry arrives'], [15.2, '02 · Confirmation sent'], [27.5, '03 · Agent notified'], [40, '04 · Viewing confirmed'], [53.5, '05 · Feedback collected'], [64.7, 'Summary']];
 const EXPAND_MS = 900;
 
 /**
@@ -71,7 +70,6 @@ export function HeroVideo({ title }: { title: string }) {
   }, [full, collapse]);
   useEffect(() => () => { document.documentElement.style.overflow = ''; if (timer.current) clearTimeout(timer.current); }, []);
 
-  const chapter = [...CHAPTERS].reverse().find(([s]) => t >= s)?.[1] ?? '';
   const toggle = () => { const v = vid.current; if (!v) return; if (v.paused) void v.play(); else v.pause(); };
   return (
     <div className="hv" ref={holder}>
@@ -92,7 +90,7 @@ export function HeroVideo({ title }: { title: string }) {
           <>
             <button ref={closeBtn} type="button" className="hv__x" aria-label="Close the video" onClick={() => collapse()}>×</button>
             <div className="hv__bar">
-              <span className="hv__chap" aria-live="off">{chapter}</span>
+              <span className="hv__chap" />
               <button type="button" onClick={toggle} aria-label={playing ? 'Pause' : 'Play'}>{playing ? 'Pause' : 'Play'}</button>
               <button type="button" onClick={() => { const v = vid.current; if (v) { v.muted = !muted; setMuted(!muted); } }} aria-pressed={!muted}>{muted ? 'Sound off' : 'Sound on'}</button>
               <span className="hv__time" aria-hidden="true"><i style={{ width: `${dur ? (t / dur) * 100 : 0}%` }} /></span>

@@ -15,7 +15,7 @@ export const metadata = pageMetadata({
   path: '/automations',
 });
 
-const chapters = ['Enquiry arrives', 'Confirmation sent', 'Agent notified', 'Viewing confirmed', 'Feedback collected'];
+const chapters = ['Enquiry arrives', 'Instant automated reply', 'Agent notified', 'Viewing confirmed', 'Feedback collected'];
 
 const leadSteps = [
   'An enquiry arrives from a form, or is entered by your team.',
@@ -63,7 +63,7 @@ export default function AutomationsPage() {
             <p className="vhero__desc">Every enquiry recorded, acknowledged and routed. Every viewing confirmed, reminded and followed up.</p>
           </div>
           <HeroVideo title="Watch how the automations work" />
-          <p className="vhero__note">Illustrative walkthrough, about a minute, with fictional people and properties.</p>
+          <p className="vhero__note">Illustrative walkthrough with voice-over, about 80 seconds, with fictional people and properties.</p>
         </div>
       </section>
 
