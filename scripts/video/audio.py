@@ -44,36 +44,51 @@ env = np.clip(env / (np.percentile(env, 95) + 1e-9), 0, 1)
 k = int(0.35 * SR); env = np.convolve(env, np.ones(k) / k, mode='same'); env = np.clip(env * 1.6, 0, 1)
 duck = 1 - 0.55 * env
 
-# ---------- music: soft pad, sparse bells, sub note, reverb
-def note(f, dur, vol=1.0, atk=2.5, rel=3.0):
+# ---------- music: bright, light and bouncy (about 104 bpm): soft pad, bass on the beat, plucked arpeggio and a quiet shaker
+BPM = 104; BEAT = 60 / BPM
+def pluck(f, vol=1.0):
+    t = np.arange(int(.55 * SR)) / SR
+    y = (np.sin(2 * np.pi * f * t) + .4 * np.sin(4 * np.pi * f * t) + .15 * np.sin(6 * np.pi * f * t)) * np.exp(-t * 9) * np.minimum(1, t / .003)
+    return (y * vol).astype(np.float32)
+def bass(f, vol=1.0):
+    t = np.arange(int(.6 * SR)) / SR
+    y = (np.sin(2 * np.pi * f * t) + .25 * np.sin(4 * np.pi * f * t)) * np.exp(-t * 4.5) * np.minimum(1, t / .006)
+    return (y * vol).astype(np.float32)
+def shaker(vol=1.0):
+    t = np.arange(int(.05 * SR)) / SR; x = rng.standard_normal(len(t)); y = (x - np.convolve(x, np.ones(6) / 6, mode='same')) * np.exp(-t * 90)
+    return (y * vol).astype(np.float32)
+def note(f, dur, vol=1.0, atk=.5, rel=.8):
     n = int(dur * SR); t = np.arange(n) / SR
-    det = 1 + (rng.random() - .5) * .006
-    y = np.sin(2 * np.pi * f * det * t) + .35 * np.sin(2 * np.pi * 2 * f * t + 1) + .12 * np.sin(2 * np.pi * 3 * f * det * t)
-    y += .6 * np.sin(2 * np.pi * f * 1.004 * t + 2)
+    y = np.sin(2 * np.pi * f * t) + .3 * np.sin(4 * np.pi * f * t + 1) + .6 * np.sin(2 * np.pi * f * 1.004 * t + 2)
     e = np.minimum(1, t / atk) * np.minimum(1, (dur - t) / rel)
     return (y * e * vol).astype(np.float32)
 
-chords = [[130.81, 164.81, 196.0, 246.94, 293.66], [110.0, 130.81, 164.81, 196.0, 246.94], [87.31, 110.0, 130.81, 164.81, 220.0], [98.0, 123.47, 146.83, 164.81, 220.0]]
+# C, G, Am, F: two bars each
+prog = [
+    dict(arp=[523.25, 659.25, 783.99, 1046.5], pad=[261.63, 329.63, 392.0], bass=65.41),
+    dict(arp=[392.0, 493.88, 587.33, 783.99], pad=[196.0, 246.94, 293.66], bass=98.0),
+    dict(arp=[440.0, 523.25, 659.25, 880.0], pad=[220.0, 261.63, 329.63], bass=110.0),
+    dict(arp=[349.23, 440.0, 523.25, 698.46], pad=[174.61, 220.0, 261.63], bass=87.31),
+]
+pattern = [0, 1, 2, 3, 2, 1, 2, 3]
 music = np.zeros(N, dtype=np.float32)
-clen = 10.4; t = -1.0; ci = 0
+bar = 4 * BEAT; k = 0; t = 0.0
 while t < TOTAL + 1:
-    for f in chords[ci % 4]: put(music, note(f, clen + 3.0, .16), max(0, t))
-    put(music, note(chords[ci % 4][0] / 2, clen + 2.0, .22, 3, 3), max(0, t))
-    t += clen; ci += 1
-bell_notes = [523.25, 587.33, 659.25, 783.99, 880.0, 987.77]
-bt = 3.5
-while bt < TOTAL - 3:
-    f = bell_notes[rng.integers(len(bell_notes))]; n = int(3.2 * SR); tt = np.arange(n) / SR
-    y = (np.sin(2 * np.pi * f * tt) + .25 * np.sin(2 * np.pi * f * 2.01 * tt)) * np.exp(-tt * 1.6) * np.minimum(1, tt / .01)
-    put(music, y.astype(np.float32), bt, .06); bt += 2.6 + rng.random() * 2.4
-# reverb
-ir_n = int(2.2 * SR); ir = rng.standard_normal(ir_n) * np.exp(-np.arange(ir_n) / SR * 2.4); ir[0] = 0
-def reverb(x, ir, wet=.5):
+    ch = prog[(k // 2) % 4]
+    if k % 2 == 0:
+        for f in ch['pad']: put(music, note(f, 2 * bar + .8, .12, .5, .8), t)
+    for i, idx in enumerate(pattern):
+        put(music, pluck(ch['arp'][idx], .085 if i % 2 == 0 else .06), t + i * BEAT / 2)
+    put(music, bass(ch['bass'], .3), t); put(music, bass(ch['bass'] * (1.5 if k % 2 else 1), .22), t + 2 * BEAT)
+    for i in range(8): put(music, shaker(.05 if i % 2 else .025), t + i * BEAT / 2 + (BEAT / 4 if False else 0))
+    t += bar; k += 1
+ir_n = int(1.4 * SR); ir = rng.standard_normal(ir_n) * np.exp(-np.arange(ir_n) / SR * 3.6); ir[0] = 0
+def reverb(x, ir, wet=.3):
     n = len(x) + len(ir); nfft = 1 << (n - 1).bit_length()
     y = np.fft.irfft(np.fft.rfft(x, nfft) * np.fft.rfft(ir, nfft), nfft)[:len(x)]
-    return x * (1 - wet * .5) + y * wet * (np.abs(x).max() / (np.abs(y).max() + 1e-9)) * .55
+    return x * (1 - wet * .4) + y * wet * (np.abs(x).max() / (np.abs(y).max() + 1e-9)) * .5
 music = reverb(music, ir)
-fi = int(3 * SR); fo = int(4 * SR); end_i = int((TOTAL + .5) * SR)
+fi = int(1.5 * SR); fo = int(4 * SR); end_i = int((TOTAL + .5) * SR)
 music[:fi] *= np.linspace(0, 1, fi); music[end_i - fo:end_i] *= np.linspace(1, 0, fo); music[end_i:] = 0
 music = music / (np.abs(music).max() + 1e-9) * .5
 music *= duck.astype(np.float32)
@@ -88,7 +103,8 @@ def noise_whoosh(d, f0, f1, vol):
     t = tt(d); x = rng.standard_normal(len(t)); y = lowpass(x, 14) - lowpass(x, 120)
     sw = np.sin(np.pi * t / d) ** 2; return (y * sw * vol / (np.abs(y).max() + 1e-9)).astype(np.float32)
 def tick(vol=1.0, pitch=1.0):
-    t = tt(.05); y = (rng.standard_normal(len(t)) * .5 + np.sin(2 * np.pi * 2400 * pitch * t)) * np.exp(-t * 140); return (y * vol * .5).astype(np.float32)
+    # soft, rounded key tap (low and short) so typing never grates
+    t = tt(.07); y = (np.sin(2 * np.pi * 330 * pitch * t) + .2 * rng.standard_normal(len(t)) * np.exp(-t * 120)) * np.exp(-t * 75) * np.minimum(1, t / .002); return (y * vol * .5).astype(np.float32)
 def pop(f, d=.2, vol=1.0):
     t = tt(d); y = (np.sin(2 * np.pi * f * t) + .3 * np.sin(2 * np.pi * 2 * f * t)) * np.exp(-t * 20) * np.minimum(1, t / .004); return (y * vol).astype(np.float32)
 def seq(parts, total):
@@ -119,7 +135,7 @@ for sc, rel, name in TL['extra_sfx']: place(name, at(sc, rel))
 for key, v in TL['type'].items():
     t0 = at(v['scene'], v['t'])
     for i, ch in enumerate(v['text']):
-        if ch != ' ': place('tick', t0 + i / v['cps'], .8 + rng.random() * .4)
+        if ch != ' ' and i % 2 == 0: place('tick', t0 + i / v['cps'], .35 + rng.random() * .15)
 
 # ---------- mix
 mix = voice * 1.0 + music * .55 + sfx * .5
