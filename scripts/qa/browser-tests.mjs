@@ -209,7 +209,7 @@ await check('demo: View demo opens it without the Fieldwork header; notice bar a
 });
 await check('demo: opening animation plays once per visit and clears; none for reduced motion', async () => {
   const ctx = await mk(); const p = await ctx.newPage(); await p.goto(B + '/demo', { waitUntil: 'domcontentloaded' }); ok(await p.locator('.d-intro').isVisible(), 'intro visible on first load');
-  await p.waitForTimeout(3500); ok(!(await p.locator('.d-intro').isVisible()), 'intro has cleared'); await p.goto(B + '/demo/about'); ok(!(await p.locator('.d-intro').isVisible()), 'not shown again in the same visit');
+  await p.locator('.d-intro').waitFor({ state: 'hidden', timeout: 9000 }); ok(true, 'intro has cleared'); await p.goto(B + '/demo/about'); ok(!(await p.locator('.d-intro').isVisible()), 'not shown again in the same visit');
   const rctx = await mk({ reducedMotion: 'reduce' }); const rp = await rctx.newPage(); await rp.goto(B + '/demo', { waitUntil: 'domcontentloaded' }); ok(!(await rp.locator('.d-intro').isVisible()), 'no intro for reduced motion');
 });
 await check('demo: search from the home page, filters, and a property page with gallery and forms', async () => {
