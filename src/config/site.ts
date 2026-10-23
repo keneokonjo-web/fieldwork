@@ -19,9 +19,9 @@ export const siteConfig = {
   /** The site stays noindex and robots-disallowed until this is explicitly switched on AND a URL is set. */
   allowIndexing: clean(process.env.NEXT_PUBLIC_ALLOW_INDEXING) === 'true' && Boolean(url),
   email: {
-    general: clean(process.env.NEXT_PUBLIC_CONTACT_EMAIL_GENERAL),
-    business: clean(process.env.NEXT_PUBLIC_CONTACT_EMAIL_BUSINESS),
-    privacy: clean(process.env.NEXT_PUBLIC_CONTACT_EMAIL_PRIVACY),
+    general: clean(process.env.NEXT_PUBLIC_CONTACT_EMAIL_GENERAL) ?? 'fieldwork@waykongroup.com',
+    business: clean(process.env.NEXT_PUBLIC_CONTACT_EMAIL_BUSINESS) ?? 'fieldwork@waykongroup.com',
+    privacy: clean(process.env.NEXT_PUBLIC_CONTACT_EMAIL_PRIVACY) ?? 'fieldwork@waykongroup.com',
   },
   legal: {
     entityName: clean(process.env.NEXT_PUBLIC_LEGAL_ENTITY_NAME),

@@ -1,3 +1,4 @@
+import { ContactStrip } from '@/components/pricing/ContactStrip';
 import { PriceInline, PriceTable } from '@/components/pricing/PriceTable';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { Chip } from '@/components/ui/Chip';
@@ -154,8 +155,9 @@ export default function WebsitesPage() {
             <h2 id="price-title">Pricing</h2>
           </div>
           <PriceTable ids={['website']} lines={{ website: 'Website and listing system, together.' }} />
-          <div className="btn-row" style={{ marginTop: 'var(--s-6)' }}>
-            <ButtonLink href={DEMO_PATH} variant="cobalt" track="demo_request_clicked" trackLabel="websites-price">View demo</ButtonLink>
+          <ContactStrip />
+          <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
+            <ButtonLink href={DEMO_PATH} variant="secondary" track="demo_request_clicked" trackLabel="websites-price">View demo</ButtonLink>
             <ButtonLink href="/automations" variant="secondary">Add automations</ButtonLink>
           </div>
         </div>
@@ -173,7 +175,7 @@ export default function WebsitesPage() {
               <p className="small">A defined set of templates, with a set number of revisions.</p>
             </div>
             <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
-              <ButtonLink href="/demo#brand" variant="light" track="demo_request_clicked" trackLabel="websites-brand-examples">View examples</ButtonLink>
+              <ButtonLink href="/demo/brand-pack" variant="light" track="demo_request_clicked" trackLabel="websites-brand-examples">View examples</ButtonLink>
             </div>
             <p className="nudge">See the templates, colours and prompts your team would receive →</p>
           </div>

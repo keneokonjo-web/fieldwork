@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-23T11:27:07.126Z",
+  "ranAt": "2026-10-23T14:55:11.246Z",
   "results": [
     {
       "name": "every route returns 200 with one h1, a title, no console errors, no broken images",
@@ -90,7 +90,31 @@
       "pass": true
     },
     {
-      "name": "demo page opens from View demo, and the brand examples anchor exists",
+      "name": "contact strip under every price: register interest, one email everywhere, UK phone, Nigerian WhatsApp, US email only",
+      "pass": true
+    },
+    {
+      "name": "demo: View demo opens it without the Fieldwork header; notice bar and disclaimer are shown; Back to Fieldwork returns",
+      "pass": true
+    },
+    {
+      "name": "demo: opening animation plays once per visit and clears; none for reduced motion",
+      "pass": true
+    },
+    {
+      "name": "demo: search from the home page, filters, and a property page with gallery and forms",
+      "pass": true
+    },
+    {
+      "name": "demo: a viewing request is saved to the staff area, needs confirming, and can be confirmed",
+      "pass": true
+    },
+    {
+      "name": "demo listing system: sign in, add a property, publish it, feature it, change its status, unpublish and delete it",
+      "pass": true
+    },
+    {
+      "name": "demo: new homes page shows units with live statuses; journal, about, contact and brand-pack examples open",
       "pass": true
     },
     {

@@ -20,7 +20,7 @@ const browser = await chromium.launch();
 const REGION_JS = (r) => `try{if(${JSON.stringify(r)})localStorage.setItem('fw-region', JSON.stringify(${JSON.stringify(r)}))}catch(e){}`;
 /** New browser context. `region` pre-selects a region so the pop-up does not interrupt; pass null for a first-time visitor. */
 const mk = async (opts = {}) => { const { region = 'uk', ...rest } = opts; const c = await browser.newContext({ viewport: { width: 1440, height: 900 }, ...rest }); if (region) await c.addInitScript(REGION_JS(region)); return c; };
-const routes = ['/', '/websites', '/automations', '/ai-workshop', '/about', '/about/why-fieldwork', '/about/how-a-project-works', '/about/what-you-own', '/about/working-across-regions', '/demo', '/contact', '/image-credits', '/privacy', '/terms', '/cookies', '/accessibility'];
+const routes = ['/', '/websites', '/automations', '/ai-workshop', '/about', '/about/why-fieldwork', '/about/how-a-project-works', '/about/what-you-own', '/about/working-across-regions', '/demo', '/demo/properties', '/demo/properties/ashdown-mews-kensington', '/demo/new-homes', '/demo/new-homes/the-wharf', '/demo/about', '/demo/journal', '/demo/journal/preparing-a-home-for-sale', '/demo/contact', '/demo/brand-pack', '/demo/admin', '/demo/admin/enquiries', '/demo/admin/properties/new', '/contact', '/image-credits', '/privacy', '/terms', '/cookies', '/accessibility'];
 const imgSrcs = (p) => p.evaluate(() => [...document.images].map((i) => decodeURIComponent(i.currentSrc || i.src)).filter((s) => /\/images\/(ng|uk|us)-/.test(s)).map((s) => s.match(/\/images\/((?:ng|uk|us)-[a-z0-9-]+)/)[1]));
 
 await check('every route returns 200 with one h1, a title, no console errors, no broken images', async () => {
@@ -132,8 +132,11 @@ await check('heroes: cropped wordmark at the bottom edge on Home, Websites and A
     const m = await p.evaluate(() => { const h = document.querySelector('.hero').getBoundingClientRect(); const w = document.querySelector('.hero__big').getBoundingClientRect(); return { hb: h.bottom, wb: w.bottom, wt: w.top, vh: innerHeight }; });
     ok(m.wb > m.hb + 2, r + ' wordmark is not cropped by the hero edge'); ok(m.wt < m.vh - 40, r + ' wordmark top is on the first screen (' + Math.round(m.wt) + ' of ' + m.vh + ')');
   }
-  const p = await (await mk()).newPage(); await p.goto(B + '/automations', { waitUntil: 'networkidle' }); ok((await p.locator('.hero__big').count()) === 0, 'automations has no wordmark hero'); ok(await p.locator('.vhero .video').isVisible(), 'video frame'); ok((await p.locator('.chapters li').count()) === 5, 'five chapters');
-  const desc = await p.locator('.vhero__desc').evaluate((e) => Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight))); ok(desc <= 4, 'description is ' + desc + ' lines');
+  const p = await (await mk()).newPage(); await p.goto(B + '/automations', { waitUntil: 'networkidle' }); await p.waitForTimeout(500); ok((await p.locator('.hero__big').count()) === 0, 'automations has no wordmark hero'); ok(await p.locator('.vhero .video').isVisible(), 'video frame'); ok((await p.locator('.chapters li').count()) === 5, 'five chapters');
+  const h1 = await p.locator('h1').innerText(); ok(/^Lead capture & viewings$/.test(h1.trim()), 'one-line title: ' + h1); const lines = await p.locator('h1').evaluate((e) => Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight))); ok(lines === 1, 'title on ' + lines + ' line(s)');
+  const desc = await p.locator('.vhero__desc').evaluate((e) => Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight))); ok(desc <= 3, 'description is ' + desc + ' lines');
+  const v = await p.locator('.vhero .video').boundingBox(); ok(v.y >= 0 && v.y + v.height <= 900, 'whole video is on the first screen: bottom at ' + Math.round(v.y + v.height) + ' of 900');
+  const bg = await p.locator('.vhero').evaluate((e) => getComputedStyle(e).backgroundColor); const body = await p.evaluate(() => getComputedStyle(document.body).backgroundColor); ok(bg === 'rgba(0, 0, 0, 0)' || bg === body, 'hero uses the normal paper background: ' + bg); ok((await p.locator('.vhero__dots').count()) === 2, 'halftone dots in the hero');
 });
 
 // ---- pages ----
@@ -171,8 +174,68 @@ await check('about: Field Notes style index of notes, each note opens, and the p
   const p = await (await mk()).newPage(); await p.goto(B + '/about'); ok((await p.locator('.lookback a').count()) === 4, 'four notes'); ok(await p.getByText(/no client list/i).first().isVisible(), 'honest status');
   await p.locator('.lookback a').first().click(); await p.waitForURL(/\/about\/.+/); ok((await p.locator('h1').count()) === 1, 'note h1'); ok(await p.locator('.prose').isVisible(), 'note body'); ok(await p.getByText(/About this note/i).isVisible(), 'basis statement');
 });
-await check('demo page opens from View demo, and the brand examples anchor exists', async () => {
-  const p = await (await mk()).newPage(); await p.goto(B + '/demo'); ok(await p.getByRole('heading', { name: 'The demo.' }).isVisible(), 'demo heading'); ok(await p.locator('#brand').count() === 1, 'brand anchor');
+await check('contact strip under every price: register interest, one email everywhere, UK phone, Nigerian WhatsApp, US email only', async () => {
+  for (const route of ['/websites', '/automations']) {
+    for (const [r, expect] of [['uk', { tel: 'tel:+447508533692', wa: false }], ['ng', { tel: null, wa: 'https://wa.me/2347047167280' }], ['us', { tel: null, wa: false }]]) {
+      const p = await (await mk({ region: r })).newPage(); await p.goto(B + route, { waitUntil: 'networkidle' }); const strip = p.locator('#price .contact-strip');
+      ok(await strip.getByRole('link', { name: 'Register interest' }).isVisible(), route + ' ' + r + ' register interest'); ok((await strip.locator('a[href="mailto:fieldwork@waykongroup.com"]').count()) === 1, route + ' ' + r + ' email');
+      const hrefs = await strip.locator('a').evaluateAll((els) => els.map((e) => e.getAttribute('href')));
+      if (expect.tel) ok(hrefs.includes(expect.tel), r + ' phone link'); else ok(!hrefs.some((h) => h.startsWith('tel:')), r + ' has no phone');
+      if (expect.wa) ok(hrefs.includes(expect.wa), r + ' whatsapp'); else ok(!hrefs.some((h) => h.includes('wa.me')), r + ' has no whatsapp'); if (r === 'us') ok(hrefs.length === 2, 'us shows only register interest and email: ' + hrefs.join(','));
+      await p.context().close();
+    }
+  }
+});
+await check('demo: View demo opens it without the Fieldwork header; notice bar and disclaimer are shown; Back to Fieldwork returns', async () => {
+  const ctx = await mk(); await ctx.addInitScript(() => { try { sessionStorage.setItem('fw-demo-seen', '1'); } catch {} }); const p = await ctx.newPage(); await p.goto(B + '/websites', { waitUntil: 'networkidle' });
+  await p.locator('.bar__login').click(); await p.waitForURL(B + '/demo'); await p.waitForTimeout(1800);
+  ok((await p.locator('header.bar').count()) === 0, 'no Fieldwork header in the demo'); ok(await p.locator('.d-notice').getByText(/Demonstration website/).isVisible(), 'notice bar'); ok(await p.locator('.d-foot').getByText(/fictional company/i).isVisible(), 'disclaimer in the footer');
+  ok(await p.getByRole('heading', { name: 'Homes with a sense of place.' }).isVisible(), 'demo hero'); await p.locator('.d-notice').getByRole('link', { name: /Back to Fieldwork/ }).click(); await p.waitForURL(B + '/websites'); ok(await p.locator('header.bar').isVisible(), 'Fieldwork header is back');
+});
+await check('demo: opening animation plays once per visit and clears; none for reduced motion', async () => {
+  const ctx = await mk(); const p = await ctx.newPage(); await p.goto(B + '/demo', { waitUntil: 'domcontentloaded' }); ok(await p.locator('.d-intro').isVisible(), 'intro visible on first load');
+  await p.waitForTimeout(3500); ok(!(await p.locator('.d-intro').isVisible()), 'intro has cleared'); await p.goto(B + '/demo/about'); ok(!(await p.locator('.d-intro').isVisible()), 'not shown again in the same visit');
+  const rctx = await mk({ reducedMotion: 'reduce' }); const rp = await rctx.newPage(); await rp.goto(B + '/demo', { waitUntil: 'domcontentloaded' }); ok(!(await rp.locator('.d-intro').isVisible()), 'no intro for reduced motion');
+});
+await check('demo: search from the home page, filters, and a property page with gallery and forms', async () => {
+  const ctx = await mk(); await ctx.addInitScript(() => { try { sessionStorage.setItem('fw-demo-seen', '1'); } catch {} }); const p = await ctx.newPage(); await p.goto(B + '/demo', { waitUntil: 'networkidle' });
+  await p.getByLabel('Area, street or postcode').fill('Hampstead'); await p.getByRole('button', { name: 'Search' }).click(); await p.waitForURL(/\/demo\/properties\?/); await p.waitForTimeout(400);
+  ok((await p.locator('.d-card').count()) === 1 && /Hollin Lodge/.test(await p.locator('.d-card').innerText()), 'search narrows to Hollin Lodge');
+  await p.goto(B + '/demo/properties?listing=sale', { waitUntil: 'networkidle' }); const all = await p.locator('.d-card').count(); ok(all >= 10, 'sale list ' + all);
+  await p.getByLabel('Bedrooms').selectOption('5'); await p.waitForTimeout(300); const five = await p.locator('.d-card').count(); ok(five > 0 && five < all, 'bedroom filter ' + five); await p.getByLabel('Sort by').selectOption('low'); await p.waitForTimeout(300);
+  const prices = await p.locator('.d-card__price').allInnerTexts(); const nums = prices.map((t) => +t.replace(/[^0-9]/g, '')); ok(nums.every((n, i) => !i || n >= nums[i - 1]), 'sorted low to high: ' + prices.join(' '));
+  await p.goto(B + '/demo/properties?listing=sale', { waitUntil: 'networkidle' }); await p.getByRole('tab', { name: 'Rent' }).click(); await p.waitForTimeout(500); ok((await p.locator('.d-card__price').first().innerText()).includes('pcm'), 'rent prices show pcm');
+  await p.goto(B + '/demo/properties/ashdown-mews-kensington', { waitUntil: 'networkidle' }); ok(await p.getByRole('heading', { name: 'Ashdown House' }).isVisible(), 'detail title'); const thumbs = await p.locator('.d-gallery__thumbs button').count(); ok(thumbs === 4, 'four photographs'); await p.getByRole('button', { name: 'Show photograph 3' }).click(); ok((await p.locator('.d-gallery__thumbs button[aria-pressed=true]').count()) === 1, 'gallery selection');
+  ok(/£4,250,000/.test(await p.locator('main').innerText()), 'price');
+});
+await check('demo: a viewing request is saved to the staff area, needs confirming, and can be confirmed', async () => {
+  const ctx = await mk(); await ctx.addInitScript(() => { try { sessionStorage.setItem('fw-demo-seen', '1'); } catch {} }); const p = await ctx.newPage(); await p.goto(B + '/demo/properties/larch-court-richmond', { waitUntil: 'networkidle' });
+  const form = p.locator('aside form'); await form.getByRole('button', { name: 'Request viewing' }).click(); ok(await form.locator('.d-error').count() > 0, 'validation errors');
+  await form.getByLabel('Your name').fill('Sam Test'); await form.getByLabel('Email').fill('sam@example.com'); await form.getByLabel('Preferred day').selectOption({ index: 1 }); await form.getByLabel(/I agree/).check(); await form.getByRole('button', { name: 'Request viewing' }).click();
+  await p.getByText('Viewing requested.').waitFor(); ok(await p.getByText(/nothing was sent/i).isVisible(), 'honest demonstration note');
+  await p.goto(B + '/demo/admin/enquiries', { waitUntil: 'networkidle' }); await p.getByRole('button', { name: 'Sign in' }).click(); await p.getByRole('heading', { name: 'Enquiries' }).waitFor(); ok(/Sam Test/.test(await p.locator('main').innerText()) && /needs confirming/i.test(await p.locator('main').innerText()), 'request listed as needing confirmation');
+  await p.getByRole('button', { name: 'Confirm viewing' }).click(); ok(/confirmed/i.test(await p.locator('tbody').innerText()) && !/needs confirming/i.test(await p.locator('tbody').innerText()), 'confirmed');
+});
+await check('demo listing system: sign in, add a property, publish it, feature it, change its status, unpublish and delete it', async () => {
+  const ctx = await mk(); await ctx.addInitScript(() => { try { sessionStorage.setItem('fw-demo-seen', '1'); } catch {} }); const p = await ctx.newPage(); await p.goto(B + '/demo/admin', { waitUntil: 'networkidle' });
+  ok(await p.getByRole('heading', { name: 'Sign in' }).isVisible(), 'login first'); await p.getByRole('button', { name: 'Sign in' }).click(); await p.getByRole('heading', { name: 'Listings' }).waitFor(); const before = await p.locator('tbody tr').count();
+  await p.getByRole('link', { name: '+ Add property' }).click(); await p.waitForURL(/admin\/properties\/new/); await p.getByRole('button', { name: 'Publish' }).click(); ok(await p.locator('.d-panel[role=alert]').isVisible(), 'validation on an empty form');
+  await p.getByLabel('Title', { exact: true }).fill('Test Lodge, Demo Lane'); await p.getByLabel('Price (£)').fill('1250000'); await p.getByLabel('Address', { exact: true }).fill('1 Demo Lane'); await p.getByLabel('Area', { exact: true }).fill('Richmond'); await p.getByLabel('Postcode', { exact: true }).fill('tw9 1aa');
+  await p.locator('#e-d').fill('A made-up house for the demonstration. It has a garden and plenty of light.'); await p.locator('#e-f').fill('Garden\nPlenty of light'); await p.getByRole('button', { name: 'Add Open-plan living room' }).click(); await p.getByRole('button', { name: 'Add Contemporary house' }).click();
+  await p.getByRole('button', { name: 'Move photograph 2 up' }).click(); ok(/Contemporary house/.test(await p.locator('.d-imgrow').first().innerText()), 'reorder puts the second photograph first'); await p.getByLabel('Feature on the home page').check(); await p.getByRole('button', { name: 'Publish' }).click(); await p.waitForURL(B + '/demo/admin');
+  await p.getByRole('heading', { name: 'Listings' }).waitFor(); ok((await p.locator('tbody tr').count()) === before + 1, 'row added'); const row = p.locator('tr', { hasText: 'Test Lodge, Demo Lane' }); ok(/published/i.test(await row.innerText()), 'published');
+  await p.goto(B + '/demo/properties?listing=sale&q=Demo+Lane', { waitUntil: 'networkidle' }); ok((await p.locator('.d-card').count()) === 1, 'visible on the public site'); await p.goto(B + '/demo', { waitUntil: 'networkidle' }); ok(/Test Lodge/.test(await p.locator('#featured-title').locator('xpath=ancestor::section').innerText()), 'featured on the home page');
+  await p.goto(B + '/demo/admin', { waitUntil: 'networkidle' }); const r2 = p.locator('tr', { hasText: 'Test Lodge' }); await r2.getByLabel(/Status of/).selectOption('sold'); await p.goto(B + '/demo/properties?listing=sale&q=Demo+Lane&closed=1', { waitUntil: 'networkidle' }); ok(/sold/i.test(await p.locator('.d-badge').innerText()), 'sold badge on the public site');
+  await p.goto(B + '/demo/properties/' + (await p.locator('.d-card').getAttribute('href')).split('/').pop(), { waitUntil: 'networkidle' }); ok(/Test Lodge/.test(await p.locator('h1').innerText()), 'user-added property page opens after a reload');
+  await p.goto(B + '/demo/admin', { waitUntil: 'networkidle' }); await p.locator('tr', { hasText: 'Test Lodge' }).getByRole('button', { name: 'Unpublish' }).click(); await p.goto(B + '/demo/properties?listing=sale&q=Demo+Lane&closed=1', { waitUntil: 'networkidle' }); ok((await p.locator('.d-card').count()) === 0, 'gone from the public site when unpublished');
+  await p.goto(B + '/demo/admin', { waitUntil: 'networkidle' }); p.once('dialog', (d) => d.accept()); await p.locator('tr', { hasText: 'Test Lodge' }).getByRole('button', { name: 'Delete' }).click(); await p.waitForTimeout(300); ok((await p.locator('tbody tr').count()) === before, 'deleted');
+  p.once('dialog', (d) => d.accept()); await p.getByRole('button', { name: 'Sign out' }).click(); ok(await p.getByRole('heading', { name: 'Sign in' }).isVisible(), 'signed out');
+});
+await check('demo: new homes page shows units with live statuses; journal, about, contact and brand-pack examples open', async () => {
+  const ctx = await mk(); await ctx.addInitScript(() => { try { sessionStorage.setItem('fw-demo-seen', '1'); } catch {} }); const p = await ctx.newPage(); await p.goto(B + '/demo/new-homes/the-wharf', { waitUntil: 'networkidle' });
+  const t = await p.locator('tbody').innerText(); ok(/reserved/i.test(t) && /sold/i.test(t) && /for sale/i.test(t), 'unit statuses: ' + t.replace(/\s+/g, ' ').slice(0, 80));
+  await p.goto(B + '/demo/journal/preparing-a-home-for-sale'); ok((await p.locator('article p').count()) >= 3, 'article'); await p.goto(B + '/demo/about'); ok(await p.getByText('Redress scheme member').isVisible(), 'credentials placeholders'); await p.goto(B + '/demo/contact?topic=valuation'); ok(await p.getByRole('heading', { name: 'Book a free valuation.' }).isVisible(), 'valuation contact');
+  await p.goto(B + '/websites', { waitUntil: 'networkidle' }); await p.getByRole('link', { name: 'View examples' }).click(); await p.waitForURL(B + '/demo/brand-pack'); ok(await p.getByRole('heading', { name: /The pack, for/ }).isVisible(), 'brand pack example');
 });
 await check('photographs are credited, with a credits page', async () => {
   const p = await (await mk()).newPage(); await p.goto(B + '/image-credits'); ok((await p.locator('.credits tbody tr').count()) >= 10, 'credit rows'); ok(/CC BY/.test(await p.locator('.credits').innerText()), 'licences listed');

@@ -5,12 +5,7 @@ import '@/styles/tokens.css';
 import '@/styles/base.css';
 import '@/styles/components.css';
 import '@/styles/pages.css';
-import { SiteFooter } from '@/components/layout/SiteFooter';
-import { SiteHeader } from '@/components/layout/SiteHeader';
-import { Analytics } from '@/components/ui/Analytics';
-import { MotionInit } from '@/components/ui/MotionInit';
-import { PageTransition } from '@/components/ui/PageTransition';
-import { RegionDialog } from '@/components/region/RegionDialog';
+import { SiteShell } from '@/components/layout/SiteShell';
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
@@ -39,14 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-GB">
       <head><script dangerouslySetInnerHTML={{ __html: motionScript }} /></head>
       <body>
-        <a className="skip-link" href="#main">Skip to main content</a>
-        <SiteHeader />
-        <main id="main" tabIndex={-1}>{children}</main>
-        <SiteFooter />
-        <Analytics />
-        <MotionInit />
-        <PageTransition />
-        <RegionDialog />
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );

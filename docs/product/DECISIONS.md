@@ -31,3 +31,9 @@ Messages only to people who gave their details for that purpose, with an opt-out
 
 ## Imagery
 Photographs of Nigeria and the UK from Wikimedia Commons (CC BY, CC BY-SA, CC0) plus Unsplash stock. Credits are in each caption where practical and on `/image-credits`. Register: `src/content/images.json`. Scripts: `scripts/brand/fetch-commons.mjs`, `curate-commons.mjs`.
+
+## Round 9
+- **Automations hero:** one-line title ("Lead capture & viewings"), paper background with the cobalt halftone dots, the whole video frame visible on landing. The video plays from `public/media/automation-walkthrough.mp4` (optional poster: `automation-walkthrough-poster.jpg`); until it exists the frame is a placeholder.
+- **Contact strip under every price:** Register interest, `fieldwork@waykongroup.com` (everywhere), UK phone +44 7508 533692, Nigerian WhatsApp +234 704 716 7280, United States shows email only. Details live in `src/content/contact.ts`. The email domain was dictated aloud and needs confirming.
+- **Demo website at `/demo`:** "Larkfield & Pryce", a fictional London estate agency. Public site (home with opening animation, properties search and filters, property pages with gallery and viewing or enquiry forms, new homes with unit statuses, about, journal, contact, brand pack example) and a staff area at `/demo/admin` (demo sign-in, add and edit listings, photographs from a library or uploaded, drafts, publish and unpublish, featured, sold/let/reserved, delete, enquiries and viewing confirmation). All data is stored in the visitor's own browser; "Reset demo data" restores it. No Nigerian housing photographs are used in the demo.
+- Demo code: `src/app/demo`, `src/components/demo`, `src/demo` (data, store, formatting). Styles are scoped under `.demo` in `src/app/demo/demo.css`.

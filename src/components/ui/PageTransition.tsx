@@ -43,6 +43,8 @@ export function PageTransition() {
       const url = new URL(a.href, window.location.href);
       if (url.origin !== window.location.origin) return;
       if (url.pathname === window.location.pathname && url.search === window.location.search) return; // same page or hash only
+      const inDemo = (p: string) => p === '/demo' || p.startsWith('/demo/');
+      if (inDemo(url.pathname) && inDemo(window.location.pathname)) return; // moving around inside the demonstration website
       e.preventDefault();
       e.stopPropagation(); // capture phase: stop the framework's own Link handler so navigation happens once, after the animation starts
       go(url.pathname + url.search + url.hash);

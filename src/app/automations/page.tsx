@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import { ContactStrip } from '@/components/pricing/ContactStrip';
 import { PriceTable } from '@/components/pricing/PriceTable';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { Chip } from '@/components/ui/Chip';
@@ -50,20 +52,28 @@ export default function AutomationsPage() {
   return (
     <>
       <section className="vhero" aria-labelledby="hero-title">
+        <Image className="vhero__dots vhero__dots--a" src="/art/terrain-6-circle-cobalt-clear.svg" alt="" width={900} height={700} unoptimized aria-hidden="true" priority />
+        <Image className="vhero__dots vhero__dots--b" src="/art/terrain-21-fade-right-cobalt-clear.svg" alt="" width={900} height={700} unoptimized aria-hidden="true" />
         <div className="container">
           <div className="vhero__head">
             <div>
               <p className="eyebrow">Automations</p>
-              <h1 id="hero-title">Enquiries answered. Viewings confirmed.</h1>
+              <h1 id="hero-title">Lead capture &amp; viewings</h1>
             </div>
-            <p className="vhero__desc">Lead capture and follow-up records, acknowledges and routes every enquiry. Viewing and feedback confirms appointments, sends reminders and collects feedback afterwards.</p>
+            <p className="vhero__desc">Every enquiry recorded, acknowledged and routed. Every viewing confirmed, reminded and followed up.</p>
           </div>
           <div className="vhero__media">
             <VideoFrame title="Watch how the automations work · 1 minute" />
-            <ol className="chapters" aria-label="What the walkthrough shows">
-              {chapters.map((c, i) => <li key={c}><span>0{i + 1}</span>{c}</li>)}
-            </ol>
           </div>
+        </div>
+      </section>
+
+      <section className="section section--tight" aria-labelledby="chapters-title">
+        <div className="container">
+          <h2 id="chapters-title" className="visually-hidden">What the walkthrough shows</h2>
+          <ol className="chapters" aria-label="What the walkthrough shows">
+            {chapters.map((c, i) => <li key={c}><span>0{i + 1}</span>{c}</li>)}
+          </ol>
         </div>
       </section>
 
@@ -132,14 +142,16 @@ export default function AutomationsPage() {
             <h2 id="price-title">Pricing</h2>
           </div>
           <PriceTable ids={['lead', 'viewing', 'both']} lines={{ lead: 'Fixed-price installation.', viewing: 'Fixed-price installation.', both: 'Reuses shared components. The website is separate.' }} />
-          <div className="btn-row" style={{ marginTop: 'var(--s-6)' }}>
-            <ButtonLink href={DEMO_PATH} variant="cobalt" track="demo_request_clicked" trackLabel="automations-price">View demo</ButtonLink>
+          <ContactStrip />
+          <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
+            <ButtonLink href={DEMO_PATH} variant="secondary" track="demo_request_clicked" trackLabel="automations-price">View demo</ButtonLink>
             <ButtonLink href="/websites" variant="secondary">Websites and listings</ButtonLink>
           </div>
         </div>
       </section>
 
-      <section className="section" aria-labelledby="install-title">
+      <section className="section section--dots" aria-labelledby="install-title">
+        <Image className="section__dots" src="/art/terrain-6-circle-cobalt-clear.svg" alt="" width={900} height={700} unoptimized aria-hidden="true" />
         <div className="container">
           <div className="section__head">
             <p className="eyebrow">Installation</p>

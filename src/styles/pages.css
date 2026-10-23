@@ -148,24 +148,28 @@ body:has(.hero__big) .site-footer { padding-bottom: var(--s-6); }
 .demoprev__cta i { font-style: normal; }
 .demoprev:hover .demoprev__cta > span { background: var(--cobalt); gap: 1rem; }
 
-/* ---------- Video hero (automations) ---------- */
-.vhero { background: var(--ink); color: var(--paper); padding: clamp(2.5rem, 1.5rem + 3vw, 4.5rem) 0 clamp(2.5rem, 1.5rem + 3vw, 4rem); }
-.vhero__head { display: grid; gap: var(--s-5); align-items: end; margin-bottom: var(--s-6); }
-@media (min-width: 62rem) { .vhero__head { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: var(--s-8); } }
-.vhero h1 { font-size: clamp(2.2rem, 1rem + 4vw, 4.4rem); letter-spacing: -0.06em; line-height: 0.94; margin: 0; max-width: 14ch; }
-.vhero .eyebrow { color: var(--cobalt-light); }
-.vhero__desc { margin: 0; max-width: 30rem; color: color-mix(in srgb, var(--paper) 82%, transparent); font-size: var(--step-0); }
-.vhero__media { width: min(100%, max(36rem, calc((100svh - 22rem) * 16 / 9))); margin-inline: auto; }
-.video { position: relative; aspect-ratio: 16 / 9; background: #1b1b1b; border: 1px solid color-mix(in srgb, var(--paper) 35%, transparent); overflow: hidden; }
+/* ---------- Video hero (automations): paper background, halftone dots, the whole video visible on landing ---------- */
+.vhero { position: relative; overflow: hidden; padding: clamp(1.5rem, 1rem + 1.5vw, 2.5rem) 0 clamp(1.5rem, 1rem + 1.5vw, 2.5rem); min-height: calc(100svh - var(--bar-h)); display: flex; align-items: center; }
+.vhero > .container { position: relative; z-index: 1; }
+.vhero__dots { position: absolute; z-index: 0; pointer-events: none; height: auto; }
+.vhero__dots--a { right: -24%; top: -30%; width: min(54vw, 50rem); opacity: 0.8; }
+.vhero__dots--b { left: -22%; bottom: -26%; width: min(46vw, 42rem); opacity: 0.55; transform: scaleX(-1); }
+.vhero__head { display: grid; gap: var(--s-3); align-items: end; margin-bottom: var(--s-4); }
+@media (min-width: 62rem) { .vhero__head { grid-template-columns: auto minmax(0, 26rem); justify-content: space-between; gap: var(--s-7); } }
+.vhero h1 { font-size: clamp(2rem, 0.9rem + 3.6vw, 3.9rem); letter-spacing: -0.06em; line-height: 0.95; margin: 0; white-space: nowrap; }
+.vhero .eyebrow { margin-bottom: var(--s-2); }
+.vhero__desc { margin: 0; color: var(--ink); font-size: var(--step-0); max-width: 26rem; }
+.vhero__media { width: min(100%, max(26rem, calc((100svh - var(--bar-h) - 12.5rem) * 16 / 9))); margin-inline: auto; }
+.video { position: relative; aspect-ratio: 16 / 9; background: #1b1b1b; border: var(--rule); overflow: hidden; box-shadow: 0 34px 70px -40px rgba(18, 18, 18, 0.6); }
 .video video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .video--empty { display: grid; place-content: center; justify-items: center; gap: var(--s-4); background: radial-gradient(circle at 70% 30%, color-mix(in srgb, var(--cobalt) 55%, #1b1b1b), #1b1b1b 62%); }
 .video__play { width: clamp(4rem, 8vw, 6rem); height: clamp(4rem, 8vw, 6rem); border-radius: 50%; background: var(--paper); display: grid; place-items: center; }
 .video__play i { margin-left: 0.3rem; width: 0; height: 0; border-style: solid; border-width: 0.85rem 0 0.85rem 1.4rem; border-color: transparent transparent transparent var(--ink); }
 .video__label { font: 400 0.75rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: color-mix(in srgb, var(--paper) 85%, transparent); }
-.chapters { list-style: none; margin: var(--s-4) 0 0; padding: 0; display: grid; border-top: 1px solid color-mix(in srgb, var(--paper) 40%, transparent); }
-@media (min-width: 52rem) { .chapters { grid-template-columns: repeat(5, 1fr); } .chapters li + li { border-left: 1px solid color-mix(in srgb, var(--paper) 20%, transparent); padding-left: var(--s-4); } }
-.chapters li { margin: 0; padding: var(--s-3) var(--s-3) var(--s-3) 0; font-size: var(--step--1); color: color-mix(in srgb, var(--paper) 88%, transparent); }
-.chapters li span { display: block; font: 400 0.7rem var(--font-mono); letter-spacing: 0.08em; color: var(--cobalt-light); margin-bottom: 0.2rem; }
+.chapters { list-style: none; margin: 0; padding: 0; display: grid; border-top: var(--rule); }
+@media (min-width: 52rem) { .chapters { grid-template-columns: repeat(5, 1fr); } .chapters li + li { border-left: var(--rule-soft); padding-left: var(--s-4); } }
+.chapters li { margin: 0; padding: var(--s-3) var(--s-3) var(--s-3) 0; font-size: var(--step-0); }
+.chapters li span { display: block; font: 400 0.7rem var(--font-mono); letter-spacing: 0.08em; color: var(--cobalt); margin-bottom: 0.2rem; }
 .nudge { margin: var(--s-3) 0 0; font: 400 0.75rem var(--font-mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--cobalt-light); }
 /* ---------- Notes index ---------- */
 .lookback { border-top: var(--rule); }
@@ -177,3 +181,14 @@ body:has(.hero__big) .site-footer { padding-bottom: var(--s-6); }
 .demo-stage { display: grid; gap: var(--s-7); align-items: center; }
 @media (min-width: 62rem) { .demo-stage { grid-template-columns: 1.3fr 1fr; gap: var(--s-8); } }
 .demoprev--static { pointer-events: none; }
+
+/* ---------- Contact strip (under every price) ---------- */
+.contact-strip { margin-top: var(--s-5); border: var(--rule); background: var(--paper); padding: var(--s-4) var(--s-5); display: grid; gap: var(--s-3); }
+.contact-strip__title { margin: 0; font: 600 var(--step-1) var(--font-sans); letter-spacing: -0.03em; }
+.contact-strip__row { display: flex; flex-wrap: wrap; gap: var(--s-3) var(--s-6); align-items: center; }
+.contact-strip__link { display: grid; gap: 0.1rem; text-decoration: none; font-weight: 600; letter-spacing: -0.01em; }
+.contact-strip__link span { font: 400 0.7rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--cobalt); }
+.contact-strip__link:hover { color: var(--cobalt); }
+.section--dots { position: relative; overflow: hidden; }
+.section--dots > .container { position: relative; z-index: 1; }
+.section__dots { position: absolute; z-index: 0; right: -14%; top: -8%; width: min(48vw, 40rem); opacity: 0.55; pointer-events: none; height: auto; }
