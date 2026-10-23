@@ -273,6 +273,9 @@
 .faq details[open] summary::after { content: "−"; }
 .faq details > *:not(summary) { margin-top: var(--s-3); max-width: 44rem; }
 .consent-banner { position: fixed; z-index: 60; left: var(--gutter); right: var(--gutter); bottom: var(--gutter); max-width: 34rem; background: var(--ink); color: var(--paper); border: 1px solid var(--paper); padding: var(--s-4) var(--s-5); display: grid; gap: var(--s-3); }
+.consent-banner { animation: consent-in 0.6s var(--ease) both; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6); }
+@keyframes consent-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .consent-banner { animation: none; } }
 .consent-banner p { margin: 0; font-size: var(--step--1); }
 .consent-banner a { color: var(--cobalt-pale); }
 .toast { position: fixed; z-index: 70; bottom: 1.25rem; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--paper); padding: 0.6rem 1rem; font-size: var(--step--1); font-weight: 600; border-radius: var(--radius-pill); }

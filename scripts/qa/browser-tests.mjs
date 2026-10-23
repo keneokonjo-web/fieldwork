@@ -17,7 +17,7 @@ const srv = spawn('node_modules/.bin/next', ['start', '-p', '3101'], { env: { ..
 for (let i = 0; i < 40; i++) { try { const r = await fetch('http://localhost:3101/'); if (r.ok) break; } catch {} await new Promise((r) => setTimeout(r, 500)); }
 
 const browser = await chromium.launch();
-const REGION_JS = (r) => `try{if(${JSON.stringify(r)})localStorage.setItem('fw-region', JSON.stringify(${JSON.stringify(r)}))}catch(e){}`;
+const REGION_JS = (r) => `try{if(${JSON.stringify(r)})localStorage.setItem('fw-region', JSON.stringify(${JSON.stringify(r)}));if(!window.__fwNoConsent&&!localStorage.getItem('fw-consent'))localStorage.setItem('fw-consent','denied')}catch(e){}`;
 /** New browser context. `region` pre-selects a region so the pop-up does not interrupt; pass null for a first-time visitor. */
 const mk = async (opts = {}) => { const { region = 'uk', landed = true, ...rest } = opts; const c = await browser.newContext({ viewport: { width: 1440, height: 900 }, ...rest }); if (region) await c.addInitScript(REGION_JS(region)); if (landed) await c.addCookies([{ name: 'fw-landed', value: '1', url: B }]);
   // The Automations page streams a video, so the network is never idle there: wait for the load event instead.
@@ -132,6 +132,14 @@ await check('landing: a new visit to the bare address lands on Websites & Listin
   await p.locator('header.bar a[href="/"]').first().click(); await p.waitForURL(B + '/'); await p.waitForTimeout(1800); ok(new URL(p.url()).pathname === '/', 'home reachable afterwards');
   const ctx2 = await mk({ landed: false }); const p2 = await ctx2.newPage(); await p2.goto(B + '/automations', { waitUntil: 'load' }); await p2.locator('header.bar a[href="/"]').first().click(); await p2.waitForURL(B + '/'); ok(true, 'a first visit to another page does not bounce the home link');
   const q = await (await mk()).newPage(); await q.goto(B + '/websites', { waitUntil: 'networkidle' }); await q.locator('.bar__login').click(); await q.waitForTimeout(200); ok((await q.locator('.curtain').count()) === 0, 'no curtain when opening the demo'); await q.waitForURL(B + '/demo');
+});
+await check('cookie pop-up: appears about two seconds after the region choice, offers Accept all and Only necessary, and never returns after a choice, even on refresh', async () => {
+  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } }); await ctx.addCookies([{ name: 'fw-landed', value: '1', url: B }]); await ctx.addInitScript(() => { try { localStorage.setItem('fw-region', '"uk"'); } catch {} });
+  const p = await ctx.newPage(); await p.goto(B + '/websites', { waitUntil: 'networkidle' }); ok((await p.getByRole('region', { name: 'Cookies and browser storage' }).count()) === 0, 'not shown at once'); await p.waitForTimeout(2600);
+  const ban = p.getByRole('region', { name: 'Cookies and browser storage' }); ok(await ban.isVisible(), 'shown after about two seconds'); ok(await ban.getByRole('button', { name: 'Accept all' }).isVisible() && await ban.getByRole('button', { name: 'Only necessary' }).isVisible(), 'two choices');
+  await ban.getByRole('button', { name: 'Only necessary' }).click(); ok((await p.getByRole('region', { name: 'Cookies and browser storage' }).count()) === 0, 'closed'); ok(await p.evaluate(() => localStorage.getItem('fw-consent')) === 'denied', 'choice stored');
+  await p.reload({ waitUntil: 'networkidle' }); await p.waitForTimeout(2800); ok((await p.getByRole('region', { name: 'Cookies and browser storage' }).count()) === 0, 'not shown again after a refresh');
+  const c2 = await browser.newContext({ viewport: { width: 1440, height: 900 } }); await c2.addCookies([{ name: 'fw-landed', value: '1', url: B }]); await c2.addInitScript(() => { try { localStorage.setItem('fw-region', '"uk"'); } catch {} }); const q = await c2.newPage(); await q.goto(B + '/websites', { waitUntil: 'networkidle' }); await q.waitForTimeout(2600); await q.getByRole('button', { name: 'Accept all' }).click(); await q.reload({ waitUntil: 'networkidle' }); await q.waitForTimeout(2800); ok((await q.getByRole('region', { name: 'Cookies and browser storage' }).count()) === 0 && await q.evaluate(() => localStorage.getItem('fw-consent')) === 'granted', 'Accept all is remembered too');
 });
 await check('page transition: the curtain covers the page BEFORE the destination loads, then lifts away, without scrolling', async () => {
   const p = await (await mk()).newPage(); await p.goto(B + '/websites', { waitUntil: 'networkidle' }); await p.waitForTimeout(500);
