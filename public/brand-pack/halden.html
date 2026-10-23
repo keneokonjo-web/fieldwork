@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Halden brand and social pack | Fieldwork example</title>
+<style>
+@font-face{font-family:"Instrument Sans";src:url(/concepts/fonts/instrument-sans.woff2) format("woff2");font-weight:400 700;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url(/concepts/fonts/cormorant-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url(/concepts/fonts/cormorant-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url(/concepts/fonts/geist-mono.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--paper:#f3f2ee;--ink:#1b1c19;--stone:#e4e2da;--red:#d63f22;--grey:#5c5d55;--hair:#cfcdc4;--sans:"Instrument Sans",system-ui,sans-serif;--serif:"Cormorant Garamond",Georgia,serif;--mono:"Geist Mono",ui-monospace,monospace}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.5 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{width:min(1280px,100% - 2*clamp(16px,3vw,40px));margin-inline:auto}
+.mono{font:400 11.5px/1.35 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+h1,h2,h3{font-weight:500;letter-spacing:-.045em;line-height:.95}
+em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.02em}
+.bar{background:var(--ink);color:var(--paper);padding:11px 0;position:sticky;top:0;z-index:20}
+.bar .wrap{display:flex;justify-content:space-between;gap:10px 18px;flex-wrap:wrap;align-items:center}
+.bar a{color:#fff;text-underline-offset:3px}
+.bar nav{display:flex;gap:18px}
+section.b{padding:clamp(48px,7vw,110px) 0;border-top:1px solid var(--hair);position:relative}
+.cap{display:flex;gap:16px;align-items:baseline;margin-bottom:34px}
+.cap b{font:400 13px var(--mono);color:var(--red)}
+.cap span{font:400 13px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+h2.t{font-size:clamp(34px,5.4vw,78px);max-width:16ch;margin-bottom:28px}
+.lead{font-size:clamp(18px,1.6vw,22px);max-width:56ch;color:var(--grey);margin-bottom:34px}
+/* title */
+.title{padding:0!important;border-top:0;height:min(86vh,720px);display:grid;align-items:end;overflow:hidden;position:relative}
+.title h1{font-size:clamp(84px,24vw,360px);letter-spacing:-.075em;line-height:.76;margin:0 0 -.07em -.02em;white-space:nowrap}
+.title h1 i{font-style:normal;color:var(--red)}
+.title .sub{position:absolute;left:clamp(16px,3vw,40px);top:56px;max-width:32ch;font-size:clamp(18px,1.9vw,26px);line-height:1.25}
+.corners>i{position:absolute;font:400 11px var(--mono);font-style:normal;color:var(--grey)}
+.corners .tl{left:12px;top:10px}.corners .tr{right:12px;top:10px}.corners .bl{left:12px;bottom:10px}.corners .br{right:12px;bottom:10px}
+/* principles + refs */
+.rows{border-top:1px solid var(--ink)}
+.rows .r{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:20px;border-bottom:1px solid var(--hair);padding:16px 0}
+.rows .r b{font-weight:500;font-size:clamp(20px,2.2vw,30px);letter-spacing:-.035em}
+@media(max-width:700px){.rows .r{grid-template-columns:1fr;gap:4px}}
+/* logo */
+.logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));border:1px solid var(--ink)}
+.lg{padding:44px 24px;display:grid;place-content:center;gap:14px;min-height:220px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:0 -1px -1px 0;text-align:center;position:relative}
+.lg small{position:absolute;left:12px;bottom:10px;font:400 10.5px var(--mono);text-transform:uppercase;letter-spacing:.06em;opacity:.7}
+.wm{font:500 clamp(48px,7vw,92px)/1 var(--sans);letter-spacing:-.07em;white-space:nowrap}
+.wm i{font-style:normal;color:var(--red)}
+.lg.dk{background:var(--ink);color:var(--paper)}.lg.rd{background:var(--red);color:#fff}.lg.rd .wm i{color:#fff}
+.lg.ph{background:#222 center/cover;color:#fff}
+.mk{font:400 clamp(80px,12vw,150px)/.8 var(--serif);letter-spacing:-.05em}
+.mk i{font-style:normal;color:var(--red)}
+.icon{width:120px;height:120px;border-radius:28px;background:var(--ink);color:var(--paper);display:grid;place-content:center;margin-inline:auto}
+.icon .mk{font-size:84px;margin-top:-8px}
+/* colour */
+.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border:1px solid var(--ink)}
+.sw div{padding:96px 16px 16px;font:400 12px/1.6 var(--mono);border-right:1px solid var(--ink);margin-right:-1px}
+.sw b{display:block;font:500 24px var(--sans);letter-spacing:-.03em}
+.ratio{display:flex;height:46px;border:1px solid var(--ink);border-top:0}
+.ratio span{display:grid;align-items:center;padding-left:10px;font:400 11px var(--mono)}
+/* type */
+.spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));border:1px solid var(--ink)}
+.spec>div{padding:26px;border-right:1px solid var(--ink);margin-right:-1px}
+.spec .big{font:500 clamp(70px,9vw,130px)/.85 var(--sans);letter-spacing:-.07em}
+.spec .big.s{font:400 clamp(70px,9vw,130px)/.85 var(--serif);font-style:italic;letter-spacing:-.04em}
+.scale{width:100%;border-collapse:collapse;margin-top:26px;font-size:15px}
+.scale td,.scale th{border-top:1px solid var(--ink);padding:10px 8px;text-align:left;vertical-align:baseline}
+.scale th{font:400 11px var(--mono);text-transform:uppercase;letter-spacing:.06em}
+/* social tiles */
+.ig{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;max-width:720px}
+.tile{position:relative;aspect-ratio:1;overflow:hidden;background:var(--stone) center/cover no-repeat;color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(8px,1.8vw,18px)}
+.tile.sc::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,0) 40%,rgba(0,0,0,.65))}
+.tile>*{position:relative}
+.tile .k{font:400 clamp(8px,1vw,11px) var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.tile .h{font:500 clamp(14px,2.3vw,30px)/.98 var(--sans);letter-spacing:-.05em}
+.tile .h em{font-size:1.08em}
+.tile .p{font:500 clamp(11px,1.5vw,18px) var(--sans);letter-spacing:-.02em}
+.tile .lgs{font:500 clamp(12px,1.6vw,20px) var(--sans);letter-spacing:-.07em}.tile .lgs i{font-style:normal;color:var(--red)}
+.tile.ink{background:var(--ink);color:var(--paper)}.tile.red{background:var(--red)}.tile.red .lgs i{color:#fff}.tile.paper{background:var(--paper);color:var(--ink);box-shadow:inset 0 0 0 1px var(--hair)}.tile.stone{background:var(--stone);color:var(--ink)}
+.tile.q .h{font:400 clamp(16px,3.2vw,40px)/1 var(--serif);letter-spacing:-.02em}
+.formats{display:grid;gap:34px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));align-items:start}
+.fmt figcaption{margin-top:10px}
+.story{aspect-ratio:9/16;max-width:260px}
+.car{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}
+.car .tile{flex:0 0 min(62vw,260px);scroll-snap-align:start}
+.li{aspect-ratio:4/1;min-height:90px;flex-direction:row;align-items:center;padding:0 clamp(14px,3vw,36px)}
+/* ads */
+.ads{display:grid;gap:34px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));align-items:start}
+.ad45{aspect-ratio:4/5}.ad-btn{display:inline-block;background:var(--red);color:#fff;border-radius:99px;padding:.5em 1.1em;font:500 clamp(10px,1.3vw,15px) var(--sans)}
+.banner{display:flex;align-items:center;gap:16px;justify-content:space-between;background:var(--ink);color:var(--paper);overflow:hidden;position:relative}
+.b300{aspect-ratio:300/250;max-width:300px;width:100%;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:18px;background:var(--stone) center/cover;color:#fff}
+.b300::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 20%,rgba(0,0,0,.72))}
+.b728{aspect-ratio:728/90;width:100%;min-height:62px;padding:0 18px}
+.b728 .h{font:500 clamp(13px,2.4vw,24px) var(--sans);letter-spacing:-.04em}
+/* calendar */
+.cal{width:100%;border-collapse:collapse;font-size:15px}
+.cal th,.cal td{border-top:1px solid var(--hair);padding:12px 10px;text-align:left;vertical-align:top}
+.cal th{font:400 11px var(--mono);text-transform:uppercase;letter-spacing:.06em;border-top:1px solid var(--ink)}
+.cal td:first-child{font-family:var(--mono);font-size:12px;white-space:nowrap}
+.tblwrap{overflow-x:auto}
+.cap2{border:1px solid var(--ink);padding:22px;margin-bottom:14px;max-width:760px}
+.cap2 p{margin-top:10px;font-size:16px}
+.prompt{border-top:1px solid var(--ink);padding:18px 0}
+.prompt p{max-width:70ch;color:var(--grey);margin-top:6px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;border-radius:99px;padding:.8em 1.5em;font-weight:500}
+.btn.red{background:var(--red)}
+footer.f{background:var(--ink);color:var(--paper);padding:60px 0 40px}
+footer.f p{max-width:70ch;color:#bdbeb4;font-size:14px;margin-top:14px}
+footer.f a{color:#fff}
+</style>
+</head>
+<body>
+<div class="bar mono"><div class="wrap"><span>Example · Brand and Social Starter Pack · Fieldwork</span><nav><a href="/websites#brand">← Back to Fieldwork</a><a href="/demo">View the Halden demo site</a></nav></div></div>
+
+<section class="b title corners">
+  <i class="tl">HALDEN / BRAND PACK</i><i class="tr">EXAMPLE · v1</i>
+  <p class="sub">The brand and social starter pack, as it would look for one fictional agency.</p>
+  <div class="wrap" style="width:100%;padding-left:clamp(16px,3vw,40px)"><h1>halden<i>.</i></h1></div>
+</section>
+
+<section class="b">
+  <div class="wrap">
+    <div class="cap"><b>01</b><span>The idea</span></div>
+    <h2 class="t">Quiet, precise, <em>at home.</em></h2>
+    <p class="lead">Halden is a fictional international real-estate agency used to show how a Fieldwork pack works. Everything below (the logo, colours, type, posts and ads) is invented for the demonstration. For a real client, each page is built around their own name, markets and homes.</p>
+    <div class="rows">
+      <div class="r"><b>Calm</b><span>Lots of space, one idea per post, never shouting. Price and place are the headline.</span></div>
+      <div class="r"><b>Honest</b><span>Plain words, true facts, no invented numbers. If we do not know it, we do not say it.</span></div>
+      <div class="r"><b>International</b><span>Not tied to one city. The same look works for London, New York and Lagos listings.</span></div>
+      <div class="r"><b>Voice</b><span>Short sentences. One italic word for warmth. “Homes worth coming home to.”</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="b">
+  <div class="wrap">
+    <div class="cap"><b>02</b><span>Logo</span></div>
+    <h2 class="t">A letter and <em>a full stop.</em></h2>
+    <p class="lead">The wordmark is lowercase, tightly spaced, with a red full stop. The “h.” mark stands alone as the profile picture, the favicon and the app icon.</p>
+    <div class="logos">
+      <div class="lg"><div class="wm">halden<i>.</i></div><small>Wordmark · on paper</small></div>
+      <div class="lg dk"><div class="wm">halden<i>.</i></div><small>On ink</small></div>
+      <div class="lg rd"><div class="wm">halden<i>.</i></div><small>On vermilion · full stop turns white</small></div>
+      <div class="lg ph" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url(/concepts/img/prop-villa-pool.jpg)"><div class="wm">halden<i>.</i></div><small>On photography · darken the photo first</small></div>
+      <div class="lg"><div class="icon"><div class="mk">h<i>.</i></div></div><small>App icon / profile picture</small></div>
+      <div class="lg"><div class="mk">h<i>.</i></div><small>Mark · serif “h”</small></div>
+    </div>
+    <div class="rows" style="margin-top:34px">
+      <div class="r"><b>Clear space</b><span>Leave the height of the “h” on every side. Minimum width: 90px on screen.</span></div>
+      <div class="r"><b>Never</b><span>Stretch it, recolour the full stop, add shadows, or place it on a busy part of a photo.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="b">
+  <div class="wrap">
+    <div class="cap"><b>03</b><span>Colour</span></div>
+    <h2 class="t">Paper, ink, <em>one red.</em></h2>
+    <div class="sw">
+      <div style="background:#f3f2ee"><b>Paper</b>#F3F2EE<br>Backgrounds. About 60%.</div>
+      <div style="background:#1b1c19;color:#f3f2ee"><b>Ink</b>#1B1C19<br>Text and dark panels. About 25%.</div>
+      <div style="background:#e4e2da"><b>Stone</b>#E4E2DA<br>Quiet panels. About 10%.</div>
+      <div style="background:#d63f22;color:#fff"><b>Vermilion</b>#D63F22<br>Full stop, buttons, status. About 5%.</div>
+    </div>
+    <div class="ratio" aria-hidden="true"><span style="flex:60;background:#f3f2ee">60</span><span style="flex:25;background:#1b1c19;color:#f3f2ee">25</span><span style="flex:10;background:#e4e2da">10</span><span style="flex:5;background:#d63f22;color:#fff">5</span></div>
+    <p class="lead" style="margin-top:22px">Rule: one accent only. Red is for the full stop, one button per post and status labels such as “Reserved”. Text on paper is always ink.</p>
+  </div>
+</section>
+
+<section class="b">
+  <div class="wrap">
+    <div class="cap"><b>04</b><span>Typography</span></div>
+    <h2 class="t">Two voices: <em>sans and serif.</em></h2>
+    <div class="spec">
+      <div><div class="mono" style="margin-bottom:14px">Headlines · Instrument Sans Medium</div><div class="big">Aa</div><p style="margin-top:18px;max-width:34ch">Tight tracking (−0.05em), tight line height (0.95). Prices, titles and headlines.</p></div>
+      <div><div class="mono" style="margin-bottom:14px">Accent · Cormorant Garamond Italic</div><div class="big s">Aa</div><p style="margin-top:18px;max-width:34ch">One italic word per headline, same size as the sans around it.</p></div>
+    </div>
+    <table class="scale">
+      <tr><th>Use</th><th>Family</th><th>Size</th><th>Example</th></tr>
+      <tr><td>Headline</td><td>Instrument Sans 500</td><td>48–96</td><td style="font:500 32px var(--sans);letter-spacing:-.05em">Homes worth coming <em>home</em> to.</td></tr>
+      <tr><td>Price</td><td>Instrument Sans 500</td><td>24–40</td><td style="font:500 28px var(--sans);letter-spacing:-.04em">£2,395,000</td></tr>
+      <tr><td>Label</td><td>Instrument Sans 500, caps</td><td>11–13</td><td class="mono">Just listed · Richmond</td></tr>
+      <tr><td>Body</td><td>Instrument Sans 400</td><td>16–18</td><td>Four bedrooms, a long garden, five minutes from the river.</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="b">
+  <div class="wrap">
+    <div class="cap"><b>05</b><span>Social templates</span></div>
+    <h2 class="t">Nine posts, <em>one look.</em></h2>
+    <p class="lead">An Instagram grid built from five editable templates: listing, price, quote, area, and brand. Photographs here are illustrative stock; a real pack uses the client’s own.</p>
+    <div class="ig" role="img" aria-label="A nine-post Instagram grid in the Halden style">
+      <div class="tile sc" style="background-image:url(/concepts/img/prop-exterior-white.jpg)"><span class="k">Just listed</span><div><div class="h">Ashdown <em>House</em></div><div class="p">Kensington · £4,250,000</div></div></div>
+      <div class="tile ink"><span class="k">Journal</span><div class="h">Preparing a home <em>for sale.</em></div><span class="lgs">halden<i>.</i></span></div>
+      <div class="tile sc" style="background-image:url(/concepts/img/home-kitchen-white.jpg)"><span class="k">Inside</span><div class="h">Where mornings <em>begin.</em></div></div>
+      <div class="tile red"><span class="k">Viewing this Saturday</span><div class="h">Hollin Lodge, <em>Hampstead</em></div><span class="lgs">halden<i>.</i></span></div>
+      <div class="tile sc" style="background-image:url(/concepts/img/uk-georgian.jpg)"><span class="k">Area guide</span><div class="h">A walk through <em>Kensington.</em></div></div>
+      <div class="tile paper q"><span class="k">Our approach</span><div class="h">We show fewer, <em>better</em> homes.</div><span class="lgs">halden<i>.</i></span></div>
+      <div class="tile sc" style="background-image:url(/concepts/img/prop-villa-pool.jpg)"><span class="k">New on the market</span><div><div class="h">Pinewood <em>House</em></div><div class="p">Cobham · £5,200,000</div></div></div>
+      <div class="tile stone"><span class="k">To let</span><div><div class="h">Two bedrooms <em>by the canal</em></div><div class="p">Islington · £3,450 pcm</div></div></div>
+      <div class="tile sc" style="background-image:url(/concepts/img/home-keys-model.jpg)"><span class="k">Keys</span><div class="h">We stay until <em>the keys.</em></div></div>
+    </div>
+    <div class="formats" style="margin-top:56px">
+      <figure class="fmt"><div class="tile story sc" style="background-image:url(/concepts/img/prop-modernist.jpg);padding:22px"><span class="k">Story · 9:16</span><div><div class="h" style="font-size:34px">Open house <em>Sunday</em></div><div class="p" style="margin:8px 0 14px">Larch Court, Richmond</div><span class="ad-btn">Book a viewing</span></div></div><figcaption class="mono">Story template</figcaption></figure>
+      <figure class="fmt" style="grid-column:span 2;min-width:0"><div class="car">
+        <div class="tile sc" style="background-image:url(/concepts/img/prop-exterior-black-dusk.jpg)"><span class="k">1 / 5</span><div class="h">The Black <em>House</em></div></div>
+        <div class="tile paper"><span class="k">2 / 5</span><div class="h">Three bedrooms, <em>charred timber.</em></div></div>
+        <div class="tile sc" style="background-image:url(/concepts/img/home-living-premium.jpg)"><span class="k">3 / 5</span><div class="h">Light from <em>two sides.</em></div></div>
+        <div class="tile ink"><span class="k">4 / 5</span><div class="h">Overlooks <em>the common.</em></div></div>
+        <div class="tile red"><span class="k">5 / 5</span><div class="h">Reserved. <em>Thank you.</em></div><span class="lgs">halden<i>.</i></span></div>
+      </div><figcaption class="mono">Carousel template · swipe</figcaption></figure>
+    </div>
+    <figure class="fmt" style="margin-top:34px"><div class="tile ink li"><span class="lgs" style="font-size:clamp(18px,3vw,36px)">halden<i>.</i></span><span class="h" style="font-size:clamp(14px,2.4vw,30px)">Homes worth coming <em>home</em> to.</span></div><figcaption class="mono">LinkedIn / Facebook cover · 4:1</figcaption></figure>
+  </div>
+</section>
+
+<section class="b">
+  <div class="wrap">
+    <div class="cap"><b>06</b><span>Static ads</span></div>
+    <h2 class="t">Ads that look <em>like the brand.</em></h2>
+    <div class="ads">
+      <figure><div class="tile ad45 sc" style="background-image:url(/concepts/img/prop-exterior-timber-dusk.jpg);padding:22px"><span class="k">Hampstead · Four bedrooms</span><div><div class="h" style="font-size:clamp(24px,3.6vw,46px)">Find the home.<br><em>Keep the life.</em></div><div style="margin-top:14px;display:flex;justify-content:space-between;align-items:center"><span class="ad-btn">See the home</span><span class="lgs">halden<i>.</i></span></div></div></div><figcaption class="mono" style="margin-top:10px">Feed ad · 4:5</figcaption></figure>
+      <figure><div class="tile ad45 ink" style="padding:22px"><span class="k">Selling this year?</span><div class="h" style="font-size:clamp(26px,4vw,52px)">A free valuation, <em>from someone who knows your street.</em></div><div style="display:flex;justify-content:space-between;align-items:center"><span class="ad-btn">Book a valuation</span><span class="lgs">halden<i>.</i></span></div></div><figcaption class="mono" style="margin-top:10px">Feed ad · 4:5 · valuation</figcaption></figure>
+      <div>
+        <figure><div class="banner b300 sc" style="background-image:url(/concepts/img/home-living-gallery.jpg)"><div class="h" style="font:500 22px/1 var(--sans);letter-spacing:-.05em;position:relative">Homes worth <em>coming home</em> to.</div><span class="ad-btn" style="position:relative;margin-top:10px">Search homes</span></div><figcaption class="mono" style="margin:10px 0 28px">Display banner · 300×250</figcaption></figure>
+        <figure><div class="banner b728"><span class="lgs" style="font:500 clamp(16px,2.6vw,28px) var(--sans);letter-spacing:-.07em">halden<span style="color:var(--red)">.</span></span><span class="h">Fewer, better homes.</span><span class="ad-btn">Search</span></div><figcaption class="mono" style="margin-top:10px">Leaderboard · 728×90</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="b">
+  <div class="wrap">
+    <div class="cap"><b>07</b><span>Mini content pack</span></div>
+    <h2 class="t">Two weeks, <em>ready to post.</em></h2>
+    <p class="lead">A simple posting rhythm using the templates above. Three posts a week is enough.</p>
+    <div class="tblwrap"><table class="cal">
+      <tr><th>Day</th><th>Template</th><th>Idea</th><th>Caption starter</th></tr>
+      <tr><td>Mon · wk 1</td><td>Listing</td><td>New on the market</td><td>“New on the market: Pinewood House, Cobham. Six bedrooms around a heated pool. Details in the link.”</td></tr>
+      <tr><td>Wed · wk 1</td><td>Quote</td><td>Our approach</td><td>“We show fewer, better homes. A short list, honestly described.”</td></tr>
+      <tr><td>Fri · wk 1</td><td>Story</td><td>Weekend viewings</td><td>“Open house this Sunday at Larch Court. Book your slot.”</td></tr>
+      <tr><td>Mon · wk 2</td><td>Area guide</td><td>A walk through Kensington</td><td>“Our favourite coffee, park and school-run shortcut in Kensington.”</td></tr>
+      <tr><td>Wed · wk 2</td><td>Carousel</td><td>Inside The Black House</td><td>“Five things we love about this house. Swipe.”</td></tr>
+      <tr><td>Fri · wk 2</td><td>Journal</td><td>Preparing a home for sale</td><td>“A simple checklist before the photographer arrives. Link in bio.”</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<section class="b">
+  <div class="wrap">
+    <div class="cap"><b>08</b><span>Captions and prompts</span></div>
+    <h2 class="t">So your team <em>can keep going.</em></h2>
+    <div class="cap2"><span class="mono">Example caption · property spotlight</span><p>Marlow Lodge, Richmond. Four bedrooms, a long south-facing garden and five minutes from the river. £2,395,000. Book a viewing: link in bio.</p></div>
+    <div class="cap2"><span class="mono">Example caption · lettings</span><p>To let: a two-bedroom garden flat with its own entrance, close to the canal. £3,100 pcm. Available now.</p></div>
+    <div class="prompt"><b>Property spotlight prompt</b><p>Write a short Instagram caption for [address]. Use only these verified facts: [paste facts]. Warm, plain, no exclamation marks, under 60 words. End with “Book a viewing: link in bio”.</p></div>
+    <div class="prompt"><b>New listing prompt</b><p>Draft a LinkedIn post announcing [property] now on the market. Mention the area, the price and two features from the fact sheet only. Do not invent details. Add a one-line call to action.</p></div>
+    <div class="prompt"><b>Market note prompt</b><p>Turn these three bullet points into a 120-word market note in our house voice: calm, honest, specific. Do not state figures that I have not supplied.</p></div>
+  </div>
+</section>
+
+<section class="b">
+  <div class="wrap">
+    <div class="cap"><b>09</b><span>What you receive</span></div>
+    <h2 class="t">One set, <em>yours to edit.</em></h2>
+    <div class="rows">
+      <div class="r"><b>Brand guide</b><span>Logo files, colours, fonts and the rules on pages 02 to 04, for your business.</span></div>
+      <div class="r"><b>Social templates</b><span>A defined set of editable templates like the ones in section 05, with a set number of revisions.</span></div>
+      <div class="r"><b>Content starter</b><span>A first posting plan and captions, as in sections 07 and 08.</span></div>
+      <div class="r"><b>Prompts</b><span>Reusable prompts so your team can write on-brand posts in minutes.</span></div>
+    </div>
+    <p style="margin-top:34px"><a class="btn red" href="/websites#price">See the pack and its price</a> &nbsp; <a class="btn" href="/demo">View the Halden demo website</a></p>
+  </div>
+</section>
+
+<footer class="f"><div class="wrap">
+  <div class="wm" style="font-size:clamp(48px,10vw,120px)">halden<i>.</i></div>
+  <p>Halden is a fictional company created by Fieldwork to show a brand and social starter pack. The properties, prices and people shown are not real. Photographs are illustrative stock; see the <a href="/image-credits">image credits</a>.</p>
+</div></footer>
+</body>
+</html>

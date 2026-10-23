@@ -16,6 +16,7 @@ const nextConfig = {
       { source: '/learn', destination: '/ai-workshop', permanent: true },
       { source: '/build', destination: '/', permanent: true },
       { source: '/login', destination: '/demo', permanent: true },
+      { source: '/demo/brand-pack', destination: '/brand-pack/halden.html', permanent: false },
       { source: '/field-notes/:path*', destination: '/about', permanent: true },
       { source: '/field-notes', destination: '/about', permanent: true },
     ];
@@ -26,7 +27,7 @@ const nextConfig = {
         source: '/(.*)',
         headers: [
           { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'X-Frame-Options', value: 'DENY' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()' },
         ],

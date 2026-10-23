@@ -19,3 +19,9 @@ export function DemoPhoto({ src, alt, ratio = '4 / 3', sizes = '(min-width: 62re
     </div>
   );
 }
+
+/** The URL of a photograph by key, or the data URL of an uploaded image. Used where a plain <img> is needed. */
+export function photoSrc(src: string): string {
+  if (src.startsWith('data:')) return src;
+  return byKey.get(src)?.file ?? '';
+}

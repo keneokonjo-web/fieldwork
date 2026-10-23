@@ -1,5 +1,5 @@
 /**
- * Demonstration data for "Larkfield & Pryce", a fictional London estate agency created by Fieldwork to show a website with a
+ * Demonstration data for "Halden", a fictional international real estate agency with British listings created by Fieldwork to show a website with a
  * self-managed listing system. Every company, person, address, price and property here is made up. Nothing is for sale.
  */
 export type ListingType = 'sale' | 'rent';
@@ -132,9 +132,9 @@ export const POSTS: Post[] = [
 
 export const TEAM = [
   { name: 'Eleanor Pryce', role: 'Founding Partner' },
-  { name: 'James Larkfield', role: 'Sales Director' },
+  { name: 'James Okafor-Hale', role: 'Sales Director' },
   { name: 'Amara Okoye', role: 'Head of Lettings' },
   { name: 'Tom Hadley', role: 'Valuations' },
 ];
 
-export const BRAND = { name: 'Larkfield & Pryce', short: 'Larkfield & Pryce', tagline: 'Estate agents and lettings, London', phone: '020 7946 0182', email: 'hello@larkfieldpryce.example', address: '14 Cavendish Mews, London W1G 0AA' };
+export const BRAND = { name: 'Halden', short: 'Halden', tagline: 'Residential real estate · London, New York, Lagos', phone: '020 7946 0182', email: 'hello@halden.example', address: '14 Cavendish Mews, London W1G 0AA' };

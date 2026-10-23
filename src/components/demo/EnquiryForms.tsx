@@ -1,4 +1,5 @@
 'use client';
+import { BRAND } from '@/demo/data';
 import Link from 'next/link';
 import { useId, useState } from 'react';
 import { useEnquiries } from '@/demo/store';
@@ -58,7 +59,7 @@ export function EnquiryForm({ kind, propertyId, propertyTitle, topic }: Props) {
         </div>
       )}
       <div className="d-field"><label htmlFor={id('message')}>{topic === 'valuation' ? 'About your property' : 'Message (optional)'}</label><textarea className="d-textarea" id={id('message')} name="message" defaultValue={topic === 'valuation' ? '' : kind === 'enquiry' && propertyTitle ? `I would like to know more about ${propertyTitle}.` : ''} /></div>
-      <div className="d-check"><input id={id('consent')} name="consent" type="checkbox" /><label htmlFor={id('consent')}>I agree to {`Larkfield & Pryce`} contacting me about this. (Demonstration only.)</label></div>
+      <div className="d-check"><input id={id('consent')} name="consent" type="checkbox" /><label htmlFor={id('consent')}>I agree to {BRAND.name} contacting me about this. (Demonstration only.)</label></div>
       {errors.consent && <p className="d-error" style={{ marginTop: '-0.6rem', marginBottom: '1rem' }}>{errors.consent}</p>}
       <button type="submit" className="d-btn" style={{ width: '100%' }}>{kind === 'viewing' ? 'Request viewing' : topic === 'valuation' ? 'Request a valuation' : 'Send enquiry'}</button>
     </form>

@@ -14,7 +14,7 @@ export default function AboutPage() {
       <section className="d-wrap d-split" style={{ paddingBottom: '5rem' }}>
         <DemoReveal><DemoPhoto src="uk-london" ratio="4 / 3" alt="A red brick mansion block in London" /></DemoReveal>
         <DemoReveal delay={120}>
-          <p className="d-lede">Larkfield &amp; Pryce is an independent estate agency and lettings company. We keep our team small so that you always deal with someone who knows your home, your street and your plans.</p>
+          <p className="d-lede">Halden is an independent residential real estate agency with British listings and clients in London, New York and Lagos. We keep our team small so that you always deal with someone who knows your home, your street and your plans.</p>
           <p>We are an invented company, created to show how a property website and a listing system can work together. Everything you see here, from the people to the properties, is made up.</p>
         </DemoReveal>
       </section>

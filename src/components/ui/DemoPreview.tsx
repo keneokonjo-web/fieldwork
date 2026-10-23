@@ -1,17 +1,29 @@
+'use client';
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import { DEMO_PATH } from '@/config/site';
 
-/** A clickable preview of the demonstration website. The live demo opens from here. */
+const W = 1440;
+const H = 900;
+
+/** A live, blurred preview of the demonstration website, scaled so the whole first screen is visible. The live demo opens from here. */
 export function DemoPreview({ label = 'View demo', className = '' }: { label?: string; className?: string }) {
+  const screen = useRef<HTMLSpanElement>(null);
+  const [scale, setScale] = useState(0.4);
+  useEffect(() => {
+    const el = screen.current; if (!el) return;
+    const fit = () => setScale(el.clientWidth / W);
+    fit();
+    const ro = new ResizeObserver(fit); ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
   return (
-    <Link href={DEMO_PATH} className={`demoprev ${className}`.trim()} aria-label={`${label}: open the demonstration website`} data-track="demo_request_clicked" data-track-label="demo-preview">
-      <span className="demoprev__bar" aria-hidden="true"><i /><i /><i /><b>yourcompany.com</b></span>
-      <span className="demoprev__page" aria-hidden="true">
-        <span className="demoprev__nav"><b /><s /><s /><s /></span>
-        <span className="demoprev__hero"><span className="demoprev__h" /><span className="demoprev__h demoprev__h--s" /><span className="demoprev__btn" /></span>
-        <span className="demoprev__cards"><span /><span /><span /></span>
+    <div className={`demoprev ${className}`.trim()}>
+      <span className="demoprev__bar" aria-hidden="true"><i /><i /><i /><b>halden.example</b></span>
+      <span className="demoprev__screen" ref={screen} aria-hidden="true">
+        <iframe className="demoprev__frame" src={DEMO_PATH} title="Preview of the demonstration website" loading="lazy" tabIndex={-1} style={{ width: W, height: H, transform: `scale(${scale})` }} />
       </span>
-      <span className="demoprev__cta"><span>{label}<i aria-hidden="true">→</i></span></span>
-    </Link>
+      <Link href={DEMO_PATH} className="demoprev__cta" aria-label={`${label}: open the demonstration website`} data-track="demo_request_clicked" data-track-label="demo-preview"><span>{label}<i aria-hidden="true">→</i></span></Link>
+    </div>
   );
 }

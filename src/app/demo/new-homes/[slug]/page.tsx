@@ -12,9 +12,9 @@ export default async function DevelopmentPage({ params }: { params: Promise<{ sl
   if (!d) notFound();
   return (
     <>
-      <section className="d-hero" style={{ minHeight: 'min(34rem, 70svh)' }} aria-labelledby="dev-title">
+      <section className="d-hero d-hero--dev" aria-labelledby="dev-title">
         <div className="d-hero__img"><DemoPhoto src={d.image} ratio="auto" priority sizes="100vw" alt={d.name} /></div>
-        <div className="d-wrap"><span className="d-eyebrow" style={{ color: '#e6d2b0' }}>New homes · {d.area}</span><h1 id="dev-title">{d.name}</h1><p className="d-hero__sub">{d.summary}</p></div>
+        <div className="d-wrap"><span className="d-eyebrow" style={{ color: '#ffd0c4' }}>New homes · {d.area}</span><h1 id="dev-title">{d.name}</h1><p className="d-hero__sub">{d.summary}</p></div>
       </section>
       <section className="d-section">
         <div className="d-wrap d-split">

@@ -128,25 +128,18 @@ body:has(.hero__big) .site-footer { padding-bottom: var(--s-6); }
 .section--ink .chip--neutral { color: var(--paper); }
 
 /* ---------- Demo preview (browser frame) ---------- */
-.demoprev { position: relative; display: block; border: var(--rule); background: var(--paper); text-decoration: none; color: var(--ink); overflow: hidden; aspect-ratio: 16 / 11; box-shadow: 0 1px 0 var(--ink), 0 28px 60px -34px rgba(18, 18, 18, 0.5); transition: transform var(--dur-3) var(--ease), box-shadow var(--dur-3) var(--ease); }
-.demoprev:hover { transform: translateY(-4px); box-shadow: 0 1px 0 var(--ink), 0 40px 70px -34px rgba(18, 18, 18, 0.55); }
+.demoprev { position: relative; display: block; border: var(--rule); background: var(--paper); text-decoration: none; color: var(--ink); overflow: hidden; box-shadow: 0 1px 0 var(--ink), 0 28px 60px -34px rgba(18, 18, 18, 0.5); transition: transform var(--dur-3) var(--ease), box-shadow var(--dur-3) var(--ease); }
+.demoprev:hover, .demoprev:focus-within { transform: translateY(-4px); box-shadow: 0 1px 0 var(--ink), 0 40px 70px -34px rgba(18, 18, 18, 0.55); }
 .demoprev__bar { display: flex; align-items: center; gap: 0.35rem; padding: 0.55rem 0.8rem; border-bottom: var(--rule); background: var(--wash); }
 .demoprev__bar i { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--hair); border: 1px solid var(--grey); }
 .demoprev__bar b { margin-left: 0.6rem; flex: 1; max-width: 16rem; padding: 0.2rem 0.7rem; background: var(--paper); border: 1px solid var(--hair); border-radius: var(--radius-pill); font: 400 0.65rem var(--font-mono); letter-spacing: 0.05em; color: var(--grey); }
-.demoprev__page { display: grid; gap: 1rem; padding: 1rem 1.1rem; }
-.demoprev__nav { display: flex; gap: 0.6rem; align-items: center; }
-.demoprev__nav b { width: 5rem; height: 0.7rem; background: var(--ink); }
-.demoprev__nav s { width: 2.4rem; height: 0.4rem; background: var(--hair); margin-left: 0.4rem; }
-.demoprev__hero { display: grid; gap: 0.5rem; padding: 1.2rem 0; }
-.demoprev__h { height: 1.4rem; width: 70%; background: var(--wash); }
-.demoprev__h--s { height: 1.4rem; width: 48%; }
-.demoprev__btn { margin-top: 0.4rem; width: 6rem; height: 1.6rem; background: var(--cobalt); border-radius: var(--radius-pill); opacity: 0.85; }
-.demoprev__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
-.demoprev__cards span { aspect-ratio: 4 / 3; background: linear-gradient(135deg, var(--wash), var(--hair)); border: 1px solid var(--hair); }
-.demoprev__cta { position: absolute; inset: 0; display: grid; place-content: center; background: color-mix(in srgb, var(--paper) 55%, transparent); backdrop-filter: blur(1.5px); }
+.demoprev__screen { display: block; position: relative; width: 100%; aspect-ratio: 1440 / 900; overflow: hidden; background: #111; }
+.demoprev__frame { position: absolute; left: 0; top: 0; border: 0; transform-origin: 0 0; pointer-events: none; filter: blur(3px); transition: filter var(--dur-3) var(--ease); background: #f3f2ee; }
+.demoprev:hover .demoprev__frame, .demoprev:focus-within .demoprev__frame { filter: blur(1.2px); }
+.demoprev__cta { position: absolute; left: 0; right: 0; bottom: 0; top: 2.4rem; text-decoration: none; display: grid; place-content: center; background: color-mix(in srgb, var(--ink) 18%, transparent); }
 .demoprev__cta > span { display: inline-flex; align-items: center; gap: 0.7rem; white-space: nowrap; background: var(--ink); color: var(--paper); padding: 0.95rem 1.6rem; border-radius: var(--radius-pill); font: 600 1.05rem var(--font-sans); letter-spacing: -0.01em; transition: background var(--dur-2), gap var(--dur-2) var(--ease); }
 .demoprev__cta i { font-style: normal; }
-.demoprev:hover .demoprev__cta > span { background: var(--cobalt); gap: 1rem; }
+.demoprev:hover .demoprev__cta > span, .demoprev__cta:focus-visible > span { background: var(--cobalt); gap: 1rem; }
 
 /* ---------- Video hero (automations): paper background, halftone dots, the whole video visible on landing ---------- */
 .vhero { position: relative; overflow: hidden; padding: clamp(1.5rem, 1rem + 1.5vw, 2.5rem) 0 clamp(1.5rem, 1rem + 1.5vw, 2.5rem); min-height: calc(100svh - var(--bar-h)); display: flex; align-items: center; }

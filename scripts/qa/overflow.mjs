@@ -1,6 +1,6 @@
 // Fails if any route scrolls horizontally at 390 / 768 / 1440.
 import { chromium } from 'playwright';
-const routes = ['/', '/websites', '/automations', '/ai-workshop', '/about', '/about/why-fieldwork', '/demo', '/demo/properties', '/demo/properties/ashdown-mews-kensington', '/demo/new-homes/the-wharf', '/demo/about', '/demo/journal/preparing-a-home-for-sale', '/demo/contact', '/demo/brand-pack', '/demo/admin', '/contact', '/image-credits', '/privacy', '/terms', '/cookies', '/accessibility', '/not-a-page'];
+const routes = ['/', '/websites', '/automations', '/ai-workshop', '/about', '/about/why-fieldwork', '/demo', '/demo/properties', '/demo/properties/ashdown-mews-kensington', '/demo/new-homes/the-wharf', '/demo/about', '/demo/journal/preparing-a-home-for-sale', '/demo/contact', '/demo/admin', '/contact', '/image-credits', '/privacy', '/terms', '/cookies', '/accessibility', '/not-a-page'];
 const b = await chromium.launch(); let bad = 0;
 for (const w of [390, 768, 1440]) {
   const p = await (await b.newContext({ viewport: { width: w, height: 800 } })).newPage();

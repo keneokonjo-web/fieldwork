@@ -9,6 +9,18 @@ import { useProperties } from '@/demo/store';
 
 const BLANK: Property = { id: '', title: '', headline: '', listing: 'sale', status: 'available', published: false, featured: false, propertyType: 'House', price: 0, beds: 3, baths: 2, receptions: 1, sqft: 1200, address: '', area: 'Islington', postcode: '', description: '', features: [], tenure: 'Freehold', epc: 'C', images: [], added: '' };
 
+/** Sample listings for the Autofill button, so a demonstration never needs typing. Each press fills the next one. */
+const SAMPLES: (Pick<Property, 'title' | 'headline' | 'listing' | 'propertyType' | 'price' | 'beds' | 'baths' | 'receptions' | 'sqft' | 'address' | 'area' | 'postcode' | 'description' | 'tenure' | 'epc' | 'images'> & { features: string[] })[] = [
+  { title: 'Marlow Lodge', headline: 'A calm family house with a long garden', listing: 'sale', propertyType: 'House', price: 2395000, beds: 4, baths: 3, receptions: 2, sqft: 2640, address: '12 Marlow Road', area: 'Richmond', postcode: 'TW9 2LB', tenure: 'Freehold', epc: 'B',
+    description: 'Marlow Lodge is a bright four-bedroom family house on a quiet road, a short walk from the river and the town centre.\n\nThe kitchen and dining room open onto a long, south-facing garden, and the principal bedroom has its own dressing room and bathroom.\n\nGood schools, two stations and the park are all close by.', features: ['South-facing garden', 'Dressing room', 'Underfloor heating', 'Home office', 'Off-street parking'], images: ['prop-exterior-day', 'home-living-premium', 'home-kitchen-white', 'home-living-light'] },
+  { title: 'Apartment 9, The Meridian', headline: 'A top-floor apartment with a wide terrace', listing: 'sale', propertyType: 'Penthouse', price: 1475000, beds: 3, baths: 2, receptions: 1, sqft: 1380, address: 'Apartment 9, The Meridian', area: 'Shoreditch', postcode: 'E2 7DP', tenure: 'Leasehold (210 years)', epc: 'B',
+    description: 'A three-bedroom penthouse on the top floor of a modern building, with floor-to-ceiling windows and a terrace that runs the length of the living room.\n\nResidents share a concierge, a gym and a quiet roof garden.', features: ['Wide private terrace', 'Concierge', 'Residents\' gym', 'Roof garden', 'Two parking spaces'], images: ['prop-block', 'home-apartment-bright', 'home-living-gallery', 'home-kitchen-detail'] },
+  { title: 'The Garden Flat, Alder Road', headline: 'A two-bedroom garden flat with its own entrance', listing: 'rent', propertyType: 'Flat', price: 3100, beds: 2, baths: 1, receptions: 1, sqft: 890, address: '3a Alder Road', area: 'Islington', postcode: 'N5 2QT', tenure: 'Available furnished or unfurnished', epc: 'C',
+    description: 'A light, ground-floor garden flat with its own front door and a private lawned garden, close to the canal and two Underground lines.\n\nAvailable now for a twelve-month tenancy.', features: ['Private garden', 'Own entrance', 'Furnished or unfurnished', 'Pets considered'], images: ['home-living-light', 'home-plants-living', 'home-kitchen-detail'] },
+  { title: 'Cedar House', headline: 'A timber and glass house among the trees', listing: 'sale', propertyType: 'Villa', price: 3880000, beds: 5, baths: 4, receptions: 3, sqft: 3920, address: 'Cedar House, Heathside', area: 'Hampstead', postcode: 'NW3 7QA', tenure: 'Freehold', epc: 'A',
+    description: 'Cedar House is a five-bedroom contemporary home among mature trees, close to the Heath.\n\nA double-height living room opens to a deck and a lawned garden, and a separate garden studio is ideal for working from home.', features: ['Close to the Heath', 'Garden studio', 'Double-height living room', 'Solar panels', 'Electric car charging'], images: ['prop-exterior-timber-dusk', 'home-living-gallery', 'home-kitchen-white', 'home-plants-living'] },
+];
+
 /** Shrinks an uploaded photograph so it fits comfortably in browser storage. */
 async function shrink(file: File): Promise<string> {
   const bmp = await createImageBitmap(file);
@@ -43,6 +55,12 @@ function EditorForm({ existing }: { existing?: Property }) {
   const [saved, setSaved] = useState('');
   const [busy, setBusy] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
+  const [sampleNo, setSampleNo] = useState(0);
+  const autofill = () => {
+    const x = SAMPLES[sampleNo % SAMPLES.length]; setSampleNo((n) => n + 1);
+    setF((p) => ({ ...p, title: x.title, headline: x.headline, listing: x.listing, status: 'available', propertyType: x.propertyType, price: x.price, beds: x.beds, baths: x.baths, receptions: x.receptions, sqft: x.sqft, address: x.address, area: x.area, postcode: x.postcode, tenure: x.tenure, epc: x.epc, description: x.description, images: [...x.images] }));
+    setFeaturesText(x.features.join('\n')); setErrors([]);
+  };
   const set = <K extends keyof Property>(k: K, v: Property[K]) => setF((p) => ({ ...p, [k]: v }));
 
   const move = (i: number, d: -1 | 1) => setF((p) => { const a = [...p.images]; const j = i + d; if (j < 0 || j >= a.length) return p; [a[i], a[j]] = [a[j], a[i]]; return { ...p, images: a }; });
@@ -74,6 +92,7 @@ function EditorForm({ existing }: { existing?: Property }) {
     <>
       <p className="d-note" style={{ margin: 0 }}><Link className="d-link" href="/demo/admin">← Listings</Link></p>
       <h1>{existing ? 'Edit listing' : 'Add a property'}</h1>
+      {!existing && <div className="d-autofill"><button type="button" className="d-btn d-btn--light" onClick={autofill}>Autofill all details</button><p>Presenting this to someone? One press fills the whole form with a sample home. Press again for a different one, then publish.</p></div>}
       {errors.length > 0 && <div role="alert" className="d-panel" style={{ borderColor: 'var(--d-bad)' }}><b>Please fix the following:</b><ul style={{ marginTop: '0.5rem' }}>{errors.map((e) => <li key={e} className="d-error">{e}</li>)}</ul></div>}
       {saved && <p role="status" className="d-ok" style={{ marginBottom: '1rem' }}>{saved}</p>}
       <div className="d-editor">

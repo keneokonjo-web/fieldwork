@@ -163,7 +163,7 @@ export default function WebsitesPage() {
         </div>
       </section>
 
-      <section className="section section--ink" aria-labelledby="brand-title">
+      <section className="section section--ink" id="brand" aria-labelledby="brand-title">
         <div className="container split">
           <div>
             <p className="eyebrow">Optional add-on</p>
@@ -175,7 +175,7 @@ export default function WebsitesPage() {
               <p className="small">A defined set of templates, with a set number of revisions.</p>
             </div>
             <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
-              <ButtonLink href="/demo/brand-pack" variant="light" track="demo_request_clicked" trackLabel="websites-brand-examples">View examples</ButtonLink>
+              <ButtonLink href="/brand-pack/halden.html" variant="light" track="demo_request_clicked" trackLabel="websites-brand-examples">View examples</ButtonLink>
             </div>
             <p className="nudge">See the templates, colours and prompts your team would receive →</p>
           </div>
