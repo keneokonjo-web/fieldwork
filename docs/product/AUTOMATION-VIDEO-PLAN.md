@@ -43,63 +43,59 @@ Timings are targets. The final cut follows the length of each uploaded audio fil
 | S5 Feedback | 57–70 s | Feedback prompt by text; detailed form filled in; "Feedback received" card for the agent |
 | S6 End | 70–79 s | End card |
 
-## 4. ElevenLabs script
+## 4. ElevenLabs script (one single generation)
 
-**How to generate.** Make **seven separate audio files**, one per scene, named `S0.mp3` to `S6.mp3` (WAV is also fine). Separate files let the picture be timed to each line exactly. Upload all seven here in the chat.
+Paste the block below into ElevenLabs once and generate one audio file. Upload that one file here. The long pauses (1.5 seconds) between scenes let the file be cut into scenes automatically, so the picture can be timed to the voice.
 
-**Voice:** calm, warm, confident and professional, British English, neither salesy nor robotic. Search the voice library for "calm British narrator" or similar and choose the one you like best. Use it for every scene.
+**Voice:** calm, warm, confident and professional, British English. **Suggested settings:** Multilingual v2, stability about 50, similarity about 75, style 0 to 15, speed 1.0.
 
-**Suggested settings:** model Multilingual v2 (or Eleven v3 if you prefer); stability about 50; similarity about 75; style 0 to 15; speed 1.0 (0.95 if it feels rushed). Keep the same voice and settings for all seven files so they match.
-
-**Pauses:** the text below uses `<break time="0.5s" />` tags, which Multilingual v2 understands. If a model reads them aloud or ignores them, delete the tags and use the plain version, which relies on the full stops for natural pauses.
-
-### With pause tags (paste each block into its own generation)
-
-**S0** (about 5 s)
 ```
 Every enquiry. <break time="0.4s" /> Every viewing. <break time="0.5s" /> Handled, from the first message to the last.
-```
 
-**S1** (about 12 s)
-```
+<break time="1.5s" />
+
 It starts with an enquiry. <break time="0.4s" /> A buyer asks to view a property on your website, and the details are recorded straight away, <break time="0.3s" /> in your CRM, or a shared sheet.
-```
 
-**S2** (about 10 s)
-```
+<break time="1.5s" />
+
 Within seconds, they hear back. <break time="0.4s" /> An approved reply goes out by email, and by text message, in your wording, <break time="0.3s" /> so nobody is left wondering.
-```
 
-**S3** (about 8 s)
-```
+<break time="1.5s" />
+
 The right agent is notified at the same moment, <break time="0.3s" /> and a follow-up is created, so nothing depends on someone remembering.
-```
 
-**S4** (about 11 s)
-```
+<break time="1.5s" />
+
 Your agent confirms the viewing in one click. <break time="0.4s" /> Only then is the buyer told, with the date, the time and the address. <break time="0.4s" /> A reminder follows the day before.
-```
 
-**S5** (about 10 s)
-```
+<break time="1.5s" />
+
 After the viewing, a short feedback form goes out. <break time="0.4s" /> The answers reach your agent, with a prompt to follow up while the interest is fresh.
-```
 
-**S6** (about 8 s)
-```
+<break time="1.5s" />
+
 Every enquiry recorded. <break time="0.4s" /> Every viewing confirmed. <break time="0.5s" /> Fixed price, set up on your own accounts, beside your CRM. <break time="0.6s" /> Fieldwork.
 ```
 
-### Plain version (no tags)
-- **S0:** Every enquiry. Every viewing. Handled, from the first message to the last.
-- **S1:** It starts with an enquiry. A buyer asks to view a property on your website, and the details are recorded straight away, in your CRM, or a shared sheet.
-- **S2:** Within seconds, they hear back. An approved reply goes out by email, and by text message, in your wording, so nobody is left wondering.
-- **S3:** The right agent is notified at the same moment, and a follow-up is created, so nothing depends on someone remembering.
-- **S4:** Your agent confirms the viewing in one click. Only then is the buyer told, with the date, the time and the address. A reminder follows the day before.
-- **S5:** After the viewing, a short feedback form goes out. The answers reach your agent, with a prompt to follow up while the interest is fresh.
-- **S6:** Every enquiry recorded. Every viewing confirmed. Fixed price, set up on your own accounts, beside your CRM. Fieldwork.
+If the model ignores or reads out the break tags, use this version instead and leave a blank line between scenes (ElevenLabs pauses a little at a paragraph break):
 
-Total spoken length: about 65 seconds (156 words). The finished video will run about 75 to 80 seconds because the visuals need a beat before and after each line.
+```
+Every enquiry. Every viewing. Handled, from the first message to the last.
+
+It starts with an enquiry. A buyer asks to view a property on your website, and the details are recorded straight away, in your CRM, or a shared sheet.
+
+Within seconds, they hear back. An approved reply goes out by email, and by text message, in your wording, so nobody is left wondering.
+
+The right agent is notified at the same moment, and a follow-up is created, so nothing depends on someone remembering.
+
+Your agent confirms the viewing in one click. Only then is the buyer told, with the date, the time and the address. A reminder follows the day before.
+
+After the viewing, a short feedback form goes out. The answers reach your agent, with a prompt to follow up while the interest is fresh.
+
+Every enquiry recorded. Every viewing confirmed. Fixed price, set up on your own accounts, beside your CRM. Fieldwork.
+```
+
+Total spoken length: about 65 seconds of speech plus the pauses, so roughly 75 seconds. The finished video will run about 80 seconds.
 
 ## 5. Sound plan (after the voice is uploaded)
 - **Music:** a very quiet, low-key ambient bed (soft pad and gentle pulse), mixed about 20 dB under the voice, fading in at the start and out at the end. Created as an original piece so there are no licensing issues. If a licensed track is preferred, upload it and it will be used instead.
