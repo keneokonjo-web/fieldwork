@@ -5,7 +5,7 @@ import { ButtonLink } from '@/components/ui/ButtonLink';
 import { Chip } from '@/components/ui/Chip';
 import { RegionPlate } from '@/components/ui/RegionPlate';
 import { Reveal } from '@/components/ui/Reveal';
-import { VideoFrame } from '@/components/ui/VideoFrame';
+import { HeroVideo } from '@/components/ui/HeroVideo';
 import { DEMO_PATH } from '@/config/site';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -62,9 +62,8 @@ export default function AutomationsPage() {
             </div>
             <p className="vhero__desc">Every enquiry recorded, acknowledged and routed. Every viewing confirmed, reminded and followed up.</p>
           </div>
-          <div className="vhero__media">
-            <VideoFrame title="Watch how the automations work · 1 minute" />
-          </div>
+          <HeroVideo title="Watch how the automations work" />
+          <p className="vhero__note">Illustrative walkthrough, about a minute, with fictional people and properties.</p>
         </div>
       </section>
 

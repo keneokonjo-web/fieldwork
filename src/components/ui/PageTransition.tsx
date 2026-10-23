@@ -44,7 +44,7 @@ export function PageTransition() {
       if (url.origin !== window.location.origin) return;
       if (url.pathname === window.location.pathname && url.search === window.location.search) return; // same page or hash only
       const inDemo = (p: string) => p === '/demo' || p.startsWith('/demo/');
-      if (inDemo(url.pathname) && inDemo(window.location.pathname)) return; // moving around inside the demonstration website
+      if (inDemo(url.pathname)) return; // the demonstration website has its own opening animation, so no curtain on the way in or around it
       e.preventDefault();
       e.stopPropagation(); // capture phase: stop the framework's own Link handler so navigation happens once, after the animation starts
       go(url.pathname + url.search + url.hash);

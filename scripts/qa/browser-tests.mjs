@@ -19,7 +19,7 @@ for (let i = 0; i < 40; i++) { try { const r = await fetch('http://localhost:310
 const browser = await chromium.launch();
 const REGION_JS = (r) => `try{if(${JSON.stringify(r)})localStorage.setItem('fw-region', JSON.stringify(${JSON.stringify(r)}))}catch(e){}`;
 /** New browser context. `region` pre-selects a region so the pop-up does not interrupt; pass null for a first-time visitor. */
-const mk = async (opts = {}) => { const { region = 'uk', ...rest } = opts; const c = await browser.newContext({ viewport: { width: 1440, height: 900 }, ...rest }); if (region) await c.addInitScript(REGION_JS(region)); return c; };
+const mk = async (opts = {}) => { const { region = 'uk', landed = true, ...rest } = opts; const c = await browser.newContext({ viewport: { width: 1440, height: 900 }, ...rest }); if (region) await c.addInitScript(REGION_JS(region)); if (landed) await c.addCookies([{ name: 'fw-landed', value: '1', url: B }]); return c; };
 const routes = ['/', '/websites', '/automations', '/ai-workshop', '/about', '/about/why-fieldwork', '/about/how-a-project-works', '/about/what-you-own', '/about/working-across-regions', '/demo', '/demo/properties', '/demo/properties/ashdown-mews-kensington', '/demo/new-homes', '/demo/new-homes/the-wharf', '/demo/about', '/demo/journal', '/demo/journal/preparing-a-home-for-sale', '/demo/contact', '/demo/admin', '/demo/admin/enquiries', '/demo/admin/properties/new', '/contact', '/image-credits', '/privacy', '/terms', '/cookies', '/accessibility'];
 const imgSrcs = (p) => p.evaluate(() => [...document.images].map((i) => decodeURIComponent(i.currentSrc || i.src)).filter((s) => /\/images\/(ng|uk|us)-/.test(s)).map((s) => s.match(/\/images\/((?:ng|uk|us)-[a-z0-9-]+)/)[1]));
 
@@ -115,6 +115,21 @@ await check('photographs follow the region: UK and US visitors see only their ow
 });
 
 // ---- page transition ----
+await check('automations: the video starts in a card, plays by itself after about a second, grows to fill the screen under the nav bar, and the cross closes it', async () => {
+  const p = await (await mk()).newPage(); await p.goto(B + '/automations', { waitUntil: 'networkidle' });
+  ok(!(await p.locator('.hv__box.is-full').count()), 'starts as a card'); const card = await p.locator('.hv__box').boundingBox(); ok(card.width < 1400, 'card is smaller than the screen: ' + Math.round(card.width));
+  await p.waitForTimeout(2600); ok((await p.locator('.hv__box.is-full').count()) === 1, 'expanded by itself');
+  const b = await p.locator('.hv__box').boundingBox(); const bar = await p.locator('header.bar').boundingBox(); ok(Math.abs(b.y - (bar.y + bar.height)) < 2 && b.width >= 1438 && Math.abs(b.y + b.height - 900) < 2, 'fills the screen below the nav bar: ' + JSON.stringify(b));
+  ok(await p.locator('header.bar').isVisible() && (await p.getByRole('link', { name: 'Websites & Listings', exact: true }).first().isVisible()), 'nav bar stays visible'); ok(await p.evaluate(() => !document.querySelector('video').paused), 'video is playing');
+  await p.getByRole('button', { name: 'Close the video' }).click(); await p.waitForTimeout(1300); ok(!(await p.locator('.hv__box.is-full').count()), 'closed back to the card'); ok(await p.evaluate(() => document.querySelector('video').paused), 'paused on close'); ok(await p.evaluate(() => document.documentElement.style.overflow === ''), 'page scrolling restored');
+  const rp = await (await mk({ reducedMotion: 'reduce' })).newPage(); await rp.goto(B + '/automations', { waitUntil: 'networkidle' }); await rp.waitForTimeout(2000); ok(!(await rp.locator('.hv__box.is-full').count()), 'no autoplay for reduced motion');
+});
+await check('landing: a new visit to the bare address lands on Websites & Listings; the logo then reaches the home page; no curtain on the way into the demo', async () => {
+  const ctx = await mk({ landed: false }); const p = await ctx.newPage(); await p.goto(B + '/', { waitUntil: 'load' }); ok(new URL(p.url()).pathname === '/websites', 'redirected to ' + p.url());
+  await p.locator('header.bar a[href="/"]').first().click(); await p.waitForURL(B + '/'); await p.waitForTimeout(1800); ok(new URL(p.url()).pathname === '/', 'home reachable afterwards');
+  const ctx2 = await mk({ landed: false }); const p2 = await ctx2.newPage(); await p2.goto(B + '/automations', { waitUntil: 'load' }); await p2.locator('header.bar a[href="/"]').first().click(); await p2.waitForURL(B + '/'); ok(true, 'a first visit to another page does not bounce the home link');
+  const q = await (await mk()).newPage(); await q.goto(B + '/websites', { waitUntil: 'networkidle' }); await q.locator('.bar__login').click(); await q.waitForTimeout(200); ok((await q.locator('.curtain').count()) === 0, 'no curtain when opening the demo'); await q.waitForURL(B + '/demo');
+});
 await check('page transition: the curtain covers the page BEFORE the destination loads, then lifts away, without scrolling', async () => {
   const p = await (await mk()).newPage(); await p.goto(B + '/websites', { waitUntil: 'networkidle' }); await p.waitForTimeout(500);
   const t0 = Date.now(); await p.locator('nav[aria-label="Main"]').getByRole('link', { name: 'Automations' }).click();
@@ -132,11 +147,11 @@ await check('heroes: cropped wordmark at the bottom edge on Home, Websites and A
     const m = await p.evaluate(() => { const h = document.querySelector('.hero').getBoundingClientRect(); const w = document.querySelector('.hero__big').getBoundingClientRect(); return { hb: h.bottom, wb: w.bottom, wt: w.top, vh: innerHeight }; });
     ok(m.wb > m.hb + 2, r + ' wordmark is not cropped by the hero edge'); ok(m.wt < m.vh - 40, r + ' wordmark top is on the first screen (' + Math.round(m.wt) + ' of ' + m.vh + ')');
   }
-  const p = await (await mk()).newPage(); await p.goto(B + '/automations', { waitUntil: 'networkidle' }); await p.waitForTimeout(500); ok((await p.locator('.hero__big').count()) === 0, 'automations has no wordmark hero'); ok(await p.locator('.vhero .video').isVisible(), 'video frame'); ok((await p.locator('.chapters li').count()) === 5, 'five chapters');
+  const p = await (await mk({ reducedMotion: 'reduce' })).newPage(); await p.goto(B + '/automations', { waitUntil: 'networkidle' }); await p.waitForTimeout(500); ok((await p.locator('.hero__big').count()) === 0, 'automations has no wordmark hero'); ok(await p.locator('.vhero .hv').isVisible(), 'video card'); ok((await p.locator('.chapters li').count()) === 5, 'five chapters');
   const h1 = await p.locator('h1').innerText(); ok(/^Lead capture & viewings$/.test(h1.trim()), 'one-line title: ' + h1); const lines = await p.locator('h1').evaluate((e) => Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight))); ok(lines === 1, 'title on ' + lines + ' line(s)');
   const desc = await p.locator('.vhero__desc').evaluate((e) => Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight))); ok(desc <= 3, 'description is ' + desc + ' lines');
-  const v = await p.locator('.vhero .video').boundingBox(); ok(v.y >= 0 && v.y + v.height <= 900, 'whole video is on the first screen: bottom at ' + Math.round(v.y + v.height) + ' of 900');
-  const bg = await p.locator('.vhero').evaluate((e) => getComputedStyle(e).backgroundColor); const body = await p.evaluate(() => getComputedStyle(document.body).backgroundColor); ok(bg === 'rgba(0, 0, 0, 0)' || bg === body, 'hero uses the normal paper background: ' + bg); ok((await p.locator('.vhero__dots').count()) === 2, 'halftone dots in the hero');
+  const v = await p.locator('.vhero .hv').boundingBox(); ok(v.y >= 0 && v.y + v.height <= 900, 'whole video is on the first screen: bottom at ' + Math.round(v.y + v.height) + ' of 900');
+  const bg = await p.locator('.vhero').evaluate((e) => getComputedStyle(e).backgroundColor); const body = await p.evaluate(() => getComputedStyle(document.body).backgroundColor); ok(bg === 'rgb(35, 64, 255)', 'hero uses the cobalt field: ' + bg); ok((await p.locator('.vhero__dots').count()) === 2, 'halftone dots in the hero');
 });
 
 // ---- pages ----
