@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-23T17:30:43.858Z",
+  "ranAt": "2026-10-23T19:14:42.583Z",
   "results": [
     {
       "name": "every route returns 200 with one h1, a title, no console errors, no broken images",
