@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-23T14:55:11.246Z",
+  "ranAt": "2026-10-23T16:17:59.234Z",
   "results": [
     {
       "name": "every route returns 200 with one h1, a title, no console errors, no broken images",
@@ -115,6 +115,18 @@
     },
     {
       "name": "demo: new homes page shows units with live statuses; journal, about, contact and brand-pack examples open",
+      "pass": true
+    },
+    {
+      "name": "demo: autofill fills the add-property form, the listing publishes and shows on the website",
+      "pass": true
+    },
+    {
+      "name": "demo: the listing-system pop-up appears in the centre after about 15 seconds, only once, and can be dismissed",
+      "pass": true
+    },
+    {
+      "name": "websites: the demo preview is a live, blurred frame of the demo with a View demo button",
       "pass": true
     },
     {
