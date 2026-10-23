@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-23T19:14:42.583Z",
+  "ranAt": "2026-10-23T21:11:16.336Z",
   "results": [
     {
       "name": "every route returns 200 with one h1, a title, no console errors, no broken images",
@@ -67,6 +67,10 @@
     },
     {
       "name": "landing: a new visit to the bare address lands on Websites & Listings; the logo then reaches the home page; no curtain on the way into the demo",
+      "pass": true
+    },
+    {
+      "name": "cookie pop-up: appears about two seconds after the region choice, offers Accept all and Only necessary, and never returns after a choice, even on refresh",
       "pass": true
     },
     {
