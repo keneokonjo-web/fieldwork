@@ -20,8 +20,11 @@ export default function PrivacyPage() {
         <LegalReviewBox doc="notice" />
 
         <h2>Who is responsible</h2>
-        <p>{siteConfig.legal.entityName ? <>This website is operated by {siteConfig.legal.entityName}.</> : <>The business operating this website has not been confirmed yet. Operator and registered details will appear here before the site is launched.</>}{' '}
+        <p>{siteConfig.legal.entityName ? <>This website is operated by {siteConfig.legal.entityName}, who decides how your information is used (the “controller” under data protection law).</> : <>The business operating this website has not been confirmed yet. Operator and registered details will appear here before the site is launched.</>}{' '}
           {email ? <>To ask about your information, email <a href={`mailto:${email}`}>{email}</a>.</> : <>A privacy contact address will be published here before launch. Until then, use the contact forms on this site.</>}</p>
+        {siteConfig.legal.registeredAddress && (
+          <p>Addresses: {siteConfig.legal.registeredAddress} (United Kingdom){siteConfig.legal.secondAddress ? <>; {siteConfig.legal.secondAddress} (Nigeria)</> : null}.{siteConfig.legal.registrationNumber ? <> Company number: {siteConfig.legal.registrationNumber}.</> : <> Fieldwork is operated as a sole trader, so there is no company number.</>} Phone: +44 7508 533692 (United Kingdom); WhatsApp +234 704 716 7280 (Nigeria).</p>
+        )}
 
         <h2>What stays on your device</h2>
         <p>The region you choose (United Kingdom, Nigeria or United States) is stored only in your browser, in local storage. It is not sent to us. You can clear it by clearing site data in your browser.</p>
@@ -51,7 +54,7 @@ export default function PrivacyPage() {
         <p className="small muted">International transfers: some providers process data outside your country. Safeguards must be confirmed once providers are chosen.</p>
 
         <h2>How long we keep it</h2>
-        <p>Proposed: enquiries for up to 24 months after the last contact; email list details until you unsubscribe; consent records for as long as we hold the related contact. <em>These periods need to be confirmed.</em></p>
+        <p>We keep enquiries for up to 24 months after the last contact; email list details until you unsubscribe; and consent records for as long as we hold the related contact. After that we delete or anonymise them.</p>
 
         <h2>Your rights</h2>
         <p>In the UK, under the UK GDPR, you can ask to access, correct or delete your information, restrict or object to its use, ask for a copy in a portable form, and withdraw consent. You can complain to the Information Commissioner’s Office. In Nigeria, under the Nigeria Data Protection Act 2023, you have similar rights and can complain to the Nigeria Data Protection Commission. In the United States, your rights depend on the state you live in. To use any right, contact us using the details above.</p>

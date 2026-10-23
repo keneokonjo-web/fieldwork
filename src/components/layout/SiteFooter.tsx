@@ -30,7 +30,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© {year} Fieldwork. {siteConfig.legal.entityName ? siteConfig.legal.entityName : ''}</span>
+          <span>© {year} {siteConfig.legal.entityName ?? 'Fieldwork'}</span>
           <span>Prices shown in <RegionText of="currency" />. <RegionButton variant="footer" /></span>
           {socials.length > 0 && (
             <ul style={{ listStyle: 'none', display: 'flex', gap: '1rem', margin: 0, padding: 0 }}>

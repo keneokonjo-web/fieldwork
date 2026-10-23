@@ -24,8 +24,11 @@ export const siteConfig = {
     privacy: clean(process.env.NEXT_PUBLIC_CONTACT_EMAIL_PRIVACY) ?? 'fieldwork@waykongroup.com',
   },
   legal: {
-    entityName: clean(process.env.NEXT_PUBLIC_LEGAL_ENTITY_NAME),
-    registeredAddress: clean(process.env.NEXT_PUBLIC_LEGAL_ADDRESS),
+    entityName: clean(process.env.NEXT_PUBLIC_LEGAL_ENTITY_NAME) ?? 'Kene Okonjo, trading as Fieldwork',
+    registeredAddress: clean(process.env.NEXT_PUBLIC_LEGAL_ADDRESS) ?? '34 Monastery Street, Canterbury CT1 1NN, United Kingdom',
+    /** A second office, shown beside the main address. */
+    secondAddress: clean(process.env.NEXT_PUBLIC_LEGAL_ADDRESS_NG) ?? '10 Onisiwo Road, Ikoyi, Lagos, Nigeria',
+    country: clean(process.env.NEXT_PUBLIC_LEGAL_COUNTRY) ?? 'United Kingdom',
     registrationNumber: clean(process.env.NEXT_PUBLIC_COMPANY_NUMBER),
     lastReviewed: clean(process.env.NEXT_PUBLIC_LEGAL_LAST_REVIEWED),
   },
