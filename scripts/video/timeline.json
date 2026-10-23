@@ -320,14 +320,6 @@
   },
   "sfx": [
     [
-      "s1.win",
-      "swipe"
-    ],
-    [
-      "s1.list",
-      "swipe"
-    ],
-    [
       "s1.click",
       "click"
     ],
@@ -344,32 +336,16 @@
       "soft"
     ],
     [
-      "s2.mail",
-      "swipe"
-    ],
-    [
       "s2.chime",
       "chime"
-    ],
-    [
-      "s2.phone",
-      "swipe"
     ],
     [
       "s2.bubble",
       "pop_in"
     ],
     [
-      "s3.phone",
-      "swipe"
-    ],
-    [
       "s3.push",
       "ping"
-    ],
-    [
-      "s3.tasks",
-      "swipe"
     ],
     [
       "s3.task",
@@ -380,20 +356,12 @@
       "soft"
     ],
     [
-      "s4.card",
-      "swipe"
-    ],
-    [
       "s4.click",
       "click"
     ],
     [
       "s4.confirmed",
       "success"
-    ],
-    [
-      "s4.phone",
-      "swipe"
     ],
     [
       "s4.bubble",
@@ -416,20 +384,12 @@
       "ping"
     ],
     [
-      "s5.phone",
-      "swipe"
-    ],
-    [
       "s5.sms",
       "pop_in"
     ],
     [
       "s5.tap",
       "click"
-    ],
-    [
-      "s5.form",
-      "swipe"
     ],
     [
       "s5.submit",

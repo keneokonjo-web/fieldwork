@@ -82,7 +82,7 @@ tr.new td{background:#e8ecff}
 .ts{text-align:center;font-size:13px;color:#8a8a8e;margin:6px 0 2px}
 .bw{position:relative;display:flex}
 .bw.out{justify-content:flex-end}
-.bub{max-width:82%;padding:11px 16px;border-radius:22px;font-size:18px;line-height:1.32}
+.bub{overflow-wrap:anywhere;max-width:82%;padding:11px 16px;border-radius:22px;font-size:18px;line-height:1.32}
 .bub.in{background:#e9e9eb;color:#111;border-bottom-left-radius:6px}
 .bub.out{background:var(--blue);color:#fff;border-bottom-right-radius:6px}
 .bub b{display:block;margin-bottom:3px}
@@ -258,9 +258,9 @@ tr.new td{background:#e8ecff}
     <div class="phone" id="ph5" style="left:700px;top:150px;width:350px;height:640px"><div class="notch"></div><div class="pscr">
       <div class="phd"><div class="pav">h</div><b>Halden</b><span>Business text</span></div>
       <div class="thread"><div class="ts">Sat 24 Oct, 13:10</div>
-        <div class="bw"><div class="bub in" id="b5">Thanks for visiting Larch Court today, Sam. How did it go? It takes a minute: <span style="color:var(--blue);text-decoration:underline">halden.example/feedback/k29x</span></div></div>
+        <div class="bw"><div class="bub in" id="b5">Thanks for visiting Larch Court today, Sam. How did it go? It takes a minute:<br><span style="color:var(--blue);text-decoration:underline">halden.example/f/k29x</span></div></div>
       </div></div></div>
-    <div class="ripple" id="rip5"></div>
+    <div class="ripple" id="rip5" style="left:815px;top:437px"></div>
     <div class="win" id="fbwin" style="left:700px;top:112px;width:760px;height:870px">
       <div class="wbar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">halden.example/feedback/k29x</span></div>
       <div class="fb">
@@ -354,7 +354,7 @@ A('#b4b', C['s4.reply'], .3, { o: [0, 1], s: [.85, 1] }); A('#dl4', C['s4.reply'
 A('#ts4b', C['s4.day'], .4, { o: [0, 1] }); A('#b4c', C['s4.remind'], .35, { o: [0, 1], s: [.85, 1] });
 // ---------- scene 5
 A('#ph5', C['s5.phone'], .8, { o: [0, 1], y: [50, 0] }); A('#b5', C['s5.sms'], .35, { o: [0, 1], s: [.85, 1] });
-A('#rip5', C['s5.tap'], .5, { o: [.9, 0], s: [.3, 1.6] }); A('#ph5', C['s5.form'] + .1, .7, { o: [1, 0], x: [0, -120] });
+A('#rip5', C['s5.tap'], .01, { o: [0, .9] }); A('#rip5', C['s5.tap'] + .01, .55, { o: [.9, 0], s: [.3, 1.6] }); A('#ph5', C['s5.form'] + .1, .7, { o: [1, 0], x: [0, -120] });
 A('#fbwin', C['s5.form'], .9, { o: [0, 1], y: [50, 0] });
 const sT = (id, t0, n, gap = .18) => { for (let i = 0; i < n; i++) K(`${id} i:nth-child(${i + 1})`, t0 + i * gap, 'on'); };
 sT('#st0', S(5) + 3.0, 4); sT('#st1', S(5) + 3.7, 4, .12); sT('#st2', S(5) + 4.0, 5, .12); sT('#st3', S(5) + 4.25, 4, .12); sT('#st4', S(5) + 4.5, 5, .12);

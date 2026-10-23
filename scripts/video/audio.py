@@ -118,7 +118,7 @@ SFX = {
     'rise': lambda: noise_whoosh(.5, 0, 0, .35),
     'swipe': lambda: noise_whoosh(.55, 0, 0, .5),
     'click': lambda: seq([(pop(1500, .06, .55), 0), (tick(.6), 0)], .08),
-    'send': lambda: seq([(noise_whoosh(.4, 0, 0, .4), 0), (pop(1175, .3, .45), .1)], .5),
+    'send': lambda: pop(1175, .3, .45),
     'pop_in': lambda: seq([(pop(880, .2, .6), 0), (pop(1318, .25, .6), .09)], .4),
     'pop_out': lambda: seq([(pop(700, .16, .55), 0), (pop(1050, .16, .35), .05)], .25),
     'chime': lambda: seq([(bell(1318.5, 1.1, .55), 0), (bell(1568, 1.1, .5), .16), (bell(1975, 1.0, .4), .32)], 1.6),
@@ -138,7 +138,7 @@ for key, v in TL['type'].items():
         if ch != ' ' and i % 2 == 0: place('tick', t0 + i / v['cps'], .35 + rng.random() * .15)
 
 # ---------- mix
-mix = voice * 1.0 + music * .55 + sfx * .5
+mix = voice * 1.0 + music * .55 + sfx * .26
 mix = np.tanh(mix * 1.15) / 1.15
 mix = mix[:int((TOTAL + .2) * SR)]
 pcm = (np.clip(mix, -1, 1) * 32767).astype('<i2')
