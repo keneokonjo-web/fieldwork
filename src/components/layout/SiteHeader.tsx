@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Logo } from '@/components/brand/Logo';
+import { RegionButton } from '@/components/region/RegionButton';
 import { DEMO_PATH, mainNav } from '@/config/site';
 
 const isCurrent = (pathname: string, href: string) => pathname === href || pathname.startsWith(`${href}/`);
@@ -51,7 +52,10 @@ export function SiteHeader() {
             <Link key={l.href} href={l.href} aria-current={isCurrent(pathname, l.href) ? 'page' : undefined}>{l.label}</Link>
           ))}
         </nav>
-        <Link href={DEMO_PATH} className="bar__login" data-track="demo_request_clicked" data-track-label="header">Request a demo</Link>
+        <div className="bar__end">
+          <RegionButton variant="bar" />
+          <Link href={DEMO_PATH} className="bar__login" data-track="demo_request_clicked" data-track-label="header">View demo</Link>
+        </div>
         <button
           ref={btnRef}
           type="button"
@@ -75,7 +79,7 @@ export function SiteHeader() {
             ))}
           </ul>
         </nav>
-        <Link href={DEMO_PATH} className="btn btn--cobalt" data-track="demo_request_clicked" data-track-label="mobile-menu">Request a demo</Link>
+        <Link href={DEMO_PATH} className="btn btn--cobalt" data-track="demo_request_clicked" data-track-label="mobile-menu">View demo</Link>
       </div>
     </header>
   );

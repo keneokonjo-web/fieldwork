@@ -22,7 +22,7 @@ export default function ImageCreditsPage() {
         <div className="container">
           <p className="eyebrow">Image credits</p>
           <h1>Photographs and licences.</h1>
-          <p className="lede">The photographs on this site show real places in Nigeria and the United Kingdom. They are illustrative. None shows a Fieldwork client, project or result.</p>
+          <p className="lede">The photographs on this site show real places in Nigeria, the United Kingdom and the United States. They are illustrative. None shows a Fieldwork client, project or result.</p>
         </div>
       </section>
       <section className="section">

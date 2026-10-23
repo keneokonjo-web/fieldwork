@@ -2,14 +2,15 @@ import { PriceInline, PriceTable } from '@/components/pricing/PriceTable';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { Chip } from '@/components/ui/Chip';
 import { Corners } from '@/components/ui/Corners';
-import { Plate } from '@/components/ui/Plate';
+import { DemoPreview } from '@/components/ui/DemoPreview';
+import { RegionPlate } from '@/components/ui/RegionPlate';
 import { Reveal } from '@/components/ui/Reveal';
 import { DEMO_PATH } from '@/config/site';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata({
   title: 'Websites and Listings',
-  description: 'A professional real-estate website with a listing system your team manages itself. For estate agencies and property developers in the UK and Nigeria.',
+  description: 'A professional real-estate website with an integrated listing system your team manages itself. For estate agencies and property developers.',
   path: '/websites',
 });
 
@@ -18,9 +19,8 @@ const included = [
   ['Company profile', 'About the company, services, areas covered and credentials you approve.'],
   ['Property portfolio', 'Browse and filter listings, with a detail page and photo gallery for each property.'],
   ['Contact and enquiries', 'Contact details and enquiry forms, routed to the right person if you add an automation.'],
-  ['Every screen size', 'Designed for mobile, tablet and desktop, with images prepared to load quickly.'],
+  ['News and blog page', 'A page for market updates, new developments and company news, written and published by your team.'],
   ['Technical basics', 'Page titles and descriptions, sitemap, accessible design, basic security and form validation. Analytics if you ask for it.'],
-  ['Handover', 'Admin logins, written instructions, a record of the services involved and how to take ownership.'],
 ];
 
 const admin = [
@@ -59,26 +59,26 @@ export default function WebsitesPage() {
         <div className="container hero__grid">
           <div>
             <p className="eyebrow">Websites &amp; Listings</p>
-            <h1 id="hero-title">A website you manage yourself.</h1>
+            <h1 id="hero-title">Websites and custom listings.</h1>
             <p className="lede">A professional real-estate website with a built-in listing system. Add, edit and publish properties without calling us.</p>
             <p className="hero__price"><span className="index">Digital Presence Package</span><span className="price"><PriceInline id="website" /></span></p>
             <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
-              <ButtonLink href={DEMO_PATH} variant="cobalt" track="demo_request_clicked" trackLabel="websites-hero">Request a demo</ButtonLink>
-              <ButtonLink href="#price" variant="secondary">See the price</ButtonLink>
+              <ButtonLink href={DEMO_PATH} variant="cobalt" track="demo_request_clicked" trackLabel="websites-hero">View demo</ButtonLink>
+              <ButtonLink href="#included" variant="secondary">See the package</ButtonLink>
             </div>
           </div>
-          <Plate photo="ng-lagos-skyline" ratio="4 / 3" priority sizes="(min-width: 62rem) 40vw, 100vw" />
+          <DemoPreview />
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img className="hero__big" src="/brand/logo/fieldwork-wordmark-light.svg" alt="" width={607} height={138} aria-hidden="true" />
       </section>
 
-      <section className="section" aria-labelledby="included-title">
+      <section className="section" id="included" aria-labelledby="included-title">
         <div className="container">
           <div className="section__head">
             <p className="eyebrow">What is included</p>
-            <h2 id="included-title">One package: website and listings together.</h2>
-            <p>The website and the listing system are a single deliverable, not two products.</p>
+            <h2 id="included-title">Website package</h2>
+            <p>A refined website for your business, with an integrated, self-managed listing system.</p>
           </div>
           <ol className="index-list" style={{ listStyle: 'none', padding: 0 }}>
             {included.map(([t, d], i) => (
@@ -111,7 +111,7 @@ export default function WebsitesPage() {
                 </div>
               ))}
             </div>
-            <p className="shot__cap"><b>Illustration</b><span>Fictional properties. A live demonstration is being built.</span></p>
+            <p className="shot__cap"><b>Illustration</b><span>Fictional properties</span></p>
           </Reveal>
         </div>
       </section>
@@ -119,13 +119,13 @@ export default function WebsitesPage() {
       <section className="section" aria-labelledby="two-title">
         <div className="container">
           <div className="section__head">
-            <p className="eyebrow">Two set-ups, one foundation</p>
+            <p className="eyebrow">Agencies and developers</p>
             <h2 id="two-title">For agencies and for developers.</h2>
-            <p>Both use the same system. The difference is the wording and one extra level for developments.</p>
+            <p>Set up around the way you sell.</p>
           </div>
           <div className="who">
             <Reveal className="who__col">
-              <Plate photo="uk-terrace" ratio="3 / 2" />
+              <RegionPlate slot="whoAgency" ratio="3 / 2" />
               <h3>Estate agency set-up</h3>
               <ul className="ticks">
                 <li>Individual properties for sale or to let.</li>
@@ -134,7 +134,7 @@ export default function WebsitesPage() {
               </ul>
             </Reveal>
             <Reveal className="who__col" delay={90}>
-              <Plate photo="ng-lekki" ratio="3 / 2" />
+              <RegionPlate slot="whoDev" ratio="3 / 2" />
               <h3>Developer set-up</h3>
               <ul className="ticks">
                 <li>A landing page for each development, with photos and approved descriptions.</li>
@@ -147,55 +147,41 @@ export default function WebsitesPage() {
         </div>
       </section>
 
+      <section className="section section--wash" id="price" aria-labelledby="price-title">
+        <div className="container">
+          <div className="section__head">
+            <p className="eyebrow">Price</p>
+            <h2 id="price-title">Pricing</h2>
+          </div>
+          <PriceTable ids={['website']} lines={{ website: 'Website and listing system, together.' }} />
+          <div className="btn-row" style={{ marginTop: 'var(--s-6)' }}>
+            <ButtonLink href={DEMO_PATH} variant="cobalt" track="demo_request_clicked" trackLabel="websites-price">View demo</ButtonLink>
+            <ButtonLink href="/automations" variant="secondary">Add automations</ButtonLink>
+          </div>
+        </div>
+      </section>
+
       <section className="section section--ink" aria-labelledby="brand-title">
         <div className="container split">
           <div>
             <p className="eyebrow">Optional add-on</p>
             <h2 id="brand-title">Brand and Social Starter Pack.</h2>
-            <p className="lede">A one-off pack of editable assets and guidance, so your brand looks the same on the website and on social media. It is not an ongoing social media service.</p>
+            <p className="lede">A one-off pack of editable assets and guidance, so your brand looks the same on the website and on social media.</p>
             <div className="prices prices--ink" style={{ marginTop: 'var(--s-5)' }}>
               <p className="index">Starter Pack</p>
               <p className="price"><PriceInline id="brand" /></p>
-              <p className="small">Defined quantities of templates and a set number of revisions. No unlimited designs and no ongoing posting.</p>
+              <p className="small">A defined set of templates, with a set number of revisions.</p>
             </div>
+            <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
+              <ButtonLink href="/demo#brand" variant="light" track="demo_request_clicked" trackLabel="websites-brand-examples">View examples</ButtonLink>
+            </div>
+            <p className="nudge">See the templates, colours and prompts your team would receive →</p>
           </div>
           <div>
             <ul className="ticks ticks--large">
               {brandItems.map((b) => <li key={b}>{b}</li>)}
             </ul>
-            <p className="small" style={{ marginTop: 'var(--s-4)', opacity: 0.8 }}>Delivered in formats you can actually edit, with instructions.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="handover-title">
-        <div className="container split">
-          <Reveal><Plate photo="ng-abuja" ratio="4 / 3" /></Reveal>
-          <div>
-            <p className="eyebrow">Handover and limits</p>
-            <h2 id="handover-title">Yours when it is finished.</h2>
-            <ul className="ticks">
-              <li>Administrator credentials, and instructions for adding, editing and removing listings.</li>
-              <li>Domain and hosting access or transfer, with ownership terms set in the contract.</li>
-              <li>A record of the third-party services involved and how to manage them.</li>
-              <li>You pay your own hosting and subscriptions. Ongoing maintenance is not assumed to be included.</li>
-              <li>Defined support for faults and handover questions. It is not unlimited support.</li>
-              <li>Anything outside the agreed scope is quoted separately.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--wash" id="price" aria-labelledby="price-title">
-        <div className="container">
-          <div className="section__head">
-            <p className="eyebrow">Price</p>
-            <h2 id="price-title">One price for the build.</h2>
-          </div>
-          <PriceTable ids={['website', 'brand']} lines={{ website: 'Website and listing system, together.', brand: 'Optional add-on, bought with the website.' }} />
-          <div className="btn-row" style={{ marginTop: 'var(--s-6)' }}>
-            <ButtonLink href={DEMO_PATH} variant="cobalt" track="demo_request_clicked" trackLabel="websites-price">Request a demo</ButtonLink>
-            <ButtonLink href="/automations" variant="secondary">Add automations</ButtonLink>
+            <p className="small" style={{ marginTop: 'var(--s-4)', opacity: 0.8 }}>Delivered in formats you can edit, with instructions.</p>
           </div>
         </div>
       </section>

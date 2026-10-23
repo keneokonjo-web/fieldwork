@@ -1,16 +1,15 @@
+import type { Region } from '@/lib/region';
+
 /**
  * Product prices. These are intended selling prices set by the founder, not verified market averages.
  * They are fixed initial offers for an agreed scope: extra work is quoted separately.
- * The US prices are set for future expansion and are not shown while the UK and Nigeria are the only active markets.
+ * Prices are shown in the currency of the region the visitor selects (United Kingdom, Nigeria or United States).
  */
-export type Market = 'uk' | 'ng' | 'us';
-export const ACTIVE_MARKETS = ['uk', 'ng'] as const satisfies readonly Market[];
-export const MARKET_NAME: Record<Market, string> = { uk: 'United Kingdom', ng: 'Nigeria', us: 'United States' };
 
 export interface Product {
   id: 'website' | 'lead' | 'viewing' | 'both' | 'brand';
   name: string;
-  price: Record<Market, string>;
+  price: Record<Region, string>;
 }
 
 export const products: Record<Product['id'], Product> = {
@@ -22,4 +21,4 @@ export const products: Record<Product['id'], Product> = {
 };
 
 export const PRICE_NOTE =
-  'Prices are fixed initial offers for an agreed scope. Anything outside the scope is quoted separately. Hosting, messaging and other third-party subscriptions are paid by you, on your own accounts.';
+  'Fixed initial offers for an agreed scope. Anything outside the scope is quoted separately. Hosting, messaging and other third-party subscriptions are paid by you, on your own accounts.';

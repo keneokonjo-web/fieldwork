@@ -12,7 +12,7 @@ export const siteConfig = {
   tagline: 'Websites and workflows for property businesses.',
   strategicLine: 'Practical technology for real estate.',
   description:
-    'Fieldwork builds websites with self-managed listings, enquiry and viewing automation, and AI training for estate agencies and property developers in the UK and Nigeria.',
+    'Fieldwork builds websites with self-managed listings, enquiry and viewing automation, and AI training for estate agencies and property developers in the UK, Nigeria and the United States.',
   locale: 'en-GB',
   /** Confirmed production origin, e.g. https://example.com. Empty until the domain is chosen. */
   url,
@@ -48,7 +48,8 @@ export const mainNav = [
   { href: '/about', label: 'About' },
 ] as const;
 
-export const DEMO_PATH = '/request-demo';
+export const DEMO_PATH = '/demo';
+export const CONTACT_PATH = '/contact';
 
 export const footerNav = {
   Products: [
@@ -59,7 +60,8 @@ export const footerNav = {
   Company: [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
-    { href: DEMO_PATH, label: 'Request a demo' },
+    { href: DEMO_PATH, label: 'View demo' },
+    { href: CONTACT_PATH, label: 'Contact' },
     { href: '/image-credits', label: 'Image credits' },
   ],
   Legal: [

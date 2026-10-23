@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useEffect, useId, useRef, useState } from 'react';
 import { readAttribution } from '@/lib/attribution';
 import { track, type FieldworkEvent } from '@/lib/analytics';
+import { useRegion } from '@/lib/region';
 import { validateLead, type FieldErrors, type LeadInput, type LeadType } from '@/lib/validation';
 
 type Variant = 'business' | 'contact';
@@ -38,6 +39,7 @@ const EVENT_FOR: Record<LeadType, FieldworkEvent> = {
 export function LeadForm(props: Props) {
   const { type, variant, submitLabel, interest, context, successTitle, successBody, location } = props;
   const uid = useId();
+  const { region } = useRegion();
   const id = (n: string) => `${uid}-${n}`;
   const [status, setStatus] = useState<Status>('idle');
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -170,10 +172,11 @@ export function LeadForm(props: Props) {
             </div>
             <div className="field">
               <label className="field__label" htmlFor={id('market')}>Where is the business based?</label>
-              <select className="select" id={id('market')} name="market" defaultValue="" aria-invalid={err('market') ? true : undefined} aria-describedby={describe('market')}>
+              <select key={region} className="select" id={id('market')} name="market" defaultValue={region === 'ng' ? 'nigeria' : region} aria-invalid={err('market') ? true : undefined} aria-describedby={describe('market')}>
                 <option value="" disabled>Choose one</option>
                 <option value="uk">United Kingdom</option>
                 <option value="nigeria">Nigeria</option>
+                <option value="us">United States</option>
                 <option value="other">Somewhere else</option>
               </select>
               {err('market') && <p className="field__error" id={id('market-err')}>{err('market')}</p>}

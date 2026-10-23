@@ -15,7 +15,7 @@ export default function TermsPage() {
         <h1 style={{ fontSize: 'var(--step-4)' }}>Terms of use</h1>
         <LegalReviewBox doc="document" />
         <h2>What this site is</h2>
-        <p>This website gives information about Fieldwork’s products and services for property businesses, and ways to ask for a demonstration. Products are not on sale through this website. Each purchase is agreed separately, in writing, with a defined scope.</p>
+        <p>This website gives information about Fieldwork’s products and services for property businesses, and a demonstration you can open, and ways to contact us. Products are not on sale through this website. Each purchase is agreed separately, in writing, with a defined scope.</p>
         <h2>Information, not advice</h2>
         <p>Content here is general information for learning. It is not legal, financial, medical, regulatory or professional advice. Rules on data protection, property descriptions and consumer protection differ between countries and change. Take advice for your own situation.</p>
         <h2>Prices and scope</h2>
@@ -27,7 +27,7 @@ export default function TermsPage() {
         <h2>Availability and liability</h2>
         <p>We aim to keep the site working but do not guarantee it will always be available or error-free. Nothing in these terms limits liability that cannot lawfully be limited. <em>Limitation wording, governing law and jurisdiction need to be added after legal review and once the operating entity is confirmed.</em></p>
         <h2>Contact</h2>
-        <p>Use the <a href="/request-demo">request a demo page</a> for questions about these terms.</p>
+        <p>Use the <a href="/contact">contact page</a> for questions about these terms.</p>
       </div>
     </section>
   );

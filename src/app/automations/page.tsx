@@ -1,9 +1,9 @@
 import { PriceTable } from '@/components/pricing/PriceTable';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { Chip } from '@/components/ui/Chip';
-import { Corners } from '@/components/ui/Corners';
-import { Plate } from '@/components/ui/Plate';
+import { RegionPlate } from '@/components/ui/RegionPlate';
 import { Reveal } from '@/components/ui/Reveal';
+import { VideoFrame } from '@/components/ui/VideoFrame';
 import { DEMO_PATH } from '@/config/site';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -13,11 +13,7 @@ export const metadata = pageMetadata({
   path: '/automations',
 });
 
-const ways = [
-  ['A simple entry form', 'Your team types a client’s details into one screen. The workflow does the rest.'],
-  ['Your website enquiry form', 'Enquiries from the Fieldwork website, or another website you already have, start the workflow automatically.'],
-  ['Your CRM or a spreadsheet', 'Pushing entries in from a CRM or Google Sheet is possible for a defined set-up, and is quoted where it needs extra work.'],
-];
+const chapters = ['Enquiry arrives', 'Confirmation sent', 'Agent notified', 'Viewing confirmed', 'Feedback collected'];
 
 const leadSteps = [
   'An enquiry arrives from a form, or is entered by your team.',
@@ -42,43 +38,36 @@ const viewSteps = [
 
 const captured = ['Name and contact details', 'The property or development of interest', 'Buying, renting or another stated interest', 'Budget and preferred area, only if the person chooses to give them', 'Consent and privacy notice wording'];
 
+const install = [
+  ['We set it up on your accounts', 'The workflow, forms and message wording are built on accounts you own, with your branding and your approved wording.'],
+  ['Choose where leads land', 'Connect it to your CRM where it has a compatible connection, or keep it simple: a Google Sheet your team can open, filter and share.'],
+  ['Choose how people get in', 'Your team types details into one simple form, or your website enquiry form starts the workflow on its own.'],
+  ['We test it with sample enquiries', 'Every message, reminder and hand-off is checked end to end before it goes live.'],
+  ['Handover', 'You receive the logins, written instructions and a list of the services involved. Your team runs it from there.'],
+];
+
 export default function AutomationsPage() {
   return (
     <>
-      <section className="hero hero--page corners" aria-labelledby="hero-title">
-        <Corners n="03" letters={['A', 'U', 'T']} />
-        <div className="container hero__grid">
-          <div>
-            <p className="eyebrow">Automations</p>
-            <h1 id="hero-title">Enquiries answered. Viewings confirmed.</h1>
-            <p className="lede">Two fixed-price workflows for property businesses. Use them with our website or on their own. They improve one part of your process and do not replace your CRM.</p>
-            <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
-              <ButtonLink href={DEMO_PATH} variant="cobalt" track="demo_request_clicked" trackLabel="automations-hero">Request a demo</ButtonLink>
-              <ButtonLink href="#price" variant="secondary">See the prices</ButtonLink>
-            </div>
-          </div>
-          <Plate photo="uk-agent-sign" ratio="4 / 3" priority sizes="(min-width: 62rem) 40vw, 100vw" />
-        </div>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="hero__big" src="/brand/logo/fieldwork-wordmark-light.svg" alt="" width={607} height={138} aria-hidden="true" />
-      </section>
-
-      <section className="section" aria-labelledby="ways-title">
+      <section className="vhero" aria-labelledby="hero-title">
         <div className="container">
-          <div className="section__head">
-            <p className="eyebrow">Three ways in</p>
-            <h2 id="ways-title">Start the workflow however you work today.</h2>
-            <p>We keep only a simple log of who was contacted and what was sent, so reminders can go out. It is not a CRM, and you can export it.</p>
+          <div className="vhero__head">
+            <div>
+              <p className="eyebrow">Automations</p>
+              <h1 id="hero-title">Enquiries answered. Viewings confirmed.</h1>
+            </div>
+            <p className="vhero__desc">Lead capture and follow-up records, acknowledges and routes every enquiry. Viewing and feedback confirms appointments, sends reminders and collects feedback afterwards.</p>
           </div>
-          <ol className="index-list" style={{ listStyle: 'none', padding: 0 }}>
-            {ways.map(([t, d], i) => (
-              <li key={t}><span className="bn" style={{ fontSize: '1.6rem' }}>0{i + 1}</span><h3>{t}</h3><p>{d}</p><span /></li>
-            ))}
-          </ol>
+          <div className="vhero__media">
+            <VideoFrame title="Watch how the automations work · 1 minute" />
+            <ol className="chapters" aria-label="What the walkthrough shows">
+              {chapters.map((c, i) => <li key={c}><span>0{i + 1}</span>{c}</li>)}
+            </ol>
+          </div>
         </div>
       </section>
 
-      <section className="section section--wash" aria-labelledby="lead-title">
+      <section className="section" aria-labelledby="lead-title">
         <div className="container split">
           <div>
             <p className="eyebrow">Automation one</p>
@@ -94,14 +83,13 @@ export default function AutomationsPage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="view-title">
+      <section className="section section--wash" aria-labelledby="view-title">
         <div className="container split split--reverse">
           <div>
             <p className="eyebrow">Automation two</p>
             <h2 id="view-title">Viewing and feedback.</h2>
             <p className="lede">Viewing requests are confirmed by your agent, reminded, and followed by a feedback request.</p>
-            <p style={{ marginTop: 'var(--s-4)' }}>It starts as request and confirm: the agent approves an appointment before the person is told it is confirmed. Live calendar synchronisation is not part of the standard package.</p>
-            <p className="small muted">Your team still schedules viewings and responds to feedback. Fieldwork does not do that for you.</p>
+            <p style={{ marginTop: 'var(--s-4)' }}>The agent approves an appointment before the person is told it is confirmed. Your team still schedules viewings and responds to feedback.</p>
           </div>
           <Reveal>
             <ol className="steplist">{viewSteps.map((s, i) => <li key={s}><span>0{i + 1}</span>{s}</li>)}</ol>
@@ -119,47 +107,20 @@ export default function AutomationsPage() {
               <tbody>
                 <tr><th scope="row">Email</th><td><Chip tone="available">Standard</Chip></td><td>Sent from your own address or domain. Your email provider’s costs, if any, are yours.</td></tr>
                 <tr><th scope="row">SMS</th><td><Chip tone="neutral">Optional</Chip></td><td>Sent through your own account with a messaging provider. You pay per message. Some countries require a registered sender name, which we will check for your provider.</td></tr>
-                <tr><th scope="row">WhatsApp</th><td><Chip tone="planned">Planned</Chip></td><td>Only through an approved integration, after your account, access and message templates are confirmed. We will not promise it before then.</td></tr>
+                <tr><th scope="row">WhatsApp</th><td><Chip tone="neutral">On approval</Chip></td><td>Through an approved WhatsApp integration, once your account, access and message templates are confirmed.</td></tr>
               </tbody>
             </table>
           </div>
-          <p className="small" style={{ marginTop: 'var(--s-4)', opacity: 0.8 }}>Messages are sent only to people who gave their details for this purpose, and every message includes a way to opt out. The workflows never state property availability, pricing, legal or investment claims that have not been verified.</p>
+          <p className="small" style={{ marginTop: 'var(--s-4)', opacity: 0.8 }}>Messages go only to people who gave their details for this purpose, and every message includes a way to opt out. The workflows never state property availability, pricing, legal or investment claims that have not been verified.</p>
         </div>
       </section>
 
       <section className="section" aria-label="Photographs">
         <div className="container">
           <div className="band">
-            <Plate photo="uk-georgian" ratio="3 / 2" />
-            <Plate photo="ng-vi-aerial" ratio="3 / 2" />
-            <Plate photo="uk-newbuild" ratio="3 / 2" />
-          </div>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="scope-title">
-        <div className="container split">
-          <div>
-            <p className="eyebrow">Scope</p>
-            <h2 id="scope-title">What one installation includes.</h2>
-            <ul className="ticks ticks--large">
-              <li>One agreed lead source.</li>
-              <li>One agreed destination.</li>
-              <li>A defined acknowledgement sequence.</li>
-              <li>A defined follow-up workflow.</li>
-              <li>Written handover, and you own and run the result.</li>
-            </ul>
-          </div>
-          <div>
-            <p className="eyebrow">Quoted separately</p>
-            <ul className="ticks">
-              <li>More complex CRM integrations.</li>
-              <li>More than one website or lead source.</li>
-              <li>Advanced lead scoring or branching logic.</li>
-              <li>Custom integrations.</li>
-              <li>Portal feeds and live calendar sync.</li>
-            </ul>
-            <Plate photo="home-living-premium" ratio="3 / 2" className="mt" />
+            <RegionPlate slot="autoA" ratio="3 / 2" />
+            <RegionPlate slot="autoB" ratio="3 / 2" />
+            <RegionPlate slot="autoC" ratio="3 / 2" />
           </div>
         </div>
       </section>
@@ -168,13 +129,29 @@ export default function AutomationsPage() {
         <div className="container">
           <div className="section__head">
             <p className="eyebrow">Price</p>
-            <h2 id="price-title">Buy one, or both together.</h2>
+            <h2 id="price-title">Pricing</h2>
           </div>
-          <PriceTable ids={['lead', 'viewing', 'both']} lines={{ lead: 'Fixed-price installation.', viewing: 'Fixed-price installation.', both: 'Reuses shared components. The website is not included.' }} />
+          <PriceTable ids={['lead', 'viewing', 'both']} lines={{ lead: 'Fixed-price installation.', viewing: 'Fixed-price installation.', both: 'Reuses shared components. The website is separate.' }} />
           <div className="btn-row" style={{ marginTop: 'var(--s-6)' }}>
-            <ButtonLink href={DEMO_PATH} variant="cobalt" track="demo_request_clicked" trackLabel="automations-price">Request a demo</ButtonLink>
+            <ButtonLink href={DEMO_PATH} variant="cobalt" track="demo_request_clicked" trackLabel="automations-price">View demo</ButtonLink>
             <ButtonLink href="/websites" variant="secondary">Websites and listings</ButtonLink>
           </div>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="install-title">
+        <div className="container">
+          <div className="section__head">
+            <p className="eyebrow">Installation</p>
+            <h2 id="install-title">How it is installed.</h2>
+            <p>It connects to the tools you already use, and does not replace them.</p>
+          </div>
+          <ol className="index-list" style={{ listStyle: 'none', padding: 0 }}>
+            {install.map(([t, d], i) => (
+              <li key={t}><span className="bn" style={{ fontSize: '1.6rem' }}>0{i + 1}</span><h3>{t}</h3><p>{d}</p><span /></li>
+            ))}
+          </ol>
+          <p className="small muted" style={{ marginTop: 'var(--s-5)' }}>Quoted separately: more complex CRM connections, more than one website or lead source, advanced lead scoring, custom integrations, portal feeds and live calendar sync.</p>
         </div>
       </section>
     </>

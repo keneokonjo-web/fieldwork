@@ -329,3 +329,23 @@ html.js-motion .reveal.is-visible { opacity: 1; transform: none; }
 @media (max-width: 61.99rem) { .bar__login { display: none; } }
 .btn--cobalt { background: var(--cobalt); border-color: var(--cobalt); color: var(--paper); min-height: 3.4rem; padding-inline: 1.8rem; font-size: 1.02rem; }
 .btn--cobalt:hover { background: var(--ink); border-color: var(--ink); }
+
+/* ---------- Region selector ---------- */
+.region-btn { display: inline-flex; align-items: center; gap: 0.45rem; background: transparent; border: 1px solid color-mix(in srgb, var(--paper) 40%, transparent); color: var(--paper); border-radius: var(--radius-pill); min-height: 2rem; padding: 0.25rem 0.7rem; font: 400 0.72rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; white-space: nowrap; }
+.region-btn:hover { background: color-mix(in srgb, var(--paper) 12%, transparent); }
+.region-btn--footer { color: var(--ink); border-color: var(--hair); margin-left: var(--s-2); }
+.region-btn--footer:hover { background: var(--wash); }
+.bar__end { display: flex; align-items: center; gap: var(--s-3); }
+.flag { width: 1.5rem; height: 1rem; flex: none; display: block; }
+.region__card { width: min(100%, 26rem); }
+.region__card h2 { margin-bottom: var(--s-2); }
+.region__lede { margin: 0 0 var(--s-5); color: color-mix(in srgb, var(--paper) 80%, transparent); }
+.region__select { position: relative; margin-bottom: var(--s-4); }
+.region__trigger { width: 100%; display: flex; align-items: center; gap: 0.7rem; min-height: 3.25rem; padding: 0.6rem 1rem; background: var(--paper); color: var(--ink); border: 1px solid var(--paper); border-radius: 0.2rem; font: 500 1rem var(--font-sans); cursor: pointer; text-align: left; }
+.region__ph { color: var(--grey); }
+.region__caret { margin-left: auto; width: 0.55rem; height: 0.55rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); }
+.region__list { position: absolute; z-index: 5; left: 0; right: 0; top: calc(100% + 0.3rem); list-style: none; margin: 0; padding: 0.25rem; background: var(--paper); color: var(--ink); border: 1px solid var(--ink); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35); }
+.region__list li { display: flex; align-items: center; gap: 0.7rem; padding: 0.75rem 0.8rem; cursor: pointer; margin: 0; font-weight: 500; }
+.region__list li:hover, .region__list li:focus-visible, .region__list li[aria-selected="true"] { background: var(--wash); }
+.region__confirm { width: 100%; }
+.region__confirm:disabled { opacity: 0.45; cursor: not-allowed; }

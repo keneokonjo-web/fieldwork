@@ -2,7 +2,8 @@
 import { usePathname, useRouter } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-const MIN_MS = 950; // the curtain stays down at least this long, then lifts
+const COVER_MS = 520; // the curtain finishes covering the screen before the next page is requested
+const MIN_MS = 1150; // the curtain stays down at least this long in total, then lifts
 const EXIT_MS = 620;
 const MAX_MS = 5000;
 export const NAVIGATE_EVENT = 'fw-navigate';
@@ -10,7 +11,7 @@ export const NAVIGATE_EVENT = 'fw-navigate';
 export function navigate(href: string) { window.dispatchEvent(new CustomEvent(NAVIGATE_EVENT, { detail: href })); }
 
 /**
- * A one-second loading animation between pages, so the next page has loaded before it is shown.
+ * A loading animation between pages. The curtain covers the current page first, then the next page loads behind it, then the curtain lifts.
  * Internal link clicks are intercepted; modified clicks, new-tab links, downloads, hash links and external links are left alone.
  * With reduced motion the animation is skipped and navigation is immediate.
  */
@@ -30,7 +31,8 @@ export function PageTransition() {
     setPhase('cover');
     if (failsafe.current) clearTimeout(failsafe.current);
     failsafe.current = setTimeout(() => setPhase('lift'), MAX_MS);
-    router.push(href);
+    // The curtain covers the screen first. Only then does the destination page start to load, so it is never seen before the animation.
+    setTimeout(() => router.push(href), COVER_MS);
   }, [router]);
 
   useEffect(() => {
@@ -55,7 +57,7 @@ export function PageTransition() {
   useEffect(() => {
     if (!active || pathname === from.current) return;
     if (!window.location.hash) window.scrollTo(0, 0); // new pages always start at the top, instantly
-    const wait = Math.max(0, MIN_MS - (Date.now() - started.current));
+    const wait = Math.max(150, MIN_MS - (Date.now() - started.current));
     const t = setTimeout(() => { setPhase('lift'); if (failsafe.current) clearTimeout(failsafe.current); }, wait);
     return () => clearTimeout(t);
   }, [pathname, active]);

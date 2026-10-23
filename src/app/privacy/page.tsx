@@ -24,12 +24,12 @@ export default function PrivacyPage() {
           {email ? <>To ask about your information, email <a href={`mailto:${email}`}>{email}</a>.</> : <>A privacy contact address will be published here before launch. Until then, use the contact forms on this site.</>}</p>
 
         <h2>What stays on your device</h2>
-        <p>The price market switch (UK or Nigeria) works in your browser and is stored only there, in local storage. It is not sent to us. You can clear it by clearing site data in your browser.</p>
+        <p>The region you choose (United Kingdom, Nigeria or United States) is stored only in your browser, in local storage. It is not sent to us. You can clear it by clearing site data in your browser.</p>
         <table className="table" style={{ minWidth: 0 }}>
           <caption>Browser storage used by this site</caption>
           <thead><tr><th scope="col">Key</th><th scope="col">Purpose</th><th scope="col">Lifetime</th></tr></thead>
           <tbody>
-            <tr><th scope="row">fw-market</th><td>Remembers UK or Nigeria for the prices shown on product pages</td><td>Until you clear it</td></tr>
+            <tr><th scope="row">fw-region</th><td>Remembers the region you chose (United Kingdom, Nigeria or United States) for prices and photographs</td><td>Until you clear it</td></tr>
             <tr><th scope="row">fw-consent</th><td>Remembers your analytics choice</td><td>Until you clear it</td></tr>
             <tr><th scope="row">fw-attribution</th><td>Remembers which campaign link brought you here, only used if you later submit a form</td><td>This browser tab session</td></tr>
           </tbody>
@@ -48,13 +48,13 @@ export default function PrivacyPage() {
 
         <h2>Who processes it</h2>
         <p>We use service providers to run the site and handle submissions. These are configured by the operator before launch and this section will name them. At the time of writing the site is designed to work with: a hosting provider (Vercel); a form delivery destination chosen by the operator (such as an email notification service or a customer relationship tool); and, if enabled, a privacy-focused analytics provider. We do not sell personal data and we do not use advertising trackers.</p>
-        <p className="small muted">International transfers: some providers process data outside the UK and Nigeria. Safeguards must be confirmed once providers are chosen.</p>
+        <p className="small muted">International transfers: some providers process data outside your country. Safeguards must be confirmed once providers are chosen.</p>
 
         <h2>How long we keep it</h2>
         <p>Proposed: enquiries for up to 24 months after the last contact; email list details until you unsubscribe; consent records for as long as we hold the related contact. <em>These periods need to be confirmed.</em></p>
 
         <h2>Your rights</h2>
-        <p>In the UK, under the UK GDPR, you can ask to access, correct or delete your information, restrict or object to its use, ask for a copy in a portable form, and withdraw consent. You can complain to the Information Commissioner’s Office. In Nigeria, under the Nigeria Data Protection Act 2023, you have similar rights and can complain to the Nigeria Data Protection Commission. To use any right, contact us using the details above.</p>
+        <p>In the UK, under the UK GDPR, you can ask to access, correct or delete your information, restrict or object to its use, ask for a copy in a portable form, and withdraw consent. You can complain to the Information Commissioner’s Office. In Nigeria, under the Nigeria Data Protection Act 2023, you have similar rights and can complain to the Nigeria Data Protection Commission. In the United States, your rights depend on the state you live in. To use any right, contact us using the details above.</p>
 
         <h2>Children</h2>
         <p>This site is not aimed at children under 16, and we do not knowingly collect their information.</p>

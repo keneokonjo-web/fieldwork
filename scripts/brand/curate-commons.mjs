@@ -16,7 +16,7 @@ for (const s of sel) {
   if (!fs.existsSync(out)) {
     let buf;
     for (let i = 0; i < 4; i++) {
-      buf = execFileSync('curl', ['-s', '-L', '-m', '90', '-A', 'FieldworkImageResearch/1.0 (keneokonjo44@gmail.com)', 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(c.title.replace(/^File:/, '').replace(/ /g, '_')) + '?width=1920'], { maxBuffer: 64 * 1024 * 1024 });
+      buf = execFileSync('curl', ['-s', '-L', '-m', '90', '-A', 'FieldworkImageResearch/1.0 (keneokonjo44@gmail.com)', 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(c.title.replace(/^File:/, '').replace(/ /g, '_')) + '?width=' + (i < 2 ? 1920 : 1280)], { maxBuffer: 64 * 1024 * 1024 });
       if (buf.length > 20000 && buf[0] === 0xff) break; await sleep(8000 * (i + 1));
     }
     if (!(buf.length > 20000 && buf[0] === 0xff)) { console.log('download failed', s.key); continue; }

@@ -10,6 +10,7 @@ import { SiteHeader } from '@/components/layout/SiteHeader';
 import { Analytics } from '@/components/ui/Analytics';
 import { MotionInit } from '@/components/ui/MotionInit';
 import { PageTransition } from '@/components/ui/PageTransition';
+import { RegionDialog } from '@/components/region/RegionDialog';
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Analytics />
         <MotionInit />
         <PageTransition />
+        <RegionDialog />
       </body>
     </html>
   );

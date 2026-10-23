@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { RegionButton } from '@/components/region/RegionButton';
+import { RegionText } from '@/components/region/RegionText';
 import { footerNav, siteConfig } from '@/config/site';
 
 export function SiteFooter() {
@@ -11,7 +13,7 @@ export function SiteFooter() {
           <div>
             <p className="footer-statement">{siteConfig.tagline}</p>
             <p className="small muted" style={{ marginTop: 'var(--s-4)', maxWidth: '28rem' }}>
-              Fieldwork is new. We have no client results to show yet. Product demonstrations are being built, and anything not yet available is marked that way.
+              Fieldwork is new, and we have no client results to show yet. Open the demo to see what each product does.
             </p>
           </div>
           <div className="footer-cols">
@@ -29,7 +31,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-bottom">
           <span>© {year} Fieldwork. {siteConfig.legal.entityName ? siteConfig.legal.entityName : ''}</span>
-          <span>British English. UK and Nigeria priced separately.</span>
+          <span>Prices shown in <RegionText of="currency" />. <RegionButton variant="footer" /></span>
           {socials.length > 0 && (
             <ul style={{ listStyle: 'none', display: 'flex', gap: '1rem', margin: 0, padding: 0 }}>
               {socials.map(([k, v]) => (

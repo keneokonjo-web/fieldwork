@@ -6,7 +6,7 @@ const nextConfig = {
   async redirects() {
     return [
       { source: '/home', destination: '/', permanent: true },
-      { source: '/contact', destination: '/request-demo', permanent: true },
+      { source: '/request-demo', destination: '/contact', permanent: true },
       { source: '/pricing', destination: '/websites#price', permanent: true },
       { source: '/business/:path*', destination: '/', permanent: true },
       { source: '/individuals/:path*', destination: '/', permanent: true },
@@ -15,9 +15,9 @@ const nextConfig = {
       { source: '/learn/:path*', destination: '/ai-workshop', permanent: true },
       { source: '/learn', destination: '/ai-workshop', permanent: true },
       { source: '/build', destination: '/', permanent: true },
-      { source: '/login', destination: '/request-demo', permanent: true },
-      { source: '/field-notes/:path*', destination: '/', permanent: true },
-      { source: '/field-notes', destination: '/', permanent: true },
+      { source: '/login', destination: '/demo', permanent: true },
+      { source: '/field-notes/:path*', destination: '/about', permanent: true },
+      { source: '/field-notes', destination: '/about', permanent: true },
     ];
   },
   async headers() {

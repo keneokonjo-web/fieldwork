@@ -531,5 +531,101 @@
     "source": "https://commons.wikimedia.org/wiki/File:New_housing_estate_at_Cutsyke_-_geograph.org.uk_-_5664790.jpg",
     "artist": "derek dye",
     "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/us-skyline.jpg",
+    "subject": "Chicago high-rises, aerial",
+    "alt": "An aerial view of apartment towers and low-rise buildings in Chicago",
+    "group": "us",
+    "width": 1920,
+    "height": 1440,
+    "place": "Chicago",
+    "source": "https://commons.wikimedia.org/wiki/File:Chicago-_Gold_Coast_Apartment_Buildings_(9691400371).jpg",
+    "artist": "Roman Boed from The Netherlands",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/us-brownstone.jpg",
+    "subject": "Brownstone street",
+    "alt": "A tree-lined street of brownstone townhouses with parked cars",
+    "group": "us",
+    "width": 1920,
+    "height": 1440,
+    "place": "Brownstone street, New York",
+    "source": "https://commons.wikimedia.org/wiki/File:Park_Place_Brooklyn_Jan_2010.jpg",
+    "artist": "Chris Pruitt",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/us-newbuild.jpg",
+    "subject": "New home under construction",
+    "alt": "A two-storey house with its timber frame going up in a new development",
+    "group": "us",
+    "width": 1920,
+    "height": 1227,
+    "place": "New home under construction",
+    "source": "https://commons.wikimedia.org/wiki/File:New_house_under_construction_Pittsfield_Township_Michigan.JPG",
+    "artist": "Dwight Burdette",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/us-sign.jpg",
+    "subject": "For sale sign outside a house",
+    "alt": "A red real estate for-sale sign in front of a single-storey house with a garage",
+    "group": "us",
+    "width": 1920,
+    "height": 1280,
+    "place": "For sale, United States",
+    "source": "https://commons.wikimedia.org/wiki/File:Heart_&_Home_Real_Estate_For_Sale_Sign.jpg",
+    "artist": "Rick Obst",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/us-apartments.jpg",
+    "subject": "Chicago apartment towers",
+    "alt": "Glass and stone apartment towers rising above a Chicago street",
+    "group": "us",
+    "width": 1920,
+    "height": 1423,
+    "place": "Apartment towers, Chicago",
+    "source": "https://commons.wikimedia.org/wiki/File:Chicago_2007-21a.jpg",
+    "artist": "Alvesgaspar",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/us-suburb.jpg",
+    "subject": "Craftsman bungalow, San Jose",
+    "alt": "A white craftsman bungalow behind a picket fence on a tree-lined street",
+    "group": "us",
+    "width": 1920,
+    "height": 1440,
+    "place": "San Jose, California",
+    "source": "https://commons.wikimedia.org/wiki/File:American_craftsman_bungalow_in_San_Jose,_Ca_(1).jpg",
+    "artist": "David Sawyer",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/us-bungalow.jpg",
+    "subject": "Bungalow with a lawn",
+    "alt": "A cream craftsman bungalow with a front porch and a neat lawn",
+    "group": "us",
+    "width": 1804,
+    "height": 1343,
+    "place": "Suburban home, California",
+    "source": "https://commons.wikimedia.org/wiki/File:American_craftsman_bungalow_in_San_Jose,_Ca.jpg",
+    "artist": "David Sawyer",
+    "licence": "CC BY-SA 4.0"
+  },
+  {
+    "file": "/images/us-condo.jpg",
+    "subject": "Miami condominium towers",
+    "alt": "Glass condominium towers with a rooftop pool in downtown Miami",
+    "group": "us",
+    "width": 1280,
+    "height": 960,
+    "place": "Miami, Florida",
+    "source": "https://commons.wikimedia.org/wiki/File:Brickell_Miami_highrise_condominium_pool_deck_aerial_view.jpg",
+    "artist": "RealEstateImages",
+    "licence": "CC BY-SA 4.0"
   }
 ]

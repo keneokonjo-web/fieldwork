@@ -2,7 +2,7 @@
 
 export const LEAD_TYPES = ['demo_request', 'workshop_interest', 'contact'] as const;
 export type LeadType = (typeof LEAD_TYPES)[number];
-export const MARKETS = ['uk', 'nigeria', 'other'] as const;
+export const MARKETS = ['uk', 'nigeria', 'us', 'other'] as const;
 export type Market = (typeof MARKETS)[number];
 
 export const PRIVACY_NOTICE_VERSION = 'draft-0.1';

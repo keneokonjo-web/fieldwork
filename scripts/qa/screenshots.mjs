@@ -8,7 +8,7 @@ const outDir = path.resolve(import.meta.dirname, '../../qa/screenshots');
 fs.mkdirSync(outDir, { recursive: true });
 const only = process.argv[2];
 const routes = [
-  ['home', '/'], ['websites', '/websites'], ['automations', '/automations'], ['ai-workshop', '/ai-workshop'], ['about', '/about'], ['request-demo', '/request-demo'],
+  ['home', '/'], ['websites', '/websites'], ['automations', '/automations'], ['ai-workshop', '/ai-workshop'], ['about', '/about'], ['demo', '/demo'], ['contact', '/contact'], ['about-note', '/about/why-fieldwork'],
   ['image-credits', '/image-credits'], ['privacy', '/privacy'], ['terms', '/terms'], ['cookies', '/cookies'], ['accessibility', '/accessibility'], ['404', '/does-not-exist'],
 ];
 const viewports = { desktop: { width: 1440, height: 900 }, mobile: { width: 390, height: 844 } };

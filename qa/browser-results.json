@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-22T21:37:07.479Z",
+  "ranAt": "2026-10-23T11:27:07.126Z",
   "results": [
     {
       "name": "every route returns 200 with one h1, a title, no console errors, no broken images",
@@ -14,7 +14,7 @@
       "pass": true
     },
     {
-      "name": "there is no individual/business chooser and no log-in link",
+      "name": "header: a View demo button and a region button; no log-in link; no \"Request a demo\" anywhere",
       "pass": true
     },
     {
@@ -42,43 +42,67 @@
       "pass": true
     },
     {
-      "name": "page transition: a paper curtain with the wordmark covers, then lifts away, without scrolling",
+      "name": "first visit: a \"Select your region\" pop-up appears after about two seconds, with three countries and flags",
       "pass": true
     },
     {
-      "name": "home hero has the cropped wordmark at its bottom edge, and the page does not auto-scroll",
+      "name": "choosing a region sets the currency everywhere, removes the market toggle, and is remembered",
       "pass": true
     },
     {
-      "name": "home page shows the three products, the CRM message and a demo call to action",
+      "name": "the header region button reopens the selector and changes the region",
       "pass": true
     },
     {
-      "name": "websites page: prices follow the market toggle and Nigeria shows the new price",
+      "name": "region text follows the choice (eyebrow, pricing title), with no \"UK and Nigeria\" wording on the home page",
       "pass": true
     },
     {
-      "name": "automations page: three ways in, both workflows, channels and the three prices",
+      "name": "photographs follow the region: UK and US visitors see only their own country; Nigeria sees Nigerian and UK photographs",
       "pass": true
     },
     {
-      "name": "AI Workshop page is clearly planned, lists sixteen modules and states no price",
+      "name": "page transition: the curtain covers the page BEFORE the destination loads, then lifts away, without scrolling",
       "pass": true
     },
     {
-      "name": "about page states the honest position; there is no pricing page",
+      "name": "heroes: cropped wordmark at the bottom edge on Home, Websites and AI Workshop; Automations has a video hero; no auto-scroll",
       "pass": true
     },
     {
-      "name": "photographs of Nigeria and the UK are credited, with a credits page",
+      "name": "home: three aligned product cards without index brackets; CRM heading; no \"Buy one or all\"",
       "pass": true
     },
     {
-      "name": "demo request form validates, then reports honest not-configured when no adapter is set",
+      "name": "websites: demo preview hero, upmarket title, package section, no handover section, pricing before the add-on",
       "pass": true
     },
     {
-      "name": "demo request is delivered to the mock webhook with business type, interest, attribution and secret",
+      "name": "automations: no \"three ways in\", pricing before installation, installation covers CRM or Google Sheets, channels have no \"Planned\"",
+      "pass": true
+    },
+    {
+      "name": "AI Workshop: new title, \"16 modules.\", no \"planned / not yet available\" anywhere on the site, no price shown",
+      "pass": true
+    },
+    {
+      "name": "about: Field Notes style index of notes, each note opens, and the page keeps the honest status",
+      "pass": true
+    },
+    {
+      "name": "demo page opens from View demo, and the brand examples anchor exists",
+      "pass": true
+    },
+    {
+      "name": "photographs are credited, with a credits page",
+      "pass": true
+    },
+    {
+      "name": "contact form validates, then reports honest not-configured when no adapter is set",
+      "pass": true
+    },
+    {
+      "name": "contact message is delivered to the mock webhook with business type, interest, attribution and secret",
       "pass": true
     },
     {

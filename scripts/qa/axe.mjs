@@ -2,7 +2,7 @@
 import { chromium } from 'playwright';
 import { AxeBuilder } from '@axe-core/playwright';
 import fs from 'node:fs';
-const routes = ['/', '/websites', '/automations', '/ai-workshop', '/about', '/request-demo', '/image-credits', '/privacy', '/terms', '/cookies', '/accessibility', '/not-a-page'];
+const routes = ['/', '/websites', '/automations', '/ai-workshop', '/about', '/about/why-fieldwork', '/demo', '/contact', '/image-credits', '/privacy', '/terms', '/cookies', '/accessibility', '/not-a-page'];
 const b = await chromium.launch(); const out = []; let total = 0;
 for (const [label, vp] of [['desktop', { width: 1440, height: 900 }], ['mobile', { width: 390, height: 844 }]]) {
   const p = await (await b.newContext({ viewport: vp })).newPage();

@@ -110,5 +110,69 @@
   "place": "Cheltenham",
   "alt": "A 1930s semi-detached house with a low stone wall in Cheltenham",
   "group": "uk"
+ },
+ {
+  "key": "us-skyline",
+  "id": "us-apartment-05",
+  "subject": "Chicago high-rises, aerial",
+  "place": "Chicago",
+  "alt": "An aerial view of apartment towers and low-rise buildings in Chicago",
+  "group": "us"
+ },
+ {
+  "key": "us-brownstone",
+  "id": "us-brownstone-04",
+  "subject": "Brownstone street",
+  "place": "Brownstone street, New York",
+  "alt": "A tree-lined street of brownstone townhouses with parked cars",
+  "group": "us"
+ },
+ {
+  "key": "us-newbuild",
+  "id": "us-newbuild-01",
+  "subject": "New home under construction",
+  "place": "New home under construction",
+  "alt": "A two-storey house with its timber frame going up in a new development",
+  "group": "us"
+ },
+ {
+  "key": "us-sign",
+  "id": "us-sign-01",
+  "subject": "For sale sign outside a house",
+  "place": "For sale, United States",
+  "alt": "A red real estate for-sale sign in front of a single-storey house with a garage",
+  "group": "us"
+ },
+ {
+  "key": "us-apartments",
+  "id": "us-apartment-02",
+  "subject": "Chicago apartment towers",
+  "place": "Apartment towers, Chicago",
+  "alt": "Glass and stone apartment towers rising above a Chicago street",
+  "group": "us"
+ },
+ {
+  "key": "us-suburb",
+  "id": "us-craftsman-05",
+  "subject": "Craftsman bungalow, San Jose",
+  "place": "San Jose, California",
+  "alt": "A white craftsman bungalow behind a picket fence on a tree-lined street",
+  "group": "us"
+ },
+ {
+  "key": "us-bungalow",
+  "id": "us-craftsman-04",
+  "subject": "Bungalow with a lawn",
+  "place": "Suburban home, California",
+  "alt": "A cream craftsman bungalow with a front porch and a neat lawn",
+  "group": "us"
+ },
+ {
+  "key": "us-condo",
+  "id": "us-condo-03",
+  "subject": "Miami condominium towers",
+  "place": "Miami, Florida",
+  "alt": "Glass condominium towers with a rooftop pool in downtown Miami",
+  "group": "us"
  }
 ]

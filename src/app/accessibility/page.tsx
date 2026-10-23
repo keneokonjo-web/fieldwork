@@ -31,7 +31,7 @@ export default function AccessibilityPage() {
           <li>Screen reader testing is limited so far.</li>
         </ul>
         <h2>Tell us about a problem</h2>
-        <p>{email ? <>Email <a href={`mailto:${email}`}>{email}</a> or </> : null}use the <a href="/request-demo">request a demo page</a>. Say what you were trying to do and which device or assistive technology you use. We will take it seriously and tell you what we can do.</p>
+        <p>{email ? <>Email <a href={`mailto:${email}`}>{email}</a> or </> : null}use the <a href="/contact">contact page</a>. Say what you were trying to do and which device or assistive technology you use. We will take it seriously and tell you what we can do.</p>
       </div>
     </section>
   );

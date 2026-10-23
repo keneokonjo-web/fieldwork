@@ -1,24 +1,25 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ButtonLink, TextLink } from '@/components/ui/ButtonLink';
-import { Chip } from '@/components/ui/Chip';
 import { Corners } from '@/components/ui/Corners';
-import { Plate } from '@/components/ui/Plate';
+import { RegionButton } from '@/components/region/RegionButton';
+import { RegionText } from '@/components/region/RegionText';
+import { RegionPlate } from '@/components/ui/RegionPlate';
 import { Reveal } from '@/components/ui/Reveal';
 import { DEMO_PATH } from '@/config/site';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata({
   title: 'Fieldwork: websites and workflows for property businesses',
-  description: 'Websites with self-managed listings, enquiry and viewing automation, and AI training for estate agencies and property developers in the UK and Nigeria.',
+  description: 'Websites with self-managed listings, enquiry and viewing automation, and AI training for estate agencies and property developers.',
   path: '/',
 });
 
 const products = [
-  { n: '01', href: '/websites', name: 'Websites & Listings', line: 'A professional property website with a listing system you run yourself. Add, edit and publish properties without calling us.', photo: 'uk-newbuild', status: 'Fixed price' },
-  { n: '02', href: '/automations', name: 'Automations', line: 'Enquiries acknowledged, viewings confirmed and reminded, feedback collected. Fixed-price workflows that sit next to your CRM.', photo: 'uk-agent-sign', status: 'Fixed price' },
-  { n: '03', href: '/ai-workshop', name: 'AI Workshop', line: 'Self-paced AI training for your team, with a manager view of progress. In development.', photo: 'work-team-table', status: 'Planned' },
-];
+  { href: '/websites', name: 'Websites & Listings', line: 'A professional property website with a listing system you run yourself. Add, edit and publish properties without calling us.', slot: 'prodWeb' },
+  { href: '/automations', name: 'Automations', line: 'Enquiries acknowledged, viewings confirmed and reminded, feedback collected. Fixed-price workflows that sit next to your CRM.', slot: 'prodAuto' },
+  { href: '/ai-workshop', name: 'AI Workshop', line: 'Self-paced AI training for your team, with a manager view of progress.', slot: 'prodWork' },
+] as const;
 
 const flow = [
   ['Enquiry in', 'From your website form, or typed in by your team.'],
@@ -35,17 +36,17 @@ export default function HomePage() {
         <Corners n="01" />
         <div className="container hero__grid">
           <div>
-            <p className="eyebrow">Real estate · UK and Nigeria</p>
+            <p className="eyebrow">Real estate · <RegionText /></p>
             <h1 id="hero-title">Websites and workflows for property businesses.</h1>
             <p className="lede">A website you manage yourself, enquiry and viewing automation, and AI training for your team. Built for estate agencies and property developers.</p>
             <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
-              <ButtonLink href={DEMO_PATH} variant="cobalt" track="demo_request_clicked" trackLabel="home-hero">Request a demo</ButtonLink>
+              <ButtonLink href={DEMO_PATH} variant="cobalt" track="demo_request_clicked" trackLabel="home-hero">View demo</ButtonLink>
               <ButtonLink href="#products" variant="secondary">See what we build</ButtonLink>
             </div>
           </div>
           <div className="hero__duo">
-            <Plate photo="ng-lagos-skyline" ratio="4 / 5" priority sizes="(min-width: 62rem) 22vw, 50vw" />
-            <Plate photo="uk-georgian" ratio="4 / 5" priority sizes="(min-width: 62rem) 22vw, 50vw" />
+            <RegionPlate slot="heroA" ratio="4 / 5" priority sizes="(min-width: 62rem) 22vw, 50vw" />
+            <RegionPlate slot="heroB" ratio="4 / 5" priority sizes="(min-width: 62rem) 22vw, 50vw" />
           </div>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -56,15 +57,14 @@ export default function HomePage() {
         <div className="container">
           <div className="section__head">
             <p className="eyebrow">What we build</p>
-            <h2 id="products-title">Three products. Buy one or all.</h2>
+            <h2 id="products-title">Three products.</h2>
             <p>Each is a defined product with a defined scope. You receive it, you own it, and your team runs it.</p>
           </div>
           <div className="prod">
             {products.map((p) => (
               <Reveal key={p.href} className="prod__card">
-                <Link href={p.href} className="prod__link" data-track="demo_request_clicked" data-track-label={`home-product-${p.n}`}>
-                  <Plate photo={p.photo} ratio="4 / 3" framed={false} />
-                  <span className="index">({p.n}) <Chip tone={p.status === 'Planned' ? 'planned' : 'neutral'}>{p.status}</Chip></span>
+                <Link href={p.href} className="prod__link" data-track="demo_request_clicked" data-track-label={`home-product-${p.name}`}>
+                  <RegionPlate slot={p.slot} ratio="4 / 3" framed={false} />
                   <h3>{p.name}</h3>
                   <p>{p.line}</p>
                   <span className="link-arrow">Read more</span>
@@ -85,7 +85,7 @@ export default function HomePage() {
           </div>
           <div className="who">
             <Reveal className="who__col">
-              <Plate photo="ng-lekki" ratio="3 / 2" />
+              <RegionPlate slot="whoDev" ratio="3 / 2" />
               <h3>Property developers</h3>
               <ul className="ticks">
                 <li>A landing page for each development.</li>
@@ -94,7 +94,7 @@ export default function HomePage() {
               </ul>
             </Reveal>
             <Reveal className="who__col" delay={90}>
-              <Plate photo="uk-terrace" ratio="3 / 2" />
+              <RegionPlate slot="whoAgency" ratio="3 / 2" />
               <h3>Estate agencies and brokerages</h3>
               <ul className="ticks">
                 <li>Properties for sale or to let, each with a clear status.</li>
@@ -109,7 +109,7 @@ export default function HomePage() {
       <section className="section section--ink" aria-labelledby="crm-title">
         <div className="container">
           <p className="eyebrow">Beside your CRM</p>
-          <h2 id="crm-title" style={{ maxWidth: '16ch' }}>Improve one part of the process. Keep the rest.</h2>
+          <h2 id="crm-title" style={{ maxWidth: '16ch' }}>Improve one part of the process at a time.</h2>
           <p className="lede" style={{ marginTop: 'var(--s-4)' }}>You do not have to replace your CRM or change how you list on the portals. The automations work next to what you already use, from a simple form your team fills in, or from your website.</p>
           <ol className="steps">
             {flow.map(([t, d], i) => (
@@ -118,7 +118,7 @@ export default function HomePage() {
           </ol>
           <div className="btn-row" style={{ marginTop: 'var(--s-6)' }}>
             <ButtonLink href="/automations" variant="light">See the automations</ButtonLink>
-            <ButtonLink href={DEMO_PATH} variant="outline-light" track="demo_request_clicked" trackLabel="home-crm">Request a demo</ButtonLink>
+            <ButtonLink href={DEMO_PATH} variant="outline-light" track="demo_request_clicked" trackLabel="home-crm">View demo</ButtonLink>
           </div>
         </div>
       </section>
@@ -138,24 +138,19 @@ export default function HomePage() {
             </ul>
             <p className="small muted" style={{ marginTop: 'var(--s-4)' }}>You pay your own hosting, messaging and software subscriptions directly to those providers.</p>
           </div>
-          <Reveal><Plate photo="home-living-premium" ratio="4 / 5" /></Reveal>
+          <Reveal><RegionPlate slot="interior" ratio="4 / 5" /></Reveal>
         </div>
       </section>
 
       <section className="section section--wash" aria-labelledby="markets-title">
         <div className="container">
           <div className="section__head">
-            <p className="eyebrow">Two markets</p>
-            <h2 id="markets-title">Priced for the UK and for Nigeria.</h2>
-            <p>Each market is priced separately, in its own currency. Prices are on each product page.</p>
+            <p className="eyebrow">Pricing</p>
+            <h2 id="markets-title">Priced for <RegionText the />.</h2>
+            <p>Prices across the site are shown in <RegionText of="currency" />. <RegionButton variant="footer" /></p>
           </div>
           <div className="band">
-            <Plate photo="ng-abuja" ratio="3 / 2" />
-            <Plate photo="uk-flats" ratio="3 / 2" />
-            <Plate photo="ng-estate" ratio="3 / 2" />
-            <Plate photo="uk-suburb" ratio="3 / 2" />
-            <Plate photo="ng-ikoyi" ratio="3 / 2" />
-            <Plate photo="uk-terrace" ratio="3 / 2" />
+            {(['bandA', 'bandB', 'bandC', 'bandD', 'bandE', 'bandF'] as const).map((n) => <RegionPlate key={n} slot={n} ratio="3 / 2" />)}
           </div>
         </div>
       </section>
@@ -163,9 +158,9 @@ export default function HomePage() {
       <section className="section" aria-labelledby="workshop-title">
         <div className="container split">
           <div>
-            <p className="eyebrow">Planned</p>
-            <h2 id="workshop-title">AI Workshop for your team.</h2>
-            <p className="lede">Self-paced lessons and exercises on real property tasks, with a manager view of who has finished what. It is in development and not yet on sale.</p>
+            <p className="eyebrow">AI Workshop</p>
+            <h2 id="workshop-title">AI training for your team.</h2>
+            <p className="lede">Self-paced lessons and exercises on real property tasks, with a manager view of who has finished what.</p>
             <div style={{ marginTop: 'var(--s-5)' }}><TextLink href="/ai-workshop">About the AI Workshop</TextLink></div>
           </div>
           <Image className="home__art" src="/art/terrain-21-fade-right-cobalt-clear.svg" alt="" width={900} height={700} unoptimized aria-hidden="true" />
@@ -176,11 +171,11 @@ export default function HomePage() {
         <div className="container cta-split">
           <div>
             <h2 id="cta-title">See it before you decide.</h2>
-            <p className="lede">Fieldwork is new, and we have no client results to show yet. What we can show is what each product does. Product demonstrations are being built.</p>
+            <p className="lede">Open the demonstration and use it the way your team would.</p>
           </div>
           <div className="btn-row">
-            <ButtonLink href={DEMO_PATH} variant="light" track="demo_request_clicked" trackLabel="home-cta">Request a demo</ButtonLink>
-            <ButtonLink href="/about" variant="outline-light">About Fieldwork</ButtonLink>
+            <ButtonLink href={DEMO_PATH} variant="light" track="demo_request_clicked" trackLabel="home-cta">View demo</ButtonLink>
+            <ButtonLink href="/contact" variant="outline-light">Contact</ButtonLink>
           </div>
         </div>
       </section>

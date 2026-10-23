@@ -1,5 +1,4 @@
 import { ButtonLink } from '@/components/ui/ButtonLink';
-import { Chip } from '@/components/ui/Chip';
 import { Corners } from '@/components/ui/Corners';
 import { LeadForm } from '@/components/forms/LeadForm';
 import { Plate } from '@/components/ui/Plate';
@@ -39,9 +38,9 @@ export default function AiWorkshopPage() {
         <Corners n="04" letters={['A', 'I', 'W']} />
         <div className="container hero__grid">
           <div>
-            <div className="badge-line"><p className="eyebrow" style={{ margin: 0 }}>AI Workshop</p><Chip tone="planned">Planned, not yet available</Chip></div>
-            <h1 id="hero-title">AI training your team can do at its own pace.</h1>
-            <p className="lede">Short lessons and exercises on real property tasks, with a manager view of who has finished what. No live sessions are needed.</p>
+            <p className="eyebrow">AI Workshop</p>
+            <h1 id="hero-title">AI training for real estate teams.</h1>
+            <p className="lede">Short lessons and exercises on real property tasks, with a manager view of who has finished what.</p>
             <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
               <ButtonLink href="#interest" variant="cobalt">Register interest</ButtonLink>
               <ButtonLink href="#curriculum" variant="secondary">See the curriculum</ButtonLink>
@@ -56,9 +55,9 @@ export default function AiWorkshopPage() {
       <section className="section" aria-labelledby="what-title">
         <div className="container">
           <div className="section__head">
-            <p className="eyebrow">What it will be</p>
+            <p className="eyebrow">What it is</p>
             <h2 id="what-title">Learning for staff, progress for managers.</h2>
-            <p>The Workshop is being built after the website and automation products. Everything on this page describes what is planned. None of it is on sale.</p>
+            <p>Self-paced, with no live sessions needed.</p>
           </div>
           <div className="split">
             <Reveal>
@@ -90,8 +89,8 @@ export default function AiWorkshopPage() {
         <div className="container">
           <div className="section__head">
             <p className="eyebrow">Curriculum</p>
-            <h2 id="curriculum-title">Sixteen modules, built around property work.</h2>
-            <p>Each module will have a short lesson, an example, an exercise, a knowledge check, feedback and a reusable template. The first release will be one complete pathway, not many unfinished ones.</p>
+            <h2 id="curriculum-title">16 modules.</h2>
+            <p>Each module has a short lesson, an example, an exercise, a knowledge check, feedback and a reusable template.</p>
           </div>
           <ol className="index-list index-list--two" style={{ listStyle: 'none', padding: 0 }}>
             {modules.map(([t, d], i) => (
@@ -105,7 +104,7 @@ export default function AiWorkshopPage() {
         <div className="container split">
           <div>
             <p className="eyebrow">Not covered</p>
-            <h2 id="not-title">What it will not teach or do.</h2>
+            <h2 id="not-title">What it does not cover.</h2>
             <ul className="ticks">
               <li>Company finances or commission calculations.</li>
               <li>Property valuations as professional advice.</li>
@@ -123,7 +122,7 @@ export default function AiWorkshopPage() {
           <div>
             <p className="eyebrow">Price: to be announced</p>
             <h2 id="interest-title">Tell us you are interested.</h2>
-            <p className="lede">Pricing has not been decided and we will not invent it. Register your interest and we will email you when the Workshop is ready, and ask what your team needs.</p>
+            <p className="lede">Register your interest and we will email you when the Workshop opens, and ask what your team needs.</p>
           </div>
           <div className="form-card form-card--paper">
             <LeadForm type="workshop_interest" variant="business" submitLabel="Register interest" location="ai-workshop" interest="AI Workshop"

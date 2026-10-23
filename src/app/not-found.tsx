@@ -15,13 +15,13 @@ export default function NotFound() {
         <p className="lede">The link may be old or mistyped. These routes will get you back to something useful.</p>
         <div className="btn-row" style={{ marginTop: 'var(--s-5)' }}>
           <ButtonLink href="/">Go to the homepage</ButtonLink>
-          <ButtonLink href={DEMO_PATH} variant="secondary">Request a demo</ButtonLink>
+          <ButtonLink href={DEMO_PATH} variant="secondary">View demo</ButtonLink>
         </div>
         <ul className="ticks" style={{ marginTop: 'var(--s-6)' }}>
           <li><Link href="/websites">Websites &amp; Listings</Link></li>
           <li><Link href="/automations">Automations</Link></li>
           <li><Link href="/ai-workshop">AI Workshop</Link></li>
-          <li><Link href="/request-demo">Request a demo</Link></li>
+          <li><Link href="/demo">View demo</Link></li>
         </ul>
       </div>
     </section>
