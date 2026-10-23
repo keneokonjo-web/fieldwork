@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Halden · Concept 2 · Heritage</title>
+<link rel="stylesheet" href="common.css">
+<style>
+@font-face { font-family: "Bodoni Moda"; src: url(fonts/bodoni-moda.woff2) format("woff2"); font-weight: 400 900; font-display: swap; }
+@font-face { font-family: "Bodoni Moda"; src: url(fonts/bodoni-moda-italic.woff2) format("woff2"); font-weight: 400 900; font-style: italic; font-display: swap; }
+@font-face { font-family: "DM Sans"; src: url(fonts/dm-sans.woff2) format("woff2"); font-weight: 100 1000; font-display: swap; }
+:root { --ink: #0b0b0b; --gold: #b39458; --gold-d: #8a6f3b; --warm: #f6f3ee; --line: rgba(11,11,11,.14); --serif: "Bodoni Moda", Georgia, serif; --sans: "DM Sans", system-ui, sans-serif; --pop-bg: #fff; --pop-fg: #0b0b0b; --pop-line: #d8d2c6; --pop-accent: #0b0b0b; --pop-accent-fg: #fff; --pop-font: var(--sans); --pop-title: 500 1.35rem/1.15 var(--serif); --pop-radius: 4px; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); color: var(--ink); background: #fff; -webkit-font-smoothing: antialiased; line-height: 1.5; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; } img { display: block; max-width: 100%; } button, input, select { font: inherit; color: inherit; }
+.eyebrow { font-size: .72rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold-d); display: inline-flex; align-items: center; gap: .9rem; }
+.eyebrow::before { content: ""; width: 1.8rem; height: 1px; background: currentColor; }
+.btn { display: inline-flex; align-items: center; gap: .8rem; border: 1px solid var(--ink); padding: .95rem 1.7rem; font-size: .74rem; letter-spacing: .22em; text-transform: uppercase; background: transparent; cursor: pointer; transition: background .3s, color .3s; }
+.btn:hover { background: var(--ink); color: #fff; }
+
+/* Intro */
+.intro { position: fixed; inset: 0; z-index: 900; background: #fff; display: grid; place-content: center; justify-items: center; gap: 1rem; animation: out 1s cubic-bezier(.76,0,.24,1) 2.2s forwards; }
+.intro svg { width: 4.2rem; } .intro svg * { stroke-dasharray: 220; stroke-dashoffset: 220; animation: draw 1.6s ease .2s forwards; }
+.intro .w { font: 500 1.7rem var(--serif); letter-spacing: .3em; opacity: 0; animation: fade 1s ease 1s forwards; }
+html.seen .intro { display: none; }
+@keyframes draw { to { stroke-dashoffset: 0; } } @keyframes fade { to { opacity: 1; } } @keyframes out { to { transform: translateY(-100%); visibility: hidden; } }
+
+/* Logo */
+.logo { display: inline-flex; align-items: center; gap: .75rem; }
+.logo svg { width: 2.1rem; height: 2.1rem; }
+.logo .t { display: grid; line-height: 1; } .logo .t b { font: 500 1.55rem var(--serif); letter-spacing: .16em; } .logo .t i { font-style: normal; font-size: .5rem; letter-spacing: .42em; text-transform: uppercase; margin-top: .32rem; opacity: .75; }
+
+/* Header */
+.hdr { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.1rem clamp(1rem, 4vw, 4rem); color: #fff; transition: background .4s, color .4s, padding .4s; }
+.hdr::before { content: ""; position: absolute; inset: 0 0 -3rem; background: linear-gradient(rgba(0,0,0,.45), transparent); z-index: -1; transition: opacity .4s; }
+.hdr.solid { background: rgba(255,255,255,.96); color: var(--ink); padding-block: .75rem; box-shadow: 0 1px 0 var(--line); backdrop-filter: blur(8px); }
+.hdr.solid::before { opacity: 0; }
+.hdr nav { display: flex; gap: clamp(1rem, 2vw, 2rem); font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; }
+.hdr nav a { position: relative; padding: .4rem 0; } .hdr nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .4s; } .hdr nav a:hover::after { transform: scaleX(1); }
+.hdr .r { display: flex; align-items: center; gap: 1rem; }
+.hdr .contact { border: 1px solid currentColor; border-radius: 999px; padding: .65rem 1.4rem; font-size: .74rem; letter-spacing: .22em; text-transform: uppercase; transition: background .3s, color .3s; }
+.hdr .contact:hover { background: #fff; color: #000; } .hdr.solid .contact:hover { background: #000; color: #fff; }
+.ibtn { background: none; border: 0; cursor: pointer; padding: .3rem; display: grid; } .ibtn svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.burger { display: none; } @media (max-width: 64rem) { .hdr nav, .hdr .ibtn.hide { display: none; } .burger { display: grid; } }
+.sheet { position: fixed; inset: 0; background: #fff; z-index: 200; padding: 6rem 2rem 2rem; display: none; flex-direction: column; gap: 1rem; } .sheet.open { display: flex; } .sheet a { font: 400 2.2rem var(--serif); }
+
+/* Hero */
+.hero { position: relative; height: 100svh; min-height: 40rem; display: grid; place-items: center; color: #fff; overflow: hidden; background: #111; text-align: center; }
+.hero img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: zoom 22s ease-out both; }
+.hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,.18), rgba(0,0,0,.55)); }
+.hero .c { position: relative; z-index: 2; padding: 0 1.25rem; margin-top: -8vh; }
+.hero .eyebrow { color: #fff; letter-spacing: .5em; margin-bottom: 1.4rem; } .hero .eyebrow::before { display: none; }
+.hero h1 { font: 400 clamp(2.6rem, 1rem + 5.4vw, 6.2rem)/1.02 var(--serif); letter-spacing: -.02em; max-width: 14ch; margin: 0 auto; }
+.hero h1 em { font-style: italic; }
+@keyframes zoom { from { transform: scale(1.12); } to { transform: scale(1); } }
+.pill { position: absolute; z-index: 3; left: 50%; bottom: 8vh; transform: translateX(-50%); width: min(46rem, calc(100% - 2rem)); }
+.pill form { display: flex; align-items: center; gap: .5rem; background: rgba(15,15,15,.55); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.28); border-radius: 999px; padding: .45rem .5rem .45rem 1.2rem; }
+.pill .seg { display: flex; gap: .25rem; border-right: 1px solid rgba(255,255,255,.25); padding-right: .8rem; margin-right: .3rem; }
+.pill .seg label { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; padding: .45rem .7rem; border-radius: 999px; cursor: pointer; opacity: .75; } .pill .seg input { position: absolute; opacity: 0; } .pill .seg label:has(input:checked) { background: #fff; color: #000; opacity: 1; }
+.pill input[type=text] { flex: 1; min-width: 0; background: none; border: 0; outline: none; color: #fff; font-size: 1.02rem; padding: .7rem .2rem; } .pill input::placeholder { color: rgba(255,255,255,.7); }
+.pill .mapb { background: rgba(255,255,255,.16); border: 0; border-radius: 999px; padding: .7rem 1.1rem; font-size: .8rem; cursor: pointer; color: #fff; } .pill .mapb:hover { background: rgba(255,255,255,.28); }
+.pill .go { width: 2.9rem; height: 2.9rem; border-radius: 50%; border: 0; background: #fff; color: #000; cursor: pointer; display: grid; place-items: center; flex: none; } .pill .go:hover { background: var(--gold); }
+.filters { display: none; margin-top: .5rem; background: rgba(15,15,15,.7); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.22); border-radius: 18px; padding: 1rem 1.2rem; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.filters.open { display: grid; } .filters label { display: block; font-size: .64rem; letter-spacing: .22em; text-transform: uppercase; opacity: .7; margin-bottom: .3rem; } .filters select { width: 100%; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,.35); padding: .35rem 0; color: #fff; } .filters option { color: #000; }
+@media (max-width: 40rem) { .pill .mapb { display: none; } .pill .seg { display: none; } .filters { grid-template-columns: 1fr; } }
+.scrollcue { position: absolute; z-index: 2; bottom: 2.2vh; left: 50%; width: 1px; height: 3vh; background: rgba(255,255,255,.7); transform: translateX(-50%); animation: cue 2s ease-in-out infinite; transform-origin: top; }
+@keyframes cue { 0%,100% { transform: translateX(-50%) scaleY(.3); } 50% { transform: translateX(-50%) scaleY(1); } }
+
+/* Featured */
+.feat { padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 12vw, 12rem); display: grid; gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+@media (min-width: 62rem) { .feat { grid-template-columns: 1fr 1.05fr; } }
+.feat h2 { font: 400 clamp(2.4rem, 1.4rem + 3vw, 4.2rem)/1.05 var(--serif); letter-spacing: -.015em; margin: 1.4rem 0 .5rem; }
+.feat .loc { color: #888; font-size: .95rem; margin-bottom: 1.6rem; }
+.feat p.line { color: #555; max-width: 28rem; margin-bottom: 1.8rem; font-size: 1.05rem; }
+.feat ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: .9rem 1.5rem; margin-bottom: 2.2rem; max-width: 28rem; } .feat li { font-size: .95rem; padding-left: 1rem; position: relative; } .feat li::before { content: ""; position: absolute; left: 0; top: .55em; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; }
+.feat .row { display: flex; gap: 1.6rem; align-items: center; flex-wrap: wrap; } .feat .row a.t { color: #888; font-size: .95rem; } .feat .row a.t:hover { color: var(--ink); }
+.feat .media { position: relative; aspect-ratio: 4/5; overflow: hidden; background: #ddd; }
+.feat .media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s ease, transform 8s ease-out; transform: scale(1.06); } .feat .media img.on { opacity: 1; transform: scale(1); }
+.feat .dots { position: absolute; z-index: 3; right: 1rem; bottom: 1rem; display: flex; gap: .4rem; } .feat .dots button { width: .55rem; height: .55rem; border-radius: 50%; border: 1px solid #fff; background: transparent; cursor: pointer; padding: 0; } .feat .dots button.on { background: #fff; }
+.feat .txt { transition: opacity .5s; } .feat .txt.fade { opacity: 0; }
+
+/* Stats band */
+.band { background: #000; color: #fff; padding: 3.2rem clamp(1rem, 12vw, 12rem); display: grid; gap: 2rem; align-items: center; }
+@media (min-width: 62rem) { .band { grid-template-columns: 1fr 1.4fr; } }
+.band h3 { font: 400 clamp(1.5rem, 1rem + 1.4vw, 2.2rem)/1.15 var(--serif); } .band h3 em { color: var(--gold); }
+.band .sub { color: #999; font-size: .9rem; margin-top: .5rem; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; } .stats b { display: block; font: 500 clamp(1.5rem, 1rem + 1.5vw, 2.4rem) var(--sans); color: var(--gold); letter-spacing: -.02em; } .stats span { font-size: .66rem; letter-spacing: .22em; text-transform: uppercase; color: #aaa; }
+@media (max-width: 40rem) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+/* Locations */
+.loc-s { padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 12vw, 12rem); }
+.sh { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 2.6rem; flex-wrap: wrap; }
+.sh h2 { font: 400 clamp(2rem, 1.2rem + 2.6vw, 3.6rem)/1.05 var(--serif); letter-spacing: -.015em; margin-top: 1rem; }
+.lgrid { display: grid; gap: 1.4rem; } @media (min-width: 52rem) { .lgrid { grid-template-columns: repeat(12, 1fr); } .lgrid .big { grid-column: span 4; } .lgrid .sm { grid-column: span 3; } }
+.lc { display: block; } .lc .im { overflow: hidden; background: #ddd; aspect-ratio: 4/5; } .lgrid .sm .im { aspect-ratio: 1/1; } .lc img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.22,1,.36,1); } .lc:hover img { transform: scale(1.05); }
+.lc .c { display: flex; justify-content: space-between; align-items: baseline; padding-top: .9rem; } .lc h3 { font: 400 1.6rem var(--serif); } .lc span { color: #999; font-size: .78rem; }
+
+/* Art of service: scroll-expanding frame */
+.art { position: relative; height: 340vh; background: #fff; }
+.art .stage { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+.art .mark { position: absolute; top: 5.2rem; left: 50%; transform: translateX(-50%); text-align: center; z-index: 4; opacity: calc(1 - var(--p, 0) * 2.5); } .art .mark svg { width: 2rem; color: var(--gold-d); } .art .mark b { display: block; font: 500 1.4rem var(--serif); letter-spacing: .2em; } .art .mark i { font-style: normal; font-size: .5rem; letter-spacing: .4em; color: #888; }
+.art .frame { position: absolute; left: 50%; top: 50%; width: calc(40vw + var(--p, 0) * 60vw); height: calc(58vh + var(--p, 0) * 42vh); transform: translate(-50%, -46%); border-radius: calc(20px * (1 - var(--p, 0))); overflow: hidden; z-index: 2; background: #111; }
+.art .frame img { width: 100%; height: 100%; object-fit: cover; transform: scale(calc(1.12 - var(--p, 0) * .12)); } .art .frame::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,calc(var(--p, 0) * .55)); }
+.art .side { position: absolute; top: 50%; width: 23vw; display: grid; gap: .8rem; z-index: 1; transform: translateY(-46%); opacity: calc(1 - var(--p, 0) * 1.5); }
+.art .side.l { left: 2.5vw; transform: translate(calc(var(--p, 0) * -130%), -46%); } .art .side.r { right: 2.5vw; transform: translate(calc(var(--p, 0) * 130%), -46%); }
+.art .tile { position: relative; aspect-ratio: 16/12; border-radius: 16px; overflow: hidden; color: #fff; background: #222; } .art .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; } .art .tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 40%, rgba(0,0,0,.65)); } .art .tile span { position: absolute; left: .9rem; bottom: .8rem; z-index: 2; font-size: .85rem; max-width: 80%; line-height: 1.25; }
+.art .words { position: absolute; z-index: 5; inset: 0; display: grid; place-content: center; text-align: center; color: #fff; padding: 2rem; opacity: calc((var(--p, 0) - .55) * 3); pointer-events: none; }
+.art .words h2 { font: 400 clamp(2.4rem, 1.2rem + 4.6vw, 6rem)/1.02 var(--serif); letter-spacing: -.02em; } .art .words p { max-width: 30rem; margin: 1.2rem auto 0; opacity: .85; }
+@media (max-width: 52rem) { .art .side { width: 30vw; } .art .side .tile:nth-child(2) { display: none; } }
+.svc { background: #000; color: #fff; padding: clamp(4rem, 7vw, 7rem) clamp(1rem, 12vw, 12rem); }
+.svc .grid { display: grid; border-top: 1px solid #333; } @media (min-width: 52rem) { .svc .grid { grid-template-columns: repeat(4, 1fr); } .svc .grid > div + div { border-left: 1px solid #333; padding-left: 1.5rem; } }
+.svc .grid > div { padding: 1.4rem 1.5rem 1.4rem 0; } .svc h3 { font: 400 1.5rem var(--serif); margin: 2.2rem 0 .6rem; } .svc p { color: #aaa; font-size: .95rem; } .svc span { color: var(--gold); font-size: .72rem; letter-spacing: .3em; }
+
+/* Journal + CTA + footer */
+.jr { padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 12vw, 12rem); } .jg { display: grid; gap: 2rem; } @media (min-width: 52rem) { .jg { grid-template-columns: repeat(3, 1fr); } }
+.jc .im { aspect-ratio: 3/2; overflow: hidden; margin-bottom: 1rem; } .jc img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.22,1,.36,1); } .jc:hover img { transform: scale(1.05); } .jc small { font-size: .68rem; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-d); } .jc h3 { font: 400 1.5rem/1.2 var(--serif); margin-top: .5rem; max-width: 22rem; }
+.cta { position: relative; color: #fff; text-align: center; padding: clamp(5rem, 10vw, 10rem) 1.25rem; overflow: hidden; background: #111; } .cta img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .45; } .cta > div { position: relative; } .cta h2 { font: 400 clamp(2.2rem, 1.2rem + 4vw, 5rem)/1.05 var(--serif); max-width: 16ch; margin: 1rem auto 2rem; } .cta .btn { border-color: #fff; } .cta .btn:hover { background: #fff; color: #000; }
+footer { background: #0b0b0b; color: #fff; padding: 4.5rem clamp(1rem, 12vw, 12rem) 1.5rem; overflow: hidden; }
+footer .cols { display: grid; gap: 2.4rem; margin-bottom: 3rem; } @media (min-width: 52rem) { footer .cols { grid-template-columns: 1.6fr 1fr 1fr 1fr; } }
+footer h4 { font-size: .68rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 1.1rem; } footer li { list-style: none; margin-bottom: .55rem; color: #bbb; font-size: .95rem; } footer li a:hover { color: #fff; }
+footer .small { border-top: 1px solid #262626; padding-top: 1.2rem; color: #888; font-size: .78rem; display: grid; gap: .3rem; }
+footer .big { font: 400 20vw/.9 var(--serif); letter-spacing: .05em; color: #151515; text-align: center; margin: 2rem 0 -2vw; user-select: none; }
+</style>
+<script>try { if (sessionStorage.getItem('c2-seen')) document.documentElement.classList.add('seen'); else sessionStorage.setItem('c2-seen', '1'); } catch (e) {}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="emb" viewBox="0 0 48 48"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M15 34V20a9 9 0 0 1 18 0v14M15 34h18M20 34v-8a4 4 0 0 1 8 0v8" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol></svg>
+
+<div class="intro" aria-hidden="true"><svg viewBox="0 0 48 48" style="color:#b39458"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M15 34V20a9 9 0 0 1 18 0v14M15 34h18M20 34v-8a4 4 0 0 1 8 0v8" fill="none" stroke="currentColor" stroke-width="1.3"/></svg><div class="w">HALDEN</div></div>
+
+<header class="hdr" id="hdr">
+  <a href="#" class="logo" aria-label="Halden, home"><svg><use href="#emb"/></svg><span class="t"><b>HALDEN</b><i>Residential real estate</i></span></a>
+  <nav aria-label="Main"><a href="#properties">Buy</a><a href="#properties">Rent</a><a href="#service">Valuation</a><a href="#service">Services</a><a href="#locations">About</a><a href="#journal">Journal</a></nav>
+  <div class="r"><button class="ibtn hide" aria-label="Saved homes"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button><a href="#contact" class="contact">Contact</a><button class="ibtn burger" id="burger" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg></button></div>
+</header>
+<div class="sheet" id="sheet"><a href="#properties">Buy</a><a href="#properties">Rent</a><a href="#service">Services</a><a href="#locations">About</a><a href="#journal">Journal</a><a href="#contact">Contact</a></div>
+
+<section class="hero" aria-label="Introduction">
+  <img class="bg" src="img/prop-villa-pool.jpg" alt="A contemporary villa with a pool at dusk">
+  <div class="c"><p class="eyebrow">Luxury residential real estate</p><h1>Exceptional homes, <em>quietly found.</em></h1></div>
+  <div class="pill">
+    <form onsubmit="event.preventDefault(); document.getElementById('properties').scrollIntoView({behavior:'smooth'})" aria-label="Search properties">
+      <div class="seg"><label><input type="radio" name="l" checked>Buy</label><label><input type="radio" name="l">Rent</label></div>
+      <input type="text" id="ask" aria-label="Describe the home you are looking for" autocomplete="off">
+      <button type="button" class="mapb" id="filt" aria-expanded="false">Filters</button>
+      <button class="go" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </form>
+    <div class="filters" id="filters"><div><label for="f1">Area</label><select id="f1"><option>Anywhere</option><option>Kensington</option><option>Hampstead</option><option>Richmond</option><option>Islington</option></select></div><div><label for="f2">Bedrooms</label><select id="f2"><option>Any</option><option>2+</option><option>3+</option><option>4+</option><option>5+</option></select></div><div><label for="f3">Max price</label><select id="f3"><option>No max</option><option>£1m</option><option>£3m</option><option>£5m</option></select></div></div>
+  </div>
+  <span class="scrollcue" aria-hidden="true"></span>
+</section>
+
+<section class="feat" id="properties" aria-label="Featured listing">
+  <div class="txt" id="ftxt"></div>
+  <div class="media" id="fmedia"><div class="dots" id="fdots"></div></div>
+</section>
+
+<section class="band" aria-label="About Halden">
+  <div><h3>Rare real estate <em>across three regions</em></h3><p class="sub">A private advisory for exceptional homes and the people who buy, sell and rent them.</p></div>
+  <div class="stats"><div><b>3</b><span>Regions</span></div><div><b>12</b><span>Neighbourhoods</span></div><div><b>1</b><span>Dedicated advisor</span></div><div><b>24h</b><span>Reply time</span></div></div>
+</section>
+
+<section class="loc-s" id="locations" aria-labelledby="l-t">
+  <div class="sh"><div><span class="eyebrow">Locations</span><h2 id="l-t">Where we operate</h2></div><a class="btn" href="#">View all</a></div>
+  <div class="lgrid" id="lgrid"></div>
+</section>
+
+<section class="art" id="art" aria-labelledby="art-t">
+  <div class="stage">
+    <div class="mark" aria-hidden="true"><svg><use href="#emb"/></svg><b>HALDEN</b><i>RESIDENTIAL REAL ESTATE</i></div>
+    <div class="side l" id="sl"></div>
+    <div class="frame"><img src="img/home-living-premium.jpg" alt="A calm living room with a long sofa and warm timber"></div>
+    <div class="side r" id="sr"></div>
+    <div class="words"><div><h2 id="art-t">The art of exceptional service</h2><p>One advisor. Honest advice. Every detail, from first conversation to the day you receive the keys.</p></div></div>
+  </div>
+</section>
+<section class="svc" id="service" aria-label="Services"><div class="grid" id="svc"></div></section>
+
+<section class="jr" id="journal" aria-labelledby="j-t">
+  <div class="sh"><div><span class="eyebrow">Journal</span><h2 id="j-t">Notes from the office</h2></div><a class="btn" href="#">All articles</a></div>
+  <div class="jg" id="jg"></div>
+</section>
+
+<section class="cta" id="contact"><img src="img/prop-exterior-black-dusk.jpg" alt=""><div><span class="eyebrow" style="color:#fff">Private conversation</span><h2>Thinking of buying, selling or letting?</h2><a class="btn" href="#">Speak to an advisor</a></div></section>
+
+<footer>
+  <div class="cols">
+    <div><a href="#" class="logo" style="color:#fff"><svg><use href="#emb"/></svg><span class="t"><b>HALDEN</b><i>Residential real estate</i></span></a><p style="color:#999;margin-top:1.3rem;max-width:22rem;font-size:.95rem">Offices in London, New York and Lagos. By appointment.</p></div>
+    <div><h4>Explore</h4><ul><li><a href="#">Buy</a></li><li><a href="#">Rent</a></li><li><a href="#">Developments</a></li><li><a href="#">Valuations</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Journal</a></li><li><a href="#">Careers</a></li><li><a href="#">Contact</a></li></ul></div>
+    <div><h4>Follow</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">YouTube</a></li></ul></div>
+  </div>
+  <div class="small"><span>Halden is a fictional company created by Fieldwork to demonstrate a property website and listing system. The properties, prices and people shown are not real.</span><span>Concept 2 of 4 · Heritage · Photographs are illustrative.</span></div>
+  <div class="big" aria-hidden="true">HALDEN</div>
+</footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script>
+(function () {
+  var H = window.HALDEN, $ = function (s) { return document.querySelector(s); };
+  var hdr = $('#hdr'); var sc = function () { hdr.classList.toggle('solid', scrollY > innerHeight * .7); }; addEventListener('scroll', sc, { passive: true }); sc();
+  $('#burger').addEventListener('click', function () { $('#sheet').classList.toggle('open'); }); $('#sheet').addEventListener('click', function (e) { if (e.target.tagName === 'A') $('#sheet').classList.remove('open'); });
+  $('#filt').addEventListener('click', function () { var o = $('#filters').classList.toggle('open'); this.setAttribute('aria-expanded', o); });
+  // Typewriter in the search pill
+  var ask = $('#ask'), prompts = ['I have a £3m budget for a family house near a park in Richmond', 'A two-bedroom flat to rent in Shoreditch, close to the canal', 'A villa with a pool, within an hour of the city', 'A new apartment with a terrace, ready to move into'], pi = 0, ci = 0, del = false, live = true;
+  ask.addEventListener('focus', function () { live = false; ask.placeholder = 'Describe the home you are looking for'; }); ask.addEventListener('blur', function () { if (!ask.value) live = true; });
+  (function type() { if (!live) { setTimeout(type, 800); return; } var t = prompts[pi]; ask.placeholder = t.slice(0, ci) + (ci % 2 ? '' : '|'); if (!del && ci < t.length) { ci++; setTimeout(type, 38); } else if (!del) { del = true; setTimeout(type, 1900); } else if (ci > 0) { ci -= 2; if (ci < 0) ci = 0; setTimeout(type, 16); } else { del = false; pi = (pi + 1) % prompts.length; setTimeout(type, 400); } })();
+  // Featured listing rotation
+  var feat = [H.listings[3], H.listings[1], H.listings[2]], fi = 0, media = $('#fmedia'), txt = $('#ftxt'), dots = $('#fdots');
+  feat.forEach(function (l, i) { var im = document.createElement('img'); im.src = imgUrl(l.img); im.alt = l.title + ', ' + l.area; if (!i) im.className = 'on'; media.insertBefore(im, dots); var b = document.createElement('button'); b.setAttribute('aria-label', 'Show ' + l.title); if (!i) b.className = 'on'; b.addEventListener('click', function () { show(i); clearInterval(tm); }); dots.appendChild(b); });
+  function paint(l) { txt.innerHTML = '<span class="eyebrow">Featured listing</span><h2>' + l.title + '</h2><p class="loc">' + l.area + ' · ' + l.price + '</p><p class="line">' + l.line + ' Presented with full floor plans, a private film and viewings by appointment.</p><ul><li>' + l.beds + ' bedrooms</li><li>' + l.baths + ' bathrooms</li><li>' + l.sqft + ' sq ft</li><li>' + l.type + '</li></ul><div class="row"><a class="btn" href="#">View property <span>→</span></a><a class="t" href="#">See all listings</a></div>'; }
+  function show(i) { txt.classList.add('fade'); setTimeout(function () { fi = i; paint(feat[i]); txt.classList.remove('fade'); }, 400); media.querySelectorAll('img').forEach(function (im, k) { im.classList.toggle('on', k === i); }); dots.querySelectorAll('button').forEach(function (b, k) { b.classList.toggle('on', k === i); }); }
+  paint(feat[0]); var tm = setInterval(function () { show((fi + 1) % feat.length); }, 6500);
+  // Locations
+  $('#lgrid').innerHTML = H.areas.map(function (a, i) { var big = i < 3; return '<a class="lc ' + (big ? 'big' : 'sm') + '" href="#" data-reveal style="--d:' + (i % 4) * .08 + 's"><div class="im"><img src="' + imgUrl(a.img) + '" alt="' + a.name + '" loading="lazy"></div><div class="c"><h3>' + a.name + '</h3><span>' + a.n + ' properties</span></div></a>'; }).join('');
+  // Scroll-expanding frame
+  var art = $('#art'), mk = function (l) { return '<div class="tile"><img src="' + imgUrl(l.img) + '" alt=""><span>' + l.title + ', ' + l.area + '</span></div>'; };
+  $('#sl').innerHTML = mk(H.listings[0]) + mk(H.listings[4]); $('#sr').innerHTML = mk(H.listings[2]) + mk(H.listings[3]);
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function tick() { var r = art.getBoundingClientRect(), p = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight))); art.style.setProperty('--p', reduce ? .5 : p); requestAnimationFrame(tick); } tick();
+  $('#svc').innerHTML = H.services.map(function (s, i) { return '<div data-reveal style="--d:' + i * .08 + 's"><span>0' + (i + 1) + '</span><h3>' + s[0] + '</h3><p>' + s[1] + '</p></div>'; }).join('');
+  $('#jg').innerHTML = H.posts.map(function (p, i) { return '<a class="jc" href="#" data-reveal style="--d:' + i * .1 + 's"><div class="im"><img src="' + imgUrl(p.img) + '" alt="" loading="lazy"></div><small>' + p.cat + '</small><h3>' + p.title + '</h3></a>'; }).join('');
+  revealAll();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Halden: four concepts</title>
+<style>
+@font-face{font-family:"Geist";src:url(fonts/geist.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--bg:#f4f2ed;--ink:#15130f;--mut:#5d584e;--line:#d9d4c8}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Geist",system-ui,sans-serif;line-height:1.5}
+main{max-width:1100px;margin:0 auto;padding:clamp(1.5rem,5vw,4rem) 16px 4rem}
+h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:400;letter-spacing:-.02em;margin:.4rem 0 1rem}
+.k{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.lede{max-width:60ch;color:var(--mut);margin-bottom:2.5rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:1.25rem}
+a.c{display:block;color:inherit;text-decoration:none;border:1px solid var(--line);background:#fff}
+a.c img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+a.c .im{overflow:hidden}
+a.c:hover img,a.c:focus-visible img{transform:scale(1.04)}
+a.c:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.b{padding:1.1rem 1.2rem 1.3rem}
+.b h2{font-size:1.5rem;font-weight:500;margin:.2rem 0 .5rem}
+.b p{color:var(--mut);font-size:.95rem}
+.ref{margin-top:.8rem;font-size:.8rem;color:var(--ink)}
+.note{margin-top:2.5rem;font-size:.85rem;color:var(--mut);max-width:70ch;border-top:1px solid var(--line);padding-top:1rem}
+</style>
+</head>
+<body>
+<main>
+<p class="k">Fieldwork · demo website studies</p>
+<h1>Halden: four concepts</h1>
+<p class="lede">Each page is a visual study of the same fictional agency, with the same listings and the same search. Open each one, scroll all the way down, and tell me which to build the demo from.</p>
+<div class="grid">
+<a class="c" href="storey.html"><div class="im"><img src="img/prop-exterior-black-dusk.jpg" alt="" loading="lazy" onerror="this.parentNode.style.display='none'"></div><div class="b"><p class="k">Concept 1</p><h2>Frame</h2><p>Dark, architectural, cinematic. Slideshow hero with segmented progress, a sticky scroll scene with skewed property tiles, giant cropped wordmark footer.</p><p class="ref">Refs: Storey Architecture, Waykon Group, Fume Studio</p></div></a>
+<a class="c" href="heritage.html"><div class="im"><img src="img/uk-georgian.jpg" alt="" loading="lazy" onerror="this.parentNode.style.display='none'"></div><div class="b"><p class="k">Concept 2</p><h2>Heritage</h2><p>Classic luxury. Serif display type, emblem logo, typewriter search, rotating featured listing and a scroll-expanding “art of exceptional service” frame.</p><p class="ref">Refs: John Taylor, Fine &amp; Country</p></div></a>
+<a class="c" href="atelier.html"><div class="im"><img src="img/prop-villa-pool.jpg" alt="" loading="lazy" onerror="this.parentNode.style.display='none'"></div><div class="b"><p class="k">Concept 3</p><h2>Atelier</h2><p>Editorial and warm. Giant wordmark hero, floating search card, arched imagery, drag carousel and a full-screen menu.</p><p class="ref">Refs: Mejuma Tuscany, Compound Africa, Waykon Group</p></div></a>
+<a class="c" href="rail.html"><div class="im"><img src="img/prop-modernist.jpg" alt="" loading="lazy" onerror="this.parentNode.style.display='none'"></div><div class="b"><p class="k">Concept 4</p><h2>Rail</h2><p>Quiet and modern. A fixed side rail with menu drawer, index of homes with a cursor-following preview, stacking cards and a parallax quote.</p><p class="ref">Refs: John Taylor, American Housing, Bakstad, Loam House</p></div></a>
+</div>
+<p class="note">Halden is a fictional placeholder name. Photographs are illustrative stock and repeat across sections; listings, prices and people are invented. After 15 seconds each page offers to open the listing system.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Halden · Concept 1 · Frame</title>
+<link rel="stylesheet" href="common.css">
+<style>
+@font-face { font-family: "Geist"; src: url(fonts/geist.woff2) format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url(fonts/geist-mono.woff2) format("woff2"); font-weight: 100 900; font-display: swap; }
+:root { --ink: #0a0a0a; --paper: #f4f3ef; --stone: #e7e5de; --line: rgba(10,10,10,.16); --sans: "Geist", system-ui, sans-serif; --mono: "Geist Mono", ui-monospace, monospace; --pop-bg: #0a0a0a; --pop-fg: #f4f3ef; --pop-line: rgba(255,255,255,.2); --pop-accent: #f4f3ef; --pop-accent-fg: #0a0a0a; --pop-font: var(--sans); --pop-title: 500 1.3rem/1.15 var(--sans); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; line-height: 1.4; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button, input, select { font: inherit; color: inherit; }
+.mono { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+
+/* Intro */
+.intro { position: fixed; inset: 0; z-index: 900; background: #000; color: #fff; display: grid; place-content: center; justify-items: center; gap: 1.2rem; animation: intro-out .9s cubic-bezier(.76,0,.24,1) 1.9s forwards; }
+.intro .ring { width: 5rem; height: 5rem; }
+.intro .name { font-size: 1.4rem; letter-spacing: -.01em; opacity: 0; animation: fade .8s ease .5s forwards; }
+html.seen .intro { display: none; }
+@keyframes intro-out { to { transform: translateY(-100%); visibility: hidden; } }
+@keyframes fade { to { opacity: 1; } }
+
+/* Logo */
+.logo { display: inline-flex; align-items: center; gap: .55rem; font-size: 1.7rem; letter-spacing: -.03em; font-weight: 400; }
+.ring { width: 1.6rem; height: 1.6rem; animation: spin 22s linear infinite; }
+.ring rect { fill: currentColor; }
+.logo:hover .ring { animation-duration: 3s; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Header */
+.hdr { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 1.1rem 1.25rem; color: #fff; transition: background .4s, color .4s; }
+.hdr::before { content: ""; position: absolute; inset: 0 0 -2rem; background: linear-gradient(rgba(0,0,0,.35), transparent); z-index: -1; transition: opacity .4s; }
+.hdr.solid { background: var(--paper); color: var(--ink); border-bottom: 1px solid var(--line); }
+.hdr.solid::before { opacity: 0; }
+.hdr nav { display: flex; gap: 1.6rem; font-size: 1rem; }
+.hdr nav a { opacity: .9; } .hdr nav a:hover { opacity: 1; text-decoration: underline; text-underline-offset: .3em; }
+.hdr .right { justify-self: end; display: flex; gap: .6rem; align-items: center; }
+.btn-black { display: inline-flex; align-items: center; gap: 2.4rem; background: #000; color: #fff; padding: .85rem 1rem .85rem 1.1rem; font-size: .95rem; }
+.btn-black .ring { width: 1.1rem; height: 1.1rem; animation-duration: 14s; }
+.menu-btn { display: none; background: transparent; border: 1px solid currentColor; padding: .55rem .9rem; cursor: pointer; }
+@media (max-width: 52rem) { .hdr nav { display: none; } .menu-btn { display: inline-block; } .hdr { grid-template-columns: 1fr auto; } .btn-black { display: none; } }
+.sheet { position: fixed; inset: 0; z-index: 200; background: #000; color: #fff; padding: 5rem 1.25rem 2rem; display: none; flex-direction: column; gap: 1rem; }
+.sheet.open { display: flex; } .sheet a { font-size: 2.4rem; letter-spacing: -.03em; }
+
+/* Hero */
+.hero { position: relative; height: 100svh; min-height: 36rem; color: #fff; overflow: hidden; background: #000; }
+.hero .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.6s ease; }
+.hero .slide.on { opacity: 1; }
+.hero .slide img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.08); transition: transform 9s ease-out; }
+.hero .slide.on img { transform: scale(1); }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.55)); }
+.hero .foot { position: absolute; z-index: 2; left: 1.25rem; right: 1.25rem; bottom: 1.25rem; display: grid; gap: 1.1rem; }
+.bars { display: flex; gap: .4rem; max-width: 44rem; }
+.bars i { flex: 1; height: 2px; background: rgba(255,255,255,.35); position: relative; overflow: hidden; }
+.bars i::after { content: ""; position: absolute; inset: 0; background: #fff; transform: scaleX(0); transform-origin: left; }
+.bars i.done::after { transform: scaleX(1); }
+.bars i.on::after { animation: fill 6s linear forwards; }
+@keyframes fill { to { transform: scaleX(1); } }
+.hero p.statement { font-size: clamp(1.25rem, 1rem + 1vw, 1.7rem); line-height: 1.2; max-width: 22rem; letter-spacing: -.01em; }
+.hero .cap { opacity: .85; }
+.hero .view { position: absolute; z-index: 3; right: 1.25rem; bottom: 1.25rem; background: #fff; color: #000; display: inline-flex; align-items: center; gap: 4.5rem; padding: 1.1rem 1.2rem; font-size: 1.05rem; transition: gap .4s; }
+.hero .view:hover { gap: 5.5rem; }
+.hero .view .ring { width: 1.7rem; height: 1.7rem; }
+@media (max-width: 52rem) { .hero .view { left: 1.25rem; right: 1.25rem; bottom: 1.25rem; justify-content: space-between; } .hero .foot { bottom: 5.5rem; } }
+
+/* Dark intro + floating tiles */
+.dark { background: #000; color: #fff; position: relative; }
+.scene { height: 300vh; position: relative; }
+.stick { position: sticky; top: 0; height: 100svh; overflow: hidden; perspective: 1300px; }
+.stick .cols { position: absolute; z-index: 5; top: 7rem; right: 1.25rem; width: min(46rem, calc(100% - 2.5rem)); display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; font-size: clamp(1rem, .9rem + .5vw, 1.35rem); line-height: 1.22; }
+.stick .bigring { position: absolute; left: 1.5rem; top: 5.5rem; width: clamp(7rem, 14vw, 13rem); aspect-ratio: 1; animation: spin 40s linear infinite; z-index: 3; }
+.tile { position: absolute; width: 28vw; aspect-ratio: 4/3; transform: translate3d(0, calc(var(--p, 0) * var(--sp) * -1), 0) rotateX(58deg) rotateZ(-26deg); transform-style: preserve-3d; opacity: .62; transition: opacity .3s; cursor: pointer; will-change: transform; }
+.tile img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: filter .4s; }
+.tile:hover { opacity: 1; z-index: 8; } .tile:hover img { filter: none; }
+.tile span { position: absolute; left: .6rem; bottom: .5rem; font-family: var(--mono); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.8); opacity: 0; transition: opacity .3s; }
+.tile:hover span { opacity: 1; }
+@media (max-width: 52rem) { .tile { width: 56vw; } .stick .cols { grid-template-columns: 1fr; top: 5.5rem; left: 1.25rem; } .stick .bigring { display: none; } }
+.hint { position: absolute; z-index: 6; right: 1.25rem; bottom: 1.25rem; width: 15rem; background: var(--paper); color: #000; padding: .6rem; }
+.hint div { aspect-ratio: 16/9; background: #111; margin-bottom: .6rem; display: grid; place-content: center; color: #777; font-family: var(--mono); font-size: .65rem; letter-spacing: .1em; }
+.hint a { text-decoration: underline; text-underline-offset: .3em; }
+
+/* Search */
+.search { padding: 5.5rem 1.25rem 4rem; }
+.search h2 { font-weight: 400; font-size: clamp(2rem, 1.2rem + 3vw, 4rem); letter-spacing: -.04em; line-height: 1; max-width: 12ch; margin-bottom: 2.2rem; }
+.sform { display: grid; border: 1px solid var(--ink); background: #fff; }
+.sform .tabs { display: flex; border-bottom: 1px solid var(--ink); }
+.sform .tabs label { flex: 0 0 auto; padding: .9rem 1.6rem; cursor: pointer; border-right: 1px solid var(--ink); }
+.sform .tabs input { position: absolute; opacity: 0; }
+.sform .tabs label:has(input:checked) { background: #000; color: #fff; }
+.sform .fields { display: grid; grid-template-columns: repeat(2, 1fr); }
+.sform .fields > div { padding: .8rem 1.1rem; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); display: grid; gap: .25rem; }
+.sform .fields label { color: #666; }
+.sform .fields input, .sform .fields select { border: 0; background: transparent; font-size: 1.15rem; outline: none; width: 100%; padding: .2rem 0; }
+.sform .go { background: #000; color: #fff; border: 0; padding: 1.1rem; font-size: 1.05rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.sform .go:hover { background: #222; }
+@media (min-width: 62rem) { .sform .fields { grid-template-columns: 2fr 1fr 1fr 1fr auto; } .sform .go { gap: 3rem; padding: 0 1.6rem; } .sform .fields > div { border-bottom: 0; } .sform .fields > div:last-of-type { border-right: 0; } }
+
+/* Properties */
+.props { padding: 4rem 1.25rem 6rem; }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 2rem; border-top: 1px solid var(--ink); padding-top: .9rem; }
+.head h2 { font-weight: 400; font-size: clamp(2rem, 1.2rem + 3vw, 4rem); letter-spacing: -.04em; line-height: 1; }
+.pgrid { display: grid; gap: 3.2rem 1.25rem; grid-template-columns: 1fr; }
+@media (min-width: 52rem) { .pgrid { grid-template-columns: 1.25fr 1fr; align-items: start; } .pgrid .p:nth-child(even) { margin-top: 7rem; } .pgrid .p:nth-child(4n+1) .im { aspect-ratio: 4/5; } .pgrid .p:nth-child(4n+2) .im { aspect-ratio: 4/3; } .pgrid .p:nth-child(4n+3) .im { aspect-ratio: 4/3; } .pgrid .p:nth-child(4n+4) .im { aspect-ratio: 4/5; } }
+.p .im { overflow: hidden; aspect-ratio: 4/3; background: #ddd; position: relative; }
+.p img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.22,1,.36,1); }
+.p:hover img { transform: scale(1.04); }
+.p .tag { position: absolute; left: .8rem; top: .8rem; background: #fff; padding: .3rem .6rem; }
+.p .c { display: flex; justify-content: space-between; gap: 1rem; padding-top: .8rem; border-bottom: 1px solid var(--line); padding-bottom: .8rem; }
+.p h3 { font-weight: 400; font-size: 1.5rem; letter-spacing: -.02em; }
+.p .m { color: #555; margin-top: .25rem; }
+
+/* Approach */
+.approach { background: var(--stone); padding: 5rem 1.25rem; }
+.approach h2 { font-weight: 400; font-size: clamp(1.8rem, 1rem + 3vw, 3.6rem); letter-spacing: -.04em; line-height: 1.02; max-width: 16ch; margin-bottom: 3rem; }
+.agrid { display: grid; border-top: 1px solid var(--ink); }
+@media (min-width: 52rem) { .agrid { grid-template-columns: repeat(4, 1fr); } .agrid > div + div { border-left: 1px solid var(--line); padding-left: 1.25rem; } }
+.agrid > div { padding: 1.2rem 1.25rem 1.2rem 0; }
+.agrid h3 { font-weight: 500; font-size: 1.25rem; margin: 2.5rem 0 .6rem; letter-spacing: -.02em; }
+.agrid p { color: #444; max-width: 20rem; }
+
+/* Marquee */
+.marq { overflow: hidden; border-block: 1px solid var(--ink); padding: 1.4rem 0; background: var(--paper); }
+.marq div { display: flex; gap: 3rem; width: max-content; animation: marq 40s linear infinite; font-size: clamp(2.2rem, 1.5rem + 3vw, 4.5rem); letter-spacing: -.04em; white-space: nowrap; }
+.marq span { -webkit-text-stroke: 1px #000; color: transparent; } .marq span:nth-child(even) { color: #000; -webkit-text-stroke: 0; }
+@keyframes marq { to { transform: translateX(-50%); } }
+
+/* Journal + footer */
+.journal { padding: 5rem 1.25rem; }
+.jgrid { display: grid; gap: 2rem 1.25rem; }
+@media (min-width: 52rem) { .jgrid { grid-template-columns: repeat(3, 1fr); } }
+.j .im { aspect-ratio: 3/2; overflow: hidden; margin-bottom: .9rem; } .j img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.22,1,.36,1); } .j:hover img { transform: scale(1.04); }
+.j h3 { font-weight: 400; font-size: 1.35rem; letter-spacing: -.02em; max-width: 20rem; margin-top: .3rem; }
+footer { background: #000; color: #fff; padding: 4rem 1.25rem 0; overflow: hidden; }
+footer .cols { display: grid; gap: 2.2rem; margin-bottom: 4rem; }
+@media (min-width: 52rem) { footer .cols { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+footer h4 { color: #888; margin-bottom: 1rem; font-weight: 400; }
+footer li { list-style: none; margin-bottom: .5rem; } footer a:hover { text-decoration: underline; text-underline-offset: .3em; }
+footer .small { color: #888; font-size: .8rem; border-top: 1px solid #222; padding: 1.2rem 0; display: grid; gap: .4rem; }
+footer .giant { font-size: 26vw; line-height: .78; letter-spacing: -.06em; margin: 1.5rem 0 -4.2vw -.6vw; white-space: nowrap; color: #fff; }
+</style>
+<script>try { if (sessionStorage.getItem('c1-seen')) document.documentElement.classList.add('seen'); else sessionStorage.setItem('c1-seen', '1'); } catch (e) {}</script>
+</head>
+<body>
+<div class="intro" aria-hidden="true"><svg class="ring" viewBox="0 0 40 40" data-ring></svg><div class="name">Halden</div></div>
+
+<header class="hdr" id="hdr">
+  <a href="#" class="logo" aria-label="Halden, home"><svg class="ring" viewBox="0 0 40 40" data-ring></svg>Halden</a>
+  <nav aria-label="Main"><a href="#properties">Properties</a><a href="#developments">Developments</a><a href="#approach">Studio</a><a href="#journal">Journal</a></nav>
+  <div class="right"><a href="#contact" class="btn-black">Contact <svg class="ring" viewBox="0 0 40 40" data-ring></svg></a><button class="menu-btn mono" id="menuBtn" aria-expanded="false">Menu</button></div>
+</header>
+<div class="sheet" id="sheet"><a href="#properties">Properties</a><a href="#developments">Developments</a><a href="#approach">Studio</a><a href="#journal">Journal</a><a href="#contact">Contact</a></div>
+
+<section class="hero" id="top" aria-label="Introduction">
+  <div class="slide on"><img src="img/prop-exterior-timber-dusk.jpg" alt="A timber-clad house among trees at dusk"></div>
+  <div class="slide"><img src="img/prop-villa-pool.jpg" alt="A contemporary house with a pool"></div>
+  <div class="slide"><img src="img/prop-modernist.jpg" alt="A contemporary house with a timber and glass facade"></div>
+  <div class="slide"><img src="img/home-living-premium.jpg" alt="A calm living room with a long sofa"></div>
+  <div class="foot">
+    <div class="bars" id="bars"><i class="on"></i><i></i><i></i><i></i></div>
+    <p class="mono cap" id="cap">01 — Hollin Lodge, Hampstead</p>
+    <p class="statement">Halden represents homes of quiet quality, in the cities and on the coasts where people most want to live.</p>
+  </div>
+  <a href="#properties" class="view">View properties <svg class="ring" viewBox="0 0 40 40" data-ring></svg></a>
+</section>
+
+<section class="dark" id="developments">
+  <div class="scene" id="scene">
+    <div class="stick">
+      <svg class="bigring" viewBox="0 0 40 40" data-ring data-n="12" fill="#fff"></svg>
+      <div class="cols">
+        <p>We believe a home should feel calm, lasting and deeply connected to the way people live. We look for houses that are refined without excess.</p>
+        <p>Every sale is shaped by honest advice, careful presentation and a strong understanding of light, space and place. The result is a home found, not sold.</p>
+      </div>
+      <div id="tiles"></div>
+      <div class="hint mono"><div>Scroll · Hover · Click</div><a href="#properties">Hover and click to visit properties</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="search" aria-labelledby="s-t">
+  <p class="mono" style="margin-bottom:1rem;color:#555">N° 01 — Search</p>
+  <h2 id="s-t">Find a property.</h2>
+  <form class="sform" onsubmit="event.preventDefault(); document.getElementById('properties').scrollIntoView({behavior:'smooth'})">
+    <div class="tabs mono"><label><input type="radio" name="l" checked><span>Buy</span></label><label><input type="radio" name="l"><span>Rent</span></label></div>
+    <div class="fields">
+      <div><label class="mono" for="q">Area, street or postcode</label><input id="q" placeholder="Kensington, W8, Richmond…"></div>
+      <div><label class="mono" for="t">Property type</label><select id="t"><option>Any</option><option>House</option><option>Flat</option><option>Townhouse</option><option>Villa</option></select></div>
+      <div><label class="mono" for="b">Bedrooms</label><select id="b"><option>Any</option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>5+</option></select></div>
+      <div><label class="mono" for="m">Max price</label><select id="m"><option>No max</option><option>£1m</option><option>£2m</option><option>£3m</option><option>£5m</option></select></div>
+      <button class="go" type="submit">Search <svg class="ring" viewBox="0 0 40 40" data-ring style="width:1.2rem;height:1.2rem"></svg></button>
+    </div>
+  </form>
+</section>
+
+<section class="props" id="properties" aria-labelledby="p-t">
+  <div class="head"><h2 id="p-t">Properties</h2><a class="mono" href="#">All properties ↗</a></div>
+  <div class="pgrid" id="pgrid"></div>
+</section>
+
+<div class="marq" aria-hidden="true"><div id="marq"></div></div>
+
+<section class="approach" id="approach" aria-labelledby="a-t">
+  <p class="mono" style="margin-bottom:1rem;color:#444">N° 02 — The studio</p>
+  <h2 id="a-t" data-reveal>An exceptional service, quietly delivered.</h2>
+  <div class="agrid" id="agrid"></div>
+</section>
+
+<section class="journal" id="journal" aria-labelledby="j-t">
+  <div class="head"><h2 id="j-t" style="font-weight:400;font-size:clamp(2rem,1.2rem + 3vw,4rem);letter-spacing:-.04em;line-height:1">Journal</h2><a class="mono" href="#">All articles ↗</a></div>
+  <div class="jgrid" id="jgrid"></div>
+</section>
+
+<footer id="contact">
+  <div class="cols">
+    <div><p style="font-size:clamp(1.6rem,1rem + 2vw,2.8rem);letter-spacing:-.03em;line-height:1.05;max-width:16ch;margin-bottom:1.4rem">Thinking of buying, selling or letting?</p><a class="btn-black" style="background:#fff;color:#000" href="#">Speak to an advisor <svg class="ring" viewBox="0 0 40 40" data-ring style="color:#000"></svg></a></div>
+    <div><h4 class="mono">Explore</h4><ul><li><a href="#">Buy</a></li><li><a href="#">Rent</a></li><li><a href="#">Developments</a></li><li><a href="#">Valuations</a></li></ul></div>
+    <div><h4 class="mono">Company</h4><ul><li><a href="#">Studio</a></li><li><a href="#">Journal</a></li><li><a href="#">Careers</a></li><li><a href="#">Contact</a></li></ul></div>
+    <div><h4 class="mono">Offices</h4><ul><li>London</li><li>New York</li><li>Lagos</li></ul></div>
+  </div>
+  <div class="small"><span>Halden is a fictional company created by Fieldwork to demonstrate a property website and listing system. The properties, prices and people shown are not real.</span><span>Concept 1 of 4 · Frame · Photographs are illustrative.</span></div>
+  <div class="giant" aria-hidden="true">Halden</div>
+</footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script>
+(function () {
+  var H = window.HALDEN, $ = function (s, r) { return (r || document).querySelector(s); };
+  // Rings of small squares (the logo mark)
+  document.querySelectorAll('[data-ring]').forEach(function (svg) {
+    var n = +(svg.dataset.n || 8), g = '';
+    for (var i = 0; i < n; i++) { var a = i / n * 360, s = 3.2 + (i % 3) * 1.1; g += '<rect x="' + (20 - s / 2) + '" y="' + (3 + (i % 2)) + '" width="' + s + '" height="' + s * .8 + '" transform="rotate(' + a + ' 20 20) skewX(-18)" fill="currentColor"/>'; }
+    svg.innerHTML = g;
+  });
+  // Header turns solid after the hero
+  var hdr = $('#hdr'); var onScroll = function () { hdr.classList.toggle('solid', window.scrollY > window.innerHeight * .8); };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  // Menu
+  var sheet = $('#sheet'), mb = $('#menuBtn'); mb.addEventListener('click', function () { var o = sheet.classList.toggle('open'); mb.setAttribute('aria-expanded', o); mb.textContent = o ? 'Close' : 'Menu'; });
+  sheet.addEventListener('click', function (e) { if (e.target.tagName === 'A') { sheet.classList.remove('open'); mb.textContent = 'Menu'; } });
+  // Hero slides with segmented progress
+  var slides = document.querySelectorAll('.hero .slide'), bars = document.querySelectorAll('#bars i'), caps = ['Hollin Lodge, Hampstead', 'Pinewood House, Cobham', 'Larch Court, Richmond', 'The living room, Ashdown House'], cur = 0;
+  function go(n) { slides[cur].classList.remove('on'); bars[cur].className = 'done'; cur = n % slides.length; if (cur === 0) bars.forEach(function (b) { b.className = ''; }); slides[cur].classList.add('on'); bars[cur].className = 'on'; $('#cap').textContent = '0' + (cur + 1) + ' — ' + caps[cur]; }
+  var timer = setInterval(function () { go(cur + 1); }, 6000);
+  bars.forEach(function (b, i) { b.style.cursor = 'pointer'; b.addEventListener('click', function () { clearInterval(timer); bars.forEach(function (x) { x.className = ''; }); for (var k = 0; k < i; k++) bars[k].className = 'done'; slides[cur].classList.remove('on'); cur = i; slides[cur].classList.add('on'); bars[cur].className = 'on'; $('#cap').textContent = '0' + (cur + 1) + ' — ' + caps[cur]; timer = setInterval(function () { go(cur + 1); }, 6000); }); });
+  // Floating tiles that rise with scroll
+  var pos = [[6, 78, 120], [36, 100, 150], [64, 70, 110], [14, 135, 170], [46, 150, 140], [74, 128, 180], [4, 175, 130], [42, 200, 160]], tiles = $('#tiles');
+  H.listings.forEach(function (l, i) { var p = pos[i]; var d = document.createElement('a'); d.className = 'tile'; d.href = '#properties'; d.style.left = p[0] + '%'; d.style.top = p[1] + 'vh'; d.style.setProperty('--sp', p[2] * 1.9 + 'vh'); d.innerHTML = '<img src="' + imgUrl(l.img) + '" alt="" loading="lazy"><span>' + l.title + ' · ' + l.area + '</span>'; tiles.appendChild(d); });
+  var scene = $('#scene');
+  function tick() { var r = scene.getBoundingClientRect(), p = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight))); scene.style.setProperty('--p', p); requestAnimationFrame(tick); }
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) tick(); else scene.style.setProperty('--p', .4);
+  // Properties
+  $('#pgrid').innerHTML = H.listings.slice(0, 6).map(function (l, i) { return '<a class="p" href="#" data-reveal style="--d:' + (i % 2) * .1 + 's"><div class="im">' + (l.status ? '<span class="tag mono">' + l.status + '</span>' : '') + '<img src="' + imgUrl(l.img) + '" alt="' + l.title + ', ' + l.area + '" loading="lazy"></div><div class="c"><div><h3>' + l.title + '</h3><div class="m mono">Fig. 0' + (i + 1) + ' — ' + l.area + ' · ' + cardMeta(l) + '</div></div><div class="mono" style="padding-top:.5rem">' + l.price + '</div></div></a>'; }).join('');
+  $('#marq').innerHTML = H.areas.concat(H.areas).map(function (a) { return '<span>' + a.name + '</span>'; }).join('');
+  $('#agrid').innerHTML = H.services.map(function (s, i) { return '<div data-reveal style="--d:' + i * .08 + 's"><span class="mono">0' + (i + 1) + '</span><h3>' + s[0] + '</h3><p>' + s[1] + '</p></div>'; }).join('');
+  $('#jgrid').innerHTML = H.posts.map(function (p, i) { return '<a class="j" href="#" data-reveal style="--d:' + i * .1 + 's"><div class="im"><img src="' + imgUrl(p.img) + '" alt="" loading="lazy"></div><span class="mono">' + p.cat + '</span><h3>' + p.title + '</h3></a>'; }).join('');
+  revealAll();
+})();
+</script>
+</body>
+</html>
