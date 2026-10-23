@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-23T16:17:59.234Z",
+  "ranAt": "2026-10-23T17:30:43.858Z",
   "results": [
     {
       "name": "every route returns 200 with one h1, a title, no console errors, no broken images",
@@ -59,6 +59,14 @@
     },
     {
       "name": "photographs follow the region: UK and US visitors see only their own country; Nigeria sees Nigerian and UK photographs",
+      "pass": true
+    },
+    {
+      "name": "automations: the video starts in a card, plays by itself after about a second, grows to fill the screen under the nav bar, and the cross closes it",
+      "pass": true
+    },
+    {
+      "name": "landing: a new visit to the bare address lands on Websites & Listings; the logo then reaches the home page; no curtain on the way into the demo",
       "pass": true
     },
     {
