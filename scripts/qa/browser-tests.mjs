@@ -19,7 +19,10 @@ for (let i = 0; i < 40; i++) { try { const r = await fetch('http://localhost:310
 const browser = await chromium.launch();
 const REGION_JS = (r) => `try{if(${JSON.stringify(r)})localStorage.setItem('fw-region', JSON.stringify(${JSON.stringify(r)}))}catch(e){}`;
 /** New browser context. `region` pre-selects a region so the pop-up does not interrupt; pass null for a first-time visitor. */
-const mk = async (opts = {}) => { const { region = 'uk', landed = true, ...rest } = opts; const c = await browser.newContext({ viewport: { width: 1440, height: 900 }, ...rest }); if (region) await c.addInitScript(REGION_JS(region)); if (landed) await c.addCookies([{ name: 'fw-landed', value: '1', url: B }]); return c; };
+const mk = async (opts = {}) => { const { region = 'uk', landed = true, ...rest } = opts; const c = await browser.newContext({ viewport: { width: 1440, height: 900 }, ...rest }); if (region) await c.addInitScript(REGION_JS(region)); if (landed) await c.addCookies([{ name: 'fw-landed', value: '1', url: B }]);
+  // The Automations page streams a video, so the network is never idle there: wait for the load event instead.
+  c.on('page', (pg) => { const g = pg.goto.bind(pg); pg.goto = (u, o = {}) => g(u, /automations/.test(String(u)) ? { ...o, waitUntil: 'load' } : o); });
+  return c; };
 const routes = ['/', '/websites', '/automations', '/ai-workshop', '/about', '/about/why-fieldwork', '/about/how-a-project-works', '/about/what-you-own', '/about/working-across-regions', '/demo', '/demo/properties', '/demo/properties/ashdown-mews-kensington', '/demo/new-homes', '/demo/new-homes/the-wharf', '/demo/about', '/demo/journal', '/demo/journal/preparing-a-home-for-sale', '/demo/contact', '/demo/admin', '/demo/admin/enquiries', '/demo/admin/properties/new', '/contact', '/image-credits', '/privacy', '/terms', '/cookies', '/accessibility'];
 const imgSrcs = (p) => p.evaluate(() => [...document.images].map((i) => decodeURIComponent(i.currentSrc || i.src)).filter((s) => /\/images\/(ng|uk|us)-/.test(s)).map((s) => s.match(/\/images\/((?:ng|uk|us)-[a-z0-9-]+)/)[1]));
 

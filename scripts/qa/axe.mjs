@@ -7,7 +7,7 @@ const b = await chromium.launch(); const out = []; let total = 0;
 for (const [label, vp] of [['desktop', { width: 1440, height: 900 }], ['mobile', { width: 390, height: 844 }]]) {
   const p = await (await b.newContext({ viewport: vp })).newPage();
   for (const r of routes) {
-    await p.goto('http://localhost:3100' + r, { waitUntil: 'networkidle' });
+    await p.goto('http://localhost:3100' + r, { waitUntil: r === '/automations' ? 'load' : 'networkidle' }); if (r === '/automations') await p.waitForTimeout(800);
     await p.addStyleTag({ content: '.reveal{opacity:1!important;transform:none!important;transition:none!important}' });
     const res = await new AxeBuilder({ page: p }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
     for (const v of res.violations) { total++; out.push({ route: r, viewport: label, id: v.id, impact: v.impact, help: v.help, nodes: v.nodes.slice(0, 3).map((n) => n.target.join(' ')) }); console.log(label, r, v.id, v.impact, v.nodes[0].target.join(' ')); }
